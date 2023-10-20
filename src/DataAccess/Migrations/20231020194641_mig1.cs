@@ -352,7 +352,7 @@ namespace ECommerse.DataAccess.Migrations
                         column: x => x.UserID,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Orders_Shippings_ShippingID",
                         column: x => x.ShippingID,
@@ -428,7 +428,7 @@ namespace ECommerse.DataAccess.Migrations
                         column: x => x.StoreID,
                         principalTable: "Stores",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -454,7 +454,7 @@ namespace ECommerse.DataAccess.Migrations
                         column: x => x.ProductID,
                         principalTable: "Product",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -484,7 +484,7 @@ namespace ECommerse.DataAccess.Migrations
                         column: x => x.ProductID,
                         principalTable: "Product",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -512,7 +512,7 @@ namespace ECommerse.DataAccess.Migrations
                         column: x => x.ProductID,
                         principalTable: "Product",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -539,7 +539,7 @@ namespace ECommerse.DataAccess.Migrations
                         column: x => x.ProductItemID,
                         principalTable: "ProductItems",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -587,7 +587,7 @@ namespace ECommerse.DataAccess.Migrations
                         column: x => x.ProductItemID,
                         principalTable: "ProductItems",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
