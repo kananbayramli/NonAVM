@@ -12,10 +12,10 @@ public class AppUser : IdentityUser
 
     public Promo? Promo { get; set; }
 
-    public Basket? ShoppingCart { get; set; }
+    public Basket? Basket { get; set; }
 
     public ICollection<Order>? Orders { get; set; }
-    public ICollection<UserAddress>? Addresses { get; set; }
+    public ICollection<Address>? Addresses { get; set; }
     public ICollection<StoreReview>? StoreReviews { get; set; }
     public ICollection<Payment>? Payments { get; set; }
     public ICollection<ProductReview>? Reviews { get; set; }

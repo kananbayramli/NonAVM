@@ -4,7 +4,7 @@ using ECommerse.Core.Identity;
 
 namespace ECommerse.Core.Entities;
 
-public class UserAddress : BaseEntity
+public class Address : BaseEntity
 {
     public string UserID { get; set; } = null!;
     public AppUser User { get; set; } = null!;

@@ -12,13 +12,12 @@ public class ProductItem : BaseEntity
     public Product Product { get; set; } = null!;
     public int ProductID { get; set; }
 
-    public int ShoppingCartID { get; set; }
-    public Basket? ShoppingCart { get; set; }
+    public int BasketID { get; set; }
+    public Basket? Basket { get; set; }
 
-    public OrderDetails? OrderDetails { get; set; }
+    public OrderDetails? OrderDetail { get; set; }
 
-    public ICollection<CartItem>? CartItems { get; set; }
-    public ICollection<OrderDetails>? OrderDetailsID { get; set; }
+    public ICollection<BasketItem>? CartItems { get; set; }
     public ICollection<ProductEntry>? ProductEntries { get; set; }
     public ICollection<Media>? Medias { get; set; }
 }

@@ -2,10 +2,10 @@
 
 namespace ECommerse.Core.Entities;
 
-public class CartItem : BaseEntity
+public class BasketItem : BaseEntity
 {
-    public int ShoppingCartID { get; set; }
-    public Basket? ShoppingCart { get; set; }
+    public int BasketID { get; set; }
+    public Basket? Basket { get; set; }
     public int ProductItemID { get; set; }
     public ProductItem? ProductItem { get; set; }
 

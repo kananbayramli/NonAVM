@@ -8,7 +8,7 @@ public class ProductReview : BaseEntity
     public int Rating { get; set; }
     public string? Comment { get; set; }
 
-    public int UserID { get; set; }
+    public string UserID { get; set; } = null!;
     public AppUser User { get; set; } = null!;
 
     public int ProductID { get; set; }

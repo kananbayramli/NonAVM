@@ -9,7 +9,7 @@ public class Payment : BaseEntity
     public int AccountNumber { get; set; }
     public DateTime ExpireDate { get; set; }
 
-    public int UserID { get; set; }
+    public string UserID { get; set; } = null!;
     public AppUser User { get; set; } = null!;
 
 }

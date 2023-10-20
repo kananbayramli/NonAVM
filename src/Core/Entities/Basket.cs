@@ -7,8 +7,8 @@ public class Basket : BaseEntity
 {
     public decimal TotalPrice { get; set; }
 
-    public int UserID { get; set; }
+    public string UserID { get; set; } = null!;
     public AppUser User { get; set; } = null!;
 
-    public ICollection<CartItem>? CartItems { get; set; }
+    public ICollection<BasketItem>? BasketItems { get; set; }
 }

@@ -9,7 +9,7 @@ public class Order : BaseEntity
     public decimal TotalPrice { get; set; }
 
     public int ShippingAddressID { get; set; }
-    public UserAddress ShippingAddress { get; set; } = null!;
+    public Address ShippingAddress { get; set; } = null!;
 
     public string UserID { get; set; } = null!;
     public AppUser User { get; set; } = null!;
