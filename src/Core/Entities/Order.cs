@@ -19,4 +19,6 @@ public class Order : BaseEntity
 
     public int TrackingID { get; set; }
     public Tracking? Tracking { get; set; }
+
+    public ICollection<OrderDetails> OrderDetails { get; set; } = null!;
 }

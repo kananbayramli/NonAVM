@@ -7,4 +7,6 @@ public class Discount : BaseEntity
     public string? Title { get; set; }
     public double Value { get; set; }
     public DateTime ExpireDate { get; set; }
+
+    public ICollection<ProductDiscount>?  ProductDiscounts { get; set; }
 }

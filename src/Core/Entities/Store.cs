@@ -13,4 +13,5 @@ public class Store : BaseEntity
     public AppUser Owner{ get; set; } = null!;
 
     public ICollection<StoreReview>? StoreReviews { get; set; }
+    public ICollection<Product>? Products { get; set; }
 }

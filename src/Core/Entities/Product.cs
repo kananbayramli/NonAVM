@@ -20,5 +20,6 @@ public class Product : BaseEntity
 
 
     public ICollection<ProductItem>? ProductItems { get; set; }
+    public ICollection<ProductReview>? ProductReviews{ get; set; }
 
 }
