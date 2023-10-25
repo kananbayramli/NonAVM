@@ -15,8 +15,7 @@ public class Product : BaseEntity
     public int CategoryID { get; set; }
     public Category Category { get; set; } = null!;
 
-    public int DiscountID{ get; set; }
-    public Discount? Discount { get; set; }
+    public ProductDiscount? ProductDiscount { get; set; }
 
 
     public ICollection<ProductItem>? ProductItems { get; set; }

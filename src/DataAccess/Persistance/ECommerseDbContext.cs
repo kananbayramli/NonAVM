@@ -1,15 +1,17 @@
 ﻿using ECommerse.Core.Entities;
+using ECommerse.Core.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace ECommerse.DataAccess.Persistance;
 
-public class ECommerseDbContext : IdentityDbContext
+public class ECommerseDbContext : IdentityDbContext<AppUser, AppRole, string>
 {
     public ECommerseDbContext(DbContextOptions<ECommerseDbContext> options) : base(options) { }
 
     public DbSet<Basket> Baskets { get; set; }
-    public DbSet<BasketItem> CartItems { get; set; }
+    public DbSet<BasketItem> BasketItems { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Discount> Discounts { get; set; }
     public DbSet<Media> Medias { get; set; }
@@ -27,4 +29,15 @@ public class ECommerseDbContext : IdentityDbContext
     public DbSet<StoreReview> StoreReviews { get; set; }
     public DbSet<Tracking> Trackings { get; set; }
     public DbSet<Address> Addresses { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        base.OnModelCreating(builder);
+    }
+
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        return await base.SaveChangesAsync(cancellationToken);
+    }
 }

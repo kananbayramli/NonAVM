@@ -40,7 +40,7 @@ namespace ECommerse.DataAccess.Migrations
                     b.Property<int>("City")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Is_Default")
+                    b.Property<bool>("IsDefault")
                         .HasColumnType("bit");
 
                     b.Property<string>("PostalCode")
@@ -88,13 +88,13 @@ namespace ECommerse.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BasketID")
+                    b.Property<int?>("BasketID")
                         .HasColumnType("int");
 
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductItemID")
+                    b.Property<int?>("ProductItemID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -103,7 +103,7 @@ namespace ECommerse.DataAccess.Migrations
 
                     b.HasIndex("ProductItemID");
 
-                    b.ToTable("CartItems");
+                    b.ToTable("BasketItems");
                 });
 
             modelBuilder.Entity("ECommerse.Core.Entities.Category", b =>
@@ -116,12 +116,14 @@ namespace ECommerse.DataAccess.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ParentCategoryID")
+                    b.Property<int?>("ParentCategoryID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name");
 
                     b.ToTable("Categories");
                 });
@@ -186,9 +188,6 @@ namespace ECommerse.DataAccess.Migrations
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("TrackingID")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserID")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -198,9 +197,6 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasIndex("ShippingAddressID");
 
                     b.HasIndex("ShippingID");
-
-                    b.HasIndex("TrackingID")
-                        .IsUnique();
 
                     b.HasIndex("UserID");
 
@@ -277,17 +273,14 @@ namespace ECommerse.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DiscountID")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("StoreID")
                         .HasColumnType("int");
@@ -296,7 +289,9 @@ namespace ECommerse.DataAccess.Migrations
 
                     b.HasIndex("CategoryID");
 
-                    b.HasIndex("DiscountID");
+                    b.HasIndex("Description");
+
+                    b.HasIndex("Name");
 
                     b.HasIndex("StoreID");
 
@@ -321,7 +316,8 @@ namespace ECommerse.DataAccess.Migrations
 
                     b.HasIndex("DiscountID");
 
-                    b.HasIndex("ProductID");
+                    b.HasIndex("ProductID")
+                        .IsUnique();
 
                     b.ToTable("ProductDiscounts");
                 });
@@ -361,7 +357,7 @@ namespace ECommerse.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BasketID")
+                    b.Property<int?>("BasketID")
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
@@ -449,7 +445,7 @@ namespace ECommerse.DataAccess.Migrations
 
                     b.Property<string>("Code")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("ExpireDate")
                         .HasColumnType("datetime2");
@@ -461,6 +457,8 @@ namespace ECommerse.DataAccess.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Code");
 
                     b.HasIndex("UserID")
                         .IsUnique()
@@ -502,13 +500,15 @@ namespace ECommerse.DataAccess.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("OwnerID")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name");
 
                     b.HasIndex("OwnerID")
                         .IsUnique();
@@ -560,6 +560,9 @@ namespace ECommerse.DataAccess.Migrations
                     b.Property<DateTime>("EstimatedDeliveryDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("OrderID")
+                        .HasColumnType("int");
+
                     b.Property<int>("ShippingStatus")
                         .HasColumnType("int");
 
@@ -568,10 +571,15 @@ namespace ECommerse.DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("OrderID")
+                        .IsUnique();
+
+                    b.HasIndex("TrackingNumber");
+
                     b.ToTable("Trackings");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+            modelBuilder.Entity("ECommerse.Core.Identity.AppRole", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -598,6 +606,79 @@ namespace ECommerse.DataAccess.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
+            modelBuilder.Entity("ECommerse.Core.Identity.AppUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -621,79 +702,6 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
-
-                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -777,21 +785,6 @@ namespace ECommerse.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ECommerse.Core.Identity.AppUser", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasDiscriminator().HasValue("AppUser");
-                });
-
             modelBuilder.Entity("ECommerse.Core.Entities.Address", b =>
                 {
                     b.HasOne("ECommerse.Core.Identity.AppUser", "User")
@@ -819,14 +812,12 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasOne("ECommerse.Core.Entities.Basket", "Basket")
                         .WithMany("BasketItems")
                         .HasForeignKey("BasketID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ECommerse.Core.Entities.ProductItem", "ProductItem")
-                        .WithMany("CartItems")
+                        .WithMany("BasketItems")
                         .HasForeignKey("ProductItemID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Basket");
 
@@ -849,32 +840,24 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasOne("ECommerse.Core.Entities.Address", "ShippingAddress")
                         .WithMany("Orders")
                         .HasForeignKey("ShippingAddressID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("ECommerse.Core.Entities.Shipping", "Shipping")
                         .WithMany("Orders")
                         .HasForeignKey("ShippingID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ECommerse.Core.Entities.Tracking", "Tracking")
-                        .WithOne("Order")
-                        .HasForeignKey("ECommerse.Core.Entities.Order", "TrackingID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("ECommerse.Core.Identity.AppUser", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Shipping");
 
                     b.Navigation("ShippingAddress");
-
-                    b.Navigation("Tracking");
 
                     b.Navigation("User");
                 });
@@ -890,7 +873,7 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasOne("ECommerse.Core.Entities.ProductItem", "ProductItem")
                         .WithOne("OrderDetail")
                         .HasForeignKey("ECommerse.Core.Entities.OrderDetails", "ProductItemID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Order");
@@ -914,13 +897,7 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasOne("ECommerse.Core.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ECommerse.Core.Entities.Discount", "Discount")
-                        .WithMany()
-                        .HasForeignKey("DiscountID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("ECommerse.Core.Entities.Store", "Store")
@@ -930,8 +907,6 @@ namespace ECommerse.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-
-                    b.Navigation("Discount");
 
                     b.Navigation("Store");
                 });
@@ -945,8 +920,8 @@ namespace ECommerse.DataAccess.Migrations
                         .IsRequired();
 
                     b.HasOne("ECommerse.Core.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductID")
+                        .WithOne("ProductDiscount")
+                        .HasForeignKey("ECommerse.Core.Entities.ProductDiscount", "ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -970,9 +945,7 @@ namespace ECommerse.DataAccess.Migrations
                 {
                     b.HasOne("ECommerse.Core.Entities.Basket", "Basket")
                         .WithMany()
-                        .HasForeignKey("BasketID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BasketID");
 
                     b.HasOne("ECommerse.Core.Entities.Product", "Product")
                         .WithMany("ProductItems")
@@ -996,7 +969,7 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasOne("ECommerse.Core.Identity.AppUser", "User")
                         .WithMany("Reviews")
                         .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Product");
@@ -1019,7 +992,8 @@ namespace ECommerse.DataAccess.Migrations
                 {
                     b.HasOne("ECommerse.Core.Identity.AppUser", "User")
                         .WithOne("Promo")
-                        .HasForeignKey("ECommerse.Core.Entities.Promo", "UserID");
+                        .HasForeignKey("ECommerse.Core.Entities.Promo", "UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("User");
                 });
@@ -1046,7 +1020,7 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasOne("ECommerse.Core.Identity.AppUser", "User")
                         .WithMany("StoreReviews")
                         .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Store");
@@ -1054,9 +1028,20 @@ namespace ECommerse.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ECommerse.Core.Entities.Tracking", b =>
+                {
+                    b.HasOne("ECommerse.Core.Entities.Order", "Order")
+                        .WithOne("Tracking")
+                        .HasForeignKey("ECommerse.Core.Entities.Tracking", "OrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("ECommerse.Core.Identity.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1065,7 +1050,7 @@ namespace ECommerse.DataAccess.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("ECommerse.Core.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1074,7 +1059,7 @@ namespace ECommerse.DataAccess.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("ECommerse.Core.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1083,13 +1068,13 @@ namespace ECommerse.DataAccess.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("ECommerse.Core.Identity.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("ECommerse.Core.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1098,7 +1083,7 @@ namespace ECommerse.DataAccess.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("ECommerse.Core.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1128,10 +1113,14 @@ namespace ECommerse.DataAccess.Migrations
             modelBuilder.Entity("ECommerse.Core.Entities.Order", b =>
                 {
                     b.Navigation("OrderDetails");
+
+                    b.Navigation("Tracking");
                 });
 
             modelBuilder.Entity("ECommerse.Core.Entities.Product", b =>
                 {
+                    b.Navigation("ProductDiscount");
+
                     b.Navigation("ProductItems");
 
                     b.Navigation("ProductReviews");
@@ -1139,7 +1128,7 @@ namespace ECommerse.DataAccess.Migrations
 
             modelBuilder.Entity("ECommerse.Core.Entities.ProductItem", b =>
                 {
-                    b.Navigation("CartItems");
+                    b.Navigation("BasketItems");
 
                     b.Navigation("Medias");
 
@@ -1163,12 +1152,6 @@ namespace ECommerse.DataAccess.Migrations
                     b.Navigation("Products");
 
                     b.Navigation("StoreReviews");
-                });
-
-            modelBuilder.Entity("ECommerse.Core.Entities.Tracking", b =>
-                {
-                    b.Navigation("Order")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("ECommerse.Core.Identity.AppUser", b =>

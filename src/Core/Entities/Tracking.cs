@@ -10,5 +10,6 @@ public class Tracking : BaseEntity
     public DateTime? Delivered { get; set; }
     public DateTime EstimatedDeliveryDate { get; set; }
 
+    public int OrderID { get; set; }
     public Order Order { get; set; } = null!;
 }

@@ -14,6 +14,6 @@ public class Address : BaseEntity
     public string AdressLine1 { get; set; } = null!;
     public string? AdressLine2 { get; set; }
     public City City { get; set; }
-    public bool Is_Default { get; set; }
+    public bool IsDefault { get; set; }
     public string? PostalCode { get; set; }
 }

@@ -1,0 +1,24 @@
+﻿@using ECommerse.Business.DTO_s;
+
+@{
+    ViewData["Title"] = "GetAll";
+}
+@model IEnumerable<ProductDTO>
+
+<h1>GetAll</h1>
+<table>
+    <thead>
+        <tr>Id</tr>
+        <tr>Name</tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
