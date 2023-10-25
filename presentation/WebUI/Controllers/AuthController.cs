@@ -112,8 +112,8 @@ namespace ECommerse.WebUI.Controllers
                 user.UserName = userViewModel.UserName;
                 user.Email = userViewModel.Email;
                 user.PhoneNumber = userViewModel.PhoneNumber;
-                //user.Name = userViewModel.Name;
-                //user.Surname = userViewModel.Surname;
+                user.Name = userViewModel.Name;
+                user.Surname = userViewModel.Surname;
 
                 IdentityResult result = await userManager.CreateAsync(user, userViewModel.Password);
 

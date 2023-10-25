@@ -9,14 +9,13 @@ namespace ECommerse.WebUI.ViewModels
         [Display(Name = "Kullanıcı Adı")]
         public string UserName { get; set; } = null!;
 
-        //[Required(ErrorMessage = "Ad gerekldir.")]
-        //[Display(Name = "Ad")]
-        //public string? Name { get; set; }
+        [Required(ErrorMessage = "Ad gerekldir.")]
+        [Display(Name = "Ad")]
+        public string Name { get; set; } = null!;
 
-        //[Required(ErrorMessage = "Kullanıcı ismi gerekldir.")]
-        //[Display(Name = "Soyad")]
-        //public string? Surname { get; set; }
-
+        [Required(ErrorMessage = "Kullanıcı ismi gerekldir.")]
+        [Display(Name = "Soyad")]
+        public string Surname { get; set; } = null!;
 
         [Display(Name = "Tel No:")]
         [RegularExpression(@"^(0(\d{3}) (\d{3}) (\d{2}) (\d{2}))$", ErrorMessage = "Telefon numarası uygun formatta değil")]
