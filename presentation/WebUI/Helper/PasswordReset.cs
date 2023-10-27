@@ -1,28 +1,29 @@
 ﻿using System.Net;
 using System.Net.Mail;
 
-namespace ECommerse.WebUI.Helper
+namespace ECommerse.WebUI.Helper;
+
+public class PasswordReset
 {
-    public class EmailConfrimation
+    public static void PasswordResetSendEmail(string link, string email)
+
     {
-        public static void SendEmail(string link, string email)
-
+        var smtpClient = new SmtpClient("smtp.gmail.com")
         {
-            var smtpClient = new SmtpClient("smtp.gmail.com")
-            {
-                Port = 587,
-                Credentials = new NetworkCredential("bayramlikenan920@gmail.com", "bmdp hfij gvyj lkrp"), //KenKen920920
-                EnableSsl = true,
-                UseDefaultCredentials = false
-             };
+            Port = 587,
+            Credentials = new NetworkCredential("bayramlikenan920@gmail.com", "bmdp hfij gvyj lkrp"), //KenKen920920
+            EnableSsl = true,
+            UseDefaultCredentials = false
+        };
 
-            MailMessage mail = new MailMessage();
+        MailMessage mail = new MailMessage();
 
-            mail.From = new MailAddress("bayramlikenan920@gmail.com");
-            mail.To.Add(email);
+        mail.From = new MailAddress("bayramlikenan920@gmail.com");
+        mail.To.Add(email);
 
-            mail.Subject = $"www.nonawm.com::Email doğrulama";
-            string body = $$"""
+        mail.Subject = $"www.nonawm.com::Email doğrulama";
+
+        string body = $$"""
             <!DOCTYPE html>
             <html lang="en">
 
@@ -189,7 +190,7 @@ namespace ECommerse.WebUI.Helper
 
                                             <td>
                                                 <p style="font-size: 17px;font-weight: 600;width: 74%;margin: 8px auto 0;line-height: 1.5;color: #939393;">
-                                                    nonavm-də qeydiyyatı tamamlamaq üçün bu linkə klikləyin:</p>
+                                                    Parolun sıfırlanmasını tələb etdiyiniz üçün bu e-məktubu Sizə göndəririk. Yeni parol yaratmaq üçün bu linkə klikləyin:</p>
                                             </td>
                                         </tr>
                                     </thead>
@@ -199,7 +200,7 @@ namespace ECommerse.WebUI.Helper
                                     <thead>
                                         <tr style="display: block;">
                                             <td style="display: block;">
-                                                <button class="password-button"><a href="{{link}}">Emaili təstiq edin</a></button>
+                                                <button class="password-button"><a href="{{link}}">Yeni şifrə təyin edin</a></button>
                                             </td>
                                         </tr>
                                     </thead>
@@ -210,7 +211,7 @@ namespace ECommerse.WebUI.Helper
                                         <tr style="display: block;">
                                             <td style="display: block;">
                                                 <p style="font-size: 17px;font-weight: 600;width: 74%;margin: 8px auto 0;line-height: 1.5;color: #939393;">
-                                                    Qeydiyyat cəhdini siz etməmisinizsə, bu e-məktuba məhəl qoymaya bilərsiniz.</p>
+                                                    Parolun sıfırlanmasını tələb etməmisinizsə, bu e-məktuba məhəl qoymaya bilərsiniz. Şifrəniz dəyişdirilməyəcək.</p>
                                             </td>
                                         </tr>
                                     </thead>
@@ -280,10 +281,9 @@ namespace ECommerse.WebUI.Helper
             </html>
             """;
 
-            mail.IsBodyHtml = true;
+        mail.IsBodyHtml = true;
+        mail.Body = body;
 
-
-            smtpClient.Send(mail);
-        }
+        smtpClient.Send(mail);
     }
 }

@@ -16,7 +16,6 @@ namespace ECommerse.WebUI.Controllers
         public IActionResult LogIn(string ReturnUrl)
         {
             TempData["ReturnUrl"] = ReturnUrl;
-
             return View();
         }
 
@@ -37,13 +36,13 @@ namespace ECommerse.WebUI.Controllers
                         return View(userlogin);
                     }
 
-                    //if (userManager.IsEmailConfirmedAsync(user).Result == false)
-                    //{
-                    //    ModelState.AddModelError("", "Email adresiniz onaylanmamıştır. Lütfen  epostanızı kontrol ediniz.");
-                    //    return View(userlogin);
-                    //}
+                    if (userManager.IsEmailConfirmedAsync(user).Result == false)
+                    {
+                        ModelState.AddModelError("", "Email adresiniz onaylanmamıştır. Lütfen  epostanızı kontrol ediniz.");
+                        return View(userlogin);
+                    }
 
-                    //await signInManager.SignOutAsync();
+                    await signInManager.SignOutAsync();
 
                     var result = await signInManager.PasswordSignInAsync(user, userlogin.Password, false, false);
 
@@ -56,7 +55,7 @@ namespace ECommerse.WebUI.Controllers
                             return Redirect(TempData["ReturnUrl"].ToString());
                         }
 
-                        return RedirectToAction("Index", "Member");
+                        return RedirectToAction("Index", "Home");
                     }
                    
                     else
@@ -86,6 +85,28 @@ namespace ECommerse.WebUI.Controllers
             return View(userlogin);
         }
 
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+
+            IdentityResult result = await userManager.ConfirmEmailAsync(user, token);
+
+            if (result.Succeeded)
+            {
+                ViewBag.status = "Email adresiniz onaylanmıştır. Login ekranından giriş yapabilirsiniz.";
+            }
+            else
+            {
+                ViewBag.status = "Bir hata meydana geldi. lütfen daha sonra tekrar deneyiniz.";
+            }
+            return RedirectToAction("Login");
+        }
+
+        public async Task<ActionResult> LogOut()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Login", "Auth");
+        }
 
         public IActionResult Register()
         {
@@ -119,19 +140,19 @@ namespace ECommerse.WebUI.Controllers
 
                 if (result.Succeeded)
                 {
-//                    string confirmationToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                    string confirmationToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
 
-//#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-//                    string link = Url.Action("ConfirmEmail", "Home", new
-//                    {
-//                        userId = user.Id,
-//                        token = confirmationToken
-//                    }, protocol: HttpContext.Request.Scheme
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+                    string link = Url.Action("ConfirmEmail", "Auth", new
+                    {
+                        userId = user.Id,
+                        token = confirmationToken
+                    }, protocol: HttpContext.Request.Scheme
 
-//                    );
-//#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                    );
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 
-//                    EmailConfrimation.SendEmail(link!, user.Email);
+                    EmailConfrimation.SendEmail(link!, user.Email);
 
                     return RedirectToAction("LogIn");
                 }
@@ -144,21 +165,87 @@ namespace ECommerse.WebUI.Controllers
             return View(userViewModel);
         }
 
-        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        public IActionResult ResetPassword()
         {
-            var user = await userManager.FindByIdAsync(userId);
+            TempData["durum"] = null;
+            return View();
+        }
 
-            IdentityResult result = await userManager.ConfirmEmailAsync(user!, token);
-
-            if (result.Succeeded)
+        [HttpPost]
+        public IActionResult ResetPassword(PasswordResetViewModel passwordResetViewModel)
+        {
+            if (TempData["durum"] == null)
             {
-                ViewBag.status = "Email adresiniz onaylanmıştır. Login ekranından giriş yapabilirsiniz.";
+                AppUser user = userManager.FindByEmailAsync(passwordResetViewModel.Email).Result;
+
+                if (user != null)
+
+                {
+                    string passwordResetToken = userManager.GeneratePasswordResetTokenAsync(user).Result;
+
+                    string passwordResetLink = Url.Action("ResetPasswordConfirm", "Auth", new
+                    {
+                        userId = user.Id,
+                        token = passwordResetToken
+                    }, HttpContext.Request.Scheme);
+
+                    //  www.bıdıbıdı.com/Home/ResetPasswordConfirm?userId=sdjfsjf&token=dfjkdjfdjf
+
+                    Helper.PasswordReset.PasswordResetSendEmail(passwordResetLink, user.Email);
+
+                    ViewBag.status = "success";
+                    TempData["durum"] = true.ToString();
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Sistemde kayıtlı email adresi bulunamamıştır.");
+                }
+                return View(passwordResetViewModel);
             }
             else
             {
-                ViewBag.status = "Bir hata meydana geldi. lütfen daha sonra tekrar deneyiniz.";
+                return RedirectToAction("ResetPassword");
             }
+        }
+
+        public IActionResult ResetPasswordConfirm(string userId, string token)
+        {
+            TempData["userId"] = userId;
+            TempData["token"] = token;
+
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPasswordConfirm([Bind("PasswordNew")] PasswordResetViewModel passwordResetViewModel)
+        {
+            string token = TempData["token"].ToString();
+            string userId = TempData["userId"].ToString();
+
+            AppUser user = await userManager.FindByIdAsync(userId);
+
+            if (user != null)
+            {
+                IdentityResult result = await userManager.ResetPasswordAsync(user, token, passwordResetViewModel.PasswordNew);
+
+                if (result.Succeeded)
+                {
+                    await userManager.UpdateSecurityStampAsync(user);
+
+                    ViewBag.status = "success";
+                }
+                else
+                {
+                    AddModelError(result);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "hata meydana gelmiştir. Lütfen daha sonra tekrar deneyiniz.");
+            }
+
+            return RedirectToAction("Login");
+        }
+
     }
 }
