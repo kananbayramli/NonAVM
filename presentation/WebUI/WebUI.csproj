@@ -2580,7 +2580,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\template\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
 
 </Project>

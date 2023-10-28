@@ -85,29 +85,6 @@ namespace ECommerse.WebUI.Controllers
             return View(userlogin);
         }
 
-        public async Task<IActionResult> ConfirmEmail(string userId, string token)
-        {
-            var user = await userManager.FindByIdAsync(userId);
-
-            IdentityResult result = await userManager.ConfirmEmailAsync(user, token);
-
-            if (result.Succeeded)
-            {
-                ViewBag.status = "Email adresiniz onaylanmıştır. Login ekranından giriş yapabilirsiniz.";
-            }
-            else
-            {
-                ViewBag.status = "Bir hata meydana geldi. lütfen daha sonra tekrar deneyiniz.";
-            }
-            return RedirectToAction("Login");
-        }
-
-        public async Task<ActionResult> LogOut()
-        {
-            await signInManager.SignOutAsync();
-            return RedirectToAction("Login", "Auth");
-        }
-
         public IActionResult Register()
         {
             if (User.Identity!.IsAuthenticated)
@@ -117,7 +94,6 @@ namespace ECommerse.WebUI.Controllers
 
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> Register(UserViewModel userViewModel)
         {
@@ -165,14 +141,37 @@ namespace ECommerse.WebUI.Controllers
             return View(userViewModel);
         }
 
-        public IActionResult ResetPassword()
+
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+
+            IdentityResult result = await userManager.ConfirmEmailAsync(user, token);
+
+            if (result.Succeeded)
+            {
+                ViewBag.status = "Email adresiniz onaylanmıştır. Login ekranından giriş yapabilirsiniz.";
+            }
+            else
+            {
+                ViewBag.status = "Bir hata meydana geldi. lütfen daha sonra tekrar deneyiniz.";
+            }
+            return RedirectToAction("Login");
+        }
+
+        public async Task<ActionResult> LogOut()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Login", "Auth");
+        }
+
+        public IActionResult ResetPasswordRequest()
         {
             TempData["durum"] = null;
             return View();
         }
-
         [HttpPost]
-        public IActionResult ResetPassword(PasswordResetViewModel passwordResetViewModel)
+        public IActionResult ResetPasswordRequest(PasswordResetViewModel passwordResetViewModel)
         {
             if (TempData["durum"] == null)
             {
@@ -215,7 +214,6 @@ namespace ECommerse.WebUI.Controllers
 
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> ResetPasswordConfirm([Bind("PasswordNew")] PasswordResetViewModel passwordResetViewModel)
         {
