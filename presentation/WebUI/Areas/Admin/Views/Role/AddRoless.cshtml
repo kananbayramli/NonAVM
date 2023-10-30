@@ -1,0 +1,394 @@
+﻿@using ECommerse.WebUI.ViewModels;
+@model RoleViewModel
+
+<div style="margin-left: -30px;" class="page-body">
+    <!-- New Product Add Start -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header-2">
+                                    <h5>Rol Yaradın</h5>
+                                </div>
+
+                                <form class="theme-form theme-form-2 mega-form">
+                                    <div class="mb-4 row align-items-center">
+                                        <label class="form-label-title col-sm-3 mb-0">
+                                            Ad<span class="theme-color">*</span>
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="text" placeholder="Müəllifin adı" />
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="mb-3">
+                                    <h4 class="form-label-title">İcazələr</h4>
+                                </div>
+
+                                <form class="theme-form theme-form-2 mega-form">
+                                    <div class="row g-sm-4 g-2">
+                                        <div class="col-xl-6">
+                                            <div class="row roles-form">
+                                                <div class="col-12">
+                                                    <ul>
+                                                        <li>Rollar :</li>
+                                                        <li>
+                                                            <input class="checkbox_animated checkall" type="checkbox" value="" id="role1" />
+                                                            <label class="form-check-label m-0" for="role1">Hamısı</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role2" value="" />
+                                                            <label class="form-check-label m-0" for="role2">İndeks</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role3" value="" />
+                                                            <label class="form-check-label m-0" for="role3">Yarat</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role4" value="" />
+                                                            <label class="form-check-label m-0" for="role4">Redaktə et</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role5" value="" />
+                                                            <label class="form-check-label m-0" for="role5">Sil</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-12">
+                                                    <ul>
+                                                        <li>İstifadəçilər :</li>
+                                                        <li>
+                                                            <input class="checkbox_animated checkall" type="checkbox" value="" id="role1" />
+                                                            <label class="form-check-label m-0" for="role1">Hamısı</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role2" value="" />
+                                                            <label class="form-check-label m-0" for="role2">İndeks</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role3" value="" />
+                                                            <label class="form-check-label m-0" for="role3">Yarat</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role4" value="" />
+                                                            <label class="form-check-label m-0" for="role4">Redaktə et</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role5" value="" />
+                                                            <label class="form-check-label m-0" for="role5">Sil</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-12">
+                                                    <ul>
+                                                        <li>Məhsul :</li>
+                                                        <li>
+                                                            <input class="checkbox_animated checkall" type="checkbox" value="" id="role1" />
+                                                            <label class="form-check-label m-0" for="role1">Hamısı</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role2" value="" />
+                                                            <label class="form-check-label m-0" for="role2">İndeks</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role3" value="" />
+                                                            <label class="form-check-label m-0" for="role3">Yarat</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role4" value="" />
+                                                            <label class="form-check-label m-0" for="role4">Redaktə et</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role5" value="" />
+                                                            <label class="form-check-label m-0" for="role5">Sil</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-12">
+                                                    <ul>
+                                                        <li>Kateqoriya :</li>
+                                                        <li>
+                                                            <input class="checkbox_animated checkall" type="checkbox" value="" id="role1" />
+                                                            <label class="form-check-label m-0" for="role1">Hamısı</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role2" value="" />
+                                                            <label class="form-check-label m-0" for="role2">İndeks</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role3" value="" />
+                                                            <label class="form-check-label m-0" for="role3">Yarat</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role4" value="" />
+                                                            <label class="form-check-label m-0" for="role4">Redaktə et</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role5" value="" />
+                                                            <label class="form-check-label m-0" for="role5">Sil</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-12">
+                                                    <ul>
+                                                        <li>Atributlar :</li>
+                                                        <li>
+                                                            <input class="checkbox_animated checkall" type="checkbox" value="" id="role1" />
+                                                            <label class="form-check-label m-0" for="role1">Hamısı</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role2" value="" />
+                                                            <label class="form-check-label m-0" for="role2">İndeks</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role3" value="" />
+                                                            <label class="form-check-label m-0" for="role3">Yarat</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role4" value="" />
+                                                            <label class="form-check-label m-0" for="role4">Redaktə et</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role5" value="" />
+                                                            <label class="form-check-label m-0" for="role5">Sil</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-12">
+                                                    <ul>
+                                                        <li>Sifariş :</li>
+                                                        <li>
+                                                            <input class="checkbox_animated checkall" type="checkbox" value="" id="role1" />
+                                                            <label class="form-check-label m-0" for="role1">Hamısı</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role2" value="" />
+                                                            <label class="form-check-label m-0" for="role2">İndeks</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role3" value="" />
+                                                            <label class="form-check-label m-0" for="role3">Yarat</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role4" value="" />
+                                                            <label class="form-check-label m-0" for="role4">Redaktə et</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role5" value="" />
+                                                            <label class="form-check-label m-0" for="role5">Sil</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-6">
+                                            <div class="row roles-form">
+                                                <div class="col-12">
+                                                    <ul>
+                                                        <li>Lokallaşdırma :</li>
+                                                        <li>
+                                                            <input class="checkbox_animated checkall" type="checkbox" value="" id="role1" />
+                                                            <label class="form-check-label m-0" for="role1">Hamısı</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role2" value="" />
+                                                            <label class="form-check-label m-0" for="role2">İndeks</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role3" value="" />
+                                                            <label class="form-check-label m-0" for="role3">Yarat</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role4" value="" />
+                                                            <label class="form-check-label m-0" for="role4">Redaktə et</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role5" value="" />
+                                                            <label class="form-check-label m-0" for="role5">Sil</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-12">
+                                                    <ul>
+                                                        <li>Kuponlar :</li>
+                                                        <li>
+                                                            <input class="checkbox_animated checkall" type="checkbox" value="" id="role1" />
+                                                            <label class="form-check-label m-0" for="role1">Hamısı</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role2" value="" />
+                                                            <label class="form-check-label m-0" for="role2">İndeks</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role3" value="" />
+                                                            <label class="form-check-label m-0" for="role3">Yarat</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role4" value="" />
+                                                            <label class="form-check-label m-0" for="role4">Redaktə et</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role5" value="" />
+                                                            <label class="form-check-label m-0" for="role5">Sil</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-12">
+                                                    <ul>
+                                                        <li>Vergi :</li>
+                                                        <li>
+                                                            <input class="checkbox_animated checkall" type="checkbox" value="" id="role1" />
+                                                            <label class="form-check-label m-0" for="role1">Hamısı</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role2" value="" />
+                                                            <label class="form-check-label m-0" for="role2">İndeks</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role3" value="" />
+                                                            <label class="form-check-label m-0" for="role3">Yarat</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role4" value="" />
+                                                            <label class="form-check-label m-0" for="role4">Redaktə et</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role5" value="" />
+                                                            <label class="form-check-label m-0" for="role5">Sil</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-12">
+                                                    <ul>
+                                                        <li>Məhsula baxış :</li>
+                                                        <li>
+                                                            <input class="checkbox_animated checkall" type="checkbox" value="" id="role1" />
+                                                            <label class="form-check-label m-0" for="role1">Hamısı</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role2" value="" />
+                                                            <label class="form-check-label m-0" for="role2">İndeks</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role3" value="" />
+                                                            <label class="form-check-label m-0" for="role3">Yarat</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role4" value="" />
+                                                            <label class="form-check-label m-0" for="role4">Redaktə et</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role5" value="" />
+                                                            <label class="form-check-label m-0" for="role5">Sil</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-12">
+                                                    <ul>
+                                                        <li>Dəstək Bileti :</li>
+                                                        <li>
+                                                            <input class="checkbox_animated checkall" type="checkbox" value="" id="role1" />
+                                                            <label class="form-check-label m-0" for="role1">Hamısı</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role2" value="" />
+                                                            <label class="form-check-label m-0" for="role2">İndeks</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role3" value="" />
+                                                            <label class="form-check-label m-0" for="role3">Yarat</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role4" value="" />
+                                                            <label class="form-check-label m-0" for="role4">Redaktə et</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role5" value="" />
+                                                            <label class="form-check-label m-0" for="role5">Sil</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-12">
+                                                    <ul>
+                                                        <li>Hesabatlar :</li>
+                                                        <li>
+                                                            <input class="checkbox_animated checkall" type="checkbox" value="" id="role1" />
+                                                            <label class="form-check-label m-0" for="role1">Hamısı</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role2" value="" />
+                                                            <label class="form-check-label m-0" for="role2">İndeks</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role3" value="" />
+                                                            <label class="form-check-label m-0" for="role3">Yarat</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role4" value="" />
+                                                            <label class="form-check-label m-0" for="role4">Redaktə et</label>
+                                                        </li>
+                                                        <li>
+                                                            <input class="checkbox_animated check-it" type="checkbox" id="role5" value="" />
+                                                            <label class="form-check-label m-0" for="role5">Sil</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-primary ms-auto mt-4">Yadda saxla</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- New Product Add End -->
+    <!-- footer Start -->
+    <div class="container-fluid">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-12 footer-copyright text-center">
+                    <p class="mb-0">
+                        Copyright 2023 © SaytAdi theme by Lorem
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- footer En -->
+</div>
+<!-- Container-fluid End -->
+        </div>
+<!-- Page Body End -->
+    </div>
+<!-- page-wrapper End -->
+<!-- Modal Start -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h5 class="modal-title" id="staticBackdropLabel">Çıxış</h5>
+                <p>Çıxmaq istədiyinizə əminsiniz?</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                <div class="button-box">
+                    <button type="button" class="btn btn--no" data-bs-dismiss="modal">
+                        Xeyr
+                    </button>
+                    <button type="button" class="btn btn--yes btn-primary">
+                        Bəli
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal End -->

@@ -1,4 +1,7 @@
-﻿<div style="margin-left: -30px;" class="page-body">
+﻿@using ECommerse.WebUI.ViewModels;
+
+@model IEnumerable<RoleViewModel>
+<div style="margin-left: -30px;" class="page-body">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -20,95 +23,34 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Ad</th>
-                                            <th>Yaradılma tarixi</th>
-                                            <th>Seçim</th>
+                                            <th>Edit</th>
                                         </tr>
                                     </thead>
-
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Toghrul</td>
-                                            <td>3 həftə əvvəl</td>
-                                            <td>
-                                                <ul>
-                                                    <li>
-                                                        <a href="javascript:void(0)">
-                                                            <i class="ri-pencil-line"></i>
-                                                        </a>
-                                                    </li>
+                                       @foreach(var role in Model)
+                                        {
+                                            <tr>
+                                                <td>@role.Id</td>
+                                                <td>@role.Name</td>
+                                                <td>
+                                                    <ul>
+                                                        <li>
+                                                            <a asp-action="EditRole" asp-route-id="@role.Id" name="@role.Name">
+                                                                @* data-bs-target="#editModalToggle"> *@
+                                                                <i class="ri-pencil-line"></i>
+                                                            </a>
+                                                        </li>
 
-                                                    <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                                            <i class="ri-delete-bin-line"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Elfan</td>
-                                            <td>3 həftə əvvəl</td>
-                                            <td>
-                                                <ul>
-                                                    <li>
-                                                        <a href="javascript:void(0)">
-                                                            <i class="ri-pencil-line"></i>
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                                            <i class="ri-delete-bin-line"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Rashad</td>
-                                            <td>3 həftə əvvəl</td>
-                                            <td>
-                                                <ul>
-                                                    <li>
-                                                        <a href="javascript:void(0)">
-                                                            <i class="ri-pencil-line"></i>
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                                            <i class="ri-delete-bin-line"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Babek</td>
-                                            <td>3 həftə əvvəl</td>
-                                            <td>
-                                                <ul>
-                                                    <li>
-                                                        <a href="javascript:void(0)">
-                                                            <i class="ri-pencil-line"></i>
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                                            <i class="ri-delete-bin-line"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
+                                                        <li>
+                                                            <a asp-action="DeleteRole" asp-route-id="@role.Id" name="@role.Name">
+                                                                @* data-bs-target="#exampleModalToggle"> *@
+                                                                <i class="ri-delete-bin-line"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        }
                                     </tbody>
                                 </table>
                             </div>
@@ -131,8 +73,8 @@
         </footer>
     </div>
 </div>
-        </div>
 <!-- Page Body End -->
+
 <!-- Modal Start -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
     <div class="modal-dialog  modal-dialog-centered">
@@ -150,8 +92,36 @@
     </div>
 </div>
 <!-- Modal End -->
-    </div>
+
 <!-- page-wrapper End-->
+
+
+<!-- Edit Modal Box Start -->
+
+<div class="modal fade theme-modal remove-coupon" id="editModalToggle" aria-hidden="true" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header d-block text-center">
+                <h5 class="modal-title w-100" id="editModalLabel22">Siz əminsiniz?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" type="text" id="roleName" />
+                <div class="remove-box">
+                    <p>The permission for the use/group, preview is inherited from the object, object will create a new permission for this object</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Xeyr</button>
+                <button type="submit" class="btn btn-animation btn-md fw-bold" data-bs-target="#editModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Bəli</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- Delete Modal Box Start -->
 <div class="modal fade theme-modal remove-coupon" id="exampleModalToggle" aria-hidden="true" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
@@ -202,3 +172,16 @@
     </div>
 </div>
 <!-- Delete Modal Box End -->
+
+    <script>
+
+        var editHandler = (e) => {
+            $.post(`/admin/role/editrole`, { id: e.id, name: e.Name }, (data) => { alert(data })
+        }
+
+        var deleteHandler = (e) => {
+            $.post(`/admin/role/deleterole/id=${e.id}`, (data) => { alert(data })
+        }
+
+
+    </script>
