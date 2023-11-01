@@ -4,6 +4,7 @@ using ECommerse.WebUI.Models;
 using ECommerse.WebUI.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace ECommerse.WebUI.Controllers
 {
@@ -43,6 +44,14 @@ namespace ECommerse.WebUI.Controllers
                     }
 
                     await signInManager.SignOutAsync();
+
+                    #region AddClaim
+                    var claim = User.Claims.Where(x => x.Type == "OneMonthTrialRemaining" && x.Value != null).FirstOrDefault();
+                    if (claim is null)
+                    {
+                        var idiResult = await userManager.AddClaimAsync(user, new Claim("OneMonthTrialRemaining", DateTime.Now.AddSeconds(15).ToString()));
+                    }
+                    #endregion
 
                     var result = await signInManager.PasswordSignInAsync(user, userlogin.Password, false, false);
 

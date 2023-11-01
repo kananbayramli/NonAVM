@@ -1,4 +1,5 @@
 ﻿using ECommerse.Core.Entities;
+using ECommerse.Core.Enums;
 using Microsoft.AspNetCore.Identity;
 
 namespace ECommerse.Core.Identity;
@@ -7,6 +8,8 @@ public class AppUser : IdentityUser
 {
     public string Name { get; set; } = null!;
     public string Surname { get; set; } = null!;
+    public DateTime? BirthDay { get; set; }
+    public Gender Gender { get; set; }
 
     public Store? Store { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebUI.Models;
 
@@ -18,6 +19,9 @@ namespace WebUI.Controllers
             return View();
         }
 
+        //[Authorize(Policy = "TrialPolicy")]  15 seconds after login
+        [Authorize(Policy = "GenderPolicy")]
+        [Authorize(Policy = "AdulthoodPolicy")]
         public IActionResult Privacy()
         {
             return View();
