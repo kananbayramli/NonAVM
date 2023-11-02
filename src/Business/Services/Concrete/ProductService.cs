@@ -1,39 +1,76 @@
-﻿using ECommerse.Business.DTO_s;
+﻿using AutoMapper;
+using ECommerse.Business.DTO_s;
 using ECommerse.Business.Services.Abstract;
 using ECommerse.Core.Entities;
 using ECommerse.DataAccess.Repositories.Abstract;
-using Microsoft.Identity.Client;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
-namespace ECommerse.Business.Services.Concrete
+namespace ECommerse.Business.Services.Concrete;
+
+public class ProductService : IScoppedLifetime, IProductService
 {
-    public class ProductService : IScoppedLifetime, IProductService
+
+    private readonly IUnitOfWork _unitOfWork;
+    IRepository<Product> _productRepository;
+    private readonly IMapper _mapper;
+
+    public ProductService(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        private readonly IUnitOfWork _unitOfWork;
+        _unitOfWork = unitOfWork;
+        _productRepository = _unitOfWork.Repository<Product>();
+        _mapper = mapper;
+    }
 
-        IRepository<Product> _productRepository;
-        public ProductService(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-            _productRepository = _unitOfWork.Repository<Product>();
-        }
 
-        public async Task<IEnumerable<ProductDTO>> GetProducts()
-        {
-            var products = await _productRepository.GetAllAsync();
-            var dtos = products.Select(p => new ProductDTO { Id = p.Id, Name = p.Name });
+    public async Task<List<ProductDTO>> GetAllAsync(
+        Expression<Func<Product, bool>>? expression = null,
+        params Expression<Func<Product, object>>[] includes)
+    {
+        var products = await _productRepository.GetAllAsync(expression, includes);
+        var dtos = _mapper.Map<List<ProductDTO>>(products);
+        return dtos;
+    }
 
-            return dtos;
-        }
+    public async Task<List<ProductDTO>> GetAllPaginatedAsync(
+        int pageIndex,
+        int pageSize,
+        Expression<Func<Product, bool>>? expression = null,
+        params Expression<Func<Product, object>>[] includes)
+    {
+        var products = await _productRepository.GetAllPaginatedAsync(pageIndex, pageSize, expression, includes);
+        var dtos = _mapper.Map<List<ProductDTO>>(products);
+        return dtos;
+    }
 
-        public async Task AddProduct(ProductDTO productDTO)
-        {
-            await _productRepository.Create(new Product { Name = productDTO.Name, CategoryID = 3 });
-            await _unitOfWork.SaveChangesAsync();
-        }
+    public async Task<ProductDTO?> GetAsync(
+        Expression<Func<Product, bool>>? expression = null,
+        params Expression<Func<Product, object>>[] includes)
+    {
+        var product = await _productRepository.GetAsync(expression, includes);
+        var dto = _mapper.Map<ProductDTO>(product);
+        return dto;
+    }
+
+    public async Task Create(ProductDTO productDto)
+    {
+        var product = _mapper.Map<Product>(productDto);
+        await _productRepository.Create(product);
+    }
+
+    public void Update(ProductDTO productDto)
+    {
+        var product = _mapper.Map<Product>(productDto);
+        _productRepository.Update(product);
+    }
+
+    public void Remove(ProductDTO productDto)
+    {
+        var product = _mapper.Map<Product>(productDto);
+        _productRepository.Remove(product);
+    }
+
+    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    {
+        await _productRepository.SaveChangesAsync(cancellationToken);
     }
 }

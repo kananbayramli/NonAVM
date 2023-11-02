@@ -1,0 +1,97 @@
+﻿@model ProductDTO
+<!-- tap on top start -->
+<div class="tap-top">
+    <span class="lnr lnr-chevron-up"></span>
+</div>
+<!-- tap on tap end -->
+<!-- page-wrapper start -->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+    <!-- Page Body start -->
+    <div class="page-body-wrapper">
+        <!-- Page Sidebar Start-->
+
+        <div class="page-body">
+
+            <!-- New Product Add Start -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-sm-12 m-auto">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-header-2">
+                                            <h5>Məhsul haqqında məlumat</h5>
+                                        </div>
+
+                                        <form asp-controller="Product" asp-action="AddProduct" class="theme-form theme-form-2 mega-form">
+                                            <div class="mb-4 row align-items-center">
+                                                <label class="form-label-title col-sm-3 mb-0">Məhsulun adı</label>
+                                                <div class="col-sm-9">
+                                                    <input asp-for="Name" class="form-control" type="text" placeholder="Məhsulun adı">
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-4 row align-items-center">
+                                                <label class="form-label-title col-sm-3 mb-0">Description</label>
+                                                <div class="col-sm-9">
+                                                    <input asp-for="Description" class="form-control" type="text" placeholder="Məhsulun tesviri">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="mb-4 row align-items-center">
+                                                <label class="col-sm-3 col-form-label form-label-title">Alt kateqoriya</label>
+                                                <div class="col-sm-9">
+                                                    <select id="Region" asp-for="CategoryID" asp-items="@ViewBag.categoryList" class="js-example-basic-single w-100">
+                                                        <option value="">Choose sub category</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <button class="btn btn-solid" asp-controller="Product" asp-action="AddProduct">Məhsul əlavə edin</button>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- New Product Add End -->
+            <!-- footer Start -->
+            <div class="container-fluid">
+                <footer class="footer">
+                    <div class="row">
+                        <div class="col-md-12 footer-copyright text-center">
+                            <p class="mb-0">Copyright 2023 © saytadi theme by Lorem</p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- footer En -->
+        </div>
+        <!-- Container-fluid End -->
+    </div>
+    <!-- Page Body End -->
+</div>
+<!-- page-wrapper End -->
+<!-- Modal Start -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h5 class="modal-title" id="staticBackdropLabel">Çıxış</h5>
+                <p>Çıxmaq istədiyinizə əminsiniz?</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                <div class="button-box">
+                    <button type="button" class="btn btn--no" data-bs-dismiss="modal">Xeyr</button>
+                    <button type="button" class="btn  btn--yes btn-primary">Bəli</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal End -->
