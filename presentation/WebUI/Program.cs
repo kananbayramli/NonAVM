@@ -14,7 +14,7 @@ builder.Services.AddDataProtection();
 
 builder.Services.AddDataAccess(builder.Configuration);
 builder.Services.AddBusiness();
-builder.Services.AddScoped<IClaimsTransformation, ClaimProvider>();
+//builder.Services.AddScoped<IClaimsTransformation, ClaimProvider>();
 builder.Services.AddAuthorization(opts =>
 {
     opts.AddPolicy("GenderPolicy", policy =>

@@ -19,27 +19,27 @@ public class Repository<TEntity> : IRepository<TEntity>
         await _context.Set<TEntity>().AddAsync(product);
     }
 
-    public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> expression = null, params Expression<Func<TEntity, object>>[] includes)
+    public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>>? expression = null, params Expression<Func<TEntity, object>>[] includes)
     {
-        IQueryable<TEntity> query = GetWithInclude();
+        IQueryable<TEntity> query = GetWithInclude(includes);
         return expression is null
             ? await query.ToListAsync()
             : await query.Where(expression).ToListAsync();
     }
 
-    public async Task<List<TEntity>> GetAllPaginatedAsync(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> expression = null,
+    public async Task<List<TEntity>> GetAllPaginatedAsync(int pageIndex, int pageSize, Expression<Func<TEntity, bool>>? expression = null,
                                                           params Expression<Func<TEntity, object>>[] includes)
     {
-        IQueryable<TEntity> query = GetWithInclude();
+        IQueryable<TEntity> query = GetWithInclude(includes);
         return expression is null
             ? await query.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToListAsync()
             : await query.Where(expression).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToListAsync();
     }
 
-    public async Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> expression = null,
+    public async Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>>? expression = null,
                                          params Expression<Func<TEntity, object>>[] includes)
     {
-        IQueryable<TEntity> query = GetWithInclude();
+        IQueryable<TEntity> query = GetWithInclude(includes);
         return expression is null
             ? await query.FirstOrDefaultAsync()
             : await query.FirstOrDefaultAsync(expression);

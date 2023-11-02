@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 namespace ECommerse.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles="admin,roleaction")]
+    //[Authorize(Roles="admin,roleaction")]
     public class RoleController : BaseController
     {
         public RoleController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager) : base(userManager, signInManager, roleManager)
