@@ -49,7 +49,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 {
     public void Configure(EntityTypeBuilder<Order> builder)
     {
-        builder.HasOne<AppUser>(x => x.User).WithMany(x => x.Orders).OnDelete(DeleteBehavior.NoAction); //Manage setnull with INSTEAD OF trigger
+        builder.HasOne<AppUser>(x => x.User).WithMany(x => x.Orders).OnDelete(DeleteBehavior.NoAction);
         builder.HasOne<Shipping>(x => x.Shipping).WithMany(x => x.Orders).OnDelete(DeleteBehavior.NoAction);//SETNULL will prevent trigger above
         builder.HasOne<Tracking>(x => x.Tracking).WithOne(x => x.Order).OnDelete(DeleteBehavior.NoAction);//CASCADE will prevent trigger above
     }

@@ -14,18 +14,10 @@ namespace ECommerse.Business.DTO_s
         public string Name { get; set; } = null!;
         public string? Description { get; set; }
         public string? Image { get; set; }
-
-
         public int StoreID { get; set; }
-        public Store? Store { get; set; }
-
+        public StoreDTO? Store { get; set; }
         public int CategoryID { get; set; }
-        public Category Category { get; set; } = null!;
-
-        public ProductDiscount? ProductDiscount { get; set; }
-
-
-        public ICollection<ProductItem>? ProductItems { get; set; }
-        public ICollection<ProductReview>? ProductReviews { get; set; }
+        public CategoryDTO? Category { get; set; }
+        public ICollection<ProductItemDTO>? ProductItems { get; set; }
     }
 }

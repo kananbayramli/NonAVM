@@ -1,5 +1,6 @@
 ﻿using ECommerse.Business.DTO_s;
 using ECommerse.Business.Services.Abstract;
+using ECommerse.Business.Services.Concrete;
 using ECommerse.WebUI.Models.StoreViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -15,15 +16,12 @@ namespace ECommerse.WebUI.Controllers
             this.storeService = storeService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            ViewBag.stores = await storeService.GetAllAsync();
+            return View("CreateStore");
         }
 
-        public IActionResult CreateStore()
-        {
-            return View();
-        }
         [HttpPost]
         public async Task<IActionResult> CreateStore(StoreModel store)
         {
@@ -35,7 +33,9 @@ namespace ECommerse.WebUI.Controllers
             };
             
             await storeService.Create(storeDto);
-            return RedirectToAction("CreateStore");
+            await storeService.SaveChangesAsync(CancellationToken.None);
+
+            return RedirectToAction("Index");
         }
     }
 }
