@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerse.DataAccess.Migrations
 {
     [DbContext(typeof(ECommerseDbContext))]
-    [Migration("20231103192405_NoActionsToSetNull")]
-    partial class NoActionsToSetNull
+    [Migration("20231103193754_PreapearedForTriggers")]
+    partial class PreapearedForTriggers
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -808,7 +808,7 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasOne("ECommerse.Core.Identity.AppUser", "User")
                         .WithOne("Basket")
                         .HasForeignKey("ECommerse.Core.Entities.Basket", "UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -852,7 +852,7 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasOne("ECommerse.Core.Entities.Shipping", "Shipping")
                         .WithMany("Orders")
                         .HasForeignKey("ShippingID")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("ECommerse.Core.Identity.AppUser", "User")
                         .WithMany("Orders")
@@ -1029,7 +1029,7 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasOne("ECommerse.Core.Entities.Order", "Order")
                         .WithOne("Tracking")
                         .HasForeignKey("ECommerse.Core.Entities.Tracking", "OrderID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Order");

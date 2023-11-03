@@ -5,7 +5,7 @@
 namespace ECommerse.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class NoActionsToSetNull : Migration
+    public partial class PreapearedForTriggers : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,15 +19,15 @@ namespace ECommerse.DataAccess.Migrations
                 table: "BasketItems");
 
             migrationBuilder.DropForeignKey(
+                name: "FK_Baskets_AspNetUsers_UserID",
+                table: "Baskets");
+
+            migrationBuilder.DropForeignKey(
                 name: "FK_OrderDetails_ProductItems_ProductItemID",
                 table: "OrderDetails");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_Orders_Addresses_ShippingAddressID",
-                table: "Orders");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Orders_Shippings_ShippingID",
                 table: "Orders");
 
             migrationBuilder.DropForeignKey(
@@ -37,6 +37,10 @@ namespace ECommerse.DataAccess.Migrations
             migrationBuilder.DropForeignKey(
                 name: "FK_ProductItems_Baskets_BasketID",
                 table: "ProductItems");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Trackings_Orders_OrderID",
+                table: "Trackings");
 
             migrationBuilder.DropIndex(
                 name: "IX_ProductItems_BasketID",
@@ -119,6 +123,13 @@ namespace ECommerse.DataAccess.Migrations
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
+                name: "FK_Baskets_AspNetUsers_UserID",
+                table: "Baskets",
+                column: "UserID",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id");
+
+            migrationBuilder.AddForeignKey(
                 name: "FK_OrderDetails_ProductItems_ProductItemID",
                 table: "OrderDetails",
                 column: "ProductItemID",
@@ -135,20 +146,19 @@ namespace ECommerse.DataAccess.Migrations
                 onDelete: ReferentialAction.SetNull);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Orders_Shippings_ShippingID",
-                table: "Orders",
-                column: "ShippingID",
-                principalTable: "Shippings",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.SetNull);
-
-            migrationBuilder.AddForeignKey(
                 name: "FK_Product_Categories_CategoryID",
                 table: "Product",
                 column: "CategoryID",
                 principalTable: "Categories",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.SetNull);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Trackings_Orders_OrderID",
+                table: "Trackings",
+                column: "OrderID",
+                principalTable: "Orders",
+                principalColumn: "Id");
         }
 
         /// <inheritdoc />
@@ -163,6 +173,10 @@ namespace ECommerse.DataAccess.Migrations
                 table: "BasketItems");
 
             migrationBuilder.DropForeignKey(
+                name: "FK_Baskets_AspNetUsers_UserID",
+                table: "Baskets");
+
+            migrationBuilder.DropForeignKey(
                 name: "FK_OrderDetails_ProductItems_ProductItemID",
                 table: "OrderDetails");
 
@@ -171,12 +185,12 @@ namespace ECommerse.DataAccess.Migrations
                 table: "Orders");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_Orders_Shippings_ShippingID",
-                table: "Orders");
-
-            migrationBuilder.DropForeignKey(
                 name: "FK_Product_Categories_CategoryID",
                 table: "Product");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Trackings_Orders_OrderID",
+                table: "Trackings");
 
             migrationBuilder.DropIndex(
                 name: "IX_OrderDetails_ProductItemID",
@@ -269,6 +283,14 @@ namespace ECommerse.DataAccess.Migrations
                 principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(
+                name: "FK_Baskets_AspNetUsers_UserID",
+                table: "Baskets",
+                column: "UserID",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
                 name: "FK_OrderDetails_ProductItems_ProductItemID",
                 table: "OrderDetails",
                 column: "ProductItemID",
@@ -280,13 +302,6 @@ namespace ECommerse.DataAccess.Migrations
                 table: "Orders",
                 column: "ShippingAddressID",
                 principalTable: "Addresses",
-                principalColumn: "Id");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Orders_Shippings_ShippingID",
-                table: "Orders",
-                column: "ShippingID",
-                principalTable: "Shippings",
                 principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(
@@ -302,6 +317,14 @@ namespace ECommerse.DataAccess.Migrations
                 column: "BasketID",
                 principalTable: "Baskets",
                 principalColumn: "Id");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Trackings_Orders_OrderID",
+                table: "Trackings",
+                column: "OrderID",
+                principalTable: "Orders",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
         }
     }
 }

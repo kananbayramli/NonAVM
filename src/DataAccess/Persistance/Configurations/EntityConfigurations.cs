@@ -22,7 +22,7 @@ public class BasketConfiguration : IEntityTypeConfiguration<Basket>
 {
     public void Configure(EntityTypeBuilder<Basket> builder)
     {
-        builder.HasOne<AppUser>(x => x.User).WithOne(x => x.Basket).OnDelete(DeleteBehavior.Cascade);
+        builder.HasOne<AppUser>(x => x.User).WithOne(x => x.Basket).OnDelete(DeleteBehavior.NoAction); //CASCADE will prevent trigger below
         builder.HasMany<BasketItem>(x => x.BasketItems).WithOne(x => x.Basket).OnDelete(DeleteBehavior.NoAction); //Manage cascade with INSTEAD OF trigger
     }
 }
@@ -50,8 +50,8 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
     public void Configure(EntityTypeBuilder<Order> builder)
     {
         builder.HasOne<AppUser>(x => x.User).WithMany(x => x.Orders).OnDelete(DeleteBehavior.NoAction); //Manage setnull with INSTEAD OF trigger
-        builder.HasOne<Shipping>(x => x.Shipping).WithMany(x => x.Orders).OnDelete(DeleteBehavior.SetNull);
-        builder.HasOne<Tracking>(x => x.Tracking).WithOne(x => x.Order).OnDelete(DeleteBehavior.Cascade);
+        builder.HasOne<Shipping>(x => x.Shipping).WithMany(x => x.Orders).OnDelete(DeleteBehavior.NoAction);//SETNULL will prevent trigger above
+        builder.HasOne<Tracking>(x => x.Tracking).WithOne(x => x.Order).OnDelete(DeleteBehavior.NoAction);//CASCADE will prevent trigger above
     }
 }
 
@@ -82,7 +82,7 @@ public class ProductItemConfiguration : IEntityTypeConfiguration<ProductItem>
     {
         builder.HasMany<ProductEntry>(x => x.ProductEntries).WithOne(x => x.ProductItem).OnDelete(DeleteBehavior.Cascade);
         builder.HasMany<Media>(x => x.Medias).WithOne(x => x.ProductItem).OnDelete(DeleteBehavior.Cascade);
-        builder.HasMany<BasketItem>(x => x.BasketItems).WithOne(x => x.ProductItem).OnDelete(DeleteBehavior.Cascade); //Should be cascade but gives "Introducing FOREIGN KEY constraint 'FK_BasketItems_ProductItems_ProductItemID' on table 'BasketItems' may cause cycles or multiple cascade paths." error !
+        builder.HasMany<BasketItem>(x => x.BasketItems).WithOne(x => x.ProductItem).OnDelete(DeleteBehavior.Cascade);
 
     }
 }

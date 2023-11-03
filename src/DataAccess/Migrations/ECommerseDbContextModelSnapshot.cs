@@ -805,7 +805,7 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasOne("ECommerse.Core.Identity.AppUser", "User")
                         .WithOne("Basket")
                         .HasForeignKey("ECommerse.Core.Entities.Basket", "UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -849,7 +849,7 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasOne("ECommerse.Core.Entities.Shipping", "Shipping")
                         .WithMany("Orders")
                         .HasForeignKey("ShippingID")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("ECommerse.Core.Identity.AppUser", "User")
                         .WithMany("Orders")
@@ -1026,7 +1026,7 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasOne("ECommerse.Core.Entities.Order", "Order")
                         .WithOne("Tracking")
                         .HasForeignKey("ECommerse.Core.Entities.Tracking", "OrderID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Order");
