@@ -12,8 +12,8 @@ public class Product : BaseEntity
     public int StoreID { get; set; }
     public Store Store { get; set; } = null!;
 
-    public int CategoryID { get; set; }
-    public Category Category { get; set; } = null!;
+    public int? CategoryID { get; set; }
+    public Category? Category { get; set; }
 
     public ProductDiscount? ProductDiscount { get; set; }
 

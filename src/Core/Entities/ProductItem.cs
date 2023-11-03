@@ -11,10 +11,6 @@ public class ProductItem : BaseEntity
 
     public int ProductID { get; set; }
     public Product Product { get; set; } = null!;
-
-    public int? BasketID { get; set; }
-    public Basket? Basket { get; set; }
-
     public OrderDetails? OrderDetail { get; set; }
 
     public ICollection<BasketItem>? BasketItems { get; set; }

@@ -1,191 +1,270 @@
 ﻿@model List<ProductModel>
 
-<div class="tap-top">
-    <span class="lnr lnr-chevron-up"></span>
-</div>
-<!-- tap on tap end-->
-<!-- page-wrapper Start-->
-<div class="page-wrapper compact-wrapper" id="pageWrapper">
-    <!-- Page Body Start-->
-    <div class="page-body-wrapper">
-        <!-- Page Sidebar Start-->
-        <!-- Container-fluid starts-->
-        <div class="page-body">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card card-table">
-                            <div class="card-body">
-                                <div class="title-header option-title d-sm-flex d-block">
-                                    <h5>Məhsulların Siyahısı</h5>
-                                    <div class="right-options">
-                                        <ul>
-                                            <li>
-                                                <a href="javascript:void(0)">import/idxal</a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)">Export/İxrac</a>
-                                            </li>
-                                            <li>
-                                                <a class="btn btn-solid" asp-controller="Product" asp-action="AddProduct">Məhsul əlavə edin</a>
-                                            </li>
-                                        </ul>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="~/AdminStatics/assets/images/favicon.pn" type="image/x-icon">
+    <link rel="shortcut icon" href="~/AdminStatics/assets/images/favicon.pn" type="image/x-icon">
+    <title>Product</title>
+
+    <!-- Unicons IconScout -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" type="text/css" href="~/AdminStatics/assets/css/vendors/font-awesome.css">
+
+    <!-- Linear Icon css -->
+    <link rel="stylesheet" href="~/AdminStatics/assets/css/linearicon.css">
+
+    <!-- Themify icon css -->
+    <link rel="stylesheet" type="text/css" href="~/AdminStatics/assets/css/vendors/themify.css">
+
+    <!-- Feather icon css -->
+    <link rel="stylesheet" type="text/css" href="~/AdminStatics/assets/css/vendors/feather-icon.css">
+
+    <!-- remixicon css -->
+    <link rel="stylesheet" type="text/css" href="~/AdminStatics/assets/css/remixicon.css">
+
+    <!-- Data Table css -->
+    <link rel="stylesheet" type="text/css" href="~/AdminStatics/assets/css/datatables.css">
+
+    <!-- Plugins css -->
+    <link rel="stylesheet" type="text/css" href="~/AdminStatics/assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="~/AdminStatics/assets/css/vendors/animate.css">
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="~/AdminStatics/assets/css/vendors/bootstrap.css">
+
+    <!-- App css -->
+    <link rel="stylesheet" type="text/css" href="~/AdminStatics/assets/css/style.css">
+</head>
+
+    <!-- tap on top start-->
+    <div class="tap-top">
+        <span class="lnr lnr-chevron-up"></span>
+    </div>
+    <!-- tap on tap end-->
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+        <!-- Page Body Start-->
+        <div class="page-body-wrapper">
+            <!-- Container-fluid starts-->
+            <div class="page-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card card-table">
+                                <div class="card-body">
+                                    <div class="title-header option-title d-sm-flex d-block">
+                                        <h5>Məhsulların Siyahısı</h5>
+                                        <div class="right-options">
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0)">import/idxal</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)">Export/İxrac</a>
+                                                </li>
+                                                <li>
+                                                    <a class="btn btn-solid" asp-controller="Product" asp-action="AddProduct">Məhsul əlavə edin</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <div class="table-responsive">
-                                        <table class="table all-package theme-table table-product" id="table_id">
-                                            <thead>
-                                                <tr>
-                                                    <th>Məhsulun Şəkli</th>
-                                                    <th>Məhsulun Adı</th>
-                                                    <th>Kateqoriya</th>
-                                                    <th>Mövcud Miqdar</th>
-                                                    <th>Qiymət</th>
-                                                    <th>Status</th>
-                                                    <th>Seçim</th>
-                                                </tr>
-                                            </thead>
+                                    <div>
+                                        <div class="table-responsive">
+                                            <table class="table all-package theme-table table-product" id="table_id">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Məhsulun Şəkli</th>
+                                                        <th>Məhsulun Adı</th>
+                                                        <th>Kateqoriya</th>
+                                                        <th>Mövcud Miqdar</th>
+                                                        <th>Qiymət</th>
+                                                        <th>Status</th>
+                                                        <th>Seçim</th>
+                                                    </tr>
+                                                </thead>
 
-                                            <tbody>
-                                                @if (Model is not null)
-                                                {
-                                                    @foreach (var product in Model)
+                                                <tbody>
+                                                    @if (Model is not null)
                                                     {
-                                                        <tr>
-                                                            <td>
-                                                                <div class="table-image">
-                                                                    <img src="~/assets/images/product/1.png" class="img-fluid" alt="">
-                                                                </div>
-                                                            </td>
+                                                        @foreach (var product in Model)
+                                                        {
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="table-image">
+                                                                        <img src="~/AdminStatics/assets/images/product/1.png" class="img-fluid" alt="">
+                                                                    </div>
+                                                                </td>
 
-                                                            <td>@product.Name</td>
+                                                                <td>@product.Name</td>
 
-                                                            <td>@product.CategoryName</td>
+                                                                <td>@product.CategoryName</td>
 
-                                                            <td>@product.Quantity</td>
+                                                                <td>@product.Quantity</td>
 
-                                                            <td class="td-price">$@product.Price</td>
+                                                                <td class="td-price">$@product.Price</td>
 
-                                                            <td class="status-danger">
-                                                                <span>Gözləyən</span>
-                                                            </td>
+                                                                <td class="status-danger">
+                                                                    <span>Gözləyən</span>
+                                                                </td>
 
-                                                            <td>
-                                                                <ul>
-                                                                    <li>
-                                                                        <a href="order-detail.html">
-                                                                            <i class="ri-eye-line"></i>
-                                                                        </a>
-                                                                    </li>
+                                                                <td>
+                                                                    <ul>
+                                                                        <li>
+                                                                            <a href="order-detail.html">
+                                                                                <i class="ri-eye-line"></i>
+                                                                            </a>
+                                                                        </li>
 
-                                                                    <li>
-                                                                        <a href="javascript:void(0)">
-                                                                            <i class="ri-pencil-line"></i>
-                                                                        </a>
-                                                                    </li>
+                                                                        <li>
+                                                                            <a href="javascript:void(0)">
+                                                                                <i class="ri-pencil-line"></i>
+                                                                            </a>
+                                                                        </li>
 
-                                                                    <li>
-                                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                                                            <i class="ri-delete-bin-line"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
+                                                                        <li>
+                                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                                                                                <i class="ri-delete-bin-line"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
 
+                                                        }
                                                     }
-                                                }
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Container-fluid Ends-->
+                <!-- Container-fluid Ends-->
 
-            <div class="container-fluid">
-                <!-- footer start-->
-                <footer class="footer">
-                    <div class="row">
-                        <div class="col-md-12 footer-copyright text-center">
-                            <p class="mb-0">Copyright 2023 © SaytAdi theme by Lorem</p>
+                <div class="container-fluid">
+                    <!-- footer start-->
+                    <footer class="footer">
+                        <div class="row">
+                            <div class="col-md-12 footer-copyright text-center">
+                                <p class="mb-0">Copyright 2023 © SaytAdi theme by Lorem</p>
+                            </div>
                         </div>
-                    </div>
-                </footer>
+                    </footer>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- page-wrapper End-->
-<!-- Modal Start -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h5 class="modal-title" id="staticBackdropLabel">Çıxış</h5>
-                <p>Çıxmaq istədiyinizə əminsiniz?</p>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- page-wrapper End-->
+    <!-- Modal Start -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h5 class="modal-title" id="staticBackdropLabel">Çıxış</h5>
+                    <p>Çıxmaq istədiyinizə əminsiniz?</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-                <div class="button-box">
-                    <button type="button" class="btn btn--no" data-bs-dismiss="modal">Xeyr</button>
-                    <button type="button" class="btn  btn--yes btn-primary">Bəli</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal End -->
-<!-- Delete Modal Box Start -->
-<div class="modal fade theme-modal remove-coupon" id="exampleModalToggle" aria-hidden="true" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header d-block text-center">
-                <h5 class="modal-title w-100" id="exampleModalLabel22">Siz əminsiniz?</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="remove-box">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, quas?</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Xeyr</button>
-                <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Bəli</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade theme-modal remove-coupon" id="exampleModalToggle2" aria-hidden="true" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-center" id="exampleModalLabel12">Bitdi!</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="remove-box text-center">
-                    <div class="wrapper">
-                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
-                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
-                        </svg>
+                    <div class="button-box">
+                        <button type="button" class="btn btn--no" data-bs-dismiss="modal">Xeyr</button>
+                        <button type="button" class="btn  btn--yes btn-primary">Bəli</button>
                     </div>
-                    <h4 class="text-content">Silindi.</h4>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-dismiss="modal">Bağla</button>
             </div>
         </div>
     </div>
-</div>
-<!-- Delete Modal Box End -->
+    <!-- Modal End -->
+    <!-- Delete Modal Box Start -->
+    <div class="modal fade theme-modal remove-coupon" id="exampleModalToggle" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header d-block text-center">
+                    <h5 class="modal-title w-100" id="exampleModalLabel22">Siz əminsiniz?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="remove-box">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, quas?</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Xeyr</button>
+                    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Bəli</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade theme-modal remove-coupon" id="exampleModalToggle2" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel12">Bitdi!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="remove-box text-center">
+                        <div class="wrapper">
+                            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                            </svg>
+                        </div>
+                        <h4 class="text-content">Silindi.</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-dismiss="modal">Bağla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Delete Modal Box End -->
+    <!-- latest js -->
+    <script src="~/AdminStatics/assets/js/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="~/AdminStatics/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+
+    <!-- feather icon js -->
+    <script src="~/AdminStatics/assets/js/icons/feather-icon/feather.min.js"></script>
+    <script src="~/AdminStatics/assets/js/icons/feather-icon/feather-icon.js"></script>
+
+    <!-- scrollbar simplebar js -->
+    <script src="~/AdminStatics/assets/js/scrollbar/simplebar.js"></script>
+    <script src="~/AdminStatics/assets/js/scrollbar/custom.js"></script>
+
+    <!-- Sidebar js -->
+    <script src="~/AdminStatics/assets/js/config.js"></script>
+
+    <!-- customizer js -->
+    <script src="~/AdminStatics/assets/js/customizer.js"></script>
+
+    <!-- Plugins js -->
+    <script src="~/AdminStatics/assets/js/sidebar-menu.js"></script>
+    <script src="~/AdminStatics/assets/js/notify/bootstrap-notify.min.js"></script>
+    <script src="~/AdminStatics/assets/js/notify/index.js"></script>
+
+    <!-- Data table js -->
+    <script src="~/AdminStatics/assets/js/jquery.dataTables.js"></script>
+    <script src="~/AdminStatics/assets/js/custom-data-table.js"></script>
+
+    <!-- sidebar effect -->
+    <script src="~/AdminStatics/assets/js/sidebareffect.js"></script>
+
+    <!-- Theme js -->
+    <script src="~/AdminStatics/assets/js/script.js"></script>

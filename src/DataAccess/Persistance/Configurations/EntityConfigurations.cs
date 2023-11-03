@@ -14,7 +14,7 @@ public class AddressConfiguration : IEntityTypeConfiguration<Address>
         builder.BaseEntityConfigure();
 
         builder.HasOne<AppUser>(x => x.User).WithMany(x => x.Addresses).OnDelete(DeleteBehavior.Cascade);
-        builder.HasMany<Order>(x => x.Orders).WithOne(x => x.ShippingAddress).OnDelete(DeleteBehavior.NoAction);
+        builder.HasMany<Order>(x => x.Orders).WithOne(x => x.ShippingAddress).OnDelete(DeleteBehavior.SetNull);
     }
 }
 
@@ -23,7 +23,7 @@ public class BasketConfiguration : IEntityTypeConfiguration<Basket>
     public void Configure(EntityTypeBuilder<Basket> builder)
     {
         builder.HasOne<AppUser>(x => x.User).WithOne(x => x.Basket).OnDelete(DeleteBehavior.Cascade);
-        builder.HasMany<BasketItem>(x => x.BasketItems).WithOne(x => x.Basket).OnDelete(DeleteBehavior.Cascade);
+        builder.HasMany<BasketItem>(x => x.BasketItems).WithOne(x => x.Basket).OnDelete(DeleteBehavior.NoAction); //Manage cascade with INSTEAD OF trigger
     }
 }
 
@@ -32,7 +32,7 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
 {
     public void Configure(EntityTypeBuilder<Category> builder)
     {
-        builder.HasMany<Product>(x => x.Products).WithOne(x => x.Category).OnDelete(DeleteBehavior.NoAction);
+        builder.HasMany<Product>(x => x.Products).WithOne(x => x.Category).OnDelete(DeleteBehavior.SetNull);
         builder.HasIndex(x => x.Name);
     }
 }
@@ -49,8 +49,8 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 {
     public void Configure(EntityTypeBuilder<Order> builder)
     {
-        builder.HasOne<AppUser>(x => x.User).WithMany(x => x.Orders).OnDelete(DeleteBehavior.NoAction);
-        builder.HasOne<Shipping>(x => x.Shipping).WithMany(x => x.Orders).OnDelete(DeleteBehavior.NoAction);
+        builder.HasOne<AppUser>(x => x.User).WithMany(x => x.Orders).OnDelete(DeleteBehavior.NoAction); //Manage setnull with INSTEAD OF trigger
+        builder.HasOne<Shipping>(x => x.Shipping).WithMany(x => x.Orders).OnDelete(DeleteBehavior.SetNull);
         builder.HasOne<Tracking>(x => x.Tracking).WithOne(x => x.Order).OnDelete(DeleteBehavior.Cascade);
     }
 }
@@ -60,7 +60,7 @@ public class OrderDetailsConfiguration : IEntityTypeConfiguration<OrderDetails>
 {
     public void Configure(EntityTypeBuilder<OrderDetails> builder)
     {
-        builder.HasOne<ProductItem>(x => x.ProductItem).WithOne(x => x.OrderDetail).OnDelete(DeleteBehavior.NoAction);
+        builder.HasOne<ProductItem>(x => x.ProductItem).WithOne(x => x.OrderDetail).OnDelete(DeleteBehavior.SetNull);
     }
 }
 
@@ -68,7 +68,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
 {
     public void Configure(EntityTypeBuilder<Product> builder)
     {
-        builder.HasOne<Category>(x => x.Category).WithMany(x => x.Products).OnDelete(DeleteBehavior.NoAction);
+        builder.HasOne<Category>(x => x.Category).WithMany(x => x.Products).OnDelete(DeleteBehavior.SetNull);
         builder.HasMany<ProductReview>(x => x.ProductReviews).WithOne(x => x.Product).OnDelete(DeleteBehavior.Cascade);
         builder.HasOne<Store>(x => x.Store).WithMany(x => x.Products).OnDelete(DeleteBehavior.Cascade);
         builder.HasIndex(x => x.Name);
@@ -82,7 +82,7 @@ public class ProductItemConfiguration : IEntityTypeConfiguration<ProductItem>
     {
         builder.HasMany<ProductEntry>(x => x.ProductEntries).WithOne(x => x.ProductItem).OnDelete(DeleteBehavior.Cascade);
         builder.HasMany<Media>(x => x.Medias).WithOne(x => x.ProductItem).OnDelete(DeleteBehavior.Cascade);
-        builder.HasMany<BasketItem>(x => x.BasketItems).WithOne(x => x.ProductItem).OnDelete(DeleteBehavior.NoAction); //Should be cascade but gives "Introducing FOREIGN KEY constraint 'FK_BasketItems_ProductItems_ProductItemID' on table 'BasketItems' may cause cycles or multiple cascade paths." error !
+        builder.HasMany<BasketItem>(x => x.BasketItems).WithOne(x => x.ProductItem).OnDelete(DeleteBehavior.Cascade); //Should be cascade but gives "Introducing FOREIGN KEY constraint 'FK_BasketItems_ProductItems_ProductItemID' on table 'BasketItems' may cause cycles or multiple cascade paths." error !
 
     }
 }
