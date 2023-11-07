@@ -1,10 +1,9 @@
 ﻿using ECommerse.Core.Identity;
 using ECommerse.WebUI.Controllers;
 using ECommerse.WebUI.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+
 
 namespace ECommerse.WebUI.Areas.Admin.Controllers
 {
@@ -19,100 +18,72 @@ namespace ECommerse.WebUI.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var roles = roleManager.Roles;
-            return View(roles.Select(r => new RoleViewModel { Id = r.Id, Name = r.Name }));
+            return View(roles.Select(r => new RoleViewModel { Id = r.Id, Name = r.Name }).ToList());
         }
 
-        public IActionResult AddRole()
+        //[HttpGet("Admin/Role/finduser/{userNameOrMail}")]
+        public async Task<JsonResult> findUser(string userNameOrMail)
         {
-            return View();
+            AppUser? user;
+            if (String.IsNullOrWhiteSpace(userNameOrMail))
+                return Json(new { found = false });
+
+            user = userNameOrMail.Contains('@') ? await userManager.FindByEmailAsync(userNameOrMail) : await userManager.FindByNameAsync(userNameOrMail);
+            if (user is null)
+                return Json(new { found = false });
+                
+            return Json(new { found = true, creds = new { userId = user.Id, userName = user.UserName, email = user.Email } });
+
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddRole(RoleViewModel roleViewModel)
+        public async Task<IActionResult> AssignRole(string id = null)
         {
-            var result = await roleManager.CreateAsync(new AppRole() { Name = roleViewModel.Name });
+            AppUser user;
+            List<string> userroles = new List<string>();
+            var assignRoleViewModel = new AssignRoleViewModel();
 
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> EditRole(Guid id)
-        {
-            var role = await roleManager.FindByIdAsync(id.ToString());
-            if (role is not null)
-                return View(new RoleViewModel { Id = role.Id, Name = role .Name});
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> EditRole(RoleViewModel roleViewModel)
-        {
-            await roleManager.UpdateAsync(new AppRole { Id = roleViewModel.Id, Name = roleViewModel.Name });
-            return RedirectToAction("Index", "Role");
-        }
-
-        public async Task<IActionResult> DeleteRole(Guid id)
-        {
-            var role = await roleManager.FindByIdAsync(id.ToString());
-            if (role is not null)
-            {
-                await roleManager.DeleteAsync(role);
+            if (Guid.TryParse(id, out Guid guid))
+            { 
+                user = await userManager.FindByIdAsync(guid.ToString());
+                assignRoleViewModel.UserId = user.Id;
+                userroles = userManager.GetRolesAsync(user).Result as List<string>;
             }
-            return RedirectToAction("Index");
+
+
+            var roleViewModels = new List<RoleViewModel>();
+
+            foreach (var role in roleManager.Roles)
+            {
+                RoleViewModel r = new RoleViewModel();
+                r.Id = role.Id;
+                r.Name = role.Name!;
+                r.IsSelected = userroles.Contains(role.Name);
+                roleViewModels.Add(r);
+            }
+            assignRoleViewModel.RoleViewModels = roleViewModels;
+            return View(assignRoleViewModel);
         }
 
-        public async Task<IActionResult> AssignRole(string id = "be783051-fac9-4cff-b247-948a1e7de560")
+        [HttpPost]
+        public async Task<IActionResult> AssignRole(AssignRoleViewModel assignRole)
         {
-            TempData["userId"] = id;
-            AppUser user = await userManager.FindByIdAsync(id);
+            AppUser user = await userManager.FindByIdAsync(assignRole.UserId);
 
-            ViewBag.userName = user.UserName;
-
-            IQueryable<AppRole> roles = roleManager.Roles;
-
-            List<string> userroles = userManager.GetRolesAsync(user).Result as List<string>;
-
-            List<AssignRoleViewModel> AssignRoleViewModels = new List<AssignRoleViewModel>();
-
-            foreach (var role in roles)
+            if (user != null)
+            foreach (var item in assignRole.RoleViewModels)
             {
-                AssignRoleViewModel r = new AssignRoleViewModel();
-                r.RoleId = role.Id;
-                r.RoleName = role.Name;
-                if (userroles.Contains(role.Name))
+                if (item.IsSelected)
                 {
-                    r.Exists = true;
+                    await userManager.AddToRoleAsync(user, item.Name);
                 }
                 else
                 {
-                    r.Exists = false;
-                }
-                AssignRoleViewModels.Add(r);
-            }
-
-            return View(AssignRoleViewModels);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AssignRole(List<AssignRoleViewModel> roleAssignViewModels)
-        {
-            AppUser user = await userManager.FindByIdAsync(TempData["userId"].ToString());
-
-            foreach (var item in roleAssignViewModels)
-            {
-                if (item.Exists)
-
-                {
-                    await userManager.AddToRoleAsync(user, item.RoleName);
-                }
-                else
-                {
-                    await userManager.RemoveFromRoleAsync(user, item.RoleName);
+                    await userManager.RemoveFromRoleAsync(user, item.Name);
                 }
             }
 
 
-            return RedirectToAction("AssignRole", new { id = "be783051-fac9-4cff-b247-948a1e7de560" });
+            return RedirectToAction("AssignRole", new { id = user?.Id });
         }
     }
 }

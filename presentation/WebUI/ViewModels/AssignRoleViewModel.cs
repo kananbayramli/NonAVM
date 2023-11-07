@@ -2,8 +2,7 @@
 {
     public class AssignRoleViewModel
     {
-        public string RoleId { get; set; } = null!;
-        public string RoleName { get; set; } = null!;
-        public bool Exists { get; set; }
+        public string? UserId { get; set; }
+        public List<RoleViewModel> RoleViewModels { get; set; }
     }
 }

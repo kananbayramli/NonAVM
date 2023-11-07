@@ -6,8 +6,9 @@ namespace ECommerse.WebUI.ViewModels
     {
         [Display(Name = "Role ismi")]
         [Required(ErrorMessage = "Role ismi gereklidir")]
-        public string Name { get; set; } = null!;
-
         public string Id { get; set; } = null!;
+        public string Name { get; set; } = null!;
+        public bool IsSelected { get; set; }
+
     }
 }

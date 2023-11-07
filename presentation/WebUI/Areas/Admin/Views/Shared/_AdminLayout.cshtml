@@ -10,12 +10,12 @@
     <title>Dashboard</title>
 
     <!-- Unicons IconScout -->
-    <link rel="stylesheet" href="~/AdminStatics/https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
     <!-- Favicon Icon -->
     <link rel="icon" type="image/png" href="~/AdminStatics/images/fav.png">
     <!-- Google font-->
-    <link href="~/AdminStatics/https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- Linear Icon css -->
     <link rel="stylesheet" href="~/AdminStatics/assets/css/linearicon.css">
@@ -66,7 +66,7 @@
                 <div class="header-logo-wrapper p-0">
                     <div class="logo-wrapper">
                         <a href="~/AdminStatics/index.html">
-                            <img class="img-fluid main-logo" src="~/AdminStatics/assets/images/logo/1.pn" alt="SaytAdi">
+                            <img class="img-fluid main-logo" src="~/AdminStatics/assets/images/logo/logo.svg" alt="SaytAdi">
                             <img class="img-fluid white-logo" src="~/AdminStatics/assets/images/logo/1-white.pn" alt="SaytAdi">
                         </a>
                     </div>
@@ -232,11 +232,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="~/AdminStatics/products.html">Məhsullar</a>
+                                            <a asp-area="" asp-controller="Product" asp-action="Index">Məhsullar</a>
                                         </li>
 
                                         <li>
-                                            <a href="~/AdminStatics/add-new-product.html">Yeni Məhsullar əlavə edin</a>
+                                            <a asp-area="" asp-controller="Product" asp-action="AddProduct">Yeni Məhsullar əlavə edin</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -248,11 +248,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="~/AdminStatics/vendor-list.html">Satıcı Siyahısı</a>
+                                            <a asp-area="" asp-controller="Store" asp-action="Index">Satıcı Siyahısı</a>
                                         </li>
 
                                         <li>
-                                            <a href="~/AdminStatics/create-vendor.html">Satıcı Yaradın</a>
+                                            <a asp-area="" asp-controller="Store" asp-action="Index">Satıcı Yaradın</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -450,13 +450,19 @@
                 </div>
             </div>
             <!-- Page Sidebar Ends-->
-            <div style="margin-left: 300px; margin-top: 90px">
-                @RenderBody();
-            </div>
 
-            <!-- page-wrapper End-->
-            <!-- Modal Start -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+
+                @RenderBody();
+
+
+
+        </div>
+        <!-- Page Body End -->
+    </div>
+    <!-- page-wrapper End-->
+    <!-- Modal Start -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog  modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-body">
@@ -472,60 +478,60 @@
                 </div>
             </div>
 
-            <!-- latest js -->
-            <script src="~/AdminStatics/assets/js/jquery-3.6.0.min.js"></script>
+    <!-- latest js -->
+    @* <script src="~/AdminStatics/assets/js/jquery-3.6.0.min.js"></script> *@
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Bootstrap js -->
+    <script src="~/AdminStatics/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 
-            <!-- Bootstrap js -->
-            <script src="~/AdminStatics/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- feather icon js -->
+    <script src="~/AdminStatics/assets/js/icons/feather-icon/feather.min.js"></script>
+    <script src="~/AdminStatics/assets/js/icons/feather-icon/feather-icon.js"></script>
 
-            <!-- feather icon js -->
-            <script src="~/AdminStatics/assets/js/icons/feather-icon/feather.min.js"></script>
-            <script src="~/AdminStatics/assets/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- scrollbar simplebar js -->
+    <script src="~/AdminStatics/assets/js/scrollbar/simplebar.js"></script>
+    <script src="~/AdminStatics/assets/js/scrollbar/custom.js"></script>
 
-            <!-- scrollbar simplebar js -->
-            <script src="~/AdminStatics/assets/js/scrollbar/simplebar.js"></script>
-            <script src="~/AdminStatics/assets/js/scrollbar/custom.js"></script>
+    <!-- Sidebar jquery -->
+    <script src="~/AdminStatics/assets/js/config.js"></script>
 
-            <!-- Sidebar jquery -->
-            <script src="~/AdminStatics/assets/js/config.js"></script>
+    <!-- tooltip init js -->
+    <script src="~/AdminStatics/assets/js/tooltip-init.js"></script>
 
-            <!-- tooltip init js -->
-            <script src="~/AdminStatics/assets/js/tooltip-init.js"></script>
+    <!-- Plugins JS -->
+    <script src="~/AdminStatics/assets/js/sidebar-menu.js"></script>
+    <script src="~/AdminStatics/assets/js/notify/bootstrap-notify.min.js"></script>
+    <script src="~/AdminStatics/assets/js/notify/index.js"></script>
 
-            <!-- Plugins JS -->
-            <script src="~/AdminStatics/assets/js/sidebar-menu.js"></script>
-            <script src="~/AdminStatics/assets/js/notify/bootstrap-notify.min.js"></script>
-            <script src="~/AdminStatics/assets/js/notify/index.js"></script>
-
-            <!-- Apexchar js -->
-            <script src="~/AdminStatics/assets/js/chart/apex-chart/apex-chart1.js"></script>
-            <script src="~/AdminStatics/assets/js/chart/apex-chart/moment.min.js"></script>
-            <script src="~/AdminStatics/assets/js/chart/apex-chart/apex-chart.js"></script>
-            <script src="~/AdminStatics/assets/js/chart/apex-chart/stock-prices.js"></script>
-            <script src="~/AdminStatics/assets/js/chart/apex-chart/chart-custom1.js"></script>
+    <!-- Apexchar js -->
+    <script src="~/AdminStatics/assets/js/chart/apex-chart/apex-chart1.js"></script>
+    <script src="~/AdminStatics/assets/js/chart/apex-chart/moment.min.js"></script>
+    <script src="~/AdminStatics/assets/js/chart/apex-chart/apex-chart.js"></script>
+    <script src="~/AdminStatics/assets/js/chart/apex-chart/stock-prices.js"></script>
+    <script src="~/AdminStatics/assets/js/chart/apex-chart/chart-custom1.js"></script>
 
 
-            <!-- slick slider js -->
-            <script src="~/AdminStatics/assets/js/slick.min.js"></script>
-            <script src="~/AdminStatics/assets/js/custom-slick.js"></script>
+    <!-- slick slider js -->
+    <script src="~/AdminStatics/assets/js/slick.min.js"></script>
+    <script src="~/AdminStatics/assets/js/custom-slick.js"></script>
 
-            <!-- customizer js -->
-            <script src="~/AdminStatics/assets/js/customizer.js"></script>
+    <!-- customizer js -->
+    <script src="~/AdminStatics/assets/js/customizer.js"></script>
 
-            <!-- ratio js -->
-            <script src="~/AdminStatics/assets/js/ratio.js"></script>
+    <!-- ratio js -->
+    <script src="~/AdminStatics/assets/js/ratio.js"></script>
 
-            <!-- sidebar effect -->
-            <script src="~/AdminStatics/assets/js/sidebareffect.js"></script>
+    <!-- sidebar effect -->
+    <script src="~/AdminStatics/assets/js/sidebareffect.js"></script>
 
-            <!-- Theme js -->
-            <script src="~/AdminStatics/assets/js/script.js"></script>
+    <!-- Theme js -->
+    <script src="~/AdminStatics/assets/js/script.js"></script>
 
-            <script src="~/AdminStatics/https://unpkg.com/@@lottiefiles/lottie-player@latest/dist/lottie-player.js "></script>
+    <script src="https://unpkg.com/@@lottiefiles/lottie-player@latest/dist/lottie-player.js "></script>
 
-            <!-- Modal End -->
-        </div>
-        <!-- Page Body End -->
-    </div>
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+    <!-- Modal End -->
 </body>
 </html>

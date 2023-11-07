@@ -1,7 +1,9 @@
 ﻿@using ECommerse.WebUI.ViewModels;
 
-@model IEnumerable<RoleViewModel>
-<div style="margin-left: -30px;" class="page-body">
+@model List<RoleViewModel>
+
+<!-- Container-fluid starts-->
+<div class="page-body">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -9,12 +11,7 @@
                     <!-- Table Start -->
                     <div class="card-body">
                         <div class="title-header option-title">
-                            <h5>Rol Siyahısı</h5>
-                            <form class="d-inline-flex">
-                                <a asp-controller="Role" asp-action="AddRole" class="align-items-center btn btn-theme d-flex">
-                                    <i data-feather="plus"></i>Rol əlavə edin
-                                </a>
-                            </form>
+                            <h5>Icazələr Siyahısı</h5>
                         </div>
                         <div>
                             <div class="table-responsive">
@@ -22,35 +19,19 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Ad</th>
-                                            <th>Edit</th>
+                                            <th>İcazə Adı</th>
+                                            <th>İmtiyaz</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       @foreach(var role in Model)
-                                        {
-                                            <tr>
-                                                <td>@role.Id</td>
-                                                <td>@role.Name</td>
-                                                <td>
-                                                    <ul>
-                                                        <li>
-                                                            <a asp-action="EditRole" asp-route-id="@role.Id" name="@role.Name">
-                                                                @* data-bs-target="#editModalToggle"> *@
-                                                                <i class="ri-pencil-line"></i>
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a asp-action="DeleteRole" asp-route-id="@role.Id" name="@role.Name">
-                                                                @* data-bs-target="#exampleModalToggle"> *@
-                                                                <i class="ri-delete-bin-line"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                        }
+                                    @for(int i=0; i < Model.Count; i++)
+                                    {
+                                        <tr>
+                                            <td>@i</td>
+                                            <td>@Model[i].Name</td>
+                                            <td>role.Description</td>
+                                        </tr>
+                                    }
                                     </tbody>
                                 </table>
                             </div>
@@ -75,113 +56,15 @@
 </div>
 <!-- Page Body End -->
 
-<!-- Modal Start -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
-    <div class="modal-dialog  modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h5 class="modal-title" id="staticBackdropLabel">Çıxış</h5>
-                <p>Çıxmaq istədiyinizə əminsiniz?</p>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <div class="button-box">
-                    <button type="button" class="btn btn--no" data-bs-dismiss="modal">Xeyr</button>
-                    <button type="button" class="btn  btn--yes btn-primary">Bəli</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal End -->
+<script>
 
-<!-- page-wrapper End-->
+    var editHandler = (e) => {
+        $.post(`/admin/role/editrole`, { id: e.id, name: e.Name }, (data) => { alert(data })
+    }
+
+    var deleteHandler = (e) => {
+        $.post(`/admin/role/deleterole/id=${e.id}`, (data) => { alert(data })
+    }
 
 
-<!-- Edit Modal Box Start -->
-
-<div class="modal fade theme-modal remove-coupon" id="editModalToggle" aria-hidden="true" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header d-block text-center">
-                <h5 class="modal-title w-100" id="editModalLabel22">Siz əminsiniz?</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <input class="form-control" type="text" id="roleName" />
-                <div class="remove-box">
-                    <p>The permission for the use/group, preview is inherited from the object, object will create a new permission for this object</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Xeyr</button>
-                <button type="submit" class="btn btn-animation btn-md fw-bold" data-bs-target="#editModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Bəli</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Delete Modal Box Start -->
-<div class="modal fade theme-modal remove-coupon" id="exampleModalToggle" aria-hidden="true" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header d-block text-center">
-                <h5 class="modal-title w-100" id="exampleModalLabel22">Siz əminsiniz?</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="remove-box">
-                    <p>The permission for the use/group, preview is inherited from the object, object will create a new permission for this object</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Xeyr</button>
-                <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Bəli</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade theme-modal remove-coupon" id="exampleModalToggle2" aria-hidden="true" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-center" id="exampleModalLabel12">Bitdi!</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="remove-box text-center">
-                    <div class="wrapper">
-                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
-                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
-                        </svg>
-                    </div>
-                    <h4 class="text-content">Silindi.</h4>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-dismiss="modal">Bağla</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Delete Modal Box End -->
-
-    <script>
-
-        var editHandler = (e) => {
-            $.post(`/admin/role/editrole`, { id: e.id, name: e.Name }, (data) => { alert(data })
-        }
-
-        var deleteHandler = (e) => {
-            $.post(`/admin/role/deleterole/id=${e.id}`, (data) => { alert(data })
-        }
-
-
-    </script>
+</script>

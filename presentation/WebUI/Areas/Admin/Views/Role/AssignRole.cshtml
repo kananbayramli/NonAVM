@@ -1,100 +1,179 @@
 ﻿@using ECommerse.WebUI.ViewModels;
-@model List<AssignRoleViewModel>
-
-<body>
-    <!-- tap on top start -->
-    <div class="tap-top">
-        <span class="lnr lnr-chevron-up"></span>
-    </div>
-    <!-- tap on tap end -->
-    <!-- page-wrapper start -->
-    <div class="page-wrapper compact-wrapper" id="pageWrapper">
-        <div class="page-body-wrapper">
-            <div class="page-body">
-                <!-- New Product Add Start -->
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="card-header-2">
-                                                <h5>Rol Elave Edin</h5>
-                                            </div
-                                            <form class="theme-form theme-form-2 mega-form">
-                                                <div class="mb-4 row align-items-center">
-                                                    <label class="form-label-title col-sm-3 mb-0">
-                                                        Ad<span class="theme-color">*</span>
-                                                    </label>
-                                                    <div class="col-sm-9">
-                                                        <input class="form-control" type="text" placeholder="Müəllifin adı" />
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <div class="mb-3">
-                                                <h4 class="form-label-title">İcazələr</h4>
-                                            </div>
-
-                                            <form asp-action="AssignRole" method="post" class="theme-form theme-form-2 mega-form">
-                                                <div class="row g-sm-4 g-2">
-                                                    <div class="col-xl-8 offset-2">
-                                                        <div class="row roles-form">
-                                                            <div class="col-12">
-                                                                <ul>
-                                                                    <li>Rollar :</li>
-@*                                                                     @foreach(var role in Model)
-                                                                    {
-                                                                        <li>
-                                                                            <input class="checkbox_animated checkall" type="checkbox" asp-for="@role.Exists" />
-                                                                            <label asp-for="@role.RoleId" class="form-check-label">@role.RoleName</label>
-
-                                                                        </li>
-                                                                        <input type="hidden" asp-for="@role.RoleId" />
-                                                                        <input type="hidden" asp-for="@role.RoleName" />
-                                                                    } *@
-                                                                    @for(var i = 0; i < Model.Count; i++)
-                                                                    {
-                                                                         <li>
-                                                                            <input class="checkbox_animated checkall" type="checkbox" asp-for="@Model[i].Exists" />
-                                                                            <label asp-for="@Model[i].RoleId" class="form-check-label">@Model[i].RoleName</label>
-
-                                                                        </li>
-                                                                        <input type="hidden" asp-for="@Model[i].RoleId" />
-                                                                        <input type="hidden" asp-for="@Model[i].RoleName" />
-                                                                    }
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary ms-auto mt-4">Role elave et</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+@model AssignRoleViewModel
+<!-- vendor List Section Start -->
+<div class="page-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="theme-form theme-form-2 mega-form">
+                        <div class="mb-4 row align-items-center">
+                            <label class="form-label-title col-sm-3 mb-0">
+                                Ad<span class="theme-color">*</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <input id="_userNameText" class="form-control" type="text" placeholder="İsdifadəçi adı" /> 
+                                <button id="_userNameSearch" class="btn btn-active">Axtar</button>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- New Product Add End -->
-                <!-- footer Start -->
-                <div class="container-fluid">
-                    <footer class="footer">
-                        <div class="row">
-                            <div class="col-md-12 footer-copyright text-center">
-                                <p class="mb-0">
-                                    Copyright 2023 © SaytAdi theme by Lorem
-                                </p>
+                    <!-- Table Start -->
+                    <form asp-controller="Role" asp-action="assignrole">
+                        <div class="card-body">
+                            <div class="title-header option-title card-header-2">
+                                <h5>İcazələr</h5>
+                            </div>
+                            <input type="hidden" name="UserId" value="" /> @* UserId *@
+                            <div class="table-responsive">
+                                <table class="user-table vendor-table table">
+                                    <thead>
+                                        <tr>
+                                            <th>✔</th>
+                                            <th>İcazə Adı</th>
+                                            <th>İcazə təsviri</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for(int i = 0; i < Model.RoleViewModels.Count; i++)
+                                        {
+                                            <tr>
+                                                <input type="hidden" asp-for="@Model.RoleViewModels[i].Id" />
+                                                <input type="hidden" asp-for="@Model.RoleViewModels[i].Name" />
+                                                <td>
+                                                    <input class="checkbox_animated checkall" type="checkbox" asp-for="@Model.RoleViewModels[i].IsSelected" />
+                                                </td>
+                                                <td>@Model.RoleViewModels[i].Name</td>
+                                                <td>Description here...</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </footer>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary ms-auto mt-4">Imtiyaz ver</button>
+                        </div>
+                    </form>
+                    <!-- Table End -->
                 </div>
-                <!-- footer En -->
             </div>
-            <!-- Container-fluid End -->
         </div>
-        <!-- Page Body End -->
     </div>
-    <!-- page-wrapper End -->
-</body>
+
+    <!-- Footer Start -->
+    <div class="container-fluid">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-12 footer-copyright text-center">
+                    <p class="mb-0">Copyright 2023 © SaytAdi theme by Lorem</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Footer End -->
+</div>
+<!-- vendor List Section End -->
+
+@section Scripts{
+<script>
+    $('#_userNameSearch').on('click', (e) => {
+        e.preventDefault();
+
+        var userNameOrMail = $('#_userNameText').val();
+        var url = `/Admin/Role/findUser?userNameOrMail=${userNameOrMail}`;
+        var urlParams = `/Admin/Role/findUser?userNameOrMail=${userNameOrMail}`;
+
+        var url2 = `/Admin/Role/findUser`;
+        
+        var data = { userNameOrMail: userNameOrMail };
+        console.log('dddd')
+
+        $.get({
+            url,
+            success: (data, status) => {
+                console.log(data);
+                var input = $('input[name="UserId"]')
+                input.val(data.creds.userId)
+            }
+        })          
+        
+        // $.get({ url: urlParams,
+        //     function (data, status) {
+        //         console.log(data);
+        //         var input = $('name[UserId]')
+        //         input.val(data.creds.Id)
+        //         console.log(data)
+        //      }
+        // })        
+
+            
+            //Unexpected template string
+        
+        // // $.get({ `/Admin/Role/findUser?userNameOrMail=${userNameOrMail}`,
+        // //     function (data, status) {
+        // //         console.log(data);
+        // //             var input = $('name[UserId]')
+        // //             input.val(data.creds.Id)
+        // //             console.log(data)
+        // //     }
+        // // })           
+        
+
+            // '{' syntax eror
+        // // $.get({ url, { userNameOrMail= userNameOrMail },
+        // //     function (data, status) {
+        // //         console.log(data);
+        // //             var input = $('name[UserId]')
+        // //             input.val(data.creds.Id)
+        // //             console.log(data)
+        // //     }
+        // // })    
+    
+        // $.get({ url, data,
+        //     function (response, status) {
+        //         console.log(response);
+        //         var input = $('name[UserId]')
+        //         input.val(response.creds.Id)
+        //         console.log(response)
+        //     }
+        // })
+
+                // not data just url query params
+        // $.ajax({
+        //     url: urlParams, 
+        //     method: 'get',
+        //     success: function(data, status) {
+        //         console.log(data);
+        //         var input = $('name[UserId]')
+        //         input.val(data.creds.Id)
+        //         console.log(data)
+        //     }
+        // })            
+
+                //data as named obj and literal
+        // $.ajax({
+        //     url: url,
+        //     method: 'get',
+        //     data: data,
+        //     success: function(data, status) {
+        //         console.log(data);
+        //         var input = $('name[UserId]')
+        //         input.val(data.creds.Id)
+        //         console.log(data)
+        //     }
+        // })
+            
+        // $.ajax({
+        //     url: url,
+        //     data: {userNameOrMail: userNameOrMail },
+        //     method: 'get',
+        //     success: function(data, status) {
+        //         console.log(data);
+        //         var input = $('name[UserId]')
+        //         input.val(data.creds.Id)
+        //         console.log(data)
+        //     }
+        // })
+    })
+</script>
+}
