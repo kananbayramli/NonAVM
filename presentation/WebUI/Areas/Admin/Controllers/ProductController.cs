@@ -1,12 +1,13 @@
 ﻿using ECommerse.Business.DTO_s;
 using ECommerse.Business.Services.Abstract;
-using ECommerse.WebUI.Models.ProductModels;
+using ECommerse.WebUI.Areas.Admin.Models.ProductModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
 
-namespace ECommerse.WebUI.Controllers
+namespace ECommerse.WebUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ProductController : Controller
     {
         private readonly IProductService productService;
@@ -29,7 +30,7 @@ namespace ECommerse.WebUI.Controllers
                 Name = p.Name,
                 Description = p.Description,
                 Image = p.Image,
-                CategoryName = p.Category.Name,
+                Category = p.Category,
                 StoreName = p.Store!.Name
             }).ToList());
         }
@@ -46,9 +47,19 @@ namespace ECommerse.WebUI.Controllers
         [HttpPost]
         public async Task<ActionResult> AddProduct(ProductDTO product)
         {
+            var photo = product.Photo;
+            if (photo is not null && photo.Length > 0)
+            {
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos", photo.FileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                    await photo.CopyToAsync(stream);
+
+            }
+
             var userId = User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
             var store = await storeService.GetAsync(s => s.OwnerID == userId);
             product.StoreID = store!.Id;
+            product.Image = photo.FileName;
             await productService.Create(product);
             await productService.SaveChangesAsync(CancellationToken.None);
             return RedirectToAction("Index");

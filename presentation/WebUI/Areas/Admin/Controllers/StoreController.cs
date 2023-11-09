@@ -1,11 +1,10 @@
 ﻿using ECommerse.Business.DTO_s;
 using ECommerse.Business.Services.Abstract;
-using ECommerse.Business.Services.Concrete;
-using ECommerse.WebUI.Models.StoreViewModels;
+using ECommerse.WebUI.Areas.Admin.Models.StoreViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace ECommerse.WebUI.Controllers
+namespace ECommerse.WebUI.Areas.Admin.Controllers
 {
     public class StoreController : Controller
     {
@@ -31,7 +30,7 @@ namespace ECommerse.WebUI.Controllers
                 Desription = store.Desription,
                 OwnerID = User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).First().Value
             };
-            
+
             await storeService.Create(storeDto);
             await storeService.SaveChangesAsync(CancellationToken.None);
 

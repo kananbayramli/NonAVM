@@ -281,7 +281,7 @@ namespace ECommerse.WebUI.Helper
             """;
 
             mail.IsBodyHtml = true;
-
+            mail.Body = body;
 
             smtpClient.Send(mail);
         }

@@ -1,0 +1,449 @@
+﻿@model ProductModel
+<!-- Page Body start -->
+<div class="page-body-wrapper">
+    <div class="page-body">
+        <!-- New Product Add Start -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-sm-12 m-auto">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header-2">
+                                        <h5>Məhsul haqqında məlumat</h5>
+                                    </div>
+
+                                    <form asp-area="Admin" asp-controller="Product" asp-action="AddProduct" enctype="multipart/form-data" class="theme-form theme-form-2 mega-form">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-3 mb-0">Məhsulun adı</label>
+                                            <div class="col-sm-9">
+                                                <input asp-for="Name" class="form-control" type="text" placeholder="Məhsulun adı">
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Məhsulun növü</label>
+                                            <div class="col-sm-9">
+                                                <select class="js-example-basic-single w-100" name="state">
+                                                    <option disabled>Statik Menyu</option>
+                                                    <option>Sadə</option>
+                                                    <option>Təsnifat</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Kateqoriya</label>
+                                            <div class="col-sm-9">
+                                                <select id="Region" asp-for="CategoryID" asp-items="@ViewBag.categoryList" class="js-example-basic-single w-100">
+                                                    <option value="">Choose sub category</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Alt kateqoriya</label>
+                                            <div class="col-sm-9">
+                                                <select class="js-example-basic-single w-100" name="state">
+                                                    <option disabled>Alt Kateqoriya Menyusu</option>
+                                                    <option>Ethnic Wear</option>
+                                                    <option>Ethnic Bottoms</option>
+                                                    <option>Women Western Wear</option>
+                                                    <option>Sandels</option>
+                                                    <option>Shoes</option>
+                                                    <option>Beauty & Grooming</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Marka/Brend</label>
+                                            <div class="col-sm-9">
+                                                <select class="js-example-basic-single w-100">
+                                                    <option disabled>Brand Menu</option>
+                                                    <option value="puma">Puma</option>
+                                                    <option value="hrx">HRX</option>
+                                                    <option value="roadster">Roadster</option>
+                                                    <option value="zara">Zara</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Vahid</label>
+                                            <div class="col-sm-9">
+                                                <select class="js-example-basic-single w-100">
+                                                    <option disabled>Vahid Menyu</option>
+                                                    <option>Kilogram</option>
+                                                    <option>Ədəd</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Teqlər</label>
+                                            <div class="col-sm-9">
+                                                <div class="bs-example">
+                                                    <input type="text" class="form-control" placeholder="Etiket yazın və enter düyməsini basın" id="#inputTag" data-role="tagsinput">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Mübadilə edilə bilən</label>
+                                            <div class="col-sm-9">
+                                                <label class="switch">
+                                                    <input type="checkbox"><span class="switch-state"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Geri qaytarıla bilər</label>
+                                            <div class="col-sm-9">
+                                                <label class="switch">
+                                                    <input type="checkbox" checked=""><span class="switch-state"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Şəkillər</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control form-choose" type="file" asp-for="Photo" multiple>
+                                            </div>
+                                        </div>
+                                         <div class="card">
+                                            <div class="card-body">
+                                                <div class="card-header-2">
+                                                    <h5>Təsvir</h5>
+                                                </div>
+                                                <div class="theme-form theme-form-2 mega-form">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="row">
+                                                                <label class="form-label-title col-sm-3 mb-0">Məhsulun Təsviri</label>
+                                                                <div class="col-sm-9">
+                                                                    @* <div id="editor"></div> *@
+                                                                    <textarea styles="height: 300px" class="form-control" asp-for="Description">
+                                                                    </textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="submit" class="btn btn-solid" value="Məhsul əlavə edin" />
+                                    </form>
+                                </div>
+                            </div>
+
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header-2">
+                                        <h5>Məhsulun Şəkilləri</h5>
+                                    </div>
+
+                                    <form class="theme-form theme-form-2 mega-form">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Şəkillər</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control form-choose" type="file" id="formFile" multiple>
+                                            </div>
+                                        </div>
+
+                                        <div class="row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Miniatür Şəkil</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control form-choose" type="file" id="formFileMultiple1" multiple>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header-2">
+                                        <h5>Məhsul Videoları</h5>
+                                    </div>
+
+                                    <form class="theme-form theme-form-2 mega-form">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Video Provayderi</label>
+                                            <div class="col-sm-9">
+                                                <select class="js-example-basic-single w-100" name="state">
+                                                    <option>Vimeo</option>
+                                                    <option>Youtube</option>
+                                                    <option>Dailymotion</option>
+                                                    <option>Vimeo</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row align-items-center">
+                                            <label class="form-label-title col-sm-3 mb-0">Video Linki</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" placeholder="Video Linki">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header-2">
+                                        <h5>Məhsulların növləri</h5>
+                                    </div>
+
+                                    <form class="theme-form theme-form-2 mega-form">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-3 mb-0">Seçim Adı</label>
+                                            <div class="col-sm-9">
+                                                <select class="js-example-basic-single w-100" name="state">
+                                                    <option>Color</option>
+                                                    <option>Size</option>
+                                                    <option>Material</option>
+                                                    <option>Style</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Seçim Dəyəri</label>
+                                            <div class="col-sm-9">
+                                                <div class="bs-example">
+                                                    <input type="text" class="form-control" placeholder="Etiket yazın və enter düyməsini basın" id="#inputTag" data-role="tagsinput">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <a href="#" class="add-option"><i class="ri-add-line me-2"></i> Başqa bir seçim əlavə edin</a>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header-2">
+                                        <h5>Göndərmə</h5>
+                                    </div>
+
+                                    <form class="theme-form theme-form-2 mega-form">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-3 mb-0">Weight (kg)</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="number" placeholder="Weight">
+                                            </div>
+                                        </div>
+
+                                        <div class="row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Ölçüləri (cm)</label>
+                                            <div class="col-sm-9">
+                                                <select class="js-example-basic-single w-100" name="state">
+                                                    <option>Length</option>
+                                                    <option>Width</option>
+                                                    <option>Height</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header-2">
+                                        <h5>Məhsulun Qiyməti</h5>
+                                    </div>
+
+                                    <form class="theme-form theme-form-2 mega-form">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 form-label-title">Qiymət</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="number" placeholder="0">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 form-label-title">Qiymətə görə müqayisə edin</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="number" placeholder="0">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 form-label-title">Məhsul başına xərc</label>
+                                            <div class="col-sm-5">
+                                                <input class="form-control" type="number" placeholder="0">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>Margin:</label>
+                                                <span>25%</span>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>Profit:</label>
+                                                <span>$5</span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header-2">
+                                        <h5>Məhsul İnventarı</h5>
+                                    </div>
+
+                                    <form class="theme-form theme-form-2 mega-form">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-3 mb-0">SKU</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Stok Statusu</label>
+                                            <div class="col-sm-9">
+                                                <select class="js-example-basic-single w-100" name="state">
+                                                    <option>In Stock</option>
+                                                    <option>Out Of Stock</option>
+                                                    <option>On Backorder</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <table class="table variation-table table-responsive-sm">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Variant</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">SKU</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Red</td>
+                                                <td>
+                                                    <input class="form-control" type="number" placeholder="0">
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="number" placeholder="0">
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="number" placeholder="0">
+                                                </td>
+                                                <td>
+                                                    <ul class="order-option">
+                                                        <li>
+                                                            <a href="javascript:void(0)" data-toggle="modal" data-target="#deleteModal"><i class="uil uil-trash-alt"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Blue</td>
+                                                <td>
+                                                    <input class="form-control" type="number" placeholder="0">
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="number" placeholder="0">
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="number" placeholder="0">
+                                                </td>
+                                                <td>
+                                                    <ul class="order-option">
+                                                        <li>
+                                                            <a href="javascript:void(0)" data-toggle="modal" data-target="#deleteModal"><i class="uil uil-trash-alt"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header-2">
+                                        <h5>Məhsulları əlaqələndirin</h5>
+                                    </div>
+
+                                    <form class="theme-form theme-form-2 mega-form">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-3 mb-0">Yüksək satışlar</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="search">
+                                            </div>
+                                        </div>
+
+                                        <div class="row align-items-center">
+                                            <label class="form-label-title col-sm-3 mb-0">Çapraz satışlar</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="search">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header-2">
+                                        <h5>Lorem, ipsum dolor.</h5>
+                                    </div>
+
+                                    <div class="seo-view">
+                                        <span class="link">https://saytadi.com</span>
+                                        <h5>Ən yaxşı qiymətə onlayn alın</h5>
+                                        <p>Onlayn sifariş edin və pulsuz çatdırılma əldə edin.</p>
+                                    </div>
+
+                                    <form class="theme-form theme-form-2 mega-form">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-3 mb-0">Səhifə başlığı</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="search" placeholder="E-commerce">
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row">
+                                            <label class="form-label-title col-sm-3 mb-0">Meta təsviri</label>
+                                            <div class="col-sm-9">
+                                                <textarea class="form-control" rows="3"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <label class="form-label-title col-sm-3 mb-0">URL handle</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="search" placeholder="https://saytadi.com">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- New Product Add End -->
+        <!-- footer Start -->
+        <div class="container-fluid">
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-md-12 footer-copyright text-center">
+                        <p class="mb-0">Copyright 2023 © saytadi theme by Lorem</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- footer En -->
+    </div>
+    <!-- Container-fluid End -->
+</div>
+<!-- Page Body End -->

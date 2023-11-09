@@ -10,9 +10,7 @@ namespace ECommerse.WebUI.Controllers
 {
     public class AuthController : BaseController
     {
-        public AuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager) : base(userManager, signInManager, roleManager)
-        {
-        }
+        public AuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager) : base(userManager, signInManager, roleManager){}
 
         public IActionResult LogIn(string ReturnUrl)
         {

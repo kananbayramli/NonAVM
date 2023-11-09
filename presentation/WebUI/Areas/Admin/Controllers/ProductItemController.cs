@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ECommerse.WebUI.Controllers
+namespace ECommerse.WebUI.Areas.Admin.Controllers
 {
     public class ProductItemController : Controller
     {

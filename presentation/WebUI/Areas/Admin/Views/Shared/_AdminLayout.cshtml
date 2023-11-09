@@ -65,7 +65,7 @@
             <div class="header-wrapper m-0">
                 <div class="header-logo-wrapper p-0">
                     <div class="logo-wrapper">
-                        <a href="~/AdminStatics/index.html">
+                        <a asp-area="" asp-controller="Home" asp-action="İndex">
                             <img class="img-fluid main-logo" src="~/AdminStatics/assets/images/logo/logo.svg" alt="SaytAdi">
                             <img class="img-fluid white-logo" src="~/AdminStatics/assets/images/logo/1-white.pn" alt="SaytAdi">
                         </a>
@@ -232,11 +232,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a asp-area="" asp-controller="Product" asp-action="Index">Məhsullar</a>
+                                            <a asp-area="Admin" asp-controller="Product" asp-action="Index">Məhsullar</a>
                                         </li>
 
                                         <li>
-                                            <a asp-area="" asp-controller="Product" asp-action="AddProduct">Yeni Məhsullar əlavə edin</a>
+                                            <a asp-area="Admin" asp-controller="Product" asp-action="AddProduct">Yeni Məhsullar əlavə edin</a>
                                         </li>
                                     </ul>
                                 </li>

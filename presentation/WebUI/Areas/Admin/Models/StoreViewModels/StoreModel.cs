@@ -1,7 +1,7 @@
 ﻿using ECommerse.Core.Entities;
 using ECommerse.Core.Identity;
 
-namespace ECommerse.WebUI.Models.StoreViewModels
+namespace ECommerse.WebUI.Areas.Admin.Models.StoreViewModels
 {
     public class StoreModel
     {
