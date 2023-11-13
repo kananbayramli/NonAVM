@@ -1,0 +1,154 @@
+﻿@model List<UserDTO>
+
+<!-- Page Body Start -->
+<div class="page-body-wrapper">
+    <!-- Container-fluid starts-->
+    <div class="page-body">
+        <!-- All User Table Start -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card card-table">
+                        <div class="card-body">
+                            <div class="title-header option-title">
+                                <h5>Bütün istifadəçilər</h5>
+                                <form class="d-inline-flex">
+                                    <a href="add-new-user.html" class="align-items-center btn btn-theme d-flex">
+                                        <i data-feather="plus"></i>Yenisini əlavə et
+                                    </a>
+                                </form>
+                            </div>
+
+                            <div class="table-responsive table-product">
+                                <table class="table all-package theme-table" id="table_id">
+                                    <thead>
+                                        <tr>
+                                            <th>İstifadəçi</th>
+                                            <th>Ad</th>
+                                            <th>Telefon</th>
+                                            <th>E-poçt</th>
+                                            <th>Seçim</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach(var user in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <div class="table-image">
+                                                        <img src="~/assets/images/users/GIT PHOTO.png" class="img-fluid" alt="">
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="user-name">
+                                                        <span>@user.Name</span>
+                                                        <span>Front-end Developer</span>
+                                                    </div>
+                                                </td>
+
+                                                <td>@user.PhoneNumber</td>
+
+                                                <td>@user.Email</td>
+
+                                                <td>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="order-detail.html">
+                                                                <i class="ri-eye-line"></i>
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="javascript:void(0)">
+                                                                <i class="ri-pencil-line"></i>
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                                                                <i class="ri-delete-bin-line"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- All User Table Ends-->
+
+        <div class="container-fluid">
+            <!-- footer start-->
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-md-12 footer-copyright text-center">
+                        <p class="mb-0">Copyright 2023 © Saytadi theme by Lorem</p>
+                    </div>
+                </div>
+            </footer>
+            <!-- footer end-->
+        </div>
+    </div>
+    <!-- Container-fluid end -->
+</div>
+<!-- Page Body End -->
+
+<!-- Delete Modal Box Start -->
+<div class="modal fade theme-modal remove-coupon" id="exampleModalToggle" aria-hidden="true" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header d-block text-center">
+                <h5 class="modal-title w-100" id="exampleModalLabel22">Siz əminsiniz?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="remove-box">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque, qui?</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Xeyr</button>
+                <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Bəli</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade theme-modal remove-coupon" id="exampleModalToggle2" aria-hidden="true" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="exampleModalLabel12">Bitdi!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="remove-box text-center">
+                    <div class="wrapper">
+                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                        </svg>
+                    </div>
+                    <h4 class="text-content">Silindi.</h4>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-dismiss="modal">Bağla</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete Modal Box End -->

@@ -10,6 +10,7 @@ public class AppUser : IdentityUser
     public string Surname { get; set; } = null!;
     public DateTime? BirthDay { get; set; }
     public Gender Gender { get; set; }
+    public string? ProfilePicture { get; set; }
 
     public Store? Store { get; set; }
 

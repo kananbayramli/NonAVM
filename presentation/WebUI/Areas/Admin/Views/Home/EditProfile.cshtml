@@ -1,0 +1,169 @@
+﻿@model UserEditViewModel
+
+<!-- Page Body Start-->
+<div class="page-body-wrapper">
+    <!-- Settings Section Start -->
+    <div class="page-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- Details Start -->
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="title-header option-title">
+                                        <h5>Profil Parametrləri</h5>
+                                    </div>
+                                    <form asp-area="Admin" asp-controller="Home" asp-action="EditProfile" class="theme-form theme-form-2 mega-form">
+                                        <div class="row">
+                                            <div class="mb-4 row align-items-center">
+                                                <label class="form-label-title col-sm-2 mb-0">Isdifadəçi adı</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" asp-for="UserName" placeholder="Enter Your UserName">
+                                                </div>
+                                            </div>
+                                            <div class="mb-4 row align-items-center">
+                                                <label class="form-label-title col-sm-2 mb-0">Ad</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" asp-for="Name" placeholder="Enter Your First Name">
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-4 row align-items-center">
+                                                <label class="form-label-title col-sm-2 mb-0">Soyad</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" asp-for="Surname" placeholder="Enter Your Last Name">
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-4 row align-items-center">
+                                                <label class="form-label-title col-sm-2 mb-0">Telefon nömrəniz</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" asp-for="PhoneNumber" placeholder="Enter Your Number">
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-4 row align-items-center">
+                                                <label class="form-label-title col-sm-2 mb-0">E-poçt ünvanını daxil edin</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" asp-for="Email" placeholder="Enter Your Email Address">
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-4 row align-items-center">
+                                                <label class="col-sm-2 col-form-label form-label-title">Şəkil</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control form-choose" asp-for="ProfilePicture" id="formFileMultiple" multiple>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="submit" class="btn btn-solid" value="Yadda saxla" />
+
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Details End -->
+                            <!-- Address Start -->
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header-2 mb-3">
+                                        <h5>Ünvan</h5>
+                                    </div>
+
+                                    <div class="save-details-box">
+                                        <div class="row g-4">
+                                            <div class="col-xl-4 col-md-6">
+                                                <div class="save-details">
+                                                    <div class="save-name">
+                                                        <h5>Toghrul Gafarov</h5>
+                                                    </div>
+
+                                                    <div class="save-position">
+                                                        <h6>Ev</h6>
+                                                    </div>
+
+                                                    <div class="save-address">
+                                                        <p>Nasimi Cavadxan</p>
+                                                        <p>Adjami st., AZ</p>
+                                                        <p>1102</p>
+                                                    </div>
+
+                                                    <div class="mobile">
+                                                        <p class="mobile">Mobile No. +994-51-527-0966</p>
+                                                    </div>
+
+                                                    <div class="button">
+                                                        <a href="javascript:void(0)" class="btn btn-sm">Redaktə et</a>
+                                                        <a href="javascript:void(0)" class="btn btn-sm">Sil</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-4 col-md-6">
+                                                <div class="save-details">
+                                                    <div class="save-name">
+                                                        <h5>Lorem, ipsum.</h5>
+                                                    </div>
+
+                                                    <div class="save-position">
+                                                        <h6>Ofis</h6>
+                                                    </div>
+
+                                                    <div class="save-address">
+                                                        <p>Nasimi Cavadxan</p>
+                                                        <p>Adjami st., AZ</p>
+                                                        <p>1102</p>
+                                                    </div>
+
+                                                    <div class="mobile">
+                                                        <p class="mobile">Mobile No. +994-51-527-0966</p>
+                                                    </div>
+
+                                                    <div class="button">
+                                                        <a href="javascript:void(0)" class="btn btn-sm">Redaktə et</a>
+                                                        <a href="javascript:void(0)" class="btn btn-sm">Sil</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-4 col-md-6">
+                                                <div class="save-details">
+                                                    <div class="save-name">
+                                                        <h5>Lorem, ipsum.</h5>
+                                                    </div>
+
+                                                    <div class="save-position">
+                                                        <h6>Ev</h6>
+                                                    </div>
+
+                                                    <div class="save-address">
+                                                        <p>Nasimi Cavadxan</p>
+                                                        <p>Adjami st., AZ</p>
+                                                        <p>1102</p>
+                                                    </div>
+
+                                                    <div class="mobile">
+                                                        <p class="mobile">Mobile No. +994-51-527-0966</p>
+                                                    </div>
+
+                                                    <div class="button">
+                                                        <a href="javascript:void(0)" class="btn btn-sm">Redaktə et</a>
+                                                        <a href="javascript:void(0)" class="btn btn-sm">Sil</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Address End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Settings Section End -->
+</div>
+<!-- Page Body End-->

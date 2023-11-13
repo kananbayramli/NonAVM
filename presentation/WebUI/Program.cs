@@ -2,19 +2,19 @@ using ECommerse.Business;
 using ECommerse.Core.Enums;
 using ECommerse.DataAccess;
 using ECommerse.WebUI;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddDataProtection();
 
 builder.Services.AddDataAccess(builder.Configuration);
 builder.Services.AddBusiness();
+
 //builder.Services.AddScoped<IClaimsTransformation, ClaimProvider>();
+builder.Services.AddTransient<IAuthorizationHandler, OneMonthTrialHandler>();
 builder.Services.AddAuthorization(opts =>
 {
     opts.AddPolicy("GenderPolicy", policy =>
@@ -32,8 +32,6 @@ builder.Services.AddAuthorization(opts =>
     });
 });
 
-
-builder.Services.AddTransient<IAuthorizationHandler, OneMonthTrialHandler>();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {

@@ -5,42 +5,37 @@ namespace ECommerse.WebUI.ViewModels
 {
     public class UserViewModel
     {
-        [Required(ErrorMessage = "Kullanıcı ismi gerekldir.")]
-        [Display(Name = "Kullanıcı Adı")]
+        [Required(ErrorMessage = "İsdifadəçi adı daxil edilməyib.")]
         public string UserName { get; set; } = null!;
 
-        [Required(ErrorMessage = "Ad gerekldir.")]
-        [Display(Name = "Ad")]
+        [Required(ErrorMessage = "Ad daxil edilməyib.")]
         public string Name { get; set; } = null!;
 
-        [Required(ErrorMessage = "Kullanıcı ismi gerekldir.")]
-        [Display(Name = "Soyad")]
+        [Required(ErrorMessage = "Soyad daxil edilməyib.")]
         public string Surname { get; set; } = null!;
 
-        [Display(Name = "Tel No:")]
-        [RegularExpression(@"^(0(\d{3}) (\d{3}) (\d{2}) (\d{2}))$", ErrorMessage = "Telefon numarası uygun formatta değil")]
+        [Required(ErrorMessage = "Telefon nömrəsi daxil edilməyib.")]
+        //[RegularExpression(@"^(0(\d{3}) (\d{3}) (\d{2}) (\d{2}))$", ErrorMessage = "Telefon nömrəsi uyğun formatda deyil")]
         public string? PhoneNumber { get; set; }
 
-        [Required(ErrorMessage = "Email adresi gereklidir.")]
-        [Display(Name = "Email Adresiniz")]
-        [EmailAddress(ErrorMessage = "Email adresiniz doğru formatta değil")]
+        [Required(ErrorMessage = "Email adresi daxil edilməyib.")]
+        [EmailAddress(ErrorMessage = "Email adresiniz doğru formatda değil")]
         public string Email { get; set; } = null!;
 
-        [Required(ErrorMessage = "Şifreniz gereklidir.")]
-        [Display(Name = "Şifre")]
+        [Required(ErrorMessage = "Şifrə daxil edin.")]
         [DataType(DataType.Password)]
         public string Password { get; set; } = null!;
 
-        [Display(Name = "Doğum tarihi")]
+        [Required(ErrorMessage = "Şifrə təkrarını daxil edin.")]
+        [Compare("Password", ErrorMessage = "Şifrə və şifrə təkaraı eyni deyil.")]
+        [DataType(DataType.Password)]
+        public string PasswordConfirm { get; set; } = null!;
+ 
         [DataType(DataType.Date)]
         public DateTime? BirthDay { get; set; }
 
         public string? Picture { get; set; }
 
-        [Display(Name = "Şehir")]
-        public string? City { get; set; }
-
-        [Display(Name = "Cinsiyet")]
         public Gender? Gender { get; set; }
     }
 }

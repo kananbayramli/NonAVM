@@ -121,6 +121,10 @@
     <!-- log in section start -->
     <section class="log-in-section background-image-2 section-b-space">
         <div class="container-fluid-lg w-100">
+
+            <div class="m-auto text-primary" style="position: relative; left: 550px;">@TempData["ConfirmEmail"]</div>
+            <div asp-validation-summary="ModelOnly" class="m-auto text-primary" style="position: relative; left: 550px;"></div>
+
             <div class="row">
                 <div class="col-xxl-6 col-xl-5 col-lg-6 d-lg-block d-none ms-auto">
                     <div class="image-contain">
@@ -141,6 +145,7 @@
                                     <div class="form-floating theme-form-floating log-in-form">
                                         <input type="email" class="form-control" asp-for="Email" placeholder="Email Address">
                                         <label for="email">E-poçt ünvanı</label>
+                                        <span class="text-danger" asp-validation-for="Email"></span>
                                     </div>
                                 </div>
 
@@ -148,6 +153,7 @@
                                     <div class="form-floating theme-form-floating log-in-form">
                                         <input type="password" class="form-control" asp-for="Password" placeholder="Password">
                                         <label for="password">Şifrə</label>
+                                        <span class="text-danger" asp-validation-for="Password"></span>
                                     </div>
                                 </div>
 

@@ -32,7 +32,6 @@
     <!-- Template css -->
     <link id="color-link" rel="stylesheet" type="text/css" href="~/assets/css/e_commerce.css">
 </head>
-
 <!-- mobile fix menu start -->
 <div class="mobile-menu d-md-none d-block mobile-cart">
     <ul>
@@ -100,12 +99,13 @@
 <section class="log-in-section section-b-space">
     <div class="container-fluid-lg w-100">
         <div class="row">
+            <div class="m-auto text-danger" style="position: relative; left: 550px;" asp-validation-summary="ModelOnly"></div>
+
             <div class="col-xxl-6 col-xl-5 col-lg-6 d-lg-block d-none ms-auto">
                 <div class="image-contain">
                     <img src="~/assets/images/inner-page/sign-up.png" class="img-fluid" alt="">
                 </div>
             </div>
-
             <div class="col-xxl-4 col-xl-5 col-lg-6 col-sm-8 mx-auto">
                 <div class="log-in-box">
                     <div class="log-in-title">
@@ -117,26 +117,37 @@
                         <form asp-action="Register" class="row g-4">
                             <div class="col-12">
                                 <div class="form-floating theme-form-floating">
-                                    <input asp-for="UserName" type="text" class="form-control" id="name" placeholder="Ad">
-                                    <label for="fullname">Isdifadeci adi</label>
+                                    <input asp-for="UserName" type="text" class="form-control" placeholder="User Name">
+                                    <label for="fullname">Isdifadəçi adı</label>
+                                    <span class="text-danger" asp-validation-for="UserName"></span>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating theme-form-floating">
-                                    <input asp-for="Name" type="text" class="form-control" id="name" placeholder="Ad">
+                                    <input asp-for="Name" type="text" class="form-control" placeholder="Ad">
                                     <label for="fullname">Ad</label>
+                                    <span class="text-danger" asp-validation-for="Name"></span>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating theme-form-floating">
                                     <input asp-for="Surname" type="text" class="form-control" id="surname" placeholder="Soyad">
                                     <label for="fullname">Soyad</label>
+                                    <span class="text-danger" asp-validation-for="Surname"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating theme-form-floating">
+                                    <input asp-for="PhoneNumber" type="text" class="form-control" id="email" placeholder="Telefon nömrəsi">
+                                    <label for="email">Telefon nömrəsi</label>
+                                    <span class="text-danger" asp-validation-for="PhoneNumber"></span>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating theme-form-floating">
                                     <input asp-for="Email"  type="email" class="form-control" id="email" placeholder="E-poçt ünvanı">
                                     <label for="email">E-poçt ünvanı</label>
+                                    <span class="text-danger" asp-validation-for="Email"></span>
                                 </div>
                             </div>
 
@@ -144,6 +155,14 @@
                                 <div class="form-floating theme-form-floating">
                                     <input asp-for="Password" type="password" class="form-control" id="password" placeholder="Şifrə">
                                     <label for="password">Şifrə</label>
+                                    <span class="text-danger" asp-validation-for="Password"></span>
+                                </div>
+                            </div>                          
+                            <div class="col-12">
+                                <div class="form-floating theme-form-floating">
+                                    <input asp-for="PasswordConfirm" type="password" class="form-control" id="password" placeholder="Şifrə təkrar">
+                                    <label for="password">Şifrə təkrar</label>
+                                    <span class="text-danger" asp-validation-for="PasswordConfirm"></span>
                                 </div>
                             </div>
 
@@ -465,3 +484,5 @@
 
 <!-- script js -->
 <script src="~/assets/js/script.js"></script>
+
+@await Html.PartialAsync("_ValidationScriptsPartial")

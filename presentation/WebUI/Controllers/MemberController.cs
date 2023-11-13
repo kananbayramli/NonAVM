@@ -1,47 +1,21 @@
-﻿using AutoMapper;
-using ECommerse.Business.DTO_s;
-using ECommerse.Core.Entities;
-using ECommerse.Core.Identity;
-using ECommerse.WebUI.Controllers;
+﻿using ECommerse.Core.Identity;
 using ECommerse.WebUI.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
-namespace ECommerse.WebUI.Areas.Admin.Controllers
+namespace ECommerse.WebUI.Controllers
 {
-    [Area("Admin")]
-    //[Authorize(Roles = "admin")]
-    public class HomeController : BaseController
+    public class MemberController : BaseController
     {
-        private readonly IMapper _mapper;
-        public HomeController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager, IMapper mapper) : base(userManager, signInManager, roleManager)
-        {
-            _mapper = mapper;
-        }
+        public MemberController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager) : base(userManager, signInManager, roleManager){}
 
         public IActionResult Index()
         {
             return View();
         }
 
-
-        public async Task<IActionResult> UserList()
-        {
-            var users = await userManager.Users.ToListAsync();
-            return View(users.Select(u => 
-                new UserDTO
-                {
-                    Email = u.Email!,
-                    Name = u.Name,
-                    Id = u.Id,
-                    PhoneNumber = u.PhoneNumber
-                }
-            ).ToList());
-        }
-
-        public async Task<IActionResult> EditProfile()
+        public async Task<IActionResult> Profile()
         {
             AppUser? user = await userManager.FindByIdAsync(User?.Claims?.FirstOrDefault(c => c?.Type == ClaimTypes.NameIdentifier)?.Value!);
             if (user == null)
@@ -58,7 +32,7 @@ namespace ECommerse.WebUI.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditProfile(UserEditViewModel userDto)
+        public async Task<IActionResult>Profile(UserEditViewModel userDto)
         {
             var user = await userManager.FindByEmailAsync(userDto.Email);
             user.UserName = userDto.UserName;

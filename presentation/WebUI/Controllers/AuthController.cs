@@ -24,34 +24,34 @@ namespace ECommerse.WebUI.Controllers
             if (ModelState.IsValid)
             {
 
-                AppUser user = await userManager.FindByEmailAsync(userlogin.Email);
+                AppUser? user = await userManager.FindByEmailAsync(userlogin.Email!);
 
                 if (user != null)
                 {
                     if (await userManager.IsLockedOutAsync(user))
                     {
-                        ModelState.AddModelError("", "Hesabınız bir süreliğine kilitlenmiştir. Lütfen daha sonra tekrar deneyiniz.");
+                        ModelState.AddModelError("", "Yanlış məlumatlar daxil etdiyiniz üçün hesabınız kilidə düşüb. Xahiş edirik bir az sonra təkrar cəhd edin.");
 
                         return View(userlogin);
                     }
 
                     if (userManager.IsEmailConfirmedAsync(user).Result == false)
                     {
-                        ModelState.AddModelError("", "Email adresiniz onaylanmamıştır. Lütfen  epostanızı kontrol ediniz.");
+                        ModelState.AddModelError("", "Email adresi təstiq edilməyib. Zəhmət olmasa sizə göndərilən emaili yoxlayın.");
                         return View(userlogin);
                     }
 
-                    await signInManager.SignOutAsync();
+                    //await signInManager.SignOutAsync();
 
-                    #region AddClaim
-                    var claim = User.Claims.Where(x => x.Type == "OneMonthTrialRemaining" && x.Value != null).FirstOrDefault();
-                    if (claim is null)
-                    {
-                        var idiResult = await userManager.AddClaimAsync(user, new Claim("OneMonthTrialRemaining", DateTime.Now.AddSeconds(15).ToString()));
-                    }
-                    #endregion
+                    //#region AddClaim
+                    //var claim = User.Claims.Where(x => x.Type == "OneMonthTrialRemaining" && x.Value != null).FirstOrDefault();
+                    //if (claim is null)
+                    //{
+                    //    var idiResult = await userManager.AddClaimAsync(user, new Claim("OneMonthTrialRemaining", DateTime.Now.AddSeconds(15).ToString()));
+                    //}
+                    //#endregion
 
-                    var result = await signInManager.PasswordSignInAsync(user, userlogin.Password, false, false);
+                    var result = await signInManager.PasswordSignInAsync(user, userlogin.Password, userlogin.RememberMe, true);
 
                     if (result.Succeeded)
                     {
@@ -70,22 +70,22 @@ namespace ECommerse.WebUI.Controllers
                         await userManager.AccessFailedAsync(user);
 
                         int fail = await userManager.GetAccessFailedCountAsync(user);
-                        ModelState.AddModelError("", $" {fail} kez başarısız giriş.");
+                        ModelState.AddModelError("", $" {fail} dəfə uğursuz cəhd.");
                         if (fail == 3)
                         {
                             await userManager.SetLockoutEndDateAsync(user, new System.DateTimeOffset(DateTime.Now.AddMinutes(20)));
 
-                            ModelState.AddModelError("", "Hesabınız 3 başarısız girişten dolayı 20 dakika süreyle kitlenmiştir. Lütfen daha sonra tekrar deneyiniz.");
+                            ModelState.AddModelError("", "Hesabınız 3 uğursuz cəhdən dolayı 20 dəqiqə müddətində kilidə salınıb. Zəhmət olmasa sonra yenidən cəhd edin.");
                         }
                         else
                         {
-                            ModelState.AddModelError("", "Email adresiniz veya şifreniz yanlış.");
+                            ModelState.AddModelError("", "Email adresi yaxud şifrə yanlışdır.");
                         }
                     }
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Bu email adresine kayıtlı kullanıcı bulunamamıştır.");
+                    ModelState.AddModelError("", "Bu email adresinə bağlı hesab mövcud deyil.");
                 }
             }
 
@@ -108,7 +108,7 @@ namespace ECommerse.WebUI.Controllers
             {
                 if ( userViewModel.PhoneNumber is not null && userManager.Users.Any(u => u.PhoneNumber == userViewModel.PhoneNumber))
                 {
-                    ModelState.AddModelError("", "Bu telefon numarası kayıtlıdır.");
+                    ModelState.AddModelError("", $"{userViewModel.PhoneNumber} telefon nömrəsi ilə artıq qeydiyyatdan keçilib.");
                     return View(userViewModel);
                 }
 
@@ -125,17 +125,15 @@ namespace ECommerse.WebUI.Controllers
                 {
                     string confirmationToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
 
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                    string link = Url.Action("ConfirmEmail", "Auth", new
-                    {
-                        userId = user.Id,
-                        token = confirmationToken
-                    }, protocol: HttpContext.Request.Scheme
-
-                    );
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                    string? link = Url.Action("ConfirmEmail", "Auth", new
+                        {
+                            userId = user.Id,
+                            token = confirmationToken
+                        }, protocol: HttpContext.Request.Scheme);
 
                     EmailConfrimation.SendEmail(link!, user.Email);
+
+                    TempData["ConfirmEmail"] = $"Qeydiyyat prosesini tamamlamaq üçün {user.Email} ünvanına göndərilən link-ə daxil olaraq e-mail ünvanını təstiq edin.";
 
                     return RedirectToAction("LogIn");
                 }

@@ -34,7 +34,7 @@ public class PasswordReset
 
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                <link rel="icon" href="../assets/images/favicon/1.png" type="image/x-icon">
+                <link rel="icon" href="/assets/images/favicon/1.png" type="image/x-icon">
 
                 <title>Email template</title>
 
@@ -143,23 +143,23 @@ public class PasswordReset
                                 <table class="header-table" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
                                     <tr class="header" style="background-color: #f7f7f7;display: flex;align-items: center;justify-content: space-between;width: 100%;">
                                         <td class="header-logo" style="padding: 10px 32px;">
-                                            <a href="../front-end/main.html" style="display: block; text-align: left;">
-                                                <img src="images/logo_email.png" class="main-logo" alt="logo">
+                                            <a href="/front-end/main.html" style="display: block; text-align: left;">
+                                                <img  src="EmailTemplate/images/logo_email.png" class="main-logo" alt="logo">
                                             </a>
                                         </td>
                                         <td class="header-menu" style="display: block; padding: 10px 32px;text-align: right;">
                                             <ul>
                                                 <li>
-                                                    <a href="../front-end/main.html">Ana Səhifə</a>
+                                                    <a href="/front-end/main.html">Ana Səhifə</a>
                                                 </li>
                                                 <li>
-                                                    <a href="../front-end/wishlist.html">İstək Siyahısı</a>
+                                                    <a href="/front-end/wishlist.html">İstək Siyahısı</a>
                                                 </li>
                                                 <li>
-                                                    <a href="../front-end/discount.html">Endirimlər</a>
+                                                    <a href="/front-end/discount.html">Endirimlər</a>
                                                 </li>
                                                 <li>
-                                                    <a href="../front-end/contact_us.html">Əlaqə</a>
+                                                    <a href="/front-end/contact_us.html">Əlaqə</a>
                                                 </li>
                                             </ul>
                                         </td>
@@ -170,7 +170,7 @@ public class PasswordReset
                                     <thead>
                                         <tr>
                                             <td>
-                                                <img src="images/reset.png" alt="">
+                                                <img  src="EmailTemplate/images/reset.png" alt="">
                                             </td>
                                         </tr>
                                     </thead>
@@ -230,7 +230,7 @@ public class PasswordReset
                                             <table border="0" cellpadding="0" cellspacing="0" class="footer-social-icon text-center" align="center" style="margin: 8px auto 20px;">
                                                 <tr>
                                                     <td>
-                                                        <a href="../front-end/contact_us.html" style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize;">Bizimlə əlaqə</a>
+                                                        <a href="/front-end/contact_us.html" style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize;">Bizimlə əlaqə</a>
                                                     </td>
                                                     <td>
                                                         <a href="javascript:void(0)" style="font-size: 14px; font-weight: 600; color: #fff; text-decoration: underline; text-transform: capitalize; margin-left: 20px;">Abunəni ləğv et</a>
@@ -244,17 +244,17 @@ public class PasswordReset
                                                 <tr>
                                                     <td>
                                                         <a href="#">
-                                                            <img src="images/fb.png " style="font-size: 25px; margin: 0 18px 0 0;width: 22px;filter: invert(1); " alt=" ">
+                                                            <img  src="EmailTemplate/images/fb.png " style="font-size: 25px; margin: 0 18px 0 0;width: 22px;filter: invert(1); " alt=" ">
                                                         </a>
                                                     </td>
                                                     <td>
                                                         <a href="#">
-                                                            <img src="images/twitter.png " style="font-size: 25px; margin: 0 18px 0 0;width: 22px;filter: invert(1); " alt=" ">
+                                                            <img  src="EmailTemplate/images/twitter.png " style="font-size: 25px; margin: 0 18px 0 0;width: 22px;filter: invert(1); " alt=" ">
                                                         </a>
                                                     </td>
                                                     <td>
                                                         <a href="#">
-                                                            <img src="images/insta.png " style="font-size: 25px; margin: 0 18px 0 0;width: 22px;filter: invert(1); " alt=" ">
+                                                            <img  src="EmailTemplate/images/insta.png " style="font-size: 25px; margin: 0 18px 0 0;width: 22px;filter: invert(1); " alt=" ">
                                                         </a>
                                                     </td>
                                                 </tr>
