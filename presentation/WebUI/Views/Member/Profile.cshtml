@@ -110,32 +110,26 @@
 
                     <ul class="nav nav-pills user-nav-pills" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-dashboard-tab" data-bs-toggle="pill" data-bs-target="#pills-dashboard" type="button" role="tab" aria-controls="pills-dashboard" aria-selected="true">
+                            <a href="#pills-tabContent" class="nav-link active" id="pills-dashboard-tab" data-bs-toggle="pill" data-bs-target="#pills-dashboard" role="tab" aria-controls="pills-dashboard" aria-selected="true">
                                 <i data-feather="home"></i>
-                                İdarə Panelim
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-product-tab" data-bs-toggle="pill" data-bs-target="#pills-product" type="button" role="tab" aria-controls="pills-product" aria-selected="false">
+                                <i data-feather="shopping-bag"></i>Məhsullar
+                            </button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-product-tab" data-bs-toggle="pill" data-bs-target="#pills-newproduct" type="button" role="tab" aria-controls="pills-product" aria-selected="false">
+                                <i data-feather="shopping-bag"></i>Yeni Məhsullar əlavə edin
                             </button>
                         </li>
 
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-order-tab" data-bs-toggle="pill" data-bs-target="#pills-order" type="button" role="tab" aria-controls="pills-order" aria-selected="false"><i data-feather="shopping-bag"></i>Sifariş</button>
-                        </li>
-
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-wishlist-tab" data-bs-toggle="pill" data-bs-target="#pills-wishlist" type="button" role="tab" aria-controls="pills-wishlist" aria-selected="false">
-                                <i data-feather="heart"></i>
-                                İstək Siyahısı
-                            </button>
-                        </li>
-
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-card-tab" data-bs-toggle="pill" data-bs-target="#pills-card" type="button" role="tab" aria-controls="pills-card" aria-selected="false"><i data-feather="credit-card"></i>Saxlanan Kart</button>
-                        </li>
-
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-address-tab" data-bs-toggle="pill" data-bs-target="#pills-address" type="button" role="tab" aria-controls="pills-address" aria-selected="false">
-                                <i data-feather="map-pin"></i>
-                                Ünvan
-                            </button>
                         </li>
 
                         <li class="nav-item" role="presentation">
@@ -147,6 +141,57 @@
 
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-security-tab" data-bs-toggle="pill" data-bs-target="#pills-security" type="button" role="tab" aria-controls="pills-security" aria-selected="false">
+                                <i data-feather="settings"></i>
+                                Parametrlər
+                            </button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-out-tab" data-bs-toggle="pill" data-bs-target="#pills-out" type="button" role="tab" aria-selected="false">
+                                <i data-feather="log-out"></i>
+                                Çıxış
+                            </button>
+                        </li>
+
+                        @* ---- *@
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-dashboard-tab" data-bs-toggle="pill" data-bs-target="#pills-dashboard-member" type="button" role="tab" aria-controls="pills-dashboard" aria-selected="true">
+                                <i data-feather="home"></i>
+                                İdarə Panelim
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-order-tab" data-bs-toggle="pill" data-bs-target="#pills-order-member" type="button" role="tab" aria-controls="pills-order" aria-selected="false"><i data-feather="shopping-bag"></i>Sifariş</button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-wishlist-tab" data-bs-toggle="pill" data-bs-target="#pills-wishlist-member" type="button" role="tab" aria-controls="pills-wishlist" aria-selected="false">
+                                <i data-feather="heart"></i>
+                                İstək Siyahısı
+                            </button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-card-tab" data-bs-toggle="pill" data-bs-target="#pills-card-member" type="button" role="tab" aria-controls="pills-card" aria-selected="false"><i data-feather="credit-card"></i>Saxlanan Kart</button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-address-tab" data-bs-toggle="pill" data-bs-target="#pills-address-member" type="button" role="tab" aria-controls="pills-address" aria-selected="false">
+                                <i data-feather="map-pin"></i>
+                                Ünvan
+                            </button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile-member" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                                <i data-feather="user"></i>
+                                Profil
+                            </button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-security-tab" data-bs-toggle="pill" data-bs-target="#pills-security-member" type="button" role="tab" aria-controls="pills-security" aria-selected="false">
                                 <i data-feather="shield"></i>
                                 Məxfilik
                             </button>
@@ -160,6 +205,1248 @@
                 <div class="dashboard-right-sidebar">
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel" aria-labelledby="pills-dashboard-tab">
+                            <div class="dashboard-home">
+                                <div class="title">
+                                    <h2>Satıcı İdarə Paneli</h2>
+                                    <!-- <span class="title-leaf">
+                                        <svg class="icon-width bg-gray">
+                                            <use xlink:href="../assets/svg/leaf.svg#leaf"></use>
+                                        </svg>
+                                    </span> -->
+                                </div>
+
+                                <div class="dashboard-user-name">
+                                    <h6 class="text-content">Salam, <b class="text-title">Toghrul Gafarov</b></h6>
+                                    <p class="text-content">Hesabım İdarə Panelindən son hesab fəaliyyətinizin snepşotunu görmək və hesab məlumatlarınızı yeniləmək imkanı var. Məlumata baxmaq və ya redaktə etmək üçün aşağıdakı linki seçin.</p>
+                                </div>
+
+                                <div class="total-box">
+                                    <div class="row g-sm-4 g-3">
+                                        <div class="col-xxl-4 col-lg-6 col-md-4 col-sm-6">
+                                            <div class="totle-contain">
+                                                <img src="~/assets/images/svg/order.svg" class="img-1 blur-up lazyload" alt="">
+                                                <img src="~/assets/images/svg/order.svg" class="blur-up lazyload" alt="">
+                                                <div class="totle-detail">
+                                                    <h5>Total Products</h5>
+                                                    <h3>45</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xxl-4 col-lg-6 col-md-4 col-sm-6">
+                                            <div class="totle-contain">
+                                                <img src="~/assets/images/svg/pending.svg" class="img-1 blur-up lazyload" alt="">
+                                                <img src="~/assets/images/svg/pending.svg" class="blur-up lazyload" alt="">
+                                                <div class="totle-detail">
+                                                    <h5>Ümumi Sifariş</h5>
+                                                    <h3>16660</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xxl-4 col-lg-6 col-md-4 col-sm-6">
+                                            <div class="totle-contain">
+                                                <img src="~/assets/images/svg/wishlist.svg" class="img-1 blur-up lazyload" alt="">
+                                                <img src="~/assets/images/svg/wishlist.svg" class="blur-up lazyload" alt="">
+                                                <div class="totle-detail">
+                                                    <h5>Ümumi Gözləyən Sifariş</h5>
+                                                    <h3>66</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xxl-4 col-lg-6 col-md-4 col-sm-6">
+                                            <div class="totle-contain">
+                                                <img src="~/assets/images/svg/profit.svg" class="img-1 blur-up lazyload" alt="">
+                                                <img src="~/assets/images/svg/profit.svg" class="blur-up lazyload" alt="">
+                                                <div class="totle-detail">
+                                                    <h5>Total</h5>
+                                                    <h3>$6666</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-xxl-6">
+                                        <div class="dashboard-bg-box">
+                                            <div id="chart"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xxl-6">
+                                        <div class="dashboard-bg-box">
+                                            <div id="sale"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xxl-6">
+                                        <div class="table-responsive dashboard-bg-box">
+                                            <div class="dashboard-title mb-4">
+                                                <h3>Trend Məhsullar</h3>
+                                            </div>
+
+                                            <table class="table product-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Şəkillər</th>
+                                                        <th scope="col">Məhsulun adı</th>
+                                                        <th scope="col">Qiymət</th>
+                                                        <th scope="col">Satışlar</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="product-image">
+                                                            <img src="~/assets/images/category_1/1.png" class="img-fluid" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <h6>Lorem ipsum dolor sit amet.</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6>$25.69</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6>152</h6>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="product-image">
+                                                            <img src="~/assets/images/category_1/2.png" class="img-fluid" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <h6>Lorem ipsum dolor sit amet.</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6>$35.36</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6>34</h6>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="product-image">
+                                                            <img src="~/assets/images/category_1/3.png" class="img-fluid" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <h6>Lorem ipsum dolor sit amet.</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6>$78.55</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6>78</h6>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="product-image">
+                                                            <img src="~/assets/images/category_1/4.png" class="img-fluid" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <h6>Lorem ipsum dolor sit amet.</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6>$32.98</h6>
+                                                        </td>
+                                                        <td>
+                                                            <h6>135</h6>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xxl-6">
+                                        <div class="order-tab dashboard-bg-box">
+                                            <div class="dashboard-title mb-4">
+                                                <h3>Son Sifariş</h3>
+                                            </div>
+
+                                            <div class="table-responsive">
+                                                <table class="table order-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Sifariş ID</th>
+                                                            <th scope="col">Məhsulun adı</th>
+                                                            <th scope="col">Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="product-image">#254834</td>
+                                                            <td>
+                                                                <h6>Lorem, ipsum dolor.</h6>
+                                                            </td>
+                                                            <td>
+                                                                <label class="success">Göndərilib</label>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="product-image">#355678</td>
+                                                            <td>
+                                                                <h6>Lorem, ipsum dolor.</h6>
+                                                            </td>
+                                                            <td>
+                                                                <label class="danger">Gözləyən</label>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="product-image">#647536</td>
+                                                            <td>
+                                                                <h6>Lorem, ipsum dolor.</h6>
+                                                            </td>
+                                                            <td>
+                                                                <label class="success">Göndərilib</label>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="product-image">#125689</td>
+                                                            <td>
+                                                                <h6>Lorem, ipsum dolor.</h6>
+                                                            </td>
+                                                            <td>
+                                                                <label class="danger">Gözləyən</label>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="product-image">#215487</td>
+                                                            <td>
+                                                                <h6>Lorem, ipsum dolor.</h6>
+                                                            </td>
+                                                            <td>
+                                                                <label class="danger">Gözləyən</label>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="product-image">#365474</td>
+                                                            <td>
+                                                                <h6>Lorem, ipsum dolor.</h6>
+                                                            </td>
+                                                            <td>
+                                                                <label class="success">Göndərilib</label>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="product-image">#368415</td>
+                                                            <td>
+                                                                <h6>Lorem, ipsum dolor.</h6>
+                                                            </td>
+                                                            <td>
+                                                                <label class="danger">Gözləyən</label>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="pills-product" role="tabpanel" aria-labelledby="pills-product-tab">
+                            <div class="product-tab">
+                                <div class="title">
+                                    <h2>Bütün məhsullar</h2>
+                                    <!-- <span class="title-leaf">
+                                        <svg class="icon-width bg-gray">
+                                            <use xlink:href="../assets/svg/leaf.svg#leaf"></use>
+                                        </svg>
+                                    </span> -->
+                                </div>
+
+                                <div class="table-responsive dashboard-bg-box">
+                                    <table class="table product-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Şəkillər</th>
+                                                <th scope="col">Məhsulun adı</th>
+                                                <th scope="col">Qiymət</th>
+                                                <th scope="col">Stok</th>
+                                                <th scope="col">Satışlar</th>
+                                                <th scope="col">Redaktə et / Sil</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="product-image">
+                                                    <img src="~/assets/images/category_1/1.png" class="img-fluid" alt="">
+                                                </td>
+                                                <td>
+                                                    <h6>Lorem ipsum dolor sit amet.</h6>
+                                                </td>
+                                                <td>
+                                                    <h6 class="theme-color fw-bold">$25.69</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>63</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>152</h6>
+                                                </td>
+                                                <td class="efit-delete">
+                                                    <i data-feather="edit" class="edit"></i>
+                                                    <i data-feather="trash-2" class="delete"></i>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="product-image">
+                                                    <img src="~/assets/images/category_1/2.png" class="img-fluid" alt="">
+                                                </td>
+                                                <td>
+                                                    <h6>Lorem ipsum dolor sit amet.</h6>
+                                                </td>
+                                                <td>
+                                                    <h6 class="theme-color fw-bold">$35.36</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>14</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>34</h6>
+                                                </td>
+                                                <td class="efit-delete">
+                                                    <i data-feather="edit" class="edit"></i>
+                                                    <i data-feather="trash-2" class="delete"></i>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="product-image">
+                                                    <img src="~/assets/images/category_1/3.png" class="img-fluid" alt="">
+                                                </td>
+                                                <td>
+                                                    <h6>Lorem ipsum dolor sit amet.</h6>
+                                                </td>
+                                                <td>
+                                                    <h6 class="theme-color fw-bold">$78.55</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>55</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>78</h6>
+                                                </td>
+                                                <td class="efit-delete">
+                                                    <i data-feather="edit" class="edit"></i>
+                                                    <i data-feather="trash-2" class="delete"></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="product-image">
+                                                    <img src="~/assets/images/category_1/4.png" class="img-fluid" alt="">
+                                                </td>
+                                                <td>
+                                                    <h6>Lorem ipsum dolor sit amet.</h6>
+                                                </td>
+                                                <td>
+                                                    <h6 class="theme-color fw-bold">$32.98</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>69</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>135</h6>
+                                                </td>
+                                                <td class="efit-delete">
+                                                    <i data-feather="edit" class="edit"></i>
+                                                    <i data-feather="trash-2" class="delete"></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="product-image">
+                                                    <img src="~/assets/images/category_1/5.png" class="img-fluid" alt="">
+                                                </td>
+                                                <td>
+                                                    <h6>Lorem ipsum dolor sit amet.</h6>
+                                                </td>
+                                                <td>
+                                                    <h6 class="theme-color fw-bold">$36.98</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>35</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>154</h6>
+                                                </td>
+                                                <td class="efit-delete">
+                                                    <i data-feather="edit" class="edit"></i>
+                                                    <i data-feather="trash-2" class="delete"></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="product-image">
+                                                    <img src="~/assets/images/category_1/6.png" class="img-fluid" alt="">
+                                                </td>
+                                                <td>
+                                                    <h6>Lorem ipsum dolor sit amet.</h6>
+                                                </td>
+                                                <td>
+                                                    <h6 class="theme-color fw-bold">$36.58</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>69</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>168</h6>
+                                                </td>
+                                                <td class="efit-delete">
+                                                    <i data-feather="edit" class="edit"></i>
+                                                    <i data-feather="trash-2" class="delete"></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="product-image">
+                                                    <img src="~/assets/images/category_1/7.png" class="img-fluid" alt="">
+                                                </td>
+                                                <td>
+                                                    <h6>Lorem ipsum dolor sit amet.</h6>
+                                                </td>
+                                                <td>
+                                                    <h6 class="theme-color fw-bold">$25.69</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>63</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>152</h6>
+                                                </td>
+                                                <td class="efit-delete">
+                                                    <i data-feather="edit" class="edit"></i>
+                                                    <i data-feather="trash-2" class="delete"></i>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <nav class="custome-pagination">
+                                        <ul class="pagination justify-content-center">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="javascript:void(0)" tabindex="-1">
+                                                    <i class="fa-solid fa-angles-left"></i>
+                                                </a>
+                                            </li>
+                                            <li class="page-item active">
+                                                <a class="page-link" href="javascript:void(0)">1</a>
+                                            </li>
+                                            <li class="page-item" aria-current="page">
+                                                <a class="page-link" href="javascript:void(0)">2</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:void(0)">3</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:void(0)">
+                                                    <i class="fa-solid fa-angles-right"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-newproduct" role="tabpanel" aria-labelledby="pills-newproduct-tab">
+                            <div class="product-tab">
+                                <div class="title">
+                                    <h2>Məhsul haqqında məlumat</h2>
+                                    <!-- <span class="title-leaf">
+                                        <svg class="icon-width bg-gray">
+                                            <use xlink:href="../assets/svg/leaf.svg#leaf"></use>
+                                        </svg>
+                                    </span> -->
+                                </div>
+
+                                <div class="table-responsive dashboard-bg-box">
+                                    <!-- New Product Add Start -->
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div class="col-sm-12 m-auto">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="card-header-2">
+                                                                    <h5>Məhsul haqqında məlumat</h5>
+                                                                </div>
+
+                                                                <form class="theme-form theme-form-2 mega-form">
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="form-label-title col-sm-3 mb-0">Məhsulun adı</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="text" placeholder="Məhsulun adı">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Məhsulun növü</label>
+                                                                        <div class="col-sm-9">
+                                                                            <select class="js-example-basic-single w-100" name="state">
+                                                                                <option disabled>Statik Menyu</option>
+                                                                                <option>Sadə</option>
+                                                                                <option>Təsnifat</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Kateqoriya</label>
+                                                                        <div class="col-sm-9">
+                                                                            <select class="js-example-basic-single w-100" name="state">
+                                                                                <option disabled>Kateqoriya</option>
+                                                                                <option>Geyim</option>
+                                                                                <option>Ayaqqabı</option>
+                                                                                <option>Makiyaj</option>
+                                                                                <option>Lorem, ipsum.</option>
+                                                                                <option>Lorem</option>
+                                                                                <option>Lorem, ipsum.</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Kateqoriya</label>
+                                                                        <div class="col-sm-9">
+                                                                            <select class="js-example-basic-single w-100" name="state">
+                                                                                <option disabled>Kateqoriya menyusu</option>
+                                                                                <option>Geyim/Qadın</option>
+                                                                                <option>Geyim/Kişi</option>
+                                                                                <option>Geyim/Uşaq</option>
+                                                                                <option>Ayaqqabı/Qadın</option>
+                                                                                <option>Ayaqqabı/Kişi</option>
+                                                                                <option>Ayaqqabı/Uşaq</option>
+                                                                                <option>Lorem, ipsum.</option>
+                                                                                <option>Lorem</option>
+                                                                                <option>Lorem, ipsum.</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Alt kateqoriya</label>
+                                                                        <div class="col-sm-9">
+                                                                            <select class="js-example-basic-single w-100" name="state">
+                                                                                <option disabled>Alt Kateqoriya Menyusu</option>
+                                                                                <option>Alt paltarı</option>
+                                                                                <option>Ev geyimi</option>
+                                                                                <option>Kolqotkalar,Corablar</option>
+                                                                                <option>Çimərlik və istirahət geyimi</option>
+                                                                                <option>köynəklər</option>
+                                                                                <option>Lorem, ipsum.</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Marka/Brend</label>
+                                                                        <div class="col-sm-9">
+                                                                            <select class="js-example-basic-single w-100">
+                                                                                <option disabled>Brend Menu</option>
+                                                                                <option value="puma">Puma</option>
+                                                                                <option value="hrx">HRX</option>
+                                                                                <option value="roadster">Roadster</option>
+                                                                                <option value="zara">Zara</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Vahid</label>
+                                                                        <div class="col-sm-9">
+                                                                            <select class="js-example-basic-single w-100">
+                                                                                <option disabled>Vahid Menyu</option>
+                                                                                <option>Kilogram</option>
+                                                                                <option>Ədəd</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Teqlər</label>
+                                                                        <div class="col-sm-9">
+                                                                            <div class="bs-example">
+                                                                                <input type="text" class="form-control" placeholder="Etiket yazın və enter düyməsini basın" id="#inputTag" data-role="tagsinput">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Mübadilə edilə bilən</label>
+                                                                        <div class="col-sm-9">
+                                                                            <label class="switch">
+                                                                                <input type="checkbox"><span class="switch-state"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Geri qaytarıla bilər</label>
+                                                                        <div class="col-sm-9">
+                                                                            <label class="switch">
+                                                                                <input type="checkbox" checked=""><span class="switch-state"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="card-header-2">
+                                                                    <h5>Təsvir</h5>
+                                                                </div>
+
+                                                                <form class="theme-form theme-form-2 mega-form">
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+                                                                            <div class="row">
+                                                                                <label class="form-label-title col-sm-3 mb-0">Məhsulun Təsviri</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <div id="editor"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="card-header-2">
+                                                                    <h5>Məhsulun Şəkilləri</h5>
+                                                                </div>
+
+                                                                <form class="theme-form theme-form-2 mega-form">
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Şəkillər</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control form-choose" type="file" id="formFile" multiple>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Miniatür Şəkil</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control form-choose" type="file" id="formFileMultiple1" multiple>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="card-header-2">
+                                                                    <h5>Məhsul Videoları</h5>
+                                                                </div>
+
+                                                                <form class="theme-form theme-form-2 mega-form">
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Video Provayderi</label>
+                                                                        <div class="col-sm-9">
+                                                                            <select class="js-example-basic-single w-100" name="state">
+                                                                                <option>Vimeo</option>
+                                                                                <option>Youtube</option>
+                                                                                <option>Dailymotion</option>
+                                                                                <option>Lorem</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row align-items-center">
+                                                                        <label class="form-label-title col-sm-3 mb-0">Video Linki</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="text" placeholder="Video Linki">
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="card-header-2">
+                                                                    <h5>Məhsulların növləri</h5>
+                                                                </div>
+
+                                                                <form class="theme-form theme-form-2 mega-form">
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="form-label-title col-sm-3 mb-0">Seçim Adı</label>
+                                                                        <div class="col-sm-9">
+                                                                            <select class="js-example-basic-single w-100" name="state">
+                                                                                <option>Rəng</option>
+                                                                                <option>Ölçü</option>
+                                                                                <option>Material</option>
+                                                                                <option>Stil</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Seçim Dəyəri</label>
+                                                                        <div class="col-sm-9">
+                                                                            <div class="bs-example">
+                                                                                <input type="text" class="form-control" placeholder="Etiket yazın və enter düyməsini basın" id="#inputTag" data-role="tagsinput">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+
+                                                                <a href="#" class="add-option"><i class="ri-add-line me-2"></i>Başqa bir seçim əlavə edin</a>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="card-header-2">
+                                                                    <h5>Göndərmə</h5>
+                                                                </div>
+
+                                                                <form class="theme-form theme-form-2 mega-form">
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="form-label-title col-sm-3 mb-0">Çəki (kg)</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="number" placeholder="Weight">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Ölçüləri (cm)</label>
+                                                                        <div class="col-sm-9">
+                                                                            <select class="js-example-basic-single w-100" name="state">
+                                                                                <option>Uzunluq</option>
+                                                                                <option>Genişlik</option>
+                                                                                <option>Hündürlük</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="card-header-2">
+                                                                    <h5>Məhsulun Qiyməti</h5>
+                                                                </div>
+
+                                                                <form class="theme-form theme-form-2 mega-form">
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 form-label-title">Qiymət</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="number" placeholder="0">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 form-label-title">Qiymətə görə müqayisə edin</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="number" placeholder="0">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 form-label-title">Məhsul başına xərc</label>
+                                                                        <div class="col-sm-5">
+                                                                            <input class="form-control" type="number" placeholder="0">
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            <label>Margin/Marj:</label>
+                                                                            <span>25%</span>
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            <label>Profit/Mənfəət:</label>
+                                                                            <span>$5</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="card-header-2">
+                                                                    <h5>Məhsul İnventarı</h5>
+                                                                </div>
+
+                                                                <form class="theme-form theme-form-2 mega-form">
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="form-label-title col-sm-3 mb-0">SKU</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="text">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="col-sm-3 col-form-label form-label-title">Stok Statusu</label>
+                                                                        <div class="col-sm-9">
+                                                                            <select class="js-example-basic-single w-100" name="state">
+                                                                                <option>Stokta var</option>
+                                                                                <option>Stokda yoxdur</option>
+                                                                                <option>Ehtiyat Sifariş</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                                <table class="table variation-table table-responsive-sm">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th scope="col">Variant</th>
+                                                                            <th scope="col">Qiymət</th>
+                                                                            <th scope="col">SKU</th>
+                                                                            <th scope="col">Kəmiyyət</th>
+                                                                            <th scope="col"></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Red</td>
+                                                                            <td>
+                                                                                <input class="form-control" type="number" placeholder="0">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input class="form-control" type="number" placeholder="0">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input class="form-control" type="number" placeholder="0">
+                                                                            </td>
+                                                                            <td>
+                                                                                <ul class="order-option">
+                                                                                    <li>
+                                                                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#deleteModal"><i class="uil uil-trash-alt"></i></a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Mavi</td>
+                                                                            <td>
+                                                                                <input class="form-control" type="number" placeholder="0">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input class="form-control" type="number" placeholder="0">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input class="form-control" type="number" placeholder="0">
+                                                                            </td>
+                                                                            <td>
+                                                                                <ul class="order-option">
+                                                                                    <li>
+                                                                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#deleteModal"><i class="uil uil-trash-alt"></i></a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="card-header-2">
+                                                                    <h5>Məhsulları əlaqələndirin</h5>
+                                                                </div>
+
+                                                                <form class="theme-form theme-form-2 mega-form">
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="form-label-title col-sm-3 mb-0">Yüksək satışlar</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="search">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row align-items-center">
+                                                                        <label class="form-label-title col-sm-3 mb-0">Çapraz satışlar</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="search">
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="card-header-2">
+                                                                    <h5>Lorem, ipsum dolor.</h5>
+                                                                </div>
+
+                                                                <div class="seo-view">
+                                                                    <span class="link">https://saytadi.com</span>
+                                                                    <h5>Ən yaxşı qiymətə onlayn alın</h5>
+                                                                    <p>Onlayn sifariş edin və pulsuz çatdırılma əldə edin.</p>
+                                                                </div>
+
+                                                                <form class="theme-form theme-form-2 mega-form">
+                                                                    <div class="mb-4 row align-items-center">
+                                                                        <label class="form-label-title col-sm-3 mb-0">Səhifə başlığı</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="search" placeholder="E-commerce">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="mb-4 row">
+                                                                        <label class="form-label-title col-sm-3 mb-0">Meta təsviri</label>
+                                                                        <div class="col-sm-9">
+                                                                            <textarea class="form-control" rows="3"></textarea>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <label class="form-label-title col-sm-3 mb-0">URL idarəsi</label>
+                                                                        <div class="col-sm-9">
+                                                                            <input class="form-control" type="search" placeholder="https://nonavm.com">
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- New Product Add End -->
+                                    <!-- <nav class="custome-pagination">
+                                        <ul class="pagination justify-content-center">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="javascript:void(0)" tabindex="-1">
+                                                    <i class="fa-solid fa-angles-left"></i>
+                                                </a>
+                                            </li>
+                                            <li class="page-item active">
+                                                <a class="page-link" href="javascript:void(0)">1</a>
+                                            </li>
+                                            <li class="page-item" aria-current="page">
+                                                <a class="page-link" href="javascript:void(0)">2</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:void(0)">3</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:void(0)">
+                                                    <i class="fa-solid fa-angles-right"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-order" role="tabpanel" aria-labelledby="pills-order-tab">
+                            <div class="dashboard-order">
+                                <div class="title">
+                                    <h2>Bütün Sifarişlər</h2>
+                                    <!-- <span class="title-leaf title-leaf-gray">
+                                        <svg class="icon-width bg-gray">
+                                            <use xlink:href="../assets/svg/leaf.svg#leaf"></use>
+                                        </svg>
+                                    </span> -->
+                                </div>
+
+                                <div class="order-tab dashboard-bg-box">
+                                    <div class="table-responsive">
+                                        <table class="table order-table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Sifariş ID</th>
+                                                    <th scope="col">Məhsulun adı</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Qiymət</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="product-image">#254834</td>
+                                                    <td>
+                                                        <h6>Lorem ipsum dolor sit amet.</h6>
+                                                    </td>
+                                                    <td>
+                                                        <label class="success">Göndərilib</label>
+                                                    </td>
+                                                    <td>
+                                                        <h6>$25.69</h6>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="product-image">#355678</td>
+                                                    <td>
+                                                        <h6>Lorem ipsum dolor sit amet.</h6>
+                                                    </td>
+                                                    <td>
+                                                        <label class="danger">Gözləyən</label>
+                                                    </td>
+                                                    <td>
+                                                        <h6>$25.69</h6>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="product-image">#647536</td>
+                                                    <td>
+                                                        <h6>Lorem ipsum dolor sit amet.</h6>
+                                                    </td>
+                                                    <td>
+                                                        <label class="success">Göndərilib</label>
+                                                    </td>
+                                                    <td>
+                                                        <h6>$25.69</h6>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="product-image">#125689</td>
+                                                    <td>
+                                                        <h6>Lorem ipsum dolor sit amet.</h6>
+                                                    </td>
+                                                    <td>
+                                                        <label class="danger">Gözləyən</label>
+                                                    </td>
+                                                    <td>
+                                                        <h6>$25.69</h6>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="product-image">#215487</td>
+                                                    <td>
+                                                        <h6>Lorem ipsum dolor sit amet.</h6>
+                                                    </td>
+                                                    <td>
+                                                        <label class="danger">Gözləyən</label>
+                                                    </td>
+                                                    <td>
+                                                        <h6>$25.69</h6>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="product-image">#365474</td>
+                                                    <td>
+                                                        <h6>Lorem ipsum dolor sit amet.</h6>
+                                                    </td>
+                                                    <td>
+                                                        <label class="success">Göndərilib</label>
+                                                    </td>
+                                                    <td>
+                                                        <h6>$25.69</h6>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="product-image">#368415</td>
+                                                    <td>
+                                                        <h6>Lorem ipsum dolor sit amet.</h6>
+                                                    </td>
+                                                    <td>
+                                                        <label class="danger">Gözləyən</label>
+                                                    </td>
+                                                    <td>
+                                                        <h6>$25.69</h6>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <nav class="custome-pagination">
+                                        <ul class="pagination justify-content-center">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="javascript:void(0)" tabindex="-1">
+                                                    <i class="fa-solid fa-angles-left"></i>
+                                                </a>
+                                            </li>
+                                            <li class="page-item active">
+                                                <a class="page-link" href="javascript:void(0)">1</a>
+                                            </li>
+                                            <li class="page-item" aria-current="page">
+                                                <a class="page-link" href="javascript:void(0)">2</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:void(0)">3</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:void(0)">
+                                                    <i class="fa-solid fa-angles-right"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <div class="dashboard-profile">
+                                <div class="title">
+                                    <h2>Mənim Profilim</h2>
+                                    <!-- <span class="title-leaf">
+                                        <svg class="icon-width bg-gray">
+                                            <use xlink:href="../assets/svg/leaf.svg#leaf"></use>
+                                        </svg>
+                                    </span> -->
+                                </div>
+
+                                <div class="profile-tab dashboard-bg-box">
+                                    <div class="dashboard-title dashboard-flex">
+                                        <h3>Profil Adı</h3>
+                                        <button class="btn btn-sm theme-bg-color text-white" data-bs-toggle="modal" data-bs-target="#edit-profile">Edit Profile</button>
+                                    </div>
+
+                                    <ul>
+                                        <li>
+                                            <h5>Şirkət Adı :</h5>
+                                            <h5>CodeOnCenter Store</h5>
+                                        </li>
+                                        <li>
+                                            <h5>E-poçt ünvanı :</h5>
+                                            <h5>info@codeoncenter.com</h5>
+                                        </li>
+                                        <li>
+                                            <h5>Ölkə / Şəhər :</h5>
+                                            <h5>Azerbaijan</h5>
+                                        </li>
+
+                                        <li>
+                                            <h5>Şəhər :</h5>
+                                            <h5>Baku</h5>
+                                        </li>
+
+                                        <li>
+                                            <h5>Qurulduğu il :</h5>
+                                            <h5>2023</h5>
+                                        </li>
+
+                                        <li>
+                                            <h5>Ümumi İşçilər :</h5>
+                                            <h5>5-10 nəfər</h5>
+                                        </li>
+                                        <li>
+                                            <h5>Kateqoriya :</h5>
+                                            <h5>Geyim</h5>
+                                        </li>
+
+                                        <li>
+                                            <h5>Küçə ünvanı :</h5>
+                                            <h5>Yasamal ray</h5>
+                                        </li>
+
+                                        <li>
+                                            <h5>Zip kod :</h5>
+                                            <h5>AZ1102</h5>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-security" role="tabpanel" aria-labelledby="pills-security-tab">
+                            <div class="dashboard-privacy">
+                                <div class="title">
+                                    <h2>Parametrlər</h2>
+                                    <!-- <span class="title-leaf">
+                                        <svg class="icon-width bg-gray">
+                                            <use xlink:href="../assets/svg/leaf.svg#leaf"></use>
+                                        </svg>
+                                    </span> -->
+                                </div>
+
+                                <div class="dashboard-bg-box">
+                                    <div class="dashboard-title mb-4">
+                                        <h3>Bildirişlər</h3>
+                                    </div>
+
+                                    <div class="privacy-box">
+                                        <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center">
+                                            <input class="form-check-input" type="radio" id="desktop" name="desktop" checked>
+                                            <label class="form-check-label ms-2" for="desktop">Masaüstü bildirişlərini göstərin</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="privacy-box">
+                                        <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center">
+                                            <input class="form-check-input" type="radio" id="enable" name="desktop">
+                                            <label class="form-check-label ms-2" for="enable">Bildirişləri aktivləşdirin</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="privacy-box">
+                                        <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center">
+                                            <input class="form-check-input" type="radio" id="activity" name="desktop">
+                                            <label class="form-check-label ms-2" for="activity">Öz fəaliyyətim üçün bildiriş alın</label>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn theme-bg-color btn-md fw-bold mt-4 text-white">Dəyişiklikləri yadda saxla</button>
+                                </div>
+
+                                <div class="dashboard-bg-box">
+                                    <div class="dashboard-title mb-4">
+                                        <h3>Hesabı deaktiv edin</h3>
+                                    </div>
+                                    <div class="privacy-box">
+                                        <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center">
+                                            <input class="form-check-input" type="radio" id="concern" name="concern">
+                                            <label class="form-check-label ms-2" for="concern">Məxfiliklə bağlı narahatlığım var</label>
+                                        </div>
+                                    </div>
+                                    <div class="privacy-box">
+                                        <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center">
+                                            <input class="form-check-input" type="radio" id="temporary" name="concern">
+                                            <label class="form-check-label ms-2" for="temporary">Bu müvəqqətidir</label>
+                                        </div>
+                                    </div>
+                                    <div class="privacy-box">
+                                        <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center">
+                                            <input class="form-check-input" type="radio" id="other" name="concern">
+                                            <label class="form-check-label ms-2" for="other">Başqa</label>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn theme-bg-color btn-md fw-bold mt-4 text-white">Hesabı deaktiv edin</button>
+                                </div>
+
+                                <div class="dashboard-bg-box">
+                                    <div class="dashboard-title mb-4">
+                                        <h3>Hesabımı Sil</h3>
+                                    </div>
+                                    <div class="privacy-box">
+                                        <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center">
+                                            <input class="form-check-input" type="radio" id="usable" name="usable">
+                                            <label class="form-check-label ms-2" for="usable">Artıq istifadə edilə bilməz</label>
+                                        </div>
+                                    </div>
+                                    <div class="privacy-box">
+                                        <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center">
+                                            <input class="form-check-input" type="radio" id="account" name="usable">
+                                            <label class="form-check-label ms-2" for="account">Başqa hesaba keçmək istəyirəm</label>
+                                        </div>
+                                    </div>
+                                    <div class="privacy-box">
+                                        <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center">
+                                            <input class="form-check-input" type="radio" id="other-2" name="usable">
+                                            <label class="form-check-label ms-2" for="other-2">Başqa</label>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn theme-bg-color btn-md fw-bold mt-4 text-white">Hesabımı Sil</button>
+                                </div>
+                            </div>
+                        </div>
+
+                      @* ----- *@-member
+
+                        <div class="tab-pane fade" id="pills-dashboard-member" role="tabpanel" aria-labelledby="pills-dashboard-tab">
                             <div class="dashboard-home">
                                 <div class="title">
                                     <h2>Mənim İdarə Panelim</h2>
@@ -270,7 +1557,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade show" id="pills-wishlist" role="tabpanel" aria-labelledby="pills-wishlist-tab">
+                        <div class="tab-pane fade" id="pills-wishlist-member" role="tabpanel" aria-labelledby="pills-wishlist-tab">
                             <div class="dashboard-wishlist">
                                 <div class="title">
                                     <h2>İstək Siyahım Tarixçəm</h2>
@@ -665,7 +1952,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade show" id="pills-order" role="tabpanel" aria-labelledby="pills-order-tab">
+                        <div class="tab-pane fade" id="pills-order-member" role="tabpanel" aria-labelledby="pills-order-tab">
                             <div class="dashboard-order">
                                 <div class="title">
                                     <h2>Mənim Sifariş Tarixçəm</h2>
@@ -972,7 +2259,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade show" id="pills-address" role="tabpanel" aria-labelledby="pills-address-tab">
+                        <div class="tab-pane fade" id="pills-address-member" role="tabpanel" aria-labelledby="pills-address-tab">
                             <div class="dashboard-address">
                                 <div class="title title-flex">
                                     <div>
@@ -1253,7 +2540,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade show" id="pills-card" role="tabpanel" aria-labelledby="pills-card-tab">
+                        <div class="tab-pane fade" id="pills-card-member" role="tabpanel" aria-labelledby="pills-card-tab">
                             <div class="dashboard-card">
                                 <div class="title title-flex">
                                     <div>
@@ -1416,7 +2703,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade show" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="tab-pane fade" id="pills-profile-member" role="tabpanel" aria-labelledby="pills-profile-tab">
                             <div class="dashboard-profile">
                                 <div class="title">
                                     <h2>Mənim Profilim</h2>
@@ -1563,7 +2850,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade show" id="pills-security" role="tabpanel" aria-labelledby="pills-security-tab">
+                        <div class="tab-pane fade" id="pills-security-member" role="tabpanel" aria-labelledby="pills-security-tab">
                             <div class="dashboard-privacy">
                                 <div class="dashboard-bg-box">
                                     <div class="dashboard-title mb-4">
@@ -2214,3 +3501,73 @@
     </div>
 </div>
 <!-- Remove Profile Modal End -->
+<!-- Edit Profile Modal Start -->
+<div class="modal fade theme-modal" id="edit-profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel3">Profilinizi Redaktə edin</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="companyName" class="form-label">Şirkət Adı</label>
+                        <input type="text" class="form-control" id="companyName" value="CodeOnCenter">
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailAddress" class="form-label">E-poçt ünvanı</label>
+                        <input type="email" class="form-control" id="emailAddress" value="info@codeoncenter.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Ölkə</label>
+                        <input type="text" class="form-control" id="country" value="Azerbaijan">
+                    </div>
+                    <div class="mb-3">
+                        <label for="established" class="form-label">Qurulduğu il</label>
+                        <input type="email" class="form-control" id="established" value="2023">
+                    </div>
+                    <div class="mb-3">
+                        <label for="employees" class="form-label">Ümumi İşçilər</label>
+                        <input type="text" class="form-control" id="employees" value="5-10 nəfər">
+                    </div>
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Kateqoriya</label>
+                        <input type="email" class="form-control" id="category" value="Geyim">
+                    </div>
+                    <div class="mb-3">
+                        <label for="street" class="form-label">Küçə ünvanı</label>
+                        <input type="text" class="form-control" id="street" value="Nesimi ray">
+                    </div>
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City / State</label>
+                        <input type="email" class="form-control" id="city" value="Baku">
+                    </div>
+                    <div class="mb-3">
+                        <label for="zip" class="form-label">Zip kod</label>
+                        <input type="text" class="form-control" id="zip" value="AZ1102">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Ləğv et</button>
+                <button type="button" class="btn theme-bg-color btn-md fw-bold text-light" data-bs-dismiss="modal">Yadda saxla</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Edit Profile Modal End -->
+
+@section Scripts {
+    <!-- Apexchart Js -->
+    <script src="~/assets/js/apexchart.js"></script>
+    <script src="~/assets/js/custom-chart.js"></script>
+
+    <!-- Nav & tab upside js -->
+    <script src="~/assets/js/nav-tab.js"></script>
+    <!-- ck editor js -->
+    <script src="~/AdminStatics/assets/js/ckeditor.js"></script>
+    <script src="~/AdminStatics/assets/js/ckeditor-custom.js"></script>
+}
