@@ -15,7 +15,7 @@ namespace ECommerse.WebUI.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Profile()
+        public async Task<IActionResult> EditProfile()
         {
             AppUser? user = await userManager.FindByIdAsync(User?.Claims?.FirstOrDefault(c => c?.Type == ClaimTypes.NameIdentifier)?.Value!);
             if (user == null)
@@ -32,7 +32,7 @@ namespace ECommerse.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult>Profile(UserEditViewModel userDto)
+        public async Task<IActionResult> EditProfile(UserEditViewModel userDto)
         {
             var user = await userManager.FindByEmailAsync(userDto.Email);
             user.UserName = userDto.UserName;

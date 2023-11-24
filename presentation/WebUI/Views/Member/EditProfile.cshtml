@@ -2720,7 +2720,7 @@
                                     </div>
                                     <div class="profile-name-detail">
                                         <div class="d-sm-flex align-items-center d-block">
-                                            <h3>Toghrul Gafarov</h3>
+                                            <h3>@Model.Name @Model.Surname</h3>
                                             <div class="product-rating profile-rating">
                                                 <ul class="rating">
                                                     <li>
@@ -2750,14 +2750,14 @@
                                             <li>
                                                 <div class="location-box">
                                                     <i data-feather="map-pin"></i>
-                                                    <h6>Toghrul Gafarov</h6>
+                                                    <h6>@Model.Name @Model.Surname</h6>
                                                 </div>
                                             </li>
 
                                             <li>
                                                 <div class="location-box">
                                                     <i data-feather="mail"></i>
-                                                    <h6>info@codeoncenter.com</h6>
+                                                    <h6>@Model.Email</h6>
                                                 </div>
                                             </li>
 
@@ -2787,16 +2787,16 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>Cinsi :</td>
-                                                            <td>Kişi</td>
+                                                            <td>@Model?.Gender</td>
                                                         </tr>
                                                         <tr>
                                                             <td>Doğum günü :</td>
-                                                            <td>18/10/1994</td>
+                                                            <td>@Model?.BirthDay</td>
                                                         </tr>
                                                         <tr>
                                                             <td>Telefon nömrəsi :</td>
                                                             <td>
-                                                                <a href="javascript:void(0)"> +994 51 - 527 - 0966</a>
+                                                                <a href="javascript:void(0)"> @Model?.PhoneNumber</a>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -2818,7 +2818,7 @@
                                                             <td>E-poçt :</td>
                                                             <td>
                                                                 <a href="javascript:void(0)">
-                                                                    info@codeoncenter.com
+                                                                    @Model?.Email
                                                                     <span data-bs-toggle="modal"
                                                                           data-bs-target="#editProfile">Redaktə et</span>
                                                                 </a>
@@ -3305,26 +3305,40 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <form>
+            <form asp-controller="Member" asp-action="EditProfile">
                 <div class="modal-body">
                     <div class="row g-4">
                         <div class="col-xxl-12">
                                 <div class="form-floating theme-form-floating">
-                                    <input type="text" class="form-control" id="pname" value="Jack Jennas">
-                                    <label for="pname">Tam adı</label>
+                                <input asp-for="UserName" class="form-control" value="@Model.UserName">
+                                    <label for="pname">Isdifadəçi adı</label>
+                                </div>
+                        </div>                    
+                        
+                        <div class="col-xxl-12">
+                                <div class="form-floating theme-form-floating">
+                                <input asp-for="Name" class="form-control" value="@Model.Name">
+                                    <label for="pname">Adı</label>
+                                </div>
+                        </div>   
+                        
+                        <div class="col-xxl-12">
+                                <div class="form-floating theme-form-floating">
+                                    <input asp-for="Surname" class="form-control" value="@Model.Surname">
+                                    <label for="pname">Soyadı</label>
                                 </div>
                         </div>
 
                         <div class="col-xxl-6">
                                 <div class="form-floating theme-form-floating">
-                                    <input type="email" class="form-control" id="email1" value="info@codeoncenter.com">
+                                    <input asp-for="Email" class="form-control"  value="@Model.Email">
                                     <label for="email1">E-poçt ünvanı</label>
                                 </div>
                         </div>
 
                         <div class="col-xxl-6">
                                 <div class="form-floating theme-form-floating">
-                                    <input class="form-control" type="tel" value="+994 51 527 09 66" name="mobile" id="mobile" maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value =
+                                    <input class="form-control" asp-for="PhoneNumber" value="@Model.PhoneNumber"  maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value =
                                                 this.value.slice(0, this.maxLength);">
                                     <label for="mobile">Mobil nömrə</label>
                                 </div>
@@ -3341,6 +3355,12 @@
                                 <div class="form-floating theme-form-floating">
                                     <input type="text" class="form-control" id="address2" value="AZ 1102">
                                     <label for="address2">Ünvan 2 əlavə edin</label>
+                                </div>
+                        </div>  
+                        <div class="col-12">
+                                <div class="form-floating theme-form-floating">
+                                <input asp-for="ProfilePicture" class="form-control"  value="@Model.ProfilePicture">
+                                    <label for="address2">Şəkil əlavə edin</label>
                                 </div>
                         </div>
 
