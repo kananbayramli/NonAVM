@@ -1,12 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ECommerse.Business.Services.Abstract;
 
 namespace ECommerse.WebUI.Areas.Admin.Controllers
 {
     public class ProductItemController : Controller
     {
-        public IActionResult Index()
+        private readonly IProductItemService _productItemService;
+
+        public ProductItemController(IProductItemService productItemService)
         {
-            return View();
+            _productItemService = productItemService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var productItems = await _productItemService.GetAllAsync();
+            return View(productItems);
         }
     }
 }
