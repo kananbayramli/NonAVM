@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace ECommerse.Business.Services.Abstract
 {
-    internal interface IProductItemService
+    public interface IProductItemService
     {
         Task Create(ProductItemDTO productItemDto);
         Task<List<ProductItemDTO>> GetAllAsync(Expression<Func<ProductItem, bool>>? expression = null, params Expression<Func<ProductItem, object>>[] includes);
