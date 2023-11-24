@@ -1,4 +1,5 @@
-﻿namespace ECommerse.Business.DTO_s;
+﻿
+namespace ECommerse.Business.DTO_s;
 
 public class ProductItemDTO
 {
