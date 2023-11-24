@@ -169,38 +169,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="header_right pr-0">
-                        <ul>
-                            <li class="ui dropdown">
-                                <a href="#" class="opts_account" title="Account">
-                                    <img src="~/assets/images/inner-page/user/1.png" alt="">
-                                </a>
-                                <div class="menu dropdown_account">
-                                    <div class="channel_my">
-                                        <div class="profile_link">
-                                            <img src="~/assets/images/inner-page/user/1.png" alt="">
-                                            <div class="pd_content">
-                                                <div class="rhte85">
-                                                    <h6>@User.Identity.Name</h6>
-                                                    <div class="mef78" title="Verify">
-                                                        <i class='uil uil-check-circle'></i>
-                                                    </div>
-                                                </div>
-                                                <span>info@codeoncenter.com</span>
-                                            </div>
-                                        </div>
-                                        <a href="user-dashboard.html" class="dp_link_12">İstifadəçi İdarə Paneli Profili</a>
-                                    </div>
-                                    <a asp-area="Admin" class="item channel_item"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/dashboard.svg" class="blur-up lazyload " alt=" ">İdarə Paneli</a>
-                                    <a href="referral_details.html" class="item channel_item"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/referral.svg" class="blur-up lazyload " alt=" ">Referral</a>
-                                    <a href="faq.html" class="item channel_item"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/help.svg" class="blur-up lazyload " alt=" ">Kömək</a>
-                                    <a href="wishlist.html" class="item channel_item"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/heart.svg" class="blur-up lazyload " alt=" ">İstək Siyahısı</a>
-                                    <a href="#" class="item channel_item"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/setting.svg" class="blur-up lazyload " alt=" ">Parametr</a>
-                                    <a asp-controller="Auth" asp-action="Logout" asp-route-returnurl="/Home/Index" class="item channel_item"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/logout.svg" class="blur-up lazyload " alt=" ">Çıxış</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                    @await Component.InvokeAsync("UserLayout")
                 </li>
                 }
             </ul>
