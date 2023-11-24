@@ -2582,7 +2582,6 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\ProductItem\" />
-    <Folder Include="wwwroot\photos\" />
   </ItemGroup>
 
 </Project>
