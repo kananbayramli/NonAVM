@@ -3,7 +3,7 @@ using ECommerse.Business.DTO_s;
 using ECommerse.Core.Entities;
 using ECommerse.Core.Identity;
 using ECommerse.WebUI.Controllers;
-using ECommerse.WebUI.ViewModels;
+using ECommerse.WebUI.Models.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

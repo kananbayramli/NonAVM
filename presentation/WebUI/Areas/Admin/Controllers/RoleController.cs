@@ -1,6 +1,6 @@
 ﻿using ECommerse.Core.Identity;
 using ECommerse.WebUI.Controllers;
-using ECommerse.WebUI.ViewModels;
+using ECommerse.WebUI.Models.Role;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 

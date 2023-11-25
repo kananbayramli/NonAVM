@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ECommerse.WebUI.ViewModels;
+namespace ECommerse.WebUI.Models.Role;
 
 public class RoleViewModel
 {
