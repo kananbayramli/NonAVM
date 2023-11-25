@@ -9,9 +9,8 @@ using System.Threading.Tasks;
 
 namespace ECommerse.Business.DTO_s
 {
-    public class UserDTO : IMapFrom<AppUser>
+    public class UserDTO : BaseDTO<string>, IMapFrom<AppUser>
     {
-        public string Id { get; set; } = null!;
         public string Name { get; set; } = null!;
         public string Email { get; set; } = null!;
         public string? PhoneNumber{ get; set; }
