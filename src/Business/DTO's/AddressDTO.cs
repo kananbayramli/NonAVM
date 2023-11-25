@@ -17,10 +17,9 @@ namespace ECommerse.Business.DTO_s
 
         public ICollection<OrderDTO>? Orders { get; set; }
 
-        public string AdressLine1 { get; set; } = null!;
-        public string? AdressLine2 { get; set; }
-        public City City { get; set; }
-        public bool IsDefault { get; set; }
-        public string? PostalCode { get; set; }
-    }
+    public string AdressLine1 { get; set; } = null!;
+    public string? AdressLine2 { get; set; }
+    public City City { get; set; }
+    public bool IsDefault { get; set; }
+    public string? PostalCode { get; set; }
 }

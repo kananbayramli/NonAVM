@@ -1,4 +1,5 @@
-﻿@using ECommerse.WebUI.ViewModels;
+﻿
+@using ECommerse.WebUI.Models.Role;
 @model AssignRoleViewModel
 <!-- vendor List Section Start -->
 <div class="page-body">
@@ -35,8 +36,8 @@
                                     </thead>
                                     <tbody>
                                         @for(int i = 0; i < Model.RoleViewModels.Count; i++)
-                                        {
-                                            <tr>
+                                    {
+                                        <tr>
                                                 <input type="hidden" asp-for="@Model.RoleViewModels[i].Id" />
                                                 <input type="hidden" asp-for="@Model.RoleViewModels[i].Name" />
                                                 <td>
@@ -45,7 +46,7 @@
                                                 <td>@Model.RoleViewModels[i].Name</td>
                                                 <td>Description here...</td>
                                             </tr>
-                                        }
+                                    }
                                     </tbody>
                                 </table>
                             </div>

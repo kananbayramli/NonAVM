@@ -1,7 +1,7 @@
 ﻿using ECommerse.Core.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace ECommerse.WebUI.ViewModels;
+namespace ECommerse.WebUI.Models.User;
 
 public class UserEditViewModel
 {

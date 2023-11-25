@@ -1,5 +1,5 @@
 ﻿using ECommerse.Core.Identity;
-using ECommerse.WebUI.Models;
+using ECommerse.WebUI.Models.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 

@@ -19,5 +19,4 @@ namespace ECommerse.Business.DTO_s
         public Gender Gender { get; set; }
         public string? ProfilePicture { get; set; }
 
-    }
 }

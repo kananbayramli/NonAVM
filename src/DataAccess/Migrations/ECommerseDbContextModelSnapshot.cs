@@ -22,6 +22,21 @@ namespace ECommerse.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("BrandCategory", b =>
+                {
+                    b.Property<int>("BrandsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BrandsId", "CategoriesId");
+
+                    b.HasIndex("CategoriesId");
+
+                    b.ToTable("BrandCategory");
+                });
+
             modelBuilder.Entity("ECommerse.Core.Entities.Address", b =>
                 {
                     b.Property<int>("Id")
@@ -104,6 +119,29 @@ namespace ECommerse.DataAccess.Migrations
                     b.HasIndex("ProductItemID");
 
                     b.ToTable("BasketItems");
+                });
+
+            modelBuilder.Entity("ECommerse.Core.Entities.Brand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Logo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Brand");
                 });
 
             modelBuilder.Entity("ECommerse.Core.Entities.Category", b =>
@@ -272,6 +310,9 @@ namespace ECommerse.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("BrandID")
+                        .HasColumnType("int");
+
                     b.Property<int?>("CategoryID")
                         .HasColumnType("int");
 
@@ -285,10 +326,21 @@ namespace ECommerse.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("Refundable")
+                        .HasColumnType("bit");
+
                     b.Property<int>("StoreID")
                         .HasColumnType("int");
 
+                    b.Property<string>("Tag")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Video")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("BrandID");
 
                     b.HasIndex("CategoryID");
 
@@ -792,6 +844,21 @@ namespace ECommerse.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("BrandCategory", b =>
+                {
+                    b.HasOne("ECommerse.Core.Entities.Brand", null)
+                        .WithMany()
+                        .HasForeignKey("BrandsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ECommerse.Core.Entities.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ECommerse.Core.Entities.Address", b =>
                 {
                     b.HasOne("ECommerse.Core.Identity.AppUser", "User")
@@ -897,6 +964,10 @@ namespace ECommerse.DataAccess.Migrations
 
             modelBuilder.Entity("ECommerse.Core.Entities.Product", b =>
                 {
+                    b.HasOne("ECommerse.Core.Entities.Brand", "Brand")
+                        .WithMany("Products")
+                        .HasForeignKey("BrandID");
+
                     b.HasOne("ECommerse.Core.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryID")
@@ -907,6 +978,8 @@ namespace ECommerse.DataAccess.Migrations
                         .HasForeignKey("StoreID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Brand");
 
                     b.Navigation("Category");
 
@@ -1094,6 +1167,11 @@ namespace ECommerse.DataAccess.Migrations
             modelBuilder.Entity("ECommerse.Core.Entities.Basket", b =>
                 {
                     b.Navigation("BasketItems");
+                });
+
+            modelBuilder.Entity("ECommerse.Core.Entities.Brand", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("ECommerse.Core.Entities.Category", b =>

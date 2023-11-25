@@ -2,7 +2,7 @@
     ViewBag.title = "Store created";
 }
 
-@model StoreModel
+@model StoreViewModel
 
 <head>
     <!-- meta data -->
@@ -119,10 +119,10 @@
 
                             <tbody>
                                 @if (ViewBag.stores is not null)
+                            {
+                                @foreach (var product in ViewBag.stores as List<StoreDTO>)
                                 {
-                                    @foreach (var product in ViewBag.stores as List<StoreDTO>)
-                                    {
-                                        <tr>
+                                    <tr>
                                             <td>
                                                 <div class="table-image">
                                                     <img src="~/AdminStatics/assets/images/product/1.png" class="img-fluid" alt="">
@@ -155,8 +155,8 @@
                                                 </ul>
                                             </td>
                                         </tr>
-                                    }
                                 }
+                            }
                             </tbody>
                         </table>
                     </div>

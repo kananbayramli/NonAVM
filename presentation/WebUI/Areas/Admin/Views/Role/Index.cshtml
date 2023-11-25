@@ -1,6 +1,4 @@
-﻿@using ECommerse.WebUI.ViewModels;
-
-@model List<RoleViewModel>
+﻿@model List<RoleViewModel>
 
 <!-- Container-fluid starts-->
 <div class="page-body">
@@ -25,13 +23,13 @@
                                     </thead>
                                     <tbody>
                                     @for(int i=0; i < Model.Count; i++)
-                                    {
-                                        <tr>
+                                {
+                                    <tr>
                                             <td>@i</td>
                                             <td>@Model[i].Name</td>
                                             <td>role.Description</td>
                                         </tr>
-                                    }
+                                }
                                     </tbody>
                                 </table>
                             </div>

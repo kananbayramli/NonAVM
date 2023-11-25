@@ -1,4 +1,4 @@
-﻿@model List<CategoryModel>
+﻿@model List<CategoryViewModel>
 
 <!-- Page Body Start -->
 <div class="page-body-wrapper">
@@ -35,8 +35,8 @@
 
                                         <tbody>
                                             @foreach(var category in Model)
-                                            {
-                                                <tr>
+                                        {
+                                            <tr>
                                                     <td>@category.Name</td>
 
                                                     <td>26-12-2023</td>
@@ -77,7 +77,7 @@
                                                         </ul>
                                                     </td>
                                                 </tr>
-                                            }
+                                        }
                                         </tbody>
                                     </table>
                                 </div>

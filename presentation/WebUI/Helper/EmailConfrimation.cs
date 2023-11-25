@@ -1,29 +1,29 @@
 ﻿using System.Net;
 using System.Net.Mail;
 
-namespace ECommerse.WebUI.Helper
+namespace ECommerse.WebUI.Helper;
+
+public class EmailConfrimation
 {
-    public class EmailConfrimation
+    public static void SendEmail(string link, string email)
+
     {
-        public static void SendEmail(string link, string email)
-
+        var smtpClient = new SmtpClient("smtp.gmail.com")
         {
-            var smtpClient = new SmtpClient("smtp.gmail.com")
-            {
-                Port = 587,
-                Credentials = new NetworkCredential("bayramlikenan920@gmail.com", "bmdp hfij gvyj lkrp"), //KenKen920920
-                EnableSsl = true,
-                UseDefaultCredentials = false
-             };
+            Port = 587,
+            Credentials = new NetworkCredential("bayramlikenan920@gmail.com", "bmdp hfij gvyj lkrp"), //KenKen920920
+            EnableSsl = true,
+            UseDefaultCredentials = false
+         };
 
-            MailMessage mail = new MailMessage();
+        MailMessage mail = new MailMessage();
 
-            mail.From = new MailAddress("bayramlikenan920@gmail.com");
-            mail.To.Add(email);
+        mail.From = new MailAddress("bayramlikenan920@gmail.com");
+        mail.To.Add(email);
 
-            mail.Subject = $"www.nonawm.com::Email doğrulama";
-            string body = $$"""
-            <!DOCTYPE html>
+        mail.Subject = $"www.nonawm.com::Email doğrulama";
+        string body = $$"""
+        <!DOCTYPE html>
             <html lang="en">
 
             <head>
@@ -278,12 +278,11 @@ namespace ECommerse.WebUI.Helper
             </body>
 
             </html>
-            """;
+        """;
 
-            mail.IsBodyHtml = true;
-            mail.Body = body;
+        mail.IsBodyHtml = true;
+        mail.Body = body;
 
-            smtpClient.Send(mail);
-        }
+        smtpClient.Send(mail);
     }
 }

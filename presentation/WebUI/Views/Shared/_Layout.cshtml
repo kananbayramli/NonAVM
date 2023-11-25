@@ -118,17 +118,17 @@
         <div class="header_right">
             <ul>
                @if(!User!.Identity!.IsAuthenticated)
-                {
-                    <li>
+            {
+                <li>
                         <a asp-controller="Auth" asp-action="Register" class="btn1542" title="Become an Instructor">Müştəri Qeydiyyatı</a>
                     </li>
-                    <li>
+                <li>
                         <a asp-controller="Auth" asp-action="Register" class="btn1542" title="Become an Instructor">Satıcı Qeydiyyatı</a>
                     </li>
-                    <li>
+                <li>
                         <a asp-controller="Auth" asp-action="Login" style="background-color: #2e35ef;" class="btn1542" title="Become an Instructor">Daxil ol</a>
                     </li>
-                }
+            }
                 <li>
                     <div class="item_f3">
                         <div class="lng_btn2">
@@ -152,7 +152,7 @@
                     </div>
                 </li>
                 @if(User!.Identity!.IsAuthenticated){
-                <li>
+            <li>
                     <div class="endirim_cart">
                         <ul>
                             <li>
@@ -168,10 +168,10 @@
                         </ul>
                     </div>
                 </li>
-                <li>
+            <li>
                     @await Component.InvokeAsync("UserLayout")
                 </li>
-                }
+            }
             </ul>
         </div>
     </header>

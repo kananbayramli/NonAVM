@@ -1,17 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ECommerse.WebUI.ViewModels;
+namespace ECommerse.WebUI.Models.Auth;
 
-public class PasswordResetViewModel
+public class LoginViewModel
 {
     [Display(Name = "Email adresiniz")]
     [Required(ErrorMessage = "Email alanı gereklidir")]
     [EmailAddress]
-    public string Email { get; set; }
+    public string? Email { get; set; }
 
-    [Display(Name = "Yeni şifreniz")]
+    [Display(Name = "Şifreniz")]
     [Required(ErrorMessage = "Şifre alanı gereklidir")]
     [DataType(DataType.Password)]
     [MinLength(4, ErrorMessage = "şifreniz en az 4 karakterli olmalıdır.")]
-    public string PasswordNew { get; set; }
+    public string Password { get; set; } = null!;
+
+    public bool RememberMe { get; set; }
 }
