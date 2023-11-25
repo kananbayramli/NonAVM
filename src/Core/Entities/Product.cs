@@ -7,7 +7,8 @@ public class Product : BaseEntity
     public string Name { get; set; } = null!;
     public string? Description { get; set; }
     public string? Image { get; set; }
-
+    public string? Video { get; set; }
+    public string? Tag { get; set; }
 
     public int StoreID { get; set; }
     public Store Store { get; set; } = null!;

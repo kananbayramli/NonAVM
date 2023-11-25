@@ -4,6 +4,7 @@ using ECommerse.DataAccess.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerse.DataAccess.Migrations
 {
     [DbContext(typeof(ECommerseDbContext))]
-    partial class ECommerseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231125130849_Tag_and_Video_in_Product")]
+    partial class Tag_and_Video_in_Product
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
