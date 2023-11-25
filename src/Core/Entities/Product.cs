@@ -15,6 +15,10 @@ public class Product : BaseEntity
     public int? CategoryID { get; set; }
     public Category? Category { get; set; }
 
+    public int? BrandID { get; set; }
+    public Brand? Brand { get; set; }
+
+
     public ProductDiscount? ProductDiscount { get; set; }
 
 
