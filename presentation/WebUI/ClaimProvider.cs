@@ -3,53 +3,52 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 
-namespace ECommerse.WebUI
+namespace ECommerse.WebUI;
+
+public class ClaimProvider : IClaimsTransformation
 {
-    public class ClaimProvider : IClaimsTransformation
+    public UserManager<AppUser> userManager { get; set; }
+
+    public ClaimProvider(UserManager<AppUser> userManager)
     {
-        public UserManager<AppUser> userManager { get; set; }
+        this.userManager = userManager;
+    }
 
-        public ClaimProvider(UserManager<AppUser> userManager)
+    public async Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
+    {
+        if (principal is not null && principal.Identity.IsAuthenticated)
         {
-            this.userManager = userManager;
-        }
+            ClaimsIdentity identity = principal.Identity as ClaimsIdentity;
 
-        public async Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
-        {
-            if (principal is not null && principal.Identity.IsAuthenticated)
+            AppUser user = await userManager.FindByNameAsync(identity.Name);
+
+            if (user is null)
             {
-                ClaimsIdentity identity = principal.Identity as ClaimsIdentity;
+                return principal;
+            }
+            if (user.BirthDay is null)
+            {
+                return principal;
+            }
+            var today = DateTime.Today;
+            var age = today.Year - user.BirthDay?.Year;
 
-                AppUser user = await userManager.FindByNameAsync(identity.Name);
+            if (age >= 18)
+            {
+                Claim adulthoodClaim = new Claim("adult", true.ToString(), ClaimValueTypes.String, "Internal");
 
-                if (user is null)
-                {
-                    return principal;
-                }
-                if (user.BirthDay is null)
-                {
-                    return principal;
-                }
-                var today = DateTime.Today;
-                var age = today.Year - user.BirthDay?.Year;
-
-                if (age >= 18)
-                {
-                    Claim adulthoodClaim = new Claim("adult", true.ToString(), ClaimValueTypes.String, "Internal");
-
-                    identity.AddClaim(adulthoodClaim);
-                }
-
-
-                if (!principal.HasClaim(c => c.Type == "gender"))
-                {
-                    Claim genderClaim = new Claim("gender", user.Gender.ToString(), ClaimValueTypes.String, "Internal");
-
-                    identity.AddClaim(genderClaim);
-                }
+                identity.AddClaim(adulthoodClaim);
             }
 
-            return principal;
+
+            if (!principal.HasClaim(c => c.Type == "gender"))
+            {
+                Claim genderClaim = new Claim("gender", user.Gender.ToString(), ClaimValueTypes.String, "Internal");
+
+                identity.AddClaim(genderClaim);
+            }
         }
+
+        return principal;
     }
 }

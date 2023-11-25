@@ -1,4 +1,4 @@
-﻿@model List<CategoryModel> 
+﻿@model List<CategoryViewModel> 
    
 <!-- tap on top start -->
 <div class="tap-top">
@@ -39,8 +39,8 @@
 
                                             <tbody>
                                                 @foreach(var category in Model)
-                                                {
-                                                    <tr>
+                                            {
+                                                <tr>
                                                         <td>@category.Id</td>
 
                                                         <td>@category.Name</td>
@@ -69,7 +69,7 @@
                                                             </ul>
                                                         </td>
                                                     </tr>
-                                                }
+                                            }
                                             </tbody>
                                         </table>
                                     </div>

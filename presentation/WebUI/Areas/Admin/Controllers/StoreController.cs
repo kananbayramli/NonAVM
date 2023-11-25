@@ -1,40 +1,39 @@
 ﻿using ECommerse.Business.DTO_s;
 using ECommerse.Business.Services.Abstract;
-using ECommerse.WebUI.Areas.Admin.Models.StoreViewModels;
+using ECommerse.WebUI.Areas.Admin.Models.Store;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace ECommerse.WebUI.Areas.Admin.Controllers
+namespace ECommerse.WebUI.Areas.Admin.Controllers;
+
+public class StoreController : Controller
 {
-    public class StoreController : Controller
+    private readonly IStoreService storeService;
+
+    public StoreController(IStoreService storeService)
     {
-        private readonly IStoreService storeService;
+        this.storeService = storeService;
+    }
 
-        public StoreController(IStoreService storeService)
+    public async Task<IActionResult> Index()
+    {
+        ViewBag.stores = await storeService.GetAllAsync();
+        return View("CreateStore");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateStore(StoreViewModel store)
+    {
+        var storeDto = new StoreDTO
         {
-            this.storeService = storeService;
-        }
+            Name = store.Name,
+            Desription = store.Desription,
+            OwnerID = User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).First().Value
+        };
 
-        public async Task<IActionResult> Index()
-        {
-            ViewBag.stores = await storeService.GetAllAsync();
-            return View("CreateStore");
-        }
+        await storeService.Create(storeDto);
+        await storeService.SaveChangesAsync(CancellationToken.None);
 
-        [HttpPost]
-        public async Task<IActionResult> CreateStore(StoreModel store)
-        {
-            var storeDto = new StoreDTO
-            {
-                Name = store.Name,
-                Desription = store.Desription,
-                OwnerID = User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).First().Value
-            };
-
-            await storeService.Create(storeDto);
-            await storeService.SaveChangesAsync(CancellationToken.None);
-
-            return RedirectToAction("Index");
-        }
+        return RedirectToAction("Index");
     }
 }

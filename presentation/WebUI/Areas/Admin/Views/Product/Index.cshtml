@@ -1,4 +1,4 @@
-﻿@model List<ProductModel>
+﻿@model List<ProductViewModel>
 
 <!-- page-wrapper Start-->
 <div class="page-wrapper compact-wrapper" id="pageWrapper">
@@ -43,10 +43,10 @@
                                             </thead>
                                             <tbody>
                                                 @if (Model is not null)
+                                            {
+                                                @foreach (var product in Model)
                                                 {
-                                                    @foreach (var product in Model)
-                                                    {
-                                                        <tr>
+                                                    <tr>
                                                             <td>
                                                                 <div class="table-image">
                                                                     <img src="@Url.Content("~/photos/"+product.Image)" class="img-fluid" alt="">
@@ -87,8 +87,8 @@
                                                                 </ul>
                                                             </td>
                                                         </tr>
-                                                    }
                                                 }
+                                            }
                                             </tbody>
                                         </table>
                                     </div>

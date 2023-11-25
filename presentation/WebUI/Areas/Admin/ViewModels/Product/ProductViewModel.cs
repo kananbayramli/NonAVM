@@ -1,11 +1,10 @@
 ﻿using ECommerse.Business.DTO_s;
-using ECommerse.Core.Entities;
 
-namespace ECommerse.WebUI.Areas.Admin.Models.ProductModels;
+namespace ECommerse.WebUI.Areas.Admin.Models.Product;
 
-public class ProductModel
+public class ProductViewModel
 {
-    public ProductModel(int price, int quantity)
+    public ProductViewModel(int price, int quantity)
     {
         Price = price;
         Quantity = quantity;

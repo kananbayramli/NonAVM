@@ -1,9 +1,8 @@
-﻿namespace ECommerse.WebUI.Enums
+﻿namespace ECommerse.WebUI.Enums;
+
+public enum Gender
 {
-    public enum Gender
-    {
-        Belirtilmemiş = 0,
-        Bay = 1,
-        Bayan = 2
-    }
+    Belirtilmemiş = 0,
+    Bay = 1,
+    Bayan = 2
 }
