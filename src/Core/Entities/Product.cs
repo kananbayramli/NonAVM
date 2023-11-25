@@ -9,6 +9,7 @@ public class Product : BaseEntity
     public string? Image { get; set; }
     public string? Video { get; set; }
     public string? Tag { get; set; }
+    public bool Refundable { get; set; }
 
     public int StoreID { get; set; }
     public Store Store { get; set; } = null!;
