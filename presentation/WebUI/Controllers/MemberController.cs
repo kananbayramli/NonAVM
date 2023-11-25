@@ -28,6 +28,7 @@ public class MemberController : BaseController
             PhoneNumber = user.PhoneNumber ?? "",
             Surname = user.Surname,
             Gender = user.Gender
+            
         });
     }
 
@@ -48,8 +49,8 @@ public class MemberController : BaseController
         if (photo is not null && photo.Length > 0)
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos", photo.FileName);
-            using (var stream = new FileStream(path, FileMode.Create))
-                await photo.CopyToAsync(stream);
+            using var stream = new FileStream(path, FileMode.Create);
+            await photo.CopyToAsync(stream);
         }
 
         return RedirectToAction("EditProfile", user);

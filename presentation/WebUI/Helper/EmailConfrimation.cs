@@ -16,9 +16,10 @@ public class EmailConfrimation
             UseDefaultCredentials = false
          };
 
-        MailMessage mail = new MailMessage();
-
-        mail.From = new MailAddress("bayramlikenan920@gmail.com");
+        MailMessage mail = new()
+        {
+            From = new MailAddress("bayramlikenan920@gmail.com")
+        };
         mail.To.Add(email);
 
         mail.Subject = $"www.nonawm.com::Email doğrulama";

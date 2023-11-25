@@ -11,7 +11,7 @@ public class ProductService : IScoppedLifetime, IProductService
 {
 
     private readonly IUnitOfWork _unitOfWork;
-    IRepository<Product> _productRepository;
+    private readonly IRepository<Product> _productRepository;
     private readonly IMapper _mapper;
 
     public ProductService(IUnitOfWork unitOfWork, IMapper mapper)

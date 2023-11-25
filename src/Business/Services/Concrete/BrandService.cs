@@ -9,7 +9,7 @@ namespace ECommerse.Business.Services.Concrete;
 public class BrandService : IScoppedLifetime, IBrandService
 {
     private readonly IUnitOfWork _unitOfWork;
-    IRepository<Brand> _brandRepository;
+    private readonly IRepository<Brand> _brandRepository;
     private readonly IMapper _mapper;
     public BrandService(IUnitOfWork unitOfWork, IMapper mapper)
     {

@@ -9,7 +9,7 @@ namespace ECommerse.Business.Services.Concrete;
 public class StoreService : IScoppedLifetime, IStoreService
 {
     private readonly IUnitOfWork _unitOfWork;
-    IRepository<Store> _storeRepository;
+    private readonly IRepository<Store> _storeRepository;
     private readonly IMapper _mapper;
     public StoreService(IUnitOfWork unitOfWork, IMapper mapper)
     {

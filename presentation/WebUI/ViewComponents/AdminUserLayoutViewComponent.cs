@@ -7,16 +7,16 @@ namespace ECommerse.WebUI.ViewComponents;
 
 public class AdminUserLayoutViewComponent : ViewComponent
 {
-    private readonly UserManager<AppUser> userManager;
+    private readonly UserManager<AppUser> _userManager;
 
     public AdminUserLayoutViewComponent(UserManager<AppUser> userManager)
     {
-        this.userManager = userManager;
+        this._userManager = userManager;
     }
 
     public async Task<IViewComponentResult> InvokeAsync()
     {
-        var user = await userManager.FindByNameAsync(User?.Identity?.Name);
+        var user = await _userManager.FindByNameAsync(User?.Identity?.Name);
         var userLayoutViewModel = new UserLayoutViewModel { UserName = user.UserName, Name = user.Name, Surname = user.Surname, Email = user.Email, ProfilePicture = user.ProfilePicture };
         return View(userLayoutViewModel);
     }
