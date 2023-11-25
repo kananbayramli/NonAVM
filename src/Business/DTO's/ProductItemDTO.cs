@@ -1,7 +1,10 @@
 ﻿
+using ECommerse.Business.Mappings;
+using ECommerse.Core.Entities;
+
 namespace ECommerse.Business.DTO_s;
 
-public class ProductItemDTO
+public class ProductItemDTO : BaseDTO, IMapFrom<ProductItem>
 {
     public int SKU { get; set; }
     public int Quantity { get; set; }

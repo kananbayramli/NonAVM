@@ -1,4 +1,5 @@
-﻿using ECommerse.Core.Entities;
+﻿using ECommerse.Business.Mappings;
+using ECommerse.Core.Entities;
 using ECommerse.Core.Enums;
 using ECommerse.Core.Identity;
 using System;
@@ -7,14 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommerse.Business.DTO_s;
-
-public class AdressDTO : BaseDTO
+namespace ECommerse.Business.DTO_s
 {
-    public string UserID { get; set; } = null!;
-    public AppUser User { get; set; } = null!;
+    public class AddressDTO : BaseDTO, IMapFrom<Address>
+    {
+        public string UserID { get; set; } = null!;
+        public UserDTO User { get; set; } = null!;
 
-    public ICollection<Order>? Orders { get; set; }
+        public ICollection<OrderDTO>? Orders { get; set; }
 
     public string AdressLine1 { get; set; } = null!;
     public string? AdressLine2 { get; set; }
