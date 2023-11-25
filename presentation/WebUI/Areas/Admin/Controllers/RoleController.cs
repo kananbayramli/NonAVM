@@ -39,7 +39,7 @@ public class RoleController : BaseController
     public async Task<IActionResult> AssignRole(string id = null)
     {
         AppUser user;
-        List<string> userroles = new List<string>();
+        List<string> userroles = new();
         var assignRoleViewModel = new AssignRoleViewModel();
 
         if (Guid.TryParse(id, out Guid guid))
@@ -54,10 +54,12 @@ public class RoleController : BaseController
 
         foreach (var role in roleManager.Roles)
         {
-            RoleViewModel r = new RoleViewModel();
-            r.Id = role.Id;
-            r.Name = role.Name!;
-            r.IsSelected = userroles.Contains(role.Name);
+            RoleViewModel r = new()
+            {
+                Id = role.Id,
+                Name = role.Name!,
+                IsSelected = userroles.Contains(role.Name)
+            };
             roleViewModels.Add(r);
         }
         assignRoleViewModel.RoleViewModels = roleViewModels;

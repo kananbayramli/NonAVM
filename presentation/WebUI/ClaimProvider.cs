@@ -35,7 +35,7 @@ public class ClaimProvider : IClaimsTransformation
 
             if (age >= 18)
             {
-                Claim adulthoodClaim = new Claim("adult", true.ToString(), ClaimValueTypes.String, "Internal");
+                Claim adulthoodClaim = new("adult", true.ToString(), ClaimValueTypes.String, "Internal");
 
                 identity.AddClaim(adulthoodClaim);
             }
@@ -43,7 +43,7 @@ public class ClaimProvider : IClaimsTransformation
 
             if (!principal.HasClaim(c => c.Type == "gender"))
             {
-                Claim genderClaim = new Claim("gender", user.Gender.ToString(), ClaimValueTypes.String, "Internal");
+                Claim genderClaim = new("gender", user.Gender.ToString(), ClaimValueTypes.String, "Internal");
 
                 identity.AddClaim(genderClaim);
             }

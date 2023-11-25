@@ -112,12 +112,14 @@ public class AuthController : BaseController
                 return View(userViewModel);
             }
 
-            AppUser user = new AppUser();
-            user.UserName = userViewModel.UserName;
-            user.Email = userViewModel.Email;
-            user.PhoneNumber = userViewModel.PhoneNumber;
-            user.Name = userViewModel.Name;
-            user.Surname = userViewModel.Surname;
+            AppUser user = new()
+            {
+                UserName = userViewModel.UserName,
+                Email = userViewModel.Email,
+                PhoneNumber = userViewModel.PhoneNumber,
+                Name = userViewModel.Name,
+                Surname = userViewModel.Surname
+            };
 
             IdentityResult result = await userManager.CreateAsync(user, userViewModel.Password);
 

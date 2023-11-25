@@ -35,9 +35,10 @@ builder.Services.AddAuthorization(opts =>
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    CookieBuilder cookieBuilder = new CookieBuilder();
-
-    cookieBuilder.Name = "NonAvmCookie";
+    CookieBuilder cookieBuilder = new()
+    {
+        Name = "NonAvmCookie"
+    };
     options.LoginPath = new PathString("/Auth/Login");
     options.LogoutPath = new PathString("/Auth/Logout");
     options.Cookie = cookieBuilder;
