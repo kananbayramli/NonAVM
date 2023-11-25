@@ -42,51 +42,51 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @if (Model is not null)
+                                            @if (Model is not null)
                                             {
                                                 @foreach (var product in Model)
                                                 {
                                                     <tr>
-                                                            <td>
-                                                                <div class="table-image">
-                                                                    <img src="@Url.Content("~/photos/"+product.Image)" class="img-fluid" alt="">
-                                                                </div>
-                                                            </td>
+                                                        <td>
+                                                            <div class="table-image">
+                                                                <img src="@Url.Content("~/photos/"+product.Image)" class="img-fluid" alt="">
+                                                            </div>
+                                                        </td>
 
-                                                            <td>@product.Name</td>
+                                                        <td>@product.Name</td>
 
-                                                            <td>@product.Category.Name</td>
+                                                        <td>@product.Category?.Name</td>
 
-                                                            <td>@product.Quantity</td>
+                                                        <td>@product.Quantity</td>
 
-                                                            <td class="td-price">$@product.Price</td>
+                                                        <td class="td-price">$@product.Price</td>
 
-                                                            <td class="status-danger">
-                                                                <span>Gözləyən</span>
-                                                            </td>
+                                                        <td class="status-danger">
+                                                            <span>Gözləyən</span>
+                                                        </td>
 
-                                                            <td>
-                                                                <ul>
-                                                                    <li>
-                                                                        <a href="order-detail.html">
-                                                                            <i class="ri-eye-line"></i>
-                                                                        </a>
-                                                                    </li>
+                                                        <td>
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="order-detail.html">
+                                                                        <i class="ri-eye-line"></i>
+                                                                    </a>
+                                                                </li>
 
-                                                                    <li>
-                                                                        <a href="javascript:void(0)">
-                                                                            <i class="ri-pencil-line"></i>
-                                                                        </a>
-                                                                    </li>
+                                                                <li>
+                                                                    <a href="javascript:void(0)">
+                                                                        <i class="ri-pencil-line"></i>
+                                                                    </a>
+                                                                </li>
 
-                                                                    <li>
-                                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                                                            <i class="ri-delete-bin-line"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
+                                                                <li>
+                                                                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                                                                        <i class="ri-delete-bin-line"></i>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
                                                 }
                                             }
                                             </tbody>

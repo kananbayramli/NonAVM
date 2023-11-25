@@ -21,62 +21,19 @@
                                                 <input asp-for="Name" class="form-control" type="text" placeholder="Məhsulun adı">
                                             </div>
                                         </div>
-
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Məhsulun növü</label>
-                                            <div class="col-sm-9">
-                                                <select class="js-example-basic-single w-100" name="state">
-                                                    <option disabled>Statik Menyu</option>
-                                                    <option>Sadə</option>
-                                                    <option>Təsnifat</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
                                         <div class="mb-4 row align-items-center">
                                             <label class="col-sm-3 col-form-label form-label-title">Kateqoriya</label>
                                             <div class="col-sm-9">
                                                 <select id="Region" asp-for="CategoryID" asp-items="@ViewBag.categoryList" class="js-example-basic-single w-100">
-                                                    <option value="">Choose sub category</option>
+                                                    <option value="">Kateqoriya seçin</option>
                                                 </select>
                                             </div>
                                         </div>
-
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Alt kateqoriya</label>
-                                            <div class="col-sm-9">
-                                                <select class="js-example-basic-single w-100" name="state">
-                                                    <option disabled>Alt Kateqoriya Menyusu</option>
-                                                    <option>Ethnic Wear</option>
-                                                    <option>Ethnic Bottoms</option>
-                                                    <option>Women Western Wear</option>
-                                                    <option>Sandels</option>
-                                                    <option>Shoes</option>
-                                                    <option>Beauty & Grooming</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
                                         <div class="mb-4 row align-items-center">
                                             <label class="col-sm-3 col-form-label form-label-title">Marka/Brend</label>
                                             <div class="col-sm-9">
-                                                <select class="js-example-basic-single w-100">
-                                                    <option disabled>Brand Menu</option>
-                                                    <option value="puma">Puma</option>
-                                                    <option value="hrx">HRX</option>
-                                                    <option value="roadster">Roadster</option>
-                                                    <option value="zara">Zara</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Vahid</label>
-                                            <div class="col-sm-9">
-                                                <select class="js-example-basic-single w-100">
-                                                    <option disabled>Vahid Menyu</option>
-                                                    <option>Kilogram</option>
-                                                    <option>Ədəd</option>
+                                                <select asp-for="BrandID" asp-items="@ViewBag.brandList"  class="js-example-basic-single w-100">
+                                                    <option value="">Brand seçin</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -88,19 +45,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Mübadilə edilə bilən</label>
-                                            <div class="col-sm-9">
-                                                <label class="switch">
-                                                    <input type="checkbox"><span class="switch-state"></span>
-                                                </label>
-                                            </div>
-                                        </div>
                                         <div class="row align-items-center">
                                             <label class="col-sm-3 col-form-label form-label-title">Geri qaytarıla bilər</label>
                                             <div class="col-sm-9">
                                                 <label class="switch">
-                                                    <input type="checkbox" checked=""><span class="switch-state"></span>
+                                                    <input type="checkbox" asp-for="Refundable"><span class="switch-state"></span>
                                                 </label>
                                             </div>
                                         </div>
@@ -108,6 +57,12 @@
                                             <label class="col-sm-3 col-form-label form-label-title">Şəkillər</label>
                                             <div class="col-sm-9">
                                                 <input class="form-control form-choose" type="file" asp-for="Photo" multiple>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Video</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" asp-for="Video" placeholder="Video linki">
                                             </div>
                                         </div>
                                          <div class="card">
