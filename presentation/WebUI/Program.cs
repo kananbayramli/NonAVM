@@ -12,6 +12,7 @@ builder.Services.AddDataProtection();
 
 builder.Services.AddDataAccess(builder.Configuration);
 builder.Services.AddBusiness();
+builder.Services.AddWebUiServices();
 
 //builder.Services.AddScoped<IClaimsTransformation, ClaimProvider>();
 builder.Services.AddTransient<IAuthorizationHandler, OneMonthTrialHandler>();

@@ -1,5 +1,6 @@
 ﻿using ECommerse.Core.Identity;
 using ECommerse.WebUI.Models.User;
+using ECommerse.WebUI.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -8,7 +9,11 @@ namespace ECommerse.WebUI.Controllers;
 
 public class MemberController : BaseController
 {
-    public MemberController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager) : base(userManager, signInManager, roleManager){}
+    private readonly PhotoHandlerService _photoHandlerService;
+    public MemberController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager, PhotoHandlerService photoHandlerService) : base(userManager, signInManager, roleManager)
+    {
+        _photoHandlerService = photoHandlerService;
+    }
 
     public IActionResult Index()
     {
@@ -35,6 +40,9 @@ public class MemberController : BaseController
     [HttpPost]
     public async Task<IActionResult> EditProfile(UserEditViewModel userDto)
     {
+        var photo = userDto.ProfilePicture;
+        string? pp = await _photoHandlerService.SavePhotoAsync(photo);
+
         var user = await userManager.FindByEmailAsync(userDto.Email);
         user.UserName = userDto.UserName;
         user.Email = userDto.Email;
@@ -42,16 +50,9 @@ public class MemberController : BaseController
         user.PhoneNumber = userDto.PhoneNumber;
         user.Surname = userDto.Surname;
         //user.Gender = userDto.Gender.Value;
-        user.ProfilePicture = userDto.ProfilePicture?.FileName;
+        user.ProfilePicture = pp;
         await userManager.UpdateAsync(user);
 
-        var photo = userDto.ProfilePicture;
-        if (photo is not null && photo.Length > 0)
-        {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos", photo.FileName);
-            using var stream = new FileStream(path, FileMode.Create);
-            await photo.CopyToAsync(stream);
-        }
 
         return RedirectToAction("EditProfile", user);
     }
