@@ -3305,7 +3305,7 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <form asp-controller="Member" asp-action="EditProfile">
+            <form asp-controller="Member" asp-action="EditProfile" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="row g-4">
                         <div class="col-xxl-12">
@@ -3359,8 +3359,8 @@
                         </div>  
                         <div class="col-12">
                                 <div class="form-floating theme-form-floating">
-                                <input asp-for="ProfilePicture" class="form-control"  value="@Model.ProfilePicture">
-                                    <label for="address2">Şəkil əlavə edin</label>
+                                <input type="file" asp-for="ProfilePicture" class="form-control form-choose"  multiple>
+                                <label for="ProfilePicture">Şəkil əlavə edin</label>
                                 </div>
                         </div>
 

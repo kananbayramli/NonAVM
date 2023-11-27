@@ -3,12 +3,13 @@
     <ul>
         <li class="ui dropdown">
             <a href="#" class="opts_account" title="Account">
-                <img src="@Url.Content("~/photos/"+Model.ProfilePicture)" alt="">
+                <img class="user-profile rounded-circle" src="@Url.Content("~/photos/" + Model.ProfilePicture)" alt="Profile picture">
             </a>
             <div class="menu dropdown_account">
                 <div class="channel_my">
                     <div class="profile_link">
-                        <img src="~/assets/images/inner-page/user/1.png" alt="">
+                        <img class="user-profile rounded-circle" src="@Url.Content("~/photos/" + Model.ProfilePicture)" alt="Profile picture">
+
                         <div class="pd_content">
                             <div class="rhte85">
                                 <h6>@Model.UserName</h6>
@@ -25,7 +26,7 @@
                 <a href="referral_details.html" class="item channel_item"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/referral.svg" class="blur-up lazyload " alt=" ">Referral</a>
                 <a href="faq.html" class="item channel_item"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/help.svg" class="blur-up lazyload " alt=" ">Kömək</a>
                 <a href="wishlist.html" class="item channel_item"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/heart.svg" class="blur-up lazyload " alt=" ">İstək Siyahısı</a>
-                <a href="#" class="item channel_item"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/setting.svg" class="blur-up lazyload " alt=" ">Parametr</a>
+                <a asp-controller="Member"asp-action="EditProfile" class="item channel_item"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/setting.svg" class="blur-up lazyload " >Parametr</a>
                 <a asp-controller="Auth" asp-action="Logout" asp-route-returnurl="/Home/Index" class="item channel_item"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/logout.svg" class="blur-up lazyload " alt=" ">Çıxış</a>
             </div>
         </li>

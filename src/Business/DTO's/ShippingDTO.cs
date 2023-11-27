@@ -6,13 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommerse.Business.DTO_s
-{
-    public class ShippingDTO : BaseDTO, IMapFrom<Shipping>
-    {
-        public string Title { get; set; } = null!;
-        public decimal Cost { get; set; }
+namespace ECommerse.Business.DTO_s;
 
-        public ICollection<OrderDTO>? Orders { get; set; }
-    }
+public class ShippingDTO : BaseDTO, IMapFrom<Shipping>
+{
+    public string Title { get; set; } = null!;
+    public decimal Cost { get; set; }
+
+    public ICollection<OrderDTO>? Orders { get; set; }
 }

@@ -12,6 +12,7 @@ builder.Services.AddDataProtection();
 
 builder.Services.AddDataAccess(builder.Configuration);
 builder.Services.AddBusiness();
+builder.Services.AddWebUiServices();
 
 //builder.Services.AddScoped<IClaimsTransformation, ClaimProvider>();
 builder.Services.AddTransient<IAuthorizationHandler, OneMonthTrialHandler>();
@@ -35,9 +36,10 @@ builder.Services.AddAuthorization(opts =>
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    CookieBuilder cookieBuilder = new CookieBuilder();
-
-    cookieBuilder.Name = "NonAvmCookie";
+    CookieBuilder cookieBuilder = new()
+    {
+        Name = "NonAvmCookie"
+    };
     options.LoginPath = new PathString("/Auth/Login");
     options.LogoutPath = new PathString("/Auth/Logout");
     options.Cookie = cookieBuilder;
