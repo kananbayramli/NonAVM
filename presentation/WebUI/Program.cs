@@ -3,52 +3,22 @@ using ECommerse.Core.Enums;
 using ECommerse.DataAccess;
 using ECommerse.WebUI;
 using Microsoft.AspNetCore.Authorization;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix);
+
 builder.Services.AddDataProtection();
 
 builder.Services.AddDataAccess(builder.Configuration);
 builder.Services.AddBusiness();
 builder.Services.AddWebUiServices();
 
-//builder.Services.AddScoped<IClaimsTransformation, ClaimProvider>();
-builder.Services.AddTransient<IAuthorizationHandler, OneMonthTrialHandler>();
-builder.Services.AddAuthorization(opts =>
-{
-    opts.AddPolicy("GenderPolicy", policy =>
-    {
-        policy.RequireClaim("gender", Gender.Bay.ToString());
-    });
-
-    opts.AddPolicy("AdulthoodPolicy", policy =>
-    {
-        policy.RequireClaim("adult");
-    });
-    opts.AddPolicy("TrialPolicy", policy =>
-    {
-        policy.AddRequirements(new OneMonthTrialRequirement());
-    });
-});
-
-
-builder.Services.ConfigureApplicationCookie(options =>
-{
-    CookieBuilder cookieBuilder = new()
-    {
-        Name = "NonAvmCookie"
-    };
-    options.LoginPath = new PathString("/Auth/Login");
-    options.LogoutPath = new PathString("/Auth/Logout");
-    options.Cookie = cookieBuilder;
-    options.ExpireTimeSpan = TimeSpan.FromDays(60);
-    options.SlidingExpiration = true;
-
-});
-
 var app = builder.Build();
+
+app.UseRequestLocalization();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
