@@ -4,9 +4,8 @@ using Microsoft.AspNetCore.Http;
 
 namespace ECommerse.Business.DTO_s;
 
-public class ProductDTO : IMapFrom<Product>
+public class ProductDTO : BaseDTO , IMapFrom<Product>
 {
-    public int? Id { get; set; }
     public string? Name { get; set; } = null!;
     public string? Description { get; set; }
     public string? Image;
