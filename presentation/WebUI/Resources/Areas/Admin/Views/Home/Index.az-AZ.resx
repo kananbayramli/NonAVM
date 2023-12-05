@@ -117,25 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="addNewItem" xml:space="preserve">
-    <value>Yenisini Əlavə Et</value>
+  <data name="category" xml:space="preserve">
+    <value>Kateqoriya</value>
   </data>
-  <data name="categoryImage" xml:space="preserve">
-    <value>Kateqoriya şəkili</value>
+  <data name="customer" xml:space="preserve">
+    <value>Ümumi Müştərilər</value>
   </data>
-  <data name="categoryName" xml:space="preserve">
-    <value>Kateqoriyanın adı</value>
+  <data name="income" xml:space="preserve">
+    <value>Qazanc</value>
   </data>
-  <data name="date" xml:space="preserve">
-    <value>Tarix</value>
+  <data name="incomeStatement" xml:space="preserve">
+    <value>Gəlir hesabatı</value>
   </data>
-  <data name="edit" xml:space="preserve">
-    <value>Seçim</value>
+  <data name="latestOrders" xml:space="preserve">
+    <value>Son Sifarişlər</value>
   </data>
-  <data name="ikon" xml:space="preserve">
-    <value>İkon</value>
+  <data name="orders" xml:space="preserve">
+    <value>Ümumi Sifarişlər</value>
   </data>
-  <data name="slug" xml:space="preserve">
-    <value>Slug</value>
+  <data name="products" xml:space="preserve">
+    <value>Ümumi Məhsullar</value>
+  </data>
+  <data name="toDoList" xml:space="preserve">
+    <value>Ediləcəklər Siyahısı</value>
+  </data>
+  <data name="topSales" xml:space="preserve">
+    <value>Ən çox satılan məhsullar</value>
+  </data>
+  <data name="totalIncome" xml:space="preserve">
+    <value>Toplam Gəlir</value>
+  </data>
+  <data name="transact" xml:space="preserve">
+    <value>Əməliyyatlar</value>
+  </data>
+  <data name="visiters" xml:space="preserve">
+    <value>Ziyarətçilər</value>
   </data>
 </root>

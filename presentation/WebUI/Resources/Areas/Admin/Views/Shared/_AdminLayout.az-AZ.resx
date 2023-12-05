@@ -117,25 +117,103 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="addNewItem" xml:space="preserve">
-    <value>Yenisini Əlavə Et</value>
+  <data name="aboutOrder" xml:space="preserve">
+    <value>Sifariş Təfərrüatı</value>
   </data>
-  <data name="categoryImage" xml:space="preserve">
-    <value>Kateqoriya şəkili</value>
+  <data name="addAtribut" xml:space="preserve">
+    <value>Atribut Əlavə Edin</value>
   </data>
-  <data name="categoryName" xml:space="preserve">
-    <value>Kateqoriyanın adı</value>
+  <data name="addNewCategory" xml:space="preserve">
+    <value>Yeni Kateqoriya Əlavə Edin</value>
   </data>
-  <data name="date" xml:space="preserve">
-    <value>Tarix</value>
+  <data name="addNewProduct" xml:space="preserve">
+    <value>Yeni Məhsullar Əlavə Edin</value>
   </data>
-  <data name="edit" xml:space="preserve">
-    <value>Seçim</value>
+  <data name="addNewUser" xml:space="preserve">
+    <value>Yeni İstifadəçi Əlavə Edin</value>
   </data>
-  <data name="ikon" xml:space="preserve">
-    <value>İkon</value>
+  <data name="addRole" xml:space="preserve">
+    <value>Rol Ver</value>
   </data>
-  <data name="slug" xml:space="preserve">
-    <value>Slug</value>
+  <data name="allRoles" xml:space="preserve">
+    <value>Bütün Rollar</value>
+  </data>
+  <data name="allUsers" xml:space="preserve">
+    <value>Bütün İstifadəçilər</value>
+  </data>
+  <data name="atribut" xml:space="preserve">
+    <value>Atributlar</value>
+  </data>
+  <data name="category" xml:space="preserve">
+    <value>Kateqoriya</value>
+  </data>
+  <data name="categoryList" xml:space="preserve">
+    <value>Kateqoriya Siyahısı</value>
+  </data>
+  <data name="createCupon" xml:space="preserve">
+    <value>Kupon Yaradın</value>
+  </data>
+  <data name="createSeller" xml:space="preserve">
+    <value>Satıcı Yaradın</value>
+  </data>
+  <data name="cuponList" xml:space="preserve">
+    <value>Kupon Siyahısı</value>
+  </data>
+  <data name="cupons" xml:space="preserve">
+    <value>Kuponlar</value>
+  </data>
+  <data name="dashboard" xml:space="preserve">
+    <value>İdarə Paneli</value>
+  </data>
+  <data name="exchange" xml:space="preserve">
+    <value>Valyuta Məzənnələri</value>
+  </data>
+  <data name="followOrder" xml:space="preserve">
+    <value>Sifariş İzləmə</value>
+  </data>
+  <data name="getAtribut" xml:space="preserve">
+    <value>Atributlar</value>
+  </data>
+  <data name="localize" xml:space="preserve">
+    <value>Lokallaşdırma</value>
+  </data>
+  <data name="orderList" xml:space="preserve">
+    <value>Sifariş Siyahısı</value>
+  </data>
+  <data name="orders" xml:space="preserve">
+    <value>Sifarişlər</value>
+  </data>
+  <data name="parametrs" xml:space="preserve">
+    <value>Parametrlər</value>
+  </data>
+  <data name="product" xml:space="preserve">
+    <value>Məhsul</value>
+  </data>
+  <data name="products" xml:space="preserve">
+    <value>Məhsullar</value>
+  </data>
+  <data name="profilParametrs" xml:space="preserve">
+    <value>Profil Parametrləri</value>
+  </data>
+  <data name="reports" xml:space="preserve">
+    <value>Hesabatlar</value>
+  </data>
+  <data name="roles" xml:space="preserve">
+    <value>Rollar</value>
+  </data>
+  <data name="sellers" xml:space="preserve">
+    <value>Satıcılar</value>
+  </data>
+  <data name="sellersList" xml:space="preserve">
+    <value>SatıcıSiyahısı</value>
+  </data>
+  <data name="support" xml:space="preserve">
+    <value>Dəstək Bileti</value>
+  </data>
+  <data name="translate" xml:space="preserve">
+    <value>Tərcümə</value>
+  </data>
+  <data name="users" xml:space="preserve">
+    <value>İstifadəçilər</value>
   </data>
 </root>

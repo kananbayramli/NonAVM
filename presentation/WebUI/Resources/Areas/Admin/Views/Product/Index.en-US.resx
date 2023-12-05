@@ -117,25 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="addNewItem" xml:space="preserve">
-    <value>Yenisini Əlavə Et</value>
+  <data name="addNewProduct" xml:space="preserve">
+    <value>Add New Product</value>
   </data>
-  <data name="categoryImage" xml:space="preserve">
-    <value>Kateqoriya şəkili</value>
+  <data name="category" xml:space="preserve">
+    <value>Category</value>
   </data>
-  <data name="categoryName" xml:space="preserve">
-    <value>Kateqoriyanın adı</value>
-  </data>
-  <data name="date" xml:space="preserve">
-    <value>Tarix</value>
+  <data name="count" xml:space="preserve">
+    <value>Count</value>
   </data>
   <data name="edit" xml:space="preserve">
-    <value>Seçim</value>
+    <value>Edit</value>
   </data>
-  <data name="ikon" xml:space="preserve">
-    <value>İkon</value>
+  <data name="export" xml:space="preserve">
+    <value>Export</value>
   </data>
-  <data name="slug" xml:space="preserve">
-    <value>Slug</value>
+  <data name="import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="productImage" xml:space="preserve">
+    <value>Product Image</value>
+  </data>
+  <data name="productList" xml:space="preserve">
+    <value>Product List</value>
+  </data>
+  <data name="productName" xml:space="preserve">
+    <value>Product Name</value>
   </data>
 </root>
