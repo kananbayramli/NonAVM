@@ -1,4 +1,7 @@
-﻿@model ProductViewModel
+﻿@inject IViewLocalizer Localizer
+
+
+@model ProductViewModel
 <!-- Page Body start -->
 <div class="page-body-wrapper">
     <div class="page-body">
@@ -11,7 +14,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="card-header-2">
-                                        <h5>Məhsul haqqında məlumat</h5>
+                                        <h5>@Localizer["MəhsulMəlumatı"]</h5>
                                     </div>
 
                                     <form asp-area="Admin" asp-controller="Product" asp-action="AddProduct" enctype="multipart/form-data" class="theme-form theme-form-2 mega-form">
@@ -95,7 +98,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="card-header-2">
-                                        <h5>Məhsulun Şəkilləri</h5>
+                                        <h5></h5>
                                     </div>
 
                                     <form class="theme-form theme-form-2 mega-form">
@@ -151,11 +154,12 @@
                                         <h5>Məhsulların növləri</h5>
                                     </div>
 
-                                    <form class="theme-form theme-form-2 mega-form">
+                                    <form class="theme-form theme-form-2 mega-form variants-container">
+                                        <button id="addItem" >Məhsul variantları əlavə edin</button>
                                         <div class="mb-4 row align-items-center">
                                             <label class="form-label-title col-sm-3 mb-0">Seçim Adı</label>
                                             <div class="col-sm-9">
-                                                <select class="js-example-basic-single w-100" name="state">
+                                                <select class="js-example-basic-single w-100 variant-selector" name="state">
                                                     <option>Color</option>
                                                     <option>Size</option>
                                                     <option>Material</option>
@@ -164,17 +168,21 @@
                                             </div>
                                         </div>
 
-                                        <div class="row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Seçim Dəyəri</label>
-                                            <div class="col-sm-9">
-                                                <div class="bs-example">
-                                                    <input type="text" class="form-control" placeholder="Etiket yazın və enter düyməsini basın" id="#inputTag" data-role="tagsinput">
-                                                </div>
-                                            </div>
+                                        <div class="row align-items-center variant-values">
+                                            <hr />
+                                            <label class="variant-name col-sm-3 col-form-label form-label-title">Color</label>
+                                        </div>
+                                        <div class="row align-items-center variant-values">
+                                            <hr />
+                                            <label class="variant-name col-sm-3 col-form-label form-label-title">Size</label>
+                                        </div>
+                                        <div class="row align-items-center variant-values">
+                                            <hr />
+                                            <label class="variant-name col-sm-3 col-form-label form-label-title">Material</label>
                                         </div>
                                     </form>
 
-                                    <a href="#" class="add-option"><i class="ri-add-line me-2"></i> Başqa bir seçim əlavə edin</a>
+                                    <a href="javascript:void(0)" class="add-option"><i class="ri-add-line me-2"></i> Başqa bir seçim əlavə edin</a>
                                 </div>
                             </div>
 
@@ -402,3 +410,150 @@
     <!-- Container-fluid End -->
 </div>
 <!-- Page Body End -->
+<div id="popup-overlay" style="visibility: hidden;"></div>
+ @section Scripts {
+    <script>
+    $('#addItem').on('click', (e) => {
+        e.preventDefault();
+           $.get("/Admin/ProductItem/AddProductItem?ui-culture=az-AZ", { productid: 'fdfdfdf' }, (data) => showModal(data))
+    })
+
+    const showModal = (card) => {
+         $('#popup-overlay').css({
+                'visibility': 'visible'
+         })
+         $('#popup-overlay').append(card);
+         const modal = document.getElementById('productItemModal');
+         modal.style.position = 'relative';
+         modal.style.top = '50%';
+         modal.style.left = '50%';
+         modal.style.width = '1100px';
+         modal.style.minHeight = '600px';
+         modal.style.maxHeight = '500px';
+         modal.style.overflow = 'auto';
+         modal.style.transform = 'translate(-50%, -50%)';
+         $('#productItemModal').css({ 'border': '1px solid black', 'z-index': '9999' });
+         $('#popup-overlay').css({ 'opacity': '100%' });
+         // $('#productItemModal').css({ 'opacity': '100%' });
+     }
+
+
+        const val = `<div class="row mt-1 align-items-center variant-values">
+                        <label class="col-sm-3 col-form-label form-label-title">#value-here#</label>
+                        <div class="col-sm-9">
+                            <div class="bs-example">
+                                <select class="js-example-basic-single w-100" name="state">
+                                    <option>In Stock</option>
+                                    <option>Out Of Stock</option>
+                                    <option>On Backorder</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>`;
+        let ic = 0;
+        let is = 0;
+        let im = 0;
+    $('.add-option').on('click', (e) => {
+        e.preventDefault();
+        var text = $('.variant-selector')[0].options[$('.variant-selector')[0].selectedIndex].text;
+        const template = document.createElement('template');
+
+        switch (text.toLowerCase()) {
+            case 'color':
+                ic++;
+                template.innerHTML = val.replace('#value-here#', text + ' ' + ic);
+                const resultc = template.content.children;
+
+                $('.variant-values label:contains("Color"):last').parent().after($(resultc));
+                break;
+            case 'size':
+                is++;
+                template.innerHTML = val.replace('#value-here#', text + ' ' + is);
+                const results = template.content.children;
+
+                $('.variant-values label:contains("Size")').last().parent().after($(results));
+                break;
+            case 'material':
+                im++;
+                template.innerHTML = val.replace('#value-here#', text + ' ' + im);
+                const resultm = template.content.children;
+
+                $('.variant-values label:contains("Material")').last().parent().after($(resultm));
+                break;
+
+
+        }
+
+        
+
+    })
+
+        //$('.variants-container').children().
+
+    </script>
+ }
+@section Styles {
+    <style>
+
+        #addItem {
+            margin: 20px;
+            width: 100%;
+            background-color: #0ea487;
+            display: block;
+            margin-inline: auto;
+            border: 1px solid aquamarine;
+            color: whitesmoke;
+            line-height: 35px;
+        }
+
+        #popup-overlay {
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.685);
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+            display: block;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+
+        .variants {
+            display: flex;
+        }
+
+        .variants > li {
+            justify-content: normal;
+        }
+
+        .variant-name{
+            color: #0ea487;
+        }
+
+
+        .table {
+            max-height: 700px;
+            overflow: auto;
+        }
+
+        .buttonContainer {
+            position: relative;
+            height: 100%;
+        }
+
+
+        #save {
+            position: absolute;
+            bottom: 10px;
+            right: 90px;
+        }
+
+        #close {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
+}

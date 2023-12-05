@@ -8,7 +8,7 @@
     <link rel="icon" href="~/AdminStatics/assets/images/favicon.pn" type="image/x-icon">
     <link rel="shortcut icon" href="~/AdminStatics/assets/images/favicon.pn" type="image/x-icon">
     <title>Dashboard</title>
-
+    @await RenderSectionAsync("Styles", required: false)
     <!-- Unicons IconScout -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
@@ -492,7 +492,14 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 
-
+    <script>
+        $('#close').on('click', (e) => {
+            console.log('clikced')
+            $('#productItemModal').css({
+                'visibility': 'hidden'
+            })
+        })
+    </script>
     <!-- Modal End -->
 </body>
 </html>

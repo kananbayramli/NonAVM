@@ -1,5 +1,7 @@
 ﻿@model List<CategoryViewModel>
 
+@inject IViewLocalizer Localizer
+
 <!-- Page Body Start -->
 <div class="page-body-wrapper">
     <!-- Container-fluid starts-->
@@ -24,7 +26,7 @@
                                     <table class="table all-package theme-table" id="table_id">
                                         <thead>
                                             <tr>
-                                                <th>Kateqoriyanın adı</th>
+                                                <th>@Localizer["kategoriyaAd"]</th>
                                                 <th>Tarix</th>
                                                 <th>Kateqoriya şəkli</th>
                                                 <th>İkon</th>

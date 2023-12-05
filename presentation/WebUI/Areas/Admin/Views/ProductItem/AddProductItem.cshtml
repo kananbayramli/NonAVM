@@ -1,0 +1,114 @@
+﻿@{
+    Layout = null;
+}
+@inject IViewLocalizer Localizer
+@model CreateProductItemViewModel
+
+<div id="productItemModal" class="card">
+        <div class="card-body">
+            <div class="card-header-2">
+                <h5>Məhsulların növləri</h5>
+            </div>
+
+            <form class="theme-form theme-form-2 mega-form">
+                <div id="mb-4 row align-items-center">
+                    <label class="form-label-title col-sm-3 mb-0">Məhsul seçin</label>
+                    <div class="col-sm-9">
+                        <label asp-for="ProductId" >@Localizer["Product"]</label>
+                        <input type="hidden" asp-for="ProductId" readonly />
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <ul class="variants">
+                            <li>Variantlar :</li>
+                            <li>
+                                <label class="form-check-label m-0" for="Size">Ölçü</label>
+                                <input class="checkbox_animated check-it" type="checkbox" value="Ölçü"  />
+                            </li>
+                            <li>
+                                <label class="form-check-label m-0" for="Color">Rəng</label>
+                                <input class="checkbox_animated check-it" type="checkbox" id="Color" value="Rəng" />
+                            </li>
+                            <li>
+                                <label class="form-check-label m-0" for="Material">Material</label>
+                                <input class="checkbox_animated check-it" type="checkbox" id="Mat" value="Material" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+            <table class="table">
+                <thead class="t-head">
+                    <tr>
+                        <th id="1st" scope="row">Price</th>
+                        <td>Quantity</td>
+                        <td>SKU</td>
+                    </tr>
+                </thead>
+                <tbody class="t-body">
+                    <tr class="body-row">
+                        <th class="1st" scope="row"><input type="text" name="price" placeholder="Qiyməti daxil edin" /></th>
+                        <td><input type="text" name="price" placeholder="Miqdarı daxil edin" /></td>
+                        <td><p>Auto generated SKU</p></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="add-option"><i class="ri-add-line me-2"></i> Başqa bir seçim əlavə edin</a>
+        <div class="buttonContainer">
+            <button id="save">Save</button>
+            <button id="close">Close</button>
+        </div>
+
+
+</div>
+
+
+<script>
+    $('#close').on('click', (e) => {
+        const modal = $('#productItemModal');
+        modal.css({
+            'visibility': 'hidden'
+        })
+        modal.remove();
+        $('#popup-overlay').css({
+            'visibility': 'hidden'
+        })
+    })
+
+    document.getElementsByClassName('checkbox_animated').forEach(e => {
+        e.addEventListener('change', e => {
+
+                if (e.target.checked) {
+                    $(`<th class='${e.target.value}'>${e.target.value}</th>`).insertBefore('#1st');
+                    document.getElementsByClassName('1st').forEach(function (fc) {
+                        console.log(e)
+                        const th = document.createElement('th');
+                        th.classList.add(`${e.target.value}`);
+                        // th.textContent = `${e.target.value}`;
+                        fc.parentElement.insertBefore(th, fc);
+                    })
+                }
+                else
+                    $(`.${e.target.value}`).each(function () { $(this).remove() });
+
+        })
+    });
+
+
+
+    var bodyRow = `<tr class="body-row">
+                       <th scope="row">Price</th>
+                       <td>Quantity</td>
+                   </tr>`;
+    const row = $('.body-row');
+
+    $('.add-option').on('click', (e) => {
+        console.log(row[0])
+        $('.t-body').append(row.clone());
+    })
+</script>

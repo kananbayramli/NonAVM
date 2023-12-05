@@ -1,6 +1,6 @@
 ﻿using ECommerse.Business.DTO_s;
 
-namespace ECommerse.WebUI.Areas.Admin.ViewModels.ProductItemModels;
+namespace ECommerse.WebUI.Areas.Admin.Models.ProductItem;
 
 public class CreateProductItemViewModel
 {
