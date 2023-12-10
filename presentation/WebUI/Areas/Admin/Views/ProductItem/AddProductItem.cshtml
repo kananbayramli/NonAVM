@@ -63,23 +63,10 @@
             <button id="save">Save</button>
             <button id="close">Close</button>
         </div>
-
-
 </div>
 
 
 <script>
-    $('#close').on('click', (e) => {
-        const modal = $('#productItemModal');
-        modal.css({
-            'visibility': 'hidden'
-        })
-        modal.remove();
-        $('#popup-overlay').css({
-            'visibility': 'hidden'
-        })
-    })
-
     document.getElementsByClassName('checkbox_animated').forEach(e => {
         e.addEventListener('change', e => {
 
@@ -89,7 +76,7 @@
                         console.log(e)
                         const th = document.createElement('th');
                         th.classList.add(`${e.target.value}`);
-                        // th.textContent = `${e.target.value}`;
+                         th.textContent = `${e.target.value}`;
                         fc.parentElement.insertBefore(th, fc);
                     })
                 }

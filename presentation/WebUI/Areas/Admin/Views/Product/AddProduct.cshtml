@@ -163,21 +163,20 @@
                                                     <option>Color</option>
                                                     <option>Size</option>
                                                     <option>Material</option>
-                                                    <option>Style</option>
-                                                </select>
+                                                    </select>
                                             </div>
                                         </div>
 
                                         <div class="row align-items-center variant-values">
-                                            <hr />
+                                            <hr class="my-2"/>
                                             <label class="variant-name col-sm-3 col-form-label form-label-title">Color</label>
                                         </div>
                                         <div class="row align-items-center variant-values">
-                                            <hr />
+                                            <hr class="my-2"/>
                                             <label class="variant-name col-sm-3 col-form-label form-label-title">Size</label>
                                         </div>
                                         <div class="row align-items-center variant-values">
-                                            <hr />
+                                            <hr class="my-2"/>
                                             <label class="variant-name col-sm-3 col-form-label form-label-title">Material</label>
                                         </div>
                                     </form>
@@ -410,85 +409,262 @@
     <!-- Container-fluid End -->
 </div>
 <!-- Page Body End -->
-<div id="popup-overlay" style="visibility: hidden;"></div>
- @section Scripts {
+<div id="popup-overlay" style="visibility: hidden;">
+    <div id="productItemModal" class="card">
+        <form class="theme-form theme-form-2 mega-form">
+            <div class="card-body">
+                <div class="card-header-2">
+                    <h5>Məhsulların növləri</h5>
+                </div>
+
+                <div id="mb-4 row align-items-center">
+                    <label class="form-label-title col-sm-3 mb-0">Məhsul seçin</label>
+                    <div class="col-sm-9">
+                        <label for="ProductId">@Localizer["Product"]</label>
+                        <input type="hidden" for="ProductId" readonly />
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <ul class="variants">
+                            <li>Variantlar :</li>
+                            <li>
+                                <label class="form-check-label m-0" for="Size">Ölçü</label>
+                                <input class="checkbox_animated check-it" type="checkbox" value="size" />
+                            </li>
+                            <li>
+                                <label class="form-check-label m-0" for="Color">Rəng</label>
+                                <input class="checkbox_animated check-it" type="checkbox" id="Color" value="color" />
+                            </li>
+                            <li>
+                                <label class="form-check-label m-0" for="Material">Material</label>
+                                <input class="checkbox_animated check-it" type="checkbox" id="Mat" value="material" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table">
+                <thead class="t-head">
+                    <tr>
+                        <th id="1st" scope="row">Price</th>
+                        <td>Quantity</td>
+                        <td>SKU</td>
+                    </tr>
+                </thead>
+                <tbody class="t-body">
+                    <tr class="body-row">
+                        <th class="1st" scope="row"><input type="text" name[0]="price" placeholder="Qiyməti daxil edin" /></th>
+                        <td><input type="text" name[0]="quantity" placeholder="Miqdarı daxil edin" /></td>
+                        <td><p>Auto generated SKU</p></td>
+                        <input type="hidden" name[0]="sku" value="" />
+                    </tr>
+                </tbody>
+            </table>
+            <a class="add-variant"><i class="ri-add-line me-2"></i> Başqa bir seçim əlavə edin</a>
+            <div class="buttonContainer">
+                <button id="save">Save</button>
+                <button id="close">Close</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
     <script>
-    $('#addItem').on('click', (e) => {
-        e.preventDefault();
-           $.get("/Admin/ProductItem/AddProductItem?ui-culture=az-AZ", { productid: 'fdfdfdf' }, (data) => showModal(data))
-    })
+        var variants;
+        $.get("/Admin/ProductItem/GetVariants", (data) => {
+            variants = data;
+            val1 = val1.replace('#options#', listOptoins(data.colors));
+            val2 = val2.replace('#options#', listOptoins(data.sizes));
+            val3 = val3.replace('#options#', listOptoins(data.materials));
+        })
 
-    const showModal = (card) => {
-         $('#popup-overlay').css({
-                'visibility': 'visible'
-         })
-         $('#popup-overlay').append(card);
-         const modal = document.getElementById('productItemModal');
-         modal.style.position = 'relative';
-         modal.style.top = '50%';
-         modal.style.left = '50%';
-         modal.style.width = '1100px';
-         modal.style.minHeight = '600px';
-         modal.style.maxHeight = '500px';
-         modal.style.overflow = 'auto';
-         modal.style.transform = 'translate(-50%, -50%)';
-         $('#productItemModal').css({ 'border': '1px solid black', 'z-index': '9999' });
-         $('#popup-overlay').css({ 'opacity': '100%' });
-         // $('#productItemModal').css({ 'opacity': '100%' });
-     }
+        $('#addItem').on('click', (e) => {
+            e.preventDefault();
+            //$.get("/Admin/ProductItem/AddProductItem?ui-culture=az-AZ", { productid: 'fdfdfdf' }, (data) => showModal(data))
+            let modal = document.getElementById('productItemModal');
+            showModal(modal);
+        })
+
+        const showModal = (modal) => {
+             $('#popup-overlay').css({
+                    'visibility': 'visible'
+             })
+             
+             modal.style.position = 'relative';
+             modal.style.top = '50%';
+             modal.style.left = '50%';
+             modal.style.width = '1100px';
+             modal.style.minHeight = '600px';
+             modal.style.maxHeight = '500px';
+             modal.style.overflow = 'auto';
+             modal.style.transform = 'translate(-50%, -50%)';
+             $(modal).css({ 'border': '1px solid black', 'z-index': '9999' });
+             $('#popup-overlay').css({ 'opacity': '100%' });
 
 
-        const val = `<div class="row mt-1 align-items-center variant-values">
-                        <label class="col-sm-3 col-form-label form-label-title">#value-here#</label>
-                        <div class="col-sm-9">
-                            <div class="bs-example">
-                                <select class="js-example-basic-single w-100" name="state">
-                                    <option>In Stock</option>
-                                    <option>Out Of Stock</option>
-                                    <option>On Backorder</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>`;
-        let ic = 0;
-        let is = 0;
-        let im = 0;
-    $('.add-option').on('click', (e) => {
-        e.preventDefault();
-        var text = $('.variant-selector')[0].options[$('.variant-selector')[0].selectedIndex].text;
-        const template = document.createElement('template');
+            // let hasColorVariant = $('.variants-container label:contains("Color 1")')[0] != undefined;
+            // let hasSizeVariant = $('.variants-container label:contains("Size 1")')[0] != undefined;
+            // let hasMaterialVariant = $('.variants-container label:contains("Material 1")')[0] != undefined;
 
-        switch (text.toLowerCase()) {
-            case 'color':
-                ic++;
-                template.innerHTML = val.replace('#value-here#', text + ' ' + ic);
-                const resultc = template.content.children;
 
-                $('.variant-values label:contains("Color"):last').parent().after($(resultc));
-                break;
-            case 'size':
-                is++;
-                template.innerHTML = val.replace('#value-here#', text + ' ' + is);
-                const results = template.content.children;
+            // const row = $('.body-row');
 
-                $('.variant-values label:contains("Size")').last().parent().after($(results));
-                break;
-            case 'material':
-                im++;
-                template.innerHTML = val.replace('#value-here#', text + ' ' + im);
-                const resultm = template.content.children;
+            //$(`<th class='${e.target.value}'>${e.target.value}</th>`).insertBefore('#1st');
 
-                $('.variant-values label:contains("Material")').last().parent().after($(resultm));
-                break;
+            //const th = document.createElement('th');
+            //th.classList.add(`${e.target.value}`);
 
+            //let fc = row.find('.1st');
+
+            //fc[0].parentElement.insertBefore(th, fc[0]);
+
+
+            //$(modal).find('.t-body').append(row.clone());
+ 
 
         }
 
+        var listOptoins = (list) => {
+                let row;
+                for (let i = 0; i < list.length; i++) {
+                    row += `\r\n<option>` + list[i] + `</option>`
+                }
+                return row;
+            }
+
+
+        var val1 = `<div class="bs-example">
+                        <select class="js-example-basic-single w-100" name="state">
+                            #options#
+                        </select>
+                    </div>`;
+        var val2 = `<div class="bs-example">
+                        <select class="js-example-basic-single w-100" name="state">
+                            #options#
+                        </select>
+                    </div>`;
+        var val3 = `<div class="bs-example">
+                        <select class="js-example-basic-single w-100" name="state">
+                            #options#
+                        </select>
+                    </div>`;
+
+        // var val1 = `<div class="row mt-1 align-items-center variant-values">
+        //                    <label class="col-sm-3 col-form-label form-label-title">#value-here#</label>
+        //                    <div class="col-sm-9">
+        //                        <div class="bs-example">
+        //                            <select class="js-example-basic-single w-100" name="state">
+        //                                #options#
+        //                            </select>
+        //                        </div>
+        //                    </div>
+        //                </div>`;
+        // var val2 = `<div class="row mt-1 align-items-center variant-values">
+        //         <label class="col-sm-3 col-form-label form-label-title">#value-here#</label>
+        //         <div class="col-sm-9">
+        //             <div class="bs-example">
+        //                 <select class="js-example-basic-single w-100" name="state">
+        //                     #options#
+        //                 </select>
+        //             </div>
+        //         </div>
+        //     </div>`;
+        // var val3 = `<div class="row mt-1 align-items-center variant-values">
+        //             <label class="col-sm-3 col-form-label form-label-title">#value-here#</label>
+        //             <div class="col-sm-9">
+        //                 <div class="bs-example">
+        //                     <select class="js-example-basic-single w-100" name="state">
+        //                         #options#
+        //                     </select>
+        //                 </div>
+        //             </div>
+        //         </div>`;
+
+        // let ic = 0;
+        // let is = 0;
+        // let im = 0;
+        // $('.add-option').on('click', (e) => {
+        //     e.preventDefault();
+        //     var text = $('.variant-selector')[0].options[$('.variant-selector')[0].selectedIndex].text;
+        //     const template = document.createElement('template');
+
+        //     switch (text.toLowerCase()) {
+        //         case 'color':
+        //             ic++;
+        //             template.innerHTML = val1.replace('#value-here#', text + ' ' + ic);
+        //             const resultc = template.content.children;
+
+        //             $('.variant-values label:contains("Color"):last').parent().after($(resultc));
+        //             break;
+        //         case 'size':
+        //             is++;
+        //             template.innerHTML = val2.replace('#value-here#', text + ' ' + is);
+        //             const results = template.content.children;
+
+        //             $('.variant-values label:contains("Size")').last().parent().after($(results));
+        //             break;
+        //         case 'material':
+        //             im++;
+        //             template.innerHTML = val3.replace('#value-here#', text + ' ' + im);
+        //             const resultm = template.content.children;
+
+        //             $('.variant-values label:contains("Material")').last().parent().after($(resultm));
+        //             break;
+        //     }
+        // })
         
+        
+        
+        //---------------------------------------------------
 
-    })
 
-        //$('.variants-container').children().
+        document.getElementsByClassName('checkbox_animated').forEach((e) => {
+            e.addEventListener('change', e => {
+                if (e.target.checked) {
+                    $(`<th class='${e.target.value}'>${e.target.value}</th>`).insertBefore('#1st');
+                    document.getElementsByClassName('1st').forEach(function (fc, i) {
+                        const th = document.createElement('th');
+                        th.classList.add(`${e.target.value}`);
+                        if (e.target.value == 'color') {
+                            th.innerHTML = val1.replace('name', `name[${i}]`).replace('state', `color`);
+                        }
+                        else if (e.target.value == 'size') {
+                            th.innerHTML = val2.replace('name', `name[${i}]`).replace('state', `size`);
+                        }
+                        else {
+                            th.innerHTML = val3.replace('name', `name[${i}]`).replace('state', `material`);
+                        }
+                        fc.parentElement.insertBefore(th, fc);
+                    })
+                }
+                else
+                    $(`.${e.target.value}`).each(function () { $(this).remove() });
+
+            })
+        });
+
+
+        let index = 0;
+
+                     
+        $('.add-variant').on('click', (e) => {
+            index +=1;
+            let row = $('.body-row')[0].innerHTML;
+            $('.t-body')[0].innerHTML += row.replaceAll('name[0]', `name[${index}]`)
+        })
 
     </script>
  }
@@ -524,11 +700,11 @@
             display: flex;
         }
 
-        .variants > li {
-            justify-content: normal;
-        }
+            .variants > li {
+                justify-content: normal;
+            }
 
-        .variant-name{
+        .variant-name {
             color: #0ea487;
         }
 
@@ -540,20 +716,28 @@
 
         .buttonContainer {
             position: relative;
+            margin-top: 30px;
             height: 100%;
         }
 
-
+ 
         #save {
             position: absolute;
             bottom: 10px;
             right: 90px;
+            color: ghostwhite;
+            background-color: #0ea487;
+            border-radius: 10%;
         }
 
         #close {
             position: absolute;
             bottom: 10px;
             right: 10px;
+            color: ghostwhite;
+            background-color: #0ea487;
+            border-radius: 10%;
         }
+
     </style>
 }

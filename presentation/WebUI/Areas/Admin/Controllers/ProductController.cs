@@ -1,5 +1,6 @@
 ﻿using ECommerse.Business.DTO_s;
 using ECommerse.Business.Services.Abstract;
+using ECommerse.WebUI.Areas.Admin.Models;
 using ECommerse.WebUI.Areas.Admin.Models.Product;
 using ECommerse.WebUI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -47,6 +48,7 @@ public class ProductController : Controller
         ViewBag.categoryList = new SelectList(await _categoryService.GetAllAsync(), "Id", "Name");
         ViewBag.storeList = new SelectList(await _storeService.GetAllAsync(), "Id", "Name");
         ViewBag.brandList = new SelectList(await _brandService.GetAllAsync(), "Id", "Name");
+        ViewBag.variants = new Variants();
         return View();
     }
 

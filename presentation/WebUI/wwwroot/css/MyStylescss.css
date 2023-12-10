@@ -1,0 +1,61 @@
+﻿
+#addItem {
+    margin: 20px;
+    width: 100%;
+    background-color: #0ea487;
+    display: block;
+    margin-inline: auto;
+    border: 1px solid aquamarine;
+    color: whitesmoke;
+    line-height: 35px;
+}
+
+#popup-overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.685);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    display: block;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+
+.variants {
+    display: flex;
+}
+
+    .variants > li {
+        justify-content: normal;
+    }
+
+.variant-name {
+    color: #0ea487;
+}
+
+
+.table {
+    max-height: 700px;
+    overflow: auto;
+}
+
+.buttonContainer {
+    position: relative;
+    height: 100%;
+}
+
+
+#save {
+    position: absolute;
+    bottom: 10px;
+    right: 90px;
+}
+
+#close {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}

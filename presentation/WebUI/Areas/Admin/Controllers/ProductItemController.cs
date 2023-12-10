@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ECommerse.Business.Services.Abstract;
 using ECommerse.WebUI.Areas.Admin.Models.ProductItem;
+using ECommerse.Core.Enums;
+using ECommerse.Business.Services.Concrete;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using ECommerse.WebUI.Areas.Admin.Models;
 
 namespace ECommerse.WebUI.Areas.Admin.Controllers;
 
@@ -20,6 +24,12 @@ public class ProductItemController : Controller
     {
         var productItems = await _productItemService.GetAllAsync();
         return View(productItems);
+    }
+
+
+    public IActionResult GetVariants()
+    {
+        return Json(new Variants());
     }
 
     public IActionResult AddProductItem(int productId)
