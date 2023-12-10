@@ -120,22 +120,10 @@
   <data name="addNewItem" xml:space="preserve">
     <value>Yenisini Əlavə Et</value>
   </data>
-  <data name="categoryImage" xml:space="preserve">
-    <value>Kateqoriya şəkili</value>
+  <data name="categoryInfo" xml:space="preserve">
+    <value>Kateqoriya Haqqında Məlumat</value>
   </data>
   <data name="categoryName" xml:space="preserve">
-    <value>Kateqoriyanın adı</value>
-  </data>
-  <data name="date" xml:space="preserve">
-    <value>Tarix</value>
-  </data>
-  <data name="edit" xml:space="preserve">
-    <value>Seçim</value>
-  </data>
-  <data name="ikon" xml:space="preserve">
-    <value>İkon</value>
-  </data>
-  <data name="slug" xml:space="preserve">
-    <value>Slug</value>
+    <value>Kateqoriya Adı</value>
   </data>
 </root>

@@ -117,25 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="addNewItem" xml:space="preserve">
-    <value>Yenisini Əlavə Et</value>
+  <data name="addRole" xml:space="preserve">
+    <value>İmtiyaz Ver</value>
   </data>
-  <data name="categoryImage" xml:space="preserve">
-    <value>Kateqoriya şəkili</value>
+  <data name="find" xml:space="preserve">
+    <value>Axtar</value>
   </data>
-  <data name="categoryName" xml:space="preserve">
-    <value>Kateqoriyanın adı</value>
+  <data name="name" xml:space="preserve">
+    <value>Ad</value>
   </data>
-  <data name="date" xml:space="preserve">
-    <value>Tarix</value>
+  <data name="role" xml:space="preserve">
+    <value>İcazələr</value>
   </data>
-  <data name="edit" xml:space="preserve">
-    <value>Seçim</value>
+  <data name="roleDescription" xml:space="preserve">
+    <value>İcazə Təsviri</value>
   </data>
-  <data name="ikon" xml:space="preserve">
-    <value>İkon</value>
+  <data name="roleName" xml:space="preserve">
+    <value>İcazə Adı</value>
   </data>
-  <data name="slug" xml:space="preserve">
-    <value>Slug</value>
+  <data name="username" xml:space="preserve">
+    <value>İstifadəçi adı</value>
   </data>
 </root>

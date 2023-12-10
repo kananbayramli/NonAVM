@@ -117,25 +117,76 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="addNewItem" xml:space="preserve">
-    <value>Yenisini Əlavə Et</value>
+  <data name="addNeüEditType" xml:space="preserve">
+    <value>+ Başqa bir seçim əlavə edin</value>
   </data>
-  <data name="categoryImage" xml:space="preserve">
-    <value>Kateqoriya şəkili</value>
+  <data name="addProduct" xml:space="preserve">
+    <value>Məhsul Əlavə Edin</value>
   </data>
-  <data name="categoryName" xml:space="preserve">
-    <value>Kateqoriyanın adı</value>
+  <data name="brand" xml:space="preserve">
+    <value>Marka</value>
   </data>
-  <data name="date" xml:space="preserve">
-    <value>Tarix</value>
+  <data name="category" xml:space="preserve">
+    <value>Kateqoriya</value>
   </data>
-  <data name="edit" xml:space="preserve">
-    <value>Seçim</value>
+  <data name="chooseFile" xml:space="preserve">
+    <value>Faylı Seçin</value>
   </data>
-  <data name="ikon" xml:space="preserve">
-    <value>İkon</value>
+  <data name="description" xml:space="preserve">
+    <value>Təsvir</value>
   </data>
-  <data name="slug" xml:space="preserve">
-    <value>Slug</value>
+  <data name="editName" xml:space="preserve">
+    <value>Seçim Adı</value>
+  </data>
+  <data name="editValue" xml:space="preserve">
+    <value>Seçim Dəyəri</value>
+  </data>
+  <data name="height" xml:space="preserve">
+    <value>Ölçü</value>
+  </data>
+  <data name="images" xml:space="preserve">
+    <value>Şəkillər</value>
+  </data>
+  <data name="length" xml:space="preserve">
+    <value>Uzunluq</value>
+  </data>
+  <data name="linkVideo" xml:space="preserve">
+    <value>Video Linki</value>
+  </data>
+  <data name="productDescription" xml:space="preserve">
+    <value>Məhsulun Təsviri</value>
+  </data>
+  <data name="productInfo" xml:space="preserve">
+    <value>Məhsul haqqında məlumat</value>
+  </data>
+  <data name="productName" xml:space="preserve">
+    <value>Məhsulun adı</value>
+  </data>
+  <data name="productTypes" xml:space="preserve">
+    <value>Məhsul Növləri</value>
+  </data>
+  <data name="productVideo" xml:space="preserve">
+    <value>Məhsul Videoları</value>
+  </data>
+  <data name="productİmage" xml:space="preserve">
+    <value>Məhsul Şəkilləri</value>
+  </data>
+  <data name="provayderVideo" xml:space="preserve">
+    <value>Video Provayderi</value>
+  </data>
+  <data name="return" xml:space="preserve">
+    <value>Geri qaytarıla bilər</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>Göndərmə</value>
+  </data>
+  <data name="tag" xml:space="preserve">
+    <value>Teqlər</value>
+  </data>
+  <data name="weight" xml:space="preserve">
+    <value>Çəki</value>
+  </data>
+  <data name="width" xml:space="preserve">
+    <value>En</value>
   </data>
 </root>

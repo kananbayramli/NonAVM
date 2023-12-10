@@ -117,25 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="addNewItem" xml:space="preserve">
-    <value>Yenisini Əlavə Et</value>
+  <data name="addNewProduct" xml:space="preserve">
+    <value>Məhsul Əlavə Edin</value>
   </data>
-  <data name="categoryImage" xml:space="preserve">
-    <value>Kateqoriya şəkili</value>
+  <data name="category" xml:space="preserve">
+    <value>Kateqoriya</value>
   </data>
-  <data name="categoryName" xml:space="preserve">
-    <value>Kateqoriyanın adı</value>
-  </data>
-  <data name="date" xml:space="preserve">
-    <value>Tarix</value>
+  <data name="count" xml:space="preserve">
+    <value>Miqdar</value>
   </data>
   <data name="edit" xml:space="preserve">
     <value>Seçim</value>
   </data>
-  <data name="ikon" xml:space="preserve">
-    <value>İkon</value>
+  <data name="export" xml:space="preserve">
+    <value>İxrac</value>
   </data>
-  <data name="slug" xml:space="preserve">
-    <value>Slug</value>
+  <data name="import" xml:space="preserve">
+    <value>İdxal</value>
+  </data>
+  <data name="price" xml:space="preserve">
+    <value>Qiymət</value>
+  </data>
+  <data name="productImage" xml:space="preserve">
+    <value>Məhsulun Şəkli</value>
+  </data>
+  <data name="productList" xml:space="preserve">
+    <value>Məhsulların Siyahısı</value>
+  </data>
+  <data name="productName" xml:space="preserve">
+    <value>Məhsulun Adı</value>
   </data>
 </root>
