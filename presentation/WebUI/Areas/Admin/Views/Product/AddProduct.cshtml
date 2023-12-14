@@ -411,7 +411,7 @@
 <!-- Page Body End -->
 <div id="popup-overlay" style="visibility: hidden;">
     <div id="productItemModal" class="card">
-        <form class="theme-form theme-form-2 mega-form">
+        <form asp-area="Admin" asp-controller="ProductItem" asp-action="AddProductItem" class="theme-form theme-form-2 mega-form">
             <div class="card-body">
                 <div class="card-header-2">
                     <h5>Məhsulların növləri</h5>
@@ -421,7 +421,7 @@
                     <label class="form-label-title col-sm-3 mb-0">Məhsul seçin</label>
                     <div class="col-sm-9">
                         <label for="ProductId">@Localizer["Product"]</label>
-                        <input type="hidden" for="ProductId" readonly />
+                        <input type="hidden" name="createProductItemViewModel.ProductId" value="1002" />
                     </div>
                 </div>
 
@@ -439,12 +439,13 @@
                             </li>
                             <li>
                                 <label class="form-check-label m-0" for="Material">Material</label>
-                                <input class="checkbox_animated check-it" type="checkbox" id="Mat" value="material" />
+                                <input class="checkbox_animated check-it" type="checkbox" id="Material" value="material" />
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
+            @* <input type="hidden" name="createProductItemViewModel.ProductItems.index" value="0" /> *@
 
             <table class="table">
                 <thead class="t-head">
@@ -452,27 +453,44 @@
                         <th id="1st" scope="row">Price</th>
                         <td>Quantity</td>
                         <td>SKU</td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody class="t-body">
                     <tr class="body-row">
-                        <th class="1st" scope="row"><input type="text" name[0]="price" placeholder="Qiyməti daxil edin" /></th>
-                        <td><input type="text" name[0]="quantity" placeholder="Miqdarı daxil edin" /></td>
+                        <th class="1st" scope="row"><input type="text" name="createProductItemViewModel.ProductItems[0].Price" placeholder="Qiyməti daxil edin" /></th>
+                        <td><input type="text" name="createProductItemViewModel.ProductItems[0].Quantity" placeholder="Miqdarı daxil edin" /></td>
                         <td><p>Auto generated SKU</p></td>
-                        <input type="hidden" name[0]="sku" value="" />
+                        <td>
+                            <div class="upload__box">
+                                <div class="upload__btn-box">
+                                    <label class="upload__btn">
+                                        <p class="upload__button">Upload images</p>
+                                        <input name="image[0]" type="file" multiple="" data-max_length="20" class="upload__inputfile">
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                        <input type="hidden" name="createProductItemViewModel.ProductItems[0].Sku" />
                     </tr>
                 </tbody>
             </table>
             <a class="add-variant"><i class="ri-add-line me-2"></i> Başqa bir seçim əlavə edin</a>
             <div class="buttonContainer">
-                <button id="save">Save</button>
+                <button type="submit" id="save">Save</button>
                 <button id="close">Close</button>
             </div>
         </form>
     </div>
 </div>
 
-
+<div class="upload__box1">
+    <div class="upload__img-wrap">
+        <div class='upload__img-box'><div class='upload__img-add img-bg' style="background-image: url('data:image/png;base64,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')"></div></div>
+    </div>
+    <button id="add">Add</button>
+    <button id="cancel">Cancel</button>
+</div>
 
 
 
@@ -506,8 +524,8 @@
              modal.style.position = 'relative';
              modal.style.top = '50%';
              modal.style.left = '50%';
-             modal.style.width = '1100px';
-             modal.style.minHeight = '600px';
+             modal.style.width = '1300px';
+             modal.style.minHeight = '800px';
              modal.style.maxHeight = '500px';
              modal.style.overflow = 'auto';
              modal.style.transform = 'translate(-50%, -50%)';
@@ -547,17 +565,17 @@
 
 
         var val1 = `<div class="bs-example">
-                        <select class="js-example-basic-single w-100" name="state">
+                        <select class="js-example-basic-single w-100" name="ProductItem.Color">
                             #options#
                         </select>
                     </div>`;
         var val2 = `<div class="bs-example">
-                        <select class="js-example-basic-single w-100" name="state">
+                        <select class="js-example-basic-single w-100" name="ProductItem.Size">
                             #options#
                         </select>
                     </div>`;
         var val3 = `<div class="bs-example">
-                        <select class="js-example-basic-single w-100" name="state">
+                        <select class="js-example-basic-single w-100" name="ProductItem.Material">
                             #options#
                         </select>
                     </div>`;
@@ -639,13 +657,13 @@
                         const th = document.createElement('th');
                         th.classList.add(`${e.target.value}`);
                         if (e.target.value == 'color') {
-                            th.innerHTML = val1.replace('name', `name[${i}]`).replace('state', `color`);
+                            th.innerHTML = val1.replace('ProductItem', `createProductItemViewModel.ProductItems[${i}]`);
                         }
                         else if (e.target.value == 'size') {
-                            th.innerHTML = val2.replace('name', `name[${i}]`).replace('state', `size`);
+                            th.innerHTML = val2.replace('ProductItem', `createProductItemViewModel.ProductItems[${i}]`);
                         }
                         else {
-                            th.innerHTML = val3.replace('name', `name[${i}]`).replace('state', `material`);
+                            th.innerHTML = val3.replace('ProductItem', `createProductItemViewModel.ProductItems[${i}]`);
                         }
                         fc.parentElement.insertBefore(th, fc);
                     })
@@ -658,14 +676,120 @@
 
 
         let index = 0;
-
                      
         $('.add-variant').on('click', (e) => {
             index +=1;
-            let row = $('.body-row')[0].innerHTML;
-            $('.t-body')[0].innerHTML += row.replaceAll('name[0]', `name[${index}]`)
+            let row = $('.t-body .body-row:last-child')
+            let sku = row.find('input[type=text]')[0].value + 'N' + row.find('input[type=text]')[1].value;
+            for (let i = 0; i < row.find("select").length; i++) { 
+                sku = row.find("select")[i].value.substr(0,1) + sku;
+            }
+            row.find('p')[0].textContent = sku;
+            let replaceTRext = row[0].innerHTML.substring(row[0].innerHTML.indexOf('['), row[0].innerHTML.indexOf(']') + 1);
+            let replaceSKU = row[0].innerHTML.substring(row[0].innerHTML.indexOf('<p>')+3, row[0].innerHTML.indexOf('</p>'));
+            $('.t-body').append('<tr class="body-row">'+row[0].innerHTML.replaceAll(replaceTRext, `[${index}]`).replace(replaceSKU, 'Auto generated SKU')+'</tr>')
+            row.find("td:nth-last-child(3)").on('click', (e) => {
+                let row = $(e.currentTarget.parentElement);
+                let sku = row.find('input[type=text]')[0].value + 'N' + row.find('input[type=text]')[1].value;
+                for (let i = 0; i < row.find("select").length; i++) {
+                    sku = row.find("select")[i].value.substr(0, 1) + sku;
+                }
+
+                $(e.currentTarget).find('p')[0].textContent = sku;
+            })
+            
+
         })
 
+
+
+        // ---------------------------------------
+
+        $('.upload__btn')[0].addEventListener('click', e => {
+            console.log('here: ', $(e.currentTarget).find('input[type=file]'))
+            $(e.currentTarget).closest('.t-body').find('input[type=file]').each(() => { $(this).removeClass('current_input'); })
+            $(e.currentTarget).find('input[type=file]').addClass('current_input');
+            e.stopPropagation();
+            return false;
+        }, true)
+
+        // $('.upload__img-add')[0].parentElement.addEventListener('click', () => {
+        //     $('.upload__inputfile .current_input').click();
+        // })
+
+        $(document).ready(function () {
+            ImgUpload();
+        });
+
+        function ImgUpload() {
+            var imgWrap = "";
+            var imgArray = [];
+
+            $('.upload__inputfile').each(function () {
+                $(this).on('change', function (e) {
+                    imgWrap = $('.upload__img-wrap');
+                    var maxLength = $(this).attr('data-max_length');
+
+                    var files = e.target.files;
+                    var filesArr = Array.prototype.slice.call(files);
+                    var iterator = 0;
+                    filesArr.forEach(function (f, index) {
+
+                        if (!f.type.match('image.*')) {
+                            return;
+                        }
+
+                        if (imgArray.length > maxLength) {
+                            return false
+                        } else {
+                            var len = 0;
+                            for (var i = 0; i < imgArray.length; i++) {
+                                if (imgArray[i] !== undefined) {
+                                    len++;
+                                }
+                            }
+                            if (len > maxLength) {
+                                return false;
+                            } else {
+                                imgArray.push(f);
+
+                                var reader = new FileReader();
+                                reader.onload = function (b) {
+                                    var html = "<div class='upload__img-box'><div style='background-image: url(" + b.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+                                    let jqElement = $(html);
+                                    imgWrap[0].insertBefore(jqElement[0], $('.upload__img-add')[0].parentElement);
+                                    iterator++;
+                                }
+                                reader.readAsDataURL(f);
+                            }
+                        }
+                    });
+                });
+            });
+
+            $('body').on('click', ".upload__img-close", function (e) {
+                var file = $(this).parent().data("file");
+                for (var i = 0; i < imgArray.length; i++) {
+                    if (imgArray[i].name === file) {
+                        imgArray.splice(i, 1);
+                        break;
+                    }
+                }
+                $(this).parent().parent().remove();
+            });
+
+            $('.upload__inputfile').on('click', (e) => {
+                $('.upload__box1').css({
+                    'visibility': 'visible'
+                })
+            })
+
+            $('#cancel').on('click', (e) => {
+                $('.upload__box1').css({
+                    'visibility': 'hidden'
+                })
+            })
+        }
     </script>
  }
 @section Styles {
@@ -689,7 +813,7 @@
             height: 100vh;
             top: 0;
             left: 0;
-            z-index: 9998;
+            z-index: 4;
             display: block;
             overflow-y: hidden;
             overflow-x: hidden;
@@ -739,5 +863,119 @@
             border-radius: 10%;
         }
 
+
+        /* --------------------------------- */
+
+
+
+    
+        .upload__button {
+            margin: 0;
+        }
+
+        .upload__box {
+            padding: 40px;
+        }
+
+        .upload__box1 {
+            padding: 40px;
+            visibility: hidden;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 800px;
+            width: 1300px;
+            background-color: aqua;
+            z-index: 5; 
+        }
+        .upload__inputfile {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .upload__btn {
+            display: inline-block;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+            min-width: 116px;
+            padding: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid;
+            background-color: #4045ba;
+            border-color: #4045ba;
+            border-radius: 10px;
+            line-height: 26px;
+            font-size: 14px;
+        }
+
+        .upload__btn:hover {
+            background-color: unset;
+            color: #4045ba;
+            transition: all 0.3s ease;
+        }
+
+        .upload__btn-box {
+            margin-bottom: 10px;
+        }
+
+        .upload__img-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+        }
+
+        .upload__img-box {
+            width: 200px;
+            padding: 0 10px;
+            margin-bottom: 12px;
+        }
+
+        .upload__img-close {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            text-align: center;
+            line-height: 24px;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .upload__img-close:after {
+            content: '\2716';
+            font-size: 14px;
+            color: white;
+        }
+
+        .img-bg {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            padding-bottom: 100%;
+        }
+
+        #add, #cancel {
+            position: absolute;
+            bottom: 10px;
+            z-index: 5;
+        }
+        #add {
+            right: 10px;
+        }
+
+        #cancel {
+            right: 70px;
+        }
     </style>
 }

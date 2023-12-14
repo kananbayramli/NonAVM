@@ -4,6 +4,6 @@ namespace ECommerse.WebUI.Areas.Admin.Models.ProductItem;
 
 public class CreateProductItemViewModel
 {
-    public int ProductId { get; set; }
-    public ICollection<ProductItemDTO>? ProductItemsDTO { get; set; }
+    public int? ProductId { get; set; }
+    public ICollection<ProductItemDTO>? ProductItems { get; set; }
 }

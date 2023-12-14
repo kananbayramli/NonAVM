@@ -5,6 +5,7 @@ using ECommerse.Core.Enums;
 using ECommerse.Business.Services.Concrete;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ECommerse.WebUI.Areas.Admin.Models;
+using ECommerse.Business.DTO_s;
 
 namespace ECommerse.WebUI.Areas.Admin.Controllers;
 
@@ -41,16 +42,16 @@ public class ProductItemController : Controller
     [HttpPost]
     public async Task<IActionResult> AddProductItem(CreateProductItemViewModel createProductItemViewModel) 
     {
-        if (createProductItemViewModel.ProductItemsDTO is null)
-            return View();
-
-        foreach (var item in createProductItemViewModel.ProductItemsDTO)
+        //if (createProductItemViewModel.ProductItemsDTO is null)
+        //    return View();
+        var b = Request.Body;
+            foreach (var item in createProductItemViewModel.ProductItems)
         {
-            item.ProductID = createProductItemViewModel.ProductId;
-            await _productItemService.Create(item);
+            //item.ProductID = createProductItemViewModel.ProductId;
+            //await _productItemService.Create(item);
         }
-        await _productItemService.SaveChangesAsync(CancellationToken.None);
+        //await _productItemService.SaveChangesAsync(CancellationToken.None);
 
-        return View();
+        return RedirectToAction("AddProduct", "Product");
     }
 }
