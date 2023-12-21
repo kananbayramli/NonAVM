@@ -10,14 +10,17 @@ public class ECommerseDbContext : IdentityDbContext<AppUser, AppRole, string>
 {
     public ECommerseDbContext(DbContextOptions<ECommerseDbContext> options) : base(options) { }
 
+    public DbSet<Address> Addresses { get; set; }
     public DbSet<Basket> Baskets { get; set; }
     public DbSet<BasketItem> BasketItems { get; set; }
+    public DbSet<Brand> Brands { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Discount> Discounts { get; set; }
     public DbSet<Media> Medias { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderDetails> OrderDetails { get; set; }
     public DbSet<Payment> Payments { get; set; }
+    public DbSet<Product> Products { get; set; }
     public DbSet<ProductDiscount> ProductDiscounts { get; set; }
     public DbSet<ProductEntry> ProductEntries { get; set; }
     public DbSet<ProductItem> ProductItems { get; set; }
@@ -28,7 +31,6 @@ public class ECommerseDbContext : IdentityDbContext<AppUser, AppRole, string>
     public DbSet<Store> Stores { get; set; }
     public DbSet<StoreReview> StoreReviews { get; set; }
     public DbSet<Tracking> Trackings { get; set; }
-    public DbSet<Address> Addresses { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

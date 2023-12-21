@@ -4,7 +4,7 @@ namespace ECommerse.Core.Entities;
 
 public class ProductItem : BaseEntity
 {
-    public int SKU { get; set; }
+    public string? SKU { get; set; }
     public int Quantity { get; set; }
     public decimal Price { get; set; }
     public string? Image { get; set; }
