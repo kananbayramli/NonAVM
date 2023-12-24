@@ -55,6 +55,8 @@ public class ProductService : IScoppedLifetime, IProductService
     {
         var product = _mapper.Map<Product>(productDto);
         await _productRepository.Create(product);
+        await SaveChangesAsync();
+        _mapper.Map(product, productDto);
     }
 
     public void Update(ProductDTO productDto)
@@ -69,7 +71,7 @@ public class ProductService : IScoppedLifetime, IProductService
         _productRepository.Remove(product);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _productRepository.SaveChangesAsync(cancellationToken);
     }
