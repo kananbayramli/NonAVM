@@ -42,15 +42,15 @@ public class ProductItemController : Controller
     [HttpPost]
     public async Task<IActionResult> AddProductItem(CreateProductItemViewModel createProductItemViewModel) 
     {
-        //if (createProductItemViewModel.ProductItemsDTO is null)
-        //    return View();
-        var b = Request.Body;
-            foreach (var item in createProductItemViewModel.ProductItems)
+        if (createProductItemViewModel.ProductItems is null)
+            return View();
+
+        foreach (var item in createProductItemViewModel.ProductItems)
         {
-            //item.ProductID = createProductItemViewModel.ProductId;
-            //await _productItemService.Create(item);
+            item.ProductID = createProductItemViewModel.ProductId;
+            await _productItemService.Create(item);
         }
-        //await _productItemService.SaveChangesAsync(CancellationToken.None);
+        await _productItemService.SaveChangesAsync(CancellationToken.None);
 
         return RedirectToAction("AddProduct", "Product");
     }

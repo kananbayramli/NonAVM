@@ -65,7 +65,6 @@ public class ProductController : Controller
         product.StoreID = store!.Id;
         product.Image = uniqueName;
         await _productService.Create(product);
-        await _productService.SaveChangesAsync(CancellationToken.None);
-        return RedirectToAction("Index");
+        return Json(product.Id);
     }
 }

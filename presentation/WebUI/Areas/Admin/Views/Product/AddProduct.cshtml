@@ -17,7 +17,7 @@
                                         <h5>@Localizer["MəhsulMəlumatı"]</h5>
                                     </div>
 
-                                    <form asp-area="Admin" asp-controller="Product" asp-action="AddProduct" enctype="multipart/form-data" class="theme-form theme-form-2 mega-form">
+                                    <form id="add_product_form" asp-area="Admin" asp-controller="Product" asp-action="AddProduct" enctype="multipart/form-data" class="theme-form theme-form-2 mega-form">
                                         <div class="mb-4 row align-items-center">
                                             <label class="form-label-title col-sm-3 mb-0">Məhsulun adı</label>
                                             <div class="col-sm-9">
@@ -94,64 +94,10 @@
                                 </div>
                             </div>
 
-
                             <div class="card">
                                 <div class="card-body">
                                     <div class="card-header-2">
-                                        <h5></h5>
-                                    </div>
-
-                                    <form class="theme-form theme-form-2 mega-form">
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Şəkillər</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control form-choose" type="file" id="formFile" multiple>
-                                            </div>
-                                        </div>
-
-                                        <div class="row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Miniatür Şəkil</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control form-choose" type="file" id="formFileMultiple1" multiple>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-header-2">
-                                        <h5>Məhsul Videoları</h5>
-                                    </div>
-
-                                    <form class="theme-form theme-form-2 mega-form">
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Video Provayderi</label>
-                                            <div class="col-sm-9">
-                                                <select class="js-example-basic-single w-100" name="state">
-                                                    <option>Vimeo</option>
-                                                    <option>Youtube</option>
-                                                    <option>Dailymotion</option>
-                                                    <option>Vimeo</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="row align-items-center">
-                                            <label class="form-label-title col-sm-3 mb-0">Video Linki</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="text" placeholder="Video Linki">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-header-2">
-                                        <h5>Məhsulların növləri</h5>
+                                        <h5>Məhsul variantları</h5>
                                     </div>
 
                                     <form class="theme-form theme-form-2 mega-form variants-container">
@@ -163,7 +109,7 @@
                                                     <option>Color</option>
                                                     <option>Size</option>
                                                     <option>Material</option>
-                                                    </select>
+                                                </select>
                                             </div>
                                         </div>
 
@@ -212,182 +158,6 @@
                                     </form>
                                 </div>
                             </div>
-
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-header-2">
-                                        <h5>Məhsulun Qiyməti</h5>
-                                    </div>
-
-                                    <form class="theme-form theme-form-2 mega-form">
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 form-label-title">Qiymət</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="number" placeholder="0">
-                                            </div>
-                                        </div>
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 form-label-title">Qiymətə görə müqayisə edin</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="number" placeholder="0">
-                                            </div>
-                                        </div>
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 form-label-title">Məhsul başına xərc</label>
-                                            <div class="col-sm-5">
-                                                <input class="form-control" type="number" placeholder="0">
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <label>Margin:</label>
-                                                <span>25%</span>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <label>Profit:</label>
-                                                <span>$5</span>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-header-2">
-                                        <h5>Məhsul İnventarı</h5>
-                                    </div>
-
-                                    <form class="theme-form theme-form-2 mega-form">
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="form-label-title col-sm-3 mb-0">SKU</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Stok Statusu</label>
-                                            <div class="col-sm-9">
-                                                <select class="js-example-basic-single w-100" name="state">
-                                                    <option>In Stock</option>
-                                                    <option>Out Of Stock</option>
-                                                    <option>On Backorder</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <table class="table variation-table table-responsive-sm">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Variant</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">SKU</th>
-                                                <th scope="col">Quantity</th>
-                                                <th scope="col"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Red</td>
-                                                <td>
-                                                    <input class="form-control" type="number" placeholder="0">
-                                                </td>
-                                                <td>
-                                                    <input class="form-control" type="number" placeholder="0">
-                                                </td>
-                                                <td>
-                                                    <input class="form-control" type="number" placeholder="0">
-                                                </td>
-                                                <td>
-                                                    <ul class="order-option">
-                                                        <li>
-                                                            <a href="javascript:void(0)" data-toggle="modal" data-target="#deleteModal"><i class="uil uil-trash-alt"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Blue</td>
-                                                <td>
-                                                    <input class="form-control" type="number" placeholder="0">
-                                                </td>
-                                                <td>
-                                                    <input class="form-control" type="number" placeholder="0">
-                                                </td>
-                                                <td>
-                                                    <input class="form-control" type="number" placeholder="0">
-                                                </td>
-                                                <td>
-                                                    <ul class="order-option">
-                                                        <li>
-                                                            <a href="javascript:void(0)" data-toggle="modal" data-target="#deleteModal"><i class="uil uil-trash-alt"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-header-2">
-                                        <h5>Məhsulları əlaqələndirin</h5>
-                                    </div>
-
-                                    <form class="theme-form theme-form-2 mega-form">
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="form-label-title col-sm-3 mb-0">Yüksək satışlar</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="search">
-                                            </div>
-                                        </div>
-
-                                        <div class="row align-items-center">
-                                            <label class="form-label-title col-sm-3 mb-0">Çapraz satışlar</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="search">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-header-2">
-                                        <h5>Lorem, ipsum dolor.</h5>
-                                    </div>
-
-                                    <div class="seo-view">
-                                        <span class="link">https://saytadi.com</span>
-                                        <h5>Ən yaxşı qiymətə onlayn alın</h5>
-                                        <p>Onlayn sifariş edin və pulsuz çatdırılma əldə edin.</p>
-                                    </div>
-
-                                    <form class="theme-form theme-form-2 mega-form">
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="form-label-title col-sm-3 mb-0">Səhifə başlığı</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="search" placeholder="E-commerce">
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-4 row">
-                                            <label class="form-label-title col-sm-3 mb-0">Meta təsviri</label>
-                                            <div class="col-sm-9">
-                                                <textarea class="form-control" rows="3"></textarea>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <label class="form-label-title col-sm-3 mb-0">URL handle</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="search" placeholder="https://saytadi.com">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -421,7 +191,7 @@
                     <label class="form-label-title col-sm-3 mb-0">Məhsul seçin</label>
                     <div class="col-sm-9">
                         <label for="ProductId">@Localizer["Product"]</label>
-                        <input type="hidden" name="createProductItemViewModel.ProductId" value="1002" />
+                        <input type="hidden" name="createProductItemViewModel.ProductId" />
                     </div>
                 </div>
 
@@ -460,18 +230,21 @@
                     <tr class="body-row">
                         <th class="1st" scope="row"><input type="text" name="createProductItemViewModel.ProductItems[0].Price" placeholder="Qiyməti daxil edin" /></th>
                         <td><input type="text" name="createProductItemViewModel.ProductItems[0].Quantity" placeholder="Miqdarı daxil edin" /></td>
-                        <td><p>Auto generated SKU</p></td>
+                        <td>
+                            <p>Auto generated SKU</p>
+                            <input class="sku_input" type="hidden" name="createProductItemViewModel.ProductItems[0].SKU" placeholder="Miqdarı daxil edin" />
+                        </td>
                         <td>
                             <div class="upload__box">
                                 <div class="upload__btn-box">
                                     <label class="upload__btn">
                                         <p class="upload__button">Upload images</p>
-                                        <input name="image[0]" type="file" multiple="" data-max_length="20" class="upload__inputfile">
+                                        <input name="createProductItemViewModel.ProductItems[0].Image" type="file" multiple="" data-max_length="20" class="upload__inputfile">
                                     </label>
                                 </div>
                             </div>
                         </td>
-                        <input type="hidden" name="createProductItemViewModel.ProductItems[0].Sku" />
+                        <input type="hidden" name="createProductItemViewModel.ProductItems[0].SKU" />
                     </tr>
                 </tbody>
             </table>
@@ -501,6 +274,26 @@
 
 @section Scripts {
     <script>
+
+        $('#add_product_form').on('submit', (e) => {
+            e.preventDefault();
+
+            var formData = new FormData(e.currentTarget);
+
+            $.ajax({
+                url: e.currentTarget.action,
+                data: formData,
+                method: 'POST',
+                processData: false,
+                contentType: false
+            }).done(function (response) {
+                sessionStorage.setItem("productId", response);
+                $('input[name="createProductItemViewModel.ProductId"]').val(sessionStorage.getItem("productId"));
+            }).fail(function () {
+                alert("error");
+            });
+        })
+
         var variants;
         $.get("/Admin/ProductItem/GetVariants", (data) => {
             variants = data;
@@ -685,10 +478,11 @@
                 sku = row.find("select")[i].value.substr(0, 1) + sku;
             }
             row.find('p')[0].textContent = sku;
+            row.find('.sku_input').val(sku);
             let replaceTRext = row[0].innerHTML.substring(row[0].innerHTML.indexOf('['), row[0].innerHTML.indexOf(']') + 1);
             let replaceSKU = row[0].innerHTML.substring(row[0].innerHTML.indexOf('<p>') + 3, row[0].innerHTML.indexOf('</p>'));
             $('.t-body').append('<tr class="body-row">' + row[0].innerHTML.replaceAll(replaceTRext, `[${index}]`).replace(replaceSKU, 'Auto generated SKU') + '</tr>')
-            row.find("td:nth-last-child(3)").on('click', (e) => {
+            $('.t-body .body-row:last-child').find("td:nth-last-child(3)").on('click', (e) => {
                 let row = $(e.currentTarget.parentElement);
                 let sku = row.find('input[type=text]')[0].value + 'N' + row.find('input[type=text]')[1].value;
                 for (let i = 0; i < row.find("select").length; i++) {
@@ -792,17 +586,21 @@
 
         })
 
+        $('.t-body').on('click', "td:nth-last-child(3)", (e) => {
+            let row = $(e.currentTarget.parentElement);
+            let sku = row.find('input[type=text]')[0].value + 'N' + row.find('input[type=text]')[1].value;
+            for (let i = 0; i < row.find("select").length; i++) {
+                sku = row.find("select")[i].value.substr(0, 1) + sku;
+            }
 
+            $(e.currentTarget).find('p')[0].textContent = sku;
 
+            row.find('.sku_input').val(sku);
 
-
-
-
-
-
-
+        })
 
         $('#cancel').on('click', (e) => {
+            e.preventDefault();
             $('.upload__box1').css({
                 'visibility': 'hidden'
             })
@@ -831,7 +629,7 @@
 
         })
 
-            // ---------------------------------------
+        // ---------------------------------------
 
             // $('.upload__btn')[0].addEventListener('click', e => {
             //     console.log('here: ', $(e.currentTarget).find('input[type=file]'))
@@ -845,84 +643,124 @@
             //     $('.upload__inputfile .current_input').click();
             // })
 
-            // $(document).ready(function () {
-            //     ImgUpload();
-            // });
+        $(document).ready(function () {
+            ImgUpload();
+        });
 
-            // function ImgUpload() {
-            //     let imgWrap = "";
-            //     let imgArray = [];
+        function ImgUpload() {
+            let imgWrap = "";
+            let imgArray = [];
 
-            //     $('.upload__inputfile').each(function () {
-            //         $(this).on('change', function (e) {
-            //             imgWrap = $('.upload__img-wrap');
-            //             let maxLength = $(this).attr('data-max_length');
-            //             let files = e.target.files;
-            //             let filesArr = Array.prototype.slice.call(files);
-            //             let iterator = 0;
-            //             filesArr.forEach(function (f, index) {
+            $('.upload__inputfile').each(function () {
+                    $(this).on('change', function (e) {
+                        imgWrap = $('.upload__img-wrap');
+                        let maxLength = $(this).attr('data-max_length');
+                        let files = e.target.files;
+                        let filesArr = Array.prototype.slice.call(files);
+                        let iterator = 0;
+                        filesArr.forEach(function (f, index) {
 
-            //                 if (!f.type.match('image.*')) {
-            //                     return;
-            //                 }
+                            if (!f.type.match('image.*')) {
+                                return;
+                            }
 
-            //                 if (imgArray.length > maxLength) {
-            //                     return false
-            //                 } else {
-            //                     var len = 0;
-            //                     for (var i = 0; i < imgArray.length; i++) {
-            //                         if (imgArray[i] !== undefined) {
-            //                             len++;
-            //                         }
-            //                     }
-            //                     if (len > maxLength) {
-            //                         return false;
-            //                     } else {
-            //                         imgArray.push(f);
+                            if (imgArray.length > maxLength) {
+                                return false
+                            } else {
+                                var len = 0;
+                                for (var i = 0; i < imgArray.length; i++) {
+                                    if (imgArray[i] !== undefined) {
+                                        len++;
+                                    }
+                                }
+                                if (len > maxLength) {
+                                    return false;
+                                } else {
+                                    imgArray.push(f);
 
-            //                         var reader = new FileReader();
-            //                         reader.onload = function (b) {
-            //                             var html = "<div class='upload__img-box'><div style='background-image: url(" + b.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-            //                             let jqElement = $(html);
-            //                             imgWrap[0].insertBefore(jqElement[0], $('.upload__img-add')[0].parentElement);
-            //                             iterator++;
-            //                         }
-            //                         reader.readAsDataURL(f);
-            //                     }
-            //                 }
-            //             });
-            //         });
-            //     });
+                                    var reader = new FileReader();
+                                    reader.onload = function (b) {
+                                        var html = "<div class='upload__img-box'><div style='background-image: url(" + b.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+                                        let jqElement = $(html);
+                                        imgWrap[0].insertBefore(jqElement[0], $('.upload__img-add')[0].parentElement);
+                                        iterator++;
+                                    }
+                                    reader.readAsDataURL(f);
+                                }
+                            }
+                        });
+                    });
+                });
+            $('.upload__inputfile').each(function () {
+                $(this).on('click', function (e) {
+                    imgWrap = $('.upload__img-wrap');
+                    let maxLength = $(this).attr('data-max_length');
+                    let files = e.target.files;
+                    let filesArr = Array.prototype.slice.call(files);
+                    let iterator = 0;
+                    filesArr.forEach(function (f, index) {
 
-            //     $('body').on('click', ".upload__img-close", function (e) {
-            //         var file = $(this).parent().data("file");
-            //         for (var i = 0; i < imgArray.length; i++) {
-            //             if (imgArray[i].name === file) {
-            //                 imgArray.splice(i, 1);
-            //                 break;
-            //             }
-            //         }
-            //         $(this).parent().parent().remove();
-            //     });
+                        if (!f.type.match('image.*')) {
+                            return;
+                        }
 
-            //     $('.upload__inputfile').on('click', (e) => {
-            //         $('.upload__box1').css({
-            //             'visibility': 'visible'
-            //         })
-            //     })
+                        if (imgArray.length > maxLength) {
+                            return false
+                        } else {
+                            var len = 0;
+                            for (var i = 0; i < imgArray.length; i++) {
+                                if (imgArray[i] !== undefined) {
+                                    len++;
+                                }
+                            }
+                            if (len > maxLength) {
+                                return false;
+                            } else {
+                                imgArray.push(f);
 
-            //     $('#cancel').on('click', (e) => {
-            //         $('.upload__box1').css({
-            //             'visibility': 'hidden'
-            //         })
+                                var reader = new FileReader();
+                                reader.onload = function (b) {
+                                    var html = "<div class='upload__img-box'><div style='background-image: url(" + b.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+                                    let jqElement = $(html);
+                                    imgWrap[0].insertBefore(jqElement[0], $('.upload__img-add')[0].parentElement);
+                                    iterator++;
+                                }
+                                reader.readAsDataURL(f);
+                            }
+                        }
+                    });
+                });
+            });
 
-            //         $('.upload__img-box > :not(.upload__img-add)').parent().each(function (e) {
-            //             console.log($(this))
-            //             $(this).remove()
-            //         });
+            $('body').on('click', ".upload__img-close", function (e) {
+                var file = $(this).parent().data("file");
+                for (var i = 0; i < imgArray.length; i++) {
+                    if (imgArray[i].name === file) {
+                        imgArray.splice(i, 1);
+                        break;
+                    }
+                }
+                $(this).parent().parent().remove();
+            });
 
-            //     })
-            // }
+            $('.upload__inputfile').on('click', (e) => {
+                $('.upload__box1').css({
+                    'visibility': 'visible'
+                })
+            })
+
+            $('#cancel').on('click', (e) => {
+                $('.upload__box1').css({
+                    'visibility': 'hidden'
+                })
+
+                $('.upload__img-box > :not(.upload__img-add)').parent().each(function (e) {
+                    console.log($(this))
+                    $(this).remove()
+                });
+
+            })
+        }
 
     </script>
  }
