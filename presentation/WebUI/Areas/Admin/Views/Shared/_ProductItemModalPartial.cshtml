@@ -1,0 +1,116 @@
+﻿@inject IViewLocalizer Localizer
+
+@model CreateProductItemViewModel
+
+<div id="popup-overlay" style="visibility: hidden;">
+    <div id="productItemModal" class="card">
+        <form asp-area="Admin" asp-controller="ProductItem" asp-action="AddProductItem" class="theme-form theme-form-2 mega-form">
+            <div class="card-body">
+                <div class="card-header-2">
+                    <h5>Məhsulların növləri</h5>
+                </div>
+
+                <div id="mb-4 row align-items-center">
+                    <label class="form-label-title col-sm-3 mb-0">Məhsul seçin</label>
+                    <div class="col-sm-9">
+                        <label for="ProductId">@Localizer["Product"]</label>
+                        <input type="hidden" name="createProductItemViewModel.ProductId" />
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <ul class="variants">
+                            <li>Variantlar :</li>
+                            <li>
+                                <label class="form-check-label m-0" for="Size">Ölçü</label>
+                                <input class="checkbox_animated check-it" type="checkbox" value="size" />
+                            </li>
+                            <li>
+                                <label class="form-check-label m-0" for="Color">Rəng</label>
+                                <input class="checkbox_animated check-it" type="checkbox" id="Color" value="color" />
+                            </li>
+                            <li>
+                                <label class="form-check-label m-0" for="Material">Material</label>
+                                <input class="checkbox_animated check-it" type="checkbox" id="Material" value="material" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @* <input type="hidden" name="createProductItemViewModel.ProductItems.index" value="0" /> *@
+
+            <table class="table">
+                <thead class="t-head">
+                    <tr>
+                        <th id="1st" scope="row">Price</th>
+                        <td>Quantity</td>
+                        <td>SKU</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody class="t-body">
+                    @if (Model?.ProductItems?.Count > 0)
+                    {
+                        @for (var i=0; i < Model.ProductItems.Count; i++)
+                        {
+                            <tr class="body-row">
+                                <th class="1st" scope="row"><input type="text" name="createProductItemViewModel.ProductItems[i].Price" placeholder="Qiyməti daxil edin" /></th>
+                                <td><input type="text" name="createProductItemViewModel.ProductItems[i].Quantity" placeholder="Miqdarı daxil edin" /></td>
+                                <td>
+                                    <p>Auto generated SKU</p>
+                                    <input class="sku_input" type="hidden" name="createProductItemViewModel.ProductItems[i].SKU" placeholder="Miqdarı daxil edin" />
+                                </td>
+                                <td>
+                                    <div class="upload__box">
+                                        <div class="upload__btn-box">
+                                            <label class="upload__btn">
+                                                <p class="upload__button">Upload images</p>
+                                                <input name="createProductItemViewModel.ProductItems[i].Image" type="file" multiple="" data-max_length="20" class="upload__inputfile">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <input type="hidden" name="createProductItemViewModel.ProductItems[i].SKU" />
+                            </tr>
+                        }
+                    }
+                    else {
+                    <tr class="body-row">
+                        <th class="1st" scope="row"><input type="text" name="createProductItemViewModel.ProductItems[0].Price" placeholder="Qiyməti daxil edin" /></th>
+                        <td><input type="text" name="createProductItemViewModel.ProductItems[0].Quantity" placeholder="Miqdarı daxil edin" /></td>
+                        <td>
+                            <p>Auto generated SKU</p>
+                            <input class="sku_input" type="hidden" name="createProductItemViewModel.ProductItems[0].SKU" placeholder="Miqdarı daxil edin" />
+                        </td>
+                        <td>
+                            <div class="upload__box">
+                                <div class="upload__btn-box">
+                                    <label class="upload__btn">
+                                        <p class="upload__button">Upload images</p>
+                                        <input name="createProductItemViewModel.ProductItems[0].Image" type="file" multiple="" data-max_length="20" class="upload__inputfile">
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                        <input type="hidden" name="createProductItemViewModel.ProductItems[0].SKU" />
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            <a class="add-variant"><i class="ri-add-line me-2"></i> Başqa bir seçim əlavə edin</a>
+            <div class="buttonContainer">
+                <button type="submit" id="save">Save</button>
+                <button id="close">Close</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="upload__box1">
+    <div class="upload__img-wrap">
+        <div class='upload__img-box'><div class='upload__img-add img-bg' style="background-image: url('data:image/png;base64,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')"></div></div>
+    </div>
+    <button id="add">Add</button>
+    <button id="cancel">Cancel</button>
+</div>

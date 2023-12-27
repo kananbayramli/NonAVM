@@ -17,7 +17,7 @@
     height: 100vh;
     top: 0;
     left: 0;
-    z-index: 9998;
+    z-index: 4;
     display: block;
     overflow-y: hidden;
     overflow-x: hidden;
@@ -44,6 +44,7 @@
 
 .buttonContainer {
     position: relative;
+    margin-top: 30px;
     height: 100%;
 }
 
@@ -52,10 +53,134 @@
     position: absolute;
     bottom: 10px;
     right: 90px;
+    color: ghostwhite;
+    background-color: #0ea487;
+    border-radius: 10%;
 }
 
 #close {
     position: absolute;
     bottom: 10px;
     right: 10px;
+    color: ghostwhite;
+    background-color: #0ea487;
+    border-radius: 10%;
 }
+
+
+/* --------------------------------- */
+
+
+
+
+.upload__button {
+    margin: 0;
+}
+
+.upload__box {
+    padding: 40px;
+}
+
+.upload__box1 {
+    padding: 40px;
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 800px;
+    width: 1300px;
+    background-color: aqua;
+    z-index: 5;
+}
+
+.upload__inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.upload__btn {
+    display: inline-block;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    min-width: 116px;
+    padding: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid;
+    background-color: #4045ba;
+    border-color: #4045ba;
+    border-radius: 10px;
+    line-height: 26px;
+    font-size: 14px;
+}
+
+    .upload__btn:hover {
+        background-color: unset;
+        color: #4045ba;
+        transition: all 0.3s ease;
+    }
+
+.upload__btn-box {
+    margin-bottom: 10px;
+}
+
+.upload__img-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.upload__img-box {
+    width: 200px;
+    padding: 0 10px;
+    margin-bottom: 12px;
+}
+
+.upload__img-close {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: center;
+    line-height: 24px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+    .upload__img-close:after {
+        content: '\2716';
+        font-size: 14px;
+        color: white;
+    }
+
+.img-bg {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding-bottom: 100%;
+}
+
+#add, #cancel {
+    position: absolute;
+    bottom: 10px;
+    z-index: 5;
+}
+
+#add {
+    right: 10px;
+}
+
+#cancel {
+    right: 70px;
+}
+
