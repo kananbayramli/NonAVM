@@ -30,6 +30,15 @@ internal class ProductItemService : IScoppedLifetime, IProductItemService
         return dtos;
     }
 
+    public async Task<List<ProductItemDTO>> GetByProductIdAsync(
+    int productId,
+    params Expression<Func<ProductItem, object>>[] includes)
+    {
+        var productItems = await _productItemRepository.GetAllAsync(x => x.ProductID == productId, includes);
+        var dtos = _mapper.Map<List<ProductItemDTO>>(productItems);
+        return dtos;
+    }
+
     public async Task<List<ProductItemDTO>> GetAllPaginatedAsync(
         int pageIndex,
         int pageSize,

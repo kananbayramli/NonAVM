@@ -62,7 +62,7 @@ public class Repository<TEntity> : IRepository<TEntity>
 
     public void Update(TEntity product)
     {
-        _context.Set<TEntity>().Update(product);
+        var result = _context.Set<TEntity>().Update(product);
     }
 
     //private IQueryable<TEntity> GetQuery(params string[] includes)

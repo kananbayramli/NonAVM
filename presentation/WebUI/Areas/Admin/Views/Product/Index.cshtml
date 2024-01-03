@@ -1,4 +1,5 @@
-﻿@model List<ProductViewModel>
+﻿@using ECommerse.WebUI.Areas.Admin.Controllers
+@model List<ProductViewModel>
 
 <!-- page-wrapper Start-->
 <div class="page-wrapper compact-wrapper" id="pageWrapper">
@@ -74,7 +75,7 @@
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="javascript:void(0)">
+                                                                        <a asp-action="EditProduct" asp-controller="Product" asp-route-productId="@product.Id">
                                                                         <i class="ri-pencil-line"></i>
                                                                     </a>
                                                                 </li>

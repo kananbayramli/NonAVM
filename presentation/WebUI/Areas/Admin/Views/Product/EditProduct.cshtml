@@ -1,0 +1,193 @@
+﻿@inject IViewLocalizer Localizer
+
+
+@model ProductViewModel
+<!-- Page Body start -->
+<div class="page-body-wrapper">
+    <div class="page-body">
+        <!-- New Product Add Start -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-sm-12 m-auto">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header-2">
+                                        <h5>@Localizer["MəhsulMəlumatı"]</h5>
+                                    </div>
+                                    <form id="edit_product_form" asp-area="Admin" asp-controller="Product" asp-action="EditProduct" enctype="multipart/form-data" class="theme-form theme-form-2 mega-form">
+
+                                        @Html.HiddenFor(p => p.Id)
+                                        @Html.HiddenFor(p => p.StoreId)
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-3 mb-0">Məhsulun adı</label>
+                                            <div class="col-sm-9">
+                                                <input asp-for="Name" class="form-control" type="text" placeholder="Məhsulun adı">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Kateqoriya</label>
+                                            <div class="col-sm-9">
+                                                <select id="Region" asp-for="CategoryID" asp-items="@ViewBag.categoryList" class="js-example-basic-single w-100">
+                                                    <option value="">Kateqoriya seçin</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Marka/Brend</label>
+                                            <div class="col-sm-9">
+                                                <select asp-for="BrandID" asp-items="@ViewBag.brandList" class="js-example-basic-single w-100">
+                                                    <option value="">Brand seçin</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Teqlər</label>
+                                            <div class="col-sm-9">
+                                                <div class="bs-example">
+                                                    <input type="text" class="form-control" placeholder="Etiket yazın və enter düyməsini basın" id="#inputTag" data-role="tagsinput">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Geri qaytarıla bilər</label>
+                                            <div class="col-sm-9">
+                                                <label class="switch">
+                                                    <input type="checkbox" asp-for="Refundable"><span class="switch-state"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Şəkillər</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control form-choose" type="file" asp-for="Photo" multiple>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Video</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" asp-for="Video" placeholder="Video linki">
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="card-header-2">
+                                                    <h5>Təsvir</h5>
+                                                </div>
+                                                <div class="theme-form theme-form-2 mega-form">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="row">
+                                                                <label class="form-label-title col-sm-3 mb-0">Məhsulun Təsviri</label>
+                                                                <div class="col-sm-9">
+                                                                    @* <div id="editor"></div> *@
+                                                                    <textarea styles="height: 300px" class="form-control" asp-for="Description">
+                                                                    </textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="submit" class="btn btn-solid" value="Yadda saxla" />
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header-2">
+                                        <h5>Məhsul variantları</h5>
+                                    </div>
+
+                                    <form class="theme-form theme-form-2 mega-form variants-container">
+                                        <button id="addItem">Məhsul variantları əlavə edin</button>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-3 mb-0">Seçim Adı</label>
+                                            <div class="col-sm-9">
+                                                <select class="js-example-basic-single w-100 variant-selector" name="state">
+                                                    <option>Color</option>
+                                                    <option>Size</option>
+                                                    <option>Material</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row align-items-center variant-values">
+                                            <hr class="my-2" />
+                                            <label class="variant-name col-sm-3 col-form-label form-label-title">Color</label>
+                                        </div>
+                                        <div class="row align-items-center variant-values">
+                                            <hr class="my-2" />
+                                            <label class="variant-name col-sm-3 col-form-label form-label-title">Size</label>
+                                        </div>
+                                        <div class="row align-items-center variant-values">
+                                            <hr class="my-2" />
+                                            <label class="variant-name col-sm-3 col-form-label form-label-title">Material</label>
+                                        </div>
+                                    </form>
+
+                                    <a href="javascript:void(0)" class="add-option"><i class="ri-add-line me-2"></i> Başqa bir seçim əlavə edin</a>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-header-2">
+                                        <h5>Göndərmə</h5>
+                                    </div>
+
+                                    <form class="theme-form theme-form-2 mega-form">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-3 mb-0">Weight (kg)</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="number" placeholder="Weight">
+                                            </div>
+                                        </div>
+
+                                        <div class="row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">Ölçüləri (cm)</label>
+                                            <div class="col-sm-9">
+                                                <select class="js-example-basic-single w-100" name="state">
+                                                    <option>Length</option>
+                                                    <option>Width</option>
+                                                    <option>Height</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- New Product Add End -->
+        <!-- footer Start -->
+        <div class="container-fluid">
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-md-12 footer-copyright text-center">
+                        <p class="mb-0">Copyright 2023 © saytadi theme by Lorem</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- footer En -->
+    </div>
+    <!-- Container-fluid End -->
+</div>
+<!-- Page Body End -->
+
+<partial name="_ProductItemModalPartial" model="ViewBag.productItems" />
+
+@section Scripts {
+    <script src="~/js/MyScripts.js"></script>
+}
+@section Styles {
+    <link href="~/css/MyStylescss.css" rel="stylesheet">
+}
