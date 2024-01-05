@@ -1,5 +1,5 @@
 ﻿
-$('#add_product_form').on('submit', (e) => {
+$('.product_form').on('submit', (e) => {
     e.preventDefault();
 
     var formData = new FormData(e.currentTarget);
@@ -13,29 +13,13 @@ $('#add_product_form').on('submit', (e) => {
     }).done(function (response) {
         sessionStorage.setItem("productId", response);
         $('input[name="createProductItemViewModel.ProductId"]').val(sessionStorage.getItem("productId"));
-        popNotify('Success', 'Product added')
+        popNotify('Success', 'Product saved')
     }).fail(function (response) {
         popNotify('Failure', response)
     });
 })
-$('#edit_product_form').on('submit', (e) => {
-    e.preventDefault();
 
-    var formData = new FormData(e.currentTarget);
-
-    $.ajax({
-        url: e.currentTarget.action,
-        data: formData,
-        method: 'POST',
-        processData: false,
-        contentType: false
-    }).done(function (response) {
-        popNotify('Success', 'Product item saved')
-    }).fail(function (response) {
-        popNotify('Failure', response)
-    });
-})
-$('#AddProductItemForm').on('submit', (e) => {
+$('.product_item_form').on('submit', (e) => {
     e.preventDefault();
 
     var formData = new FormData(e.currentTarget);
@@ -48,7 +32,7 @@ $('#AddProductItemForm').on('submit', (e) => {
         contentType: false
     }).done(function (response) {
         sessionStorage.removeItem("productId");
-        popNotify('Success', 'Product item added')
+        popNotify('Success', 'Product item saved')
     }).fail(function (response) {
         popNotify('Failure', response)
     });

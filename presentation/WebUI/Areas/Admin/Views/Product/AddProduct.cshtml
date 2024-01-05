@@ -17,7 +17,7 @@
                                         <h5>@Localizer["MəhsulMəlumatı"]</h5>
                                     </div>
 
-                                    <form id="add_product_form" asp-area="Admin" asp-controller="Product" asp-action="AddProduct" enctype="multipart/form-data" class="theme-form theme-form-2 mega-form">
+                                    <form id="add_product_form" asp-area="Admin" asp-controller="Product" asp-action="AddProduct" enctype="multipart/form-data" class="theme-form theme-form-2 mega-form product_form">
                                         <div class="mb-4 row align-items-center">
                                             <label class="form-label-title col-sm-3 mb-0">Məhsulun adı</label>
                                             <div class="col-sm-9">
@@ -180,7 +180,7 @@
 </div>
 <!-- Page Body End -->
 
-<partial name="_ProductItemModalPartial" model="new CreateProductItemViewModel()" />
+<partial name="_AddProductItemModalPartial" model="new CreateProductItemViewModel()" />
 
 @section Scripts {
     <script src="~/js/MyScripts.js" ></script>

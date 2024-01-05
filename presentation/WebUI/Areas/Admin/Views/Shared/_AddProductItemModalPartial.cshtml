@@ -4,7 +4,7 @@
 
 <div id="popup-overlay" style="visibility: hidden;">
     <div id="productItemModal" class="card">
-        <form asp-area="Admin" asp-controller="ProductItem" asp-action="AddProductItem" id="AddProductItemForm" class="theme-form theme-form-2 mega-form">
+        <form asp-area="Admin" asp-controller="ProductItem" asp-action="AddProductItem" id="AddProductItemForm" class="theme-form theme-form-2 mega-form product_item_form">
             <div class="card-body">
                 <div class="card-header-2">
                     <h5>Məhsulların növləri</h5>
@@ -14,7 +14,7 @@
                     <label class="form-label-title col-sm-3 mb-0">Məhsul seçin</label>
                     <div class="col-sm-9">
                         <label for="ProductId">@Localizer["Product"]</label>
-                        <input type="hidden" name="createProductItemViewModel.ProductId" />
+                        <input type="hidden" name="createProductItemViewModel.ProductId" value="@Model.ProductId"/>
                     </div>
                 </div>
 
@@ -52,26 +52,28 @@
                 <tbody class="t-body">
                     @if (Model?.ProductItems?.Count > 0)
                     {
-                        @for (var i=0; i < Model.ProductItems.Count; i++)
+                        var items = Model.ProductItems.ToArray();
+
+                        @for (var i = 0; i < items.Length; i++)
                         {
                             <tr class="body-row">
-                                <th class="1st" scope="row"><input type="text" name="createProductItemViewModel.ProductItems[i].Price" placeholder="Qiyməti daxil edin" /></th>
-                                <td><input type="text" name="createProductItemViewModel.ProductItems[i].Quantity" placeholder="Miqdarı daxil edin" /></td>
+                                <th class="1st" scope="row"><input type="text" name="createProductItemViewModel.ProductItems[@i].Price" placeholder="Qiyməti daxil edin" value="@items[i].Price" /></th>
+                                <td><input type="text" name="createProductItemViewModel.ProductItems[@i].Quantity" placeholder="Miqdarı daxil edin" value="@items[i].Quantity" /></td>
                                 <td>
                                     <p>Auto generated SKU</p>
-                                    <input class="sku_input" type="hidden" name="createProductItemViewModel.ProductItems[i].SKU" placeholder="Miqdarı daxil edin" />
+                                    <input class="sku_input" type="hidden" name="createProductItemViewModel.ProductItems[@i].SKU" placeholder="Miqdarı daxil edin" value="@items[i].SKU" />
                                 </td>
                                 <td>
                                     <div class="upload__box">
                                         <div class="upload__btn-box">
                                             <label class="upload__btn">
                                                 <p class="upload__button">Upload images</p>
-                                                <input name="createProductItemViewModel.ProductItems[i].Image" type="file" multiple="" data-max_length="20" class="upload__inputfile">
+                                                <input name="createProductItemViewModel.ProductItems[@i].Image" type="file" multiple="" data-max_length="20" class="upload__inputfile" vavalue="@items[i].Image" />
                                             </label>
                                         </div>
                                     </div>
                                 </td>
-                                <input type="hidden" name="createProductItemViewModel.ProductItems[i].SKU" />
+                                <td><icon class="fas fa-remove"> hello </icon></td>
                             </tr>
                         }
                     }
@@ -93,7 +95,7 @@
                                 </div>
                             </div>
                         </td>
-                        <input type="hidden" name="createProductItemViewModel.ProductItems[0].SKU" />
+                        <td><icon class="fas fa-remove"> hsalo </icon></td>
                     </tr>
                     }
                 </tbody>

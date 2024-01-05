@@ -16,7 +16,7 @@
                                     <div class="card-header-2">
                                         <h5>@Localizer["MəhsulMəlumatı"]</h5>
                                     </div>
-                                    <form id="edit_product_form" asp-area="Admin" asp-controller="Product" asp-action="EditProduct" enctype="multipart/form-data" class="theme-form theme-form-2 mega-form">
+                                    <form id="edit_product_form" asp-area="Admin" asp-controller="Product" asp-action="EditProduct" enctype="multipart/form-data" class="theme-form theme-form-2 mega-form product_form">
 
                                         @Html.HiddenFor(p => p.Id)
                                         @Html.HiddenFor(p => p.StoreId)
@@ -183,7 +183,7 @@
 </div>
 <!-- Page Body End -->
 
-<partial name="_ProductItemModalPartial" model="ViewBag.productItems" />
+<partial name="_EditProductItemModalPartial" model="ViewBag.productItems" />
 
 @section Scripts {
     <script src="~/js/MyScripts.js"></script>
