@@ -11,12 +11,10 @@ namespace ECommerse.WebUI.Areas.Admin.Controllers;
 public class CategoryController : Controller
 {
     private readonly ICategoryService _categoryService;
-    private readonly IMapper _mapper;
 
-    public CategoryController(ICategoryService categoryService, IMapper mapper)
+    public CategoryController(ICategoryService categoryService)
     {
         this._categoryService = categoryService;
-        _mapper = mapper;
     }
 
     public async Task<IActionResult> Index()
@@ -24,7 +22,7 @@ public class CategoryController : Controller
         var categories = await _categoryService.GetAllAsync();
         return View(categories.Select(c => new CategoryViewModel
         {
-            Id = c.Id, Name = c.Name, ParentCategoryName = categories.FirstOrDefault(c2 => c2.Id == c.ParentCategoryID)?.Name
+            Id = c.Id, Name = c.Name, Slug = c.Slug
         }).ToList());
     }    
     
@@ -52,7 +50,12 @@ public class CategoryController : Controller
     {
         var pCategory = await _categoryService.GetAsync(c => c.Id == category.ParentCategoryID);
         category.Slug =$"{pCategory.Name}-{category.Name}";
-        await _categoryService.Create(_mapper.Map<CategoryDTO>(category));
+        await _categoryService.Create(new CategoryDTO
+        {
+            Name = category.Name,
+            ParentCategoryID = category.ParentCategoryID,
+            Slug = category.Slug,
+        });
         await _categoryService.SaveChangesAsync(CancellationToken.None);
         return RedirectToAction("Index");
     }
