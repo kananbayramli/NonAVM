@@ -54,10 +54,19 @@ public class ProductEntryService : IProductEntryService
         return dto;
     }
 
+    public async Task Add(ProductEntryDTO ProductEntryDto)
+    {
+        var ProductEntry = _mapper.Map<ProductEntry>(ProductEntryDto);
+        await _productEntryRepository.Create(ProductEntry);
+    }
+
+
     public async Task Create(ProductEntryDTO ProductEntryDto)
     {
         var ProductEntry = _mapper.Map<ProductEntry>(ProductEntryDto);
         await _productEntryRepository.Create(ProductEntry);
+        await SaveChangesAsync();
+        _mapper.Map(ProductEntry, ProductEntryDto);
     }
 
     public void Update(ProductEntryDTO ProductEntryDto)
@@ -72,7 +81,7 @@ public class ProductEntryService : IProductEntryService
         _productEntryRepository.Remove(ProductEntry);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _productEntryRepository.SaveChangesAsync(cancellationToken);
     }

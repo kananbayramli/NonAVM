@@ -19,11 +19,22 @@ public class StoreService : IScoppedLifetime, IStoreService
     }
 
 
-    public async Task Create(StoreDTO storeDto)
+    public async Task Add(StoreDTO storeDto)
     {
         var store = _mapper.Map<Store>(storeDto);
         await _storeRepository.Create(store);
     }
+
+    public async Task Create(StoreDTO storeDto)
+    {
+        var store = _mapper.Map<Store>(storeDto);
+        await _storeRepository.Create(store);
+        await SaveChangesAsync();
+        _mapper.Map(store, storeDto);
+    }
+
+
+
     public async Task<List<StoreDTO>> GetAllAsync(Expression<Func<Store, bool>>? expression = null, params Expression<Func<Store, object>>[] includes)
     {
         var stores = await _storeRepository.GetAllAsync(expression, includes);
@@ -52,7 +63,7 @@ public class StoreService : IScoppedLifetime, IStoreService
         var store = _mapper.Map<Store>(storeDto);
         _storeRepository.Update(store);
     }
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _storeRepository.SaveChangesAsync(cancellationToken);
     }

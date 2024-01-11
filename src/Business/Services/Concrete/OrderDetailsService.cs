@@ -54,10 +54,18 @@ public class OrderDetailsService : IOrderDetailsService
         return dto;
     }
 
+    public async Task Add(OrderDetailsDTO OrderDetailsDto)
+    {
+        var OrderDetails = _mapper.Map<OrderDetails>(OrderDetailsDto);
+        await _orderDetailsRepository.Create(OrderDetails);
+    }
+
     public async Task Create(OrderDetailsDTO OrderDetailsDto)
     {
         var OrderDetails = _mapper.Map<OrderDetails>(OrderDetailsDto);
         await _orderDetailsRepository.Create(OrderDetails);
+        await SaveChangesAsync();
+        _mapper.Map(OrderDetails, OrderDetailsDto);
     }
 
     public void Update(OrderDetailsDTO OrderDetailsDto)
@@ -72,7 +80,7 @@ public class OrderDetailsService : IOrderDetailsService
         _orderDetailsRepository.Remove(OrderDetails);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _orderDetailsRepository.SaveChangesAsync(cancellationToken);
     }

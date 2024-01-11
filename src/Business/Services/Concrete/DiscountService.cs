@@ -54,10 +54,18 @@ public class DiscountService : IDiscountService
         return dto;
     }
 
+    public async Task Add(DiscountDTO DiscountDto)
+    {
+        var Discount = _mapper.Map<Discount>(DiscountDto);
+        await _discountRepository.Create(Discount);
+    }
+
     public async Task Create(DiscountDTO DiscountDto)
     {
         var Discount = _mapper.Map<Discount>(DiscountDto);
         await _discountRepository.Create(Discount);
+        await SaveChangesAsync();
+        _mapper.Map(Discount, DiscountDto);
     }
 
     public void Update(DiscountDTO DiscountDto)
@@ -72,7 +80,7 @@ public class DiscountService : IDiscountService
         _discountRepository.Remove(Discount);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _discountRepository.SaveChangesAsync(cancellationToken);
     }

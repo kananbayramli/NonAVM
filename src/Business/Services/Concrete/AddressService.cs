@@ -19,11 +19,21 @@ public class AddressService : IAddressService
     }
 
 
-    public async Task Create(AddressDTO storeDto)
+    public async Task Add(AddressDTO storeDto)
     {
         var store = _mapper.Map<Address>(storeDto);
         await _addressRepository.Create(store);
     }
+
+    public async Task Create(AddressDTO storeDto)
+    {
+        var store = _mapper.Map<Address>(storeDto);
+        await _addressRepository.Create(store);
+        await SaveChangesAsync();
+        _mapper.Map(store, storeDto);
+    }
+
+
     public async Task<List<AddressDTO>> GetAllAsync(Expression<Func<Address, bool>>? expression = null, params Expression<Func<Address, object>>[] includes)
     {
         var stores = await _addressRepository.GetAllAsync(expression, includes);
@@ -52,7 +62,7 @@ public class AddressService : IAddressService
         var store = _mapper.Map<Address>(storeDto);
         _addressRepository.Update(store);
     }
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken= default)
     {
         await _addressRepository.SaveChangesAsync(cancellationToken);
     }

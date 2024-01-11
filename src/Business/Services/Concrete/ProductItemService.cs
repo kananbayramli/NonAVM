@@ -50,10 +50,19 @@ internal class ProductItemService : IScoppedLifetime, IProductItemService
         return dto;
     }
 
+    public async Task Add(ProductItemDTO productItemDto)
+    {
+        var productItem = _mapper.Map<ProductItem>(productItemDto);
+        await _productItemRepository.Create(productItem);
+    }
+
+
     public async Task Create(ProductItemDTO productItemDto)
     {
         var productItem = _mapper.Map<ProductItem>(productItemDto);
         await _productItemRepository.Create(productItem);
+        await SaveChangesAsync();
+        _mapper.Map(productItem, productItemDto);
     }
 
     public void Update(ProductItemDTO productItemDto)
@@ -68,7 +77,7 @@ internal class ProductItemService : IScoppedLifetime, IProductItemService
         _productItemRepository.Remove(productItem);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _productItemRepository.SaveChangesAsync(cancellationToken);
     }

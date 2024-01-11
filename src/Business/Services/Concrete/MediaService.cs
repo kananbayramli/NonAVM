@@ -54,10 +54,18 @@ public class MediaService : IMediaService
         return dto;
     }
 
+    public async Task Add(MediaDTO MediaDto)
+    {
+        var Media = _mapper.Map<Media>(MediaDto);
+        await _mediaRepository.Create(Media);
+    }
+
     public async Task Create(MediaDTO MediaDto)
     {
         var Media = _mapper.Map<Media>(MediaDto);
         await _mediaRepository.Create(Media);
+        await SaveChangesAsync();
+        _mapper.Map(Media, MediaDto);
     }
 
     public void Update(MediaDTO MediaDto)
@@ -72,7 +80,7 @@ public class MediaService : IMediaService
         _mediaRepository.Remove(Media);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _mediaRepository.SaveChangesAsync(cancellationToken);
     }

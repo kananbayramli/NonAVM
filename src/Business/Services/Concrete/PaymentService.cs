@@ -54,10 +54,18 @@ public class PaymentService : IPaymentService
         return dto;
     }
 
+    public async Task Add(PaymentDTO PaymentDto)
+    {
+        var Payment = _mapper.Map<Payment>(PaymentDto);
+        await _paymentRepository.Create(Payment);
+    }
+
     public async Task Create(PaymentDTO PaymentDto)
     {
         var Payment = _mapper.Map<Payment>(PaymentDto);
         await _paymentRepository.Create(Payment);
+        await SaveChangesAsync();
+        _mapper.Map(Payment, PaymentDto);
     }
 
     public void Update(PaymentDTO PaymentDto)
@@ -72,7 +80,7 @@ public class PaymentService : IPaymentService
         _paymentRepository.Remove(Payment);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _paymentRepository.SaveChangesAsync(cancellationToken);
     }

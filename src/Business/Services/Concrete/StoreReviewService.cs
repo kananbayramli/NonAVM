@@ -54,10 +54,18 @@ public class StoreReviewService : IStoreReviewService
         return dto;
     }
 
+    public async Task Add(StoreReviewDTO StoreReviewDto)
+    {
+        var StoreReview = _mapper.Map<StoreReview>(StoreReviewDto);
+        await _storeReviewRepository.Create(StoreReview);
+    }
+
     public async Task Create(StoreReviewDTO StoreReviewDto)
     {
         var StoreReview = _mapper.Map<StoreReview>(StoreReviewDto);
         await _storeReviewRepository.Create(StoreReview);
+        await SaveChangesAsync();
+        _mapper.Map(StoreReview, StoreReviewDto);
     }
 
     public void Update(StoreReviewDTO StoreReviewDto)
@@ -72,7 +80,7 @@ public class StoreReviewService : IStoreReviewService
         _storeReviewRepository.Remove(StoreReview);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _storeReviewRepository.SaveChangesAsync(cancellationToken);
     }

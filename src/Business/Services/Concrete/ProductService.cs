@@ -51,6 +51,12 @@ public class ProductService : IScoppedLifetime, IProductService
         return dto;
     }
 
+    public async Task Add(ProductDTO productDto)
+    {
+        var product = _mapper.Map<Product>(productDto);
+        await _productRepository.Create(product);
+    }
+
     public async Task Create(ProductDTO productDto)
     {
         var product = _mapper.Map<Product>(productDto);

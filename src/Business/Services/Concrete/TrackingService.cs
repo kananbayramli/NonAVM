@@ -54,6 +54,14 @@ public class TrackingService : ITrackingService
         return dto;
     }
 
+    public async Task Add(TrackingDTO TrackingDto)
+    {
+        var Tracking = _mapper.Map<Tracking>(TrackingDto);
+        await _trackingRepository.Create(Tracking);
+        await SaveChangesAsync();
+        _mapper.Map(Tracking, TrackingDto);
+    }
+
     public async Task Create(TrackingDTO TrackingDto)
     {
         var Tracking = _mapper.Map<Tracking>(TrackingDto);
@@ -72,7 +80,7 @@ public class TrackingService : ITrackingService
         _trackingRepository.Remove(Tracking);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _trackingRepository.SaveChangesAsync(cancellationToken);
     }

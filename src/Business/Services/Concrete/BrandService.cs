@@ -19,11 +19,21 @@ public class BrandService : IScoppedLifetime, IBrandService
     }
 
 
-    public async Task Create(BrandDTO storeDto)
+    public async Task Add(BrandDTO storeDto)
     {
         var store = _mapper.Map<Brand>(storeDto);
         await _brandRepository.Create(store);
     }
+
+    public async Task Create(BrandDTO storeDto)
+    {
+        var store = _mapper.Map<Brand>(storeDto);
+        await _brandRepository.Create(store);
+        await SaveChangesAsync();
+        _mapper.Map(store, storeDto);
+    }
+
+
     public async Task<List<BrandDTO>> GetAllAsync(Expression<Func<Brand, bool>>? expression = null, params Expression<Func<Brand, object>>[] includes)
     {
         var stores = await _brandRepository.GetAllAsync(expression, includes);
@@ -52,7 +62,7 @@ public class BrandService : IScoppedLifetime, IBrandService
         var store = _mapper.Map<Brand>(storeDto);
         _brandRepository.Update(store);
     }
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _brandRepository.SaveChangesAsync(cancellationToken);
     }

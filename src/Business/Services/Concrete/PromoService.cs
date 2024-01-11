@@ -54,10 +54,18 @@ public class PromoService : IPromoService
         return dto;
     }
 
+    public async Task Add(PromoDTO PromoDto)
+    {
+        var Promo = _mapper.Map<Promo>(PromoDto);
+        await _promoRepository.Create(Promo);
+    }
+
     public async Task Create(PromoDTO PromoDto)
     {
         var Promo = _mapper.Map<Promo>(PromoDto);
         await _promoRepository.Create(Promo);
+        await SaveChangesAsync();
+        _mapper.Map(Promo, PromoDto);
     }
 
     public void Update(PromoDTO PromoDto)
@@ -72,7 +80,7 @@ public class PromoService : IPromoService
         _promoRepository.Remove(Promo);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _promoRepository.SaveChangesAsync(cancellationToken);
     }

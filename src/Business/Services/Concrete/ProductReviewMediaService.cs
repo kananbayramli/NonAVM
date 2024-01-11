@@ -54,10 +54,18 @@ public class ProductReviewMediaService : IProductReviewMediaService
         return dto;
     }
 
+    public async Task Add(ProductReviewMediaDTO ProductReviewMediaDto)
+    {
+        var ProductReviewMedia = _mapper.Map<ProductReviewMedia>(ProductReviewMediaDto);
+        await _productReviewMediaRepository.Create(ProductReviewMedia);
+    }
+
     public async Task Create(ProductReviewMediaDTO ProductReviewMediaDto)
     {
         var ProductReviewMedia = _mapper.Map<ProductReviewMedia>(ProductReviewMediaDto);
         await _productReviewMediaRepository.Create(ProductReviewMedia);
+        await SaveChangesAsync();
+        _mapper.Map(ProductReviewMedia, ProductReviewMediaDto);
     }
 
     public void Update(ProductReviewMediaDTO ProductReviewMediaDto)
@@ -72,7 +80,7 @@ public class ProductReviewMediaService : IProductReviewMediaService
         _productReviewMediaRepository.Remove(ProductReviewMedia);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _productReviewMediaRepository.SaveChangesAsync(cancellationToken);
     }

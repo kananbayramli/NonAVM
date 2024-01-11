@@ -54,10 +54,18 @@ public class ShippingService : IShippingService
         return dto;
     }
 
+    public async Task Add(ShippingDTO ShippingDto)
+    {
+        var Shipping = _mapper.Map<Shipping>(ShippingDto);
+        await _shippingRepository.Create(Shipping);
+    }
+
     public async Task Create(ShippingDTO ShippingDto)
     {
         var Shipping = _mapper.Map<Shipping>(ShippingDto);
         await _shippingRepository.Create(Shipping);
+        await SaveChangesAsync();
+        _mapper.Map(Shipping, ShippingDto);
     }
 
     public void Update(ShippingDTO ShippingDto)
@@ -72,7 +80,7 @@ public class ShippingService : IShippingService
         _shippingRepository.Remove(Shipping);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _shippingRepository.SaveChangesAsync(cancellationToken);
     }

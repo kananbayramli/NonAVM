@@ -54,11 +54,21 @@ public class BasketItemService : IBasketItemService
         return dto;
     }
 
-    public async Task Create(BasketItemDTO BasketItemDto)
+    public async Task Add(BasketItemDTO BasketItemDto)
     {
         var BasketItem = _mapper.Map<BasketItem>(BasketItemDto);
         await _basketItemRepository.Create(BasketItem);
     }
+
+
+    public async Task Create(BasketItemDTO BasketItemDto)
+    {
+        var BasketItem = _mapper.Map<BasketItem>(BasketItemDto);
+        await _basketItemRepository.Create(BasketItem);
+        await SaveChangesAsync();
+        _mapper.Map(BasketItem, BasketItemDto);
+    }
+
 
     public void Update(BasketItemDTO BasketItemDto)
     {
@@ -72,7 +82,7 @@ public class BasketItemService : IBasketItemService
         _basketItemRepository.Remove(BasketItem);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken=default)
     {
         await _basketItemRepository.SaveChangesAsync(cancellationToken);
     }

@@ -50,11 +50,20 @@ public class CategoryService : IScoppedLifetime, ICategoryService
         return dto;
     }
 
-    public async Task Create(CategoryDTO categoryDto)
+    public async Task Add(CategoryDTO categoryDto)
     {
         var category = _mapper.Map<Category>(categoryDto);
         await _categoryRepository.Create(category);
     }
+
+    public async Task Create(CategoryDTO categoryDto)
+    {
+        var category = _mapper.Map<Category>(categoryDto);
+        await _categoryRepository.Create(category);
+        await SaveChangesAsync();
+        _mapper.Map(category, categoryDto);
+    }
+
 
     public void Update(CategoryDTO categoryDto)
     {
@@ -68,7 +77,7 @@ public class CategoryService : IScoppedLifetime, ICategoryService
         _categoryRepository.Remove(category);
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _categoryRepository.SaveChangesAsync(cancellationToken);
     }
