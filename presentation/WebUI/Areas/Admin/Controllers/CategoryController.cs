@@ -1,4 +1,5 @@
-﻿using ECommerse.Business.DTO_s;
+﻿using AutoMapper;
+using ECommerse.Business.DTO_s;
 using ECommerse.Business.Services.Abstract;
 using ECommerse.WebUI.Areas.Admin.Models.Category;
 using Microsoft.AspNetCore.Mvc;
@@ -21,8 +22,19 @@ public class CategoryController : Controller
         var categories = await _categoryService.GetAllAsync();
         return View(categories.Select(c => new CategoryViewModel
         {
-            Id = c.Id, Name = c.Name, ParentCategoryName = categories.FirstOrDefault(c2 => c2.Id == c.ParentCategoryID)?.Name
+            Id = c.Id, Name = c.Name, Slug = c.Slug
         }).ToList());
+    }    
+    
+    public async Task<IActionResult> CategoryHierarchi()
+    {
+        var categories = await _categoryService.GetAllAsync();
+        return View(categories.Select(c => new CategoryViewModel
+        {
+            Id = c.Id,
+            Name = c.Name,
+            ParentCategoryName = categories.FirstOrDefault(c2 => c2.Id == c.ParentCategoryID)?.Name
+        }).GroupBy(c => c.ParentCategoryName));
     }
 
 
@@ -34,9 +46,16 @@ public class CategoryController : Controller
 
 
     [HttpPost]
-    public async Task<ActionResult> AddCategory(CategoryDTO category)
+    public async Task<ActionResult> AddCategory(CreateCategoryViewModel category)
     {
-        await _categoryService.Create(category);
+        var pCategory = await _categoryService.GetAsync(c => c.Id == category.ParentCategoryID);
+        category.Slug =$"{pCategory.Name}-{category.Name}";
+        await _categoryService.Create(new CategoryDTO
+        {
+            Name = category.Name,
+            ParentCategoryID = category.ParentCategoryID,
+            Slug = category.Slug,
+        });
         await _categoryService.SaveChangesAsync(CancellationToken.None);
         return RedirectToAction("Index");
     }

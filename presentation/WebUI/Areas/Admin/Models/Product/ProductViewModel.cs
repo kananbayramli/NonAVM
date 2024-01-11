@@ -17,6 +17,7 @@ public class ProductViewModel
     public string? Video { get; set; }
     public IFormFile? Photo { get; set; }
     public bool Refundable { get; set; }
+    public int StoreId { get; set; }
     public string StoreName { get; set; } = null!;
     public int CategoryID { get; set; }
     public CategoryDTO? Category { get; set; }

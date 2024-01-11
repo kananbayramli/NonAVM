@@ -54,4 +54,19 @@ public class ProductItemController : Controller
 
         return RedirectToAction("AddProduct", "Product");
     }
+
+    [HttpPost]
+    public async Task<IActionResult> EditProductItem(CreateProductItemViewModel createProductItemViewModel)
+    {
+        if (createProductItemViewModel.ProductItems is null)
+            return View();
+
+        foreach (var item in createProductItemViewModel.ProductItems)
+        {
+            _productItemService.Update(item);
+        }
+        await _productItemService.SaveChangesAsync(CancellationToken.None);
+
+        return RedirectToAction("EditProduct", "Product", new {productId = createProductItemViewModel.ProductId});
+    }
 }

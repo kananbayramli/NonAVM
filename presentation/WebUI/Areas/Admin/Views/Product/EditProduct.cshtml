@@ -16,8 +16,11 @@
                                     <div class="card-header-2">
                                         <h5>@Localizer["MəhsulMəlumatı"]</h5>
                                     </div>
+                                    <form id="edit_product_form" asp-area="Admin" asp-controller="Product" asp-action="EditProduct" enctype="multipart/form-data" class="theme-form theme-form-2 mega-form product_form">
 
-                                    <form id="add_product_form" asp-area="Admin" asp-controller="Product" asp-action="AddProduct" enctype="multipart/form-data" class="theme-form theme-form-2 mega-form product_form">
+                                        @Html.HiddenFor(p => p.Id)
+                                        @Html.HiddenFor(p => p.StoreId)
+
                                         <div class="mb-4 row align-items-center">
                                             <label class="form-label-title col-sm-3 mb-0">Məhsulun adı</label>
                                             <div class="col-sm-9">
@@ -35,7 +38,7 @@
                                         <div class="mb-4 row align-items-center">
                                             <label class="col-sm-3 col-form-label form-label-title">Marka/Brend</label>
                                             <div class="col-sm-9">
-                                                <select asp-for="BrandID" asp-items="@ViewBag.brandList"  class="js-example-basic-single w-100">
+                                                <select asp-for="BrandID" asp-items="@ViewBag.brandList" class="js-example-basic-single w-100">
                                                     <option value="">Brand seçin</option>
                                                 </select>
                                             </div>
@@ -68,7 +71,7 @@
                                                 <input class="form-control" type="text" asp-for="Video" placeholder="Video linki">
                                             </div>
                                         </div>
-                                         <div class="card">
+                                        <div class="card">
                                             <div class="card-body">
                                                 <div class="card-header-2">
                                                     <h5>Təsvir</h5>
@@ -89,7 +92,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <input type="submit" class="btn btn-solid" value="Məhsul əlavə edin" />
+                                        <input type="submit" class="btn btn-solid" value="Yadda saxla" />
                                     </form>
                                 </div>
                             </div>
@@ -101,7 +104,7 @@
                                     </div>
 
                                     <form class="theme-form theme-form-2 mega-form variants-container">
-                                        <button id="addItem" >Məhsul variantları əlavə edin</button>
+                                        <button id="addItem">Məhsul variantları əlavə edin</button>
                                         <div class="mb-4 row align-items-center">
                                             <label class="form-label-title col-sm-3 mb-0">Seçim Adı</label>
                                             <div class="col-sm-9">
@@ -114,15 +117,15 @@
                                         </div>
 
                                         <div class="row align-items-center variant-values">
-                                            <hr class="my-2"/>
+                                            <hr class="my-2" />
                                             <label class="variant-name col-sm-3 col-form-label form-label-title">Color</label>
                                         </div>
                                         <div class="row align-items-center variant-values">
-                                            <hr class="my-2"/>
+                                            <hr class="my-2" />
                                             <label class="variant-name col-sm-3 col-form-label form-label-title">Size</label>
                                         </div>
                                         <div class="row align-items-center variant-values">
-                                            <hr class="my-2"/>
+                                            <hr class="my-2" />
                                             <label class="variant-name col-sm-3 col-form-label form-label-title">Material</label>
                                         </div>
                                     </form>
@@ -180,11 +183,11 @@
 </div>
 <!-- Page Body End -->
 
-<partial name="_AddProductItemModalPartial" model="new CreateProductItemViewModel()" />
+<partial name="_EditProductItemModalPartial" model="ViewBag.productItems" />
 
 @section Scripts {
-    <script src="~/js/MyScripts.js" ></script>
- }
+    <script src="~/js/MyScripts.js"></script>
+}
 @section Styles {
     <link href="~/css/MyStylescss.css" rel="stylesheet">
 }

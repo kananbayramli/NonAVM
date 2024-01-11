@@ -5231,6 +5231,13 @@ strong~p {
     background-color: rgba(0, 0, 0, 0)
 }
 
+.card .card-body {
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0)
+}
+.card-body.category-container {
+    max-height: 500px;
+}
 .card .card-body-2 {
     padding: 16px
 }

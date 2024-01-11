@@ -1,4 +1,4 @@
-﻿@model List<CategoryViewModel>
+﻿@model IEnumerable<IGrouping<string?, CategoryViewModel>>
 
 @inject IViewLocalizer Localizer
 
@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card card-table">
-                        <div class="card-body">
+                        <div class="card-body" >
                             <div class="title-header option-title">
                                 <h5>Bütün Kateqoriyalar</h5>
                                 <form class="d-inline-flex">
@@ -20,69 +20,17 @@
                                     </a>
                                 </form>
                             </div>
-
-                            <div class="table-responsive category-table">
-                                <div>
-                                    <table class="table all-package theme-table" id="table_id">
-                                        <thead>
-                                            <tr>
-                                                <th>@Localizer["kategoriyaAd"]</th>
-                                                <th>Tarix</th>
-                                                <th>Kateqoriya şəkli</th>
-                                                <th>İkon</th>
-                                                <th>Slug</th>
-                                                <th>Seçim</th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            @foreach(var category in Model)
-                                        {
-                                            <tr>
-                                                    <td>@category.Name</td>
-
-                                                    <td>26-12-2023</td>
-
-                                                    <td>
-                                                        <div class="table-image">
-                                                            <img src="~/AdminStatics/assets/images/product/1.png" class="img-fluid" alt="">
-                                                        </div>
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="category-icon">
-                                                            <img src="~/assets/svg/1/amazon.svg" class="img-fluid" alt="">
-                                                        </div>
-                                                    </td>
-
-                                                    <td>@category.Slug</td>
-
-                                                    <td>
-                                                        <ul>
-                                                            <li>
-                                                                <a href="order-detail.html">
-                                                                    <i class="ri-eye-line"></i>
-                                                                </a>
-                                                            </li>
-
-                                                            <li>
-                                                                <a href="javascript:void(0)">
-                                                                    <i class="ri-pencil-line"></i>
-                                                                </a>
-                                                            </li>
-
-                                                            <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                                                    <i class="ri-delete-bin-line"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </td>
-                                                </tr>
-                                        }
-                                        </tbody>
-                                    </table>
-                                </div>
+                            <div class="d-flex flex-wrap flex-column category-container" style="max-height: 700px;">
+                                @foreach (var item in Model)
+                                {
+                                    if (string.IsNullOrEmpty(item.Key))
+                                        continue;
+                                    <p class="text-primary font-weight-bold">@item.Key</p>
+                                    foreach (var category in item)
+                                    {
+                                        <p class="col">@category.Name</p>
+                                    }
+                                }
                             </div>
                         </div>
                     </div>
