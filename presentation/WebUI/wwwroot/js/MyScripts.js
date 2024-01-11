@@ -15,7 +15,7 @@ $('.product_form').on('submit', (e) => {
         $('input[name="createProductItemViewModel.ProductId"]').val(sessionStorage.getItem("productId"));
         popNotify('Success', 'Product saved')
     }).fail(function (response) {
-        popNotify('Failure', response)
+        popNotify('Failure', 'Xəta baş verdi !')
     });
 })
 
@@ -34,8 +34,29 @@ $('.product_item_form').on('submit', (e) => {
         sessionStorage.removeItem("productId");
         popNotify('Success', 'Product item saved')
     }).fail(function (response) {
-        popNotify('Failure', response)
+        popNotify('Failure', 'Xəta baş verdi !')
     });
+})
+
+$('.delete-product').on('click', e => {
+    e.preventDefault();
+    $.ajax(e.currentTarget.href, {
+        success: response => {
+            popNotify("Success", `Product with id ${response.id} has been deleted`)
+            window.location.href = response
+        },
+    }).fail(e => popNotify('Failed', 'Xəta baş verdi !'))
+})
+
+$('.product-preview-img').on('change', e => {
+    var reader = new FileReader();
+    reader.readAsDataURL(e.currentTarget.files[0]);
+    reader.onload = function () {
+        $('div.image-preview > img')[0].src = reader.result;
+    };
+    reader.onerror = function (error) {
+        console.log('Error: ', error);
+    };
 })
 
 var variants;
@@ -212,7 +233,7 @@ document.getElementsByClassName('checkbox_animated').forEach((e) => {
 });
 
 
-let index = 0;
+let index = parseInt($('.t-body .body-row:last-child').attr('id')) ?? 0;
 
 $('.add-variant').on('click', (e) => {
     index += 1;
@@ -225,7 +246,7 @@ $('.add-variant').on('click', (e) => {
     row.find('.sku_input').val(sku);
     let replaceTRext = row[0].innerHTML.substring(row[0].innerHTML.indexOf('['), row[0].innerHTML.indexOf(']') + 1);
     let replaceSKU = row[0].innerHTML.substring(row[0].innerHTML.indexOf('<p>') + 3, row[0].innerHTML.indexOf('</p>'));
-    $('.t-body').append('<tr class="body-row">' + row[0].innerHTML.replaceAll(replaceTRext, `[${index}]`).replace(replaceSKU, 'Auto generated SKU') + '</tr>')
+    $('.t-body').append(`<tr id="${index}" class="body-row">` + row[0].innerHTML.replaceAll(replaceTRext, `[${index}]`).replace(replaceSKU, 'Auto generated SKU') + '</tr>')
     $('.t-body .body-row:last-child').find("td:nth-last-child(3)").on('click', (e) => {
         let row = $(e.currentTarget.parentElement);
         let sku = row.find('input[type=text]')[0].value + 'N' + row.find('input[type=text]')[1].value;
@@ -235,6 +256,7 @@ $('.add-variant').on('click', (e) => {
 
         $(e.currentTarget).find('p')[0].textContent = sku;
     })
+    $('.t-body .body-row:last-child > input:nth-child(1)').remove();
 
     //-------
     let lastInput = $('.t-body .body-row:last-child');
@@ -343,6 +365,25 @@ $('.t-body').on('click', "td:nth-last-child(3)", (e) => {
 
 })
 
+$('.t-body').on('click', '.remove-item', e => {
+    let row = $(e.currentTarget.parentElement);
+    row.remove();
+})
+
+$('.t-body').on('click', '.remove-item-lnk', e => {
+    e.preventDefault();
+    $.ajax(e.currentTarget.href, {
+        success: response => {
+            popNotify("Success", `Item with id ${response.id} has been deleted`)
+            console.log(response)
+        },
+    }).fail(e => popNotify('Failed', 'Xəta baş verdi !'))
+    let row = $(e.currentTarget.parentElement.parentElement);
+    row.remove();
+})
+
+
+
 $('#cancel').on('click', (e) => {
     e.preventDefault();
     $('.upload__box1').css({
@@ -372,6 +413,13 @@ $('#add').on('click', e => {
     });
 
 })
+
+$('button#close-modal').on('click', e => {
+    e.preventDefault()
+    $('#popup-overlay').css({
+        'visibility': 'hidden'
+    })
+});
 
 // ---------------------------------------
 

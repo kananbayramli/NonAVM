@@ -137,4 +137,14 @@ public class ProductController : Controller
         await _productService.SaveChangesAsync(CancellationToken.None);
         return Json(product.Id);
     }
+
+    public async Task<IActionResult> DeleteProduct(int id)
+    {
+        var product = await _productService.GetAsync(i => i.Id == id);
+        if (product is null) return Json(new { message = "Prouduct not found !" });
+
+        _productService.Remove(product);
+        await _productService.SaveChangesAsync(CancellationToken.None);
+        return Json(Url.Action(nameof(Index)));
+    }
 }

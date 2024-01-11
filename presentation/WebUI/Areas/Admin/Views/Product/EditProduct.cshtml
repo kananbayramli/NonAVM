@@ -21,54 +21,63 @@
                                         @Html.HiddenFor(p => p.Id)
                                         @Html.HiddenFor(p => p.StoreId)
 
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="form-label-title col-sm-3 mb-0">Məhsulun adı</label>
-                                            <div class="col-sm-9">
-                                                <input asp-for="Name" class="form-control" type="text" placeholder="Məhsulun adı">
-                                            </div>
-                                        </div>
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Kateqoriya</label>
-                                            <div class="col-sm-9">
-                                                <select id="Region" asp-for="CategoryID" asp-items="@ViewBag.categoryList" class="js-example-basic-single w-100">
-                                                    <option value="">Kateqoriya seçin</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Marka/Brend</label>
-                                            <div class="col-sm-9">
-                                                <select asp-for="BrandID" asp-items="@ViewBag.brandList" class="js-example-basic-single w-100">
-                                                    <option value="">Brand seçin</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Teqlər</label>
-                                            <div class="col-sm-9">
-                                                <div class="bs-example">
-                                                    <input type="text" class="form-control" placeholder="Etiket yazın və enter düyməsini basın" id="#inputTag" data-role="tagsinput">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="form-label-title col-sm-3 mb-0">Məhsulun adı</label>
+                                                    <div class="col-sm-9">
+                                                        <input asp-for="Name" class="form-control" type="text" placeholder="Məhsulun adı">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="col-sm-3 col-form-label form-label-title">Kateqoriya</label>
+                                                    <div class="col-sm-9">
+                                                        <select id="Region" asp-for="CategoryID" asp-items="@ViewBag.categoryList" class="js-example-basic-single w-100">
+                                                            <option value="">Kateqoriya seçin</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="col-sm-3 col-form-label form-label-title">Marka/Brend</label>
+                                                    <div class="col-sm-9">
+                                                        <select asp-for="BrandID" asp-items="@ViewBag.brandList" class="js-example-basic-single w-100">
+                                                            <option value="">Brand seçin</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="col-sm-3 col-form-label form-label-title">Teqlər</label>
+                                                    <div class="col-sm-9">
+                                                        <div class="bs-example">
+                                                            <input type="text" class="form-control" placeholder="Etiket yazın və enter düyməsini basın" id="#inputTag" data-role="tagsinput">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row align-items-center">
+                                                    <label class="col-sm-3 col-form-label form-label-title">Geri qaytarıla bilər</label>
+                                                    <div class="col-sm-9">
+                                                        <label class="switch">
+                                                            <input type="checkbox" asp-for="Refundable"><span class="switch-state"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="col-sm-3 col-form-label form-label-title">Şəkillər</label>
+                                                    <div class="col-sm-9">
+                                                        <input class="form-control product-preview-img form-choose" type="file" asp-for="Photo" multiple>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="col-sm-3 col-form-label form-label-title">Video</label>
+                                                    <div class="col-sm-9">
+                                                        <input class="form-control" type="text" asp-for="Video" placeholder="Video linki">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Geri qaytarıla bilər</label>
-                                            <div class="col-sm-9">
-                                                <label class="switch">
-                                                    <input type="checkbox" asp-for="Refundable"><span class="switch-state"></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Şəkillər</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control form-choose" type="file" asp-for="Photo" multiple>
-                                            </div>
-                                        </div>
-                                        <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Video</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control" type="text" asp-for="Video" placeholder="Video linki">
+                                            <div class="col-5">
+                                                <div class="image-preview">
+                                                    <img style="object-fit: cover;" src="@Url.Content("~/photos/" + Model.Image)" alt="Girl in a jacket" width="500" height="600">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="card">
@@ -92,7 +101,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <input type="submit" class="btn btn-solid" value="Yadda saxla" />
+                                        <input type="submit" class="btn btn-solid" style="display: inline;" value="Yadda saxla" />
+                                        <a asp-action="DeleteProduct" asp-route-id="@Model.Id" class="btn btn-cancel delete-product" style="background-color:crimson; color:aliceblue; display: inline; float: right;" >Məhsulu sil</a>
                                     </form>
                                 </div>
                             </div>
