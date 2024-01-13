@@ -1,0 +1,124 @@
+﻿@model List<VendorListViewModel>
+    <!-- tap on top start -->
+    <div class="tap-top">
+        <span class="lnr lnr-chevron-up"></span>
+    </div>
+    <!-- tap on tap end -->
+    <!-- page-wrapper Start -->
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+        <!-- Page Body Start-->
+        <div class="page-body-wrapper">
+
+            <!-- vendor List Section Start -->
+            <div class="page-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <!-- Table Start -->
+                                <div class="card-body">
+                                    <div class="title-header option-title">
+                                        <h5>Satıcı Siyahısı</h5>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="user-table vendor-table table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Satıcı</th>
+                                                    <th>Məhsullar</th>
+                                                    <th>Mağaza Adı</th>
+                                                    <th>Yaradılma tarixi</th>
+                                                    <th>Gəlir</th>
+                                                    <th>Seçimlər</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach(var vendor in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <img src="@Url.Content("~/photos/" + vendor.StoreLogo)" alt="store logo">
+                                                        </span>
+                                                        <a href="javascript:void(0)">
+                                                            <span class="d-block">@vendor.OwnerName</span>
+                                                        </a>
+                                                    </td>
+
+                                                    <td>@vendor.ProductCount</td>
+
+                                                    <td>@vendor.StoreName</td>
+
+                                                    <td class="font-primary">@vendor.CreatedDate.ToShortDateString()</td>
+
+                                                    <td>@vendor.TotalProfit AZN</td>
+
+                                                    <td>
+                                                        <ul class="option-list">
+                                                            <li>
+                                                                <a href="order-detail.html">
+                                                                    <span class="ri-eye-line"></span>
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="javascript:void(0)">
+                                                                    <span class="lnr lnr-pencil"></span>
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="javascript:void(0)">
+                                                                    <span class="lnr lnr-trash"></span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+
+                                            }
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- Table End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Start -->
+                <div class="container-fluid">
+                    <footer class="footer">
+                        <div class="row">
+                            <div class="col-md-12 footer-copyright text-center">
+                                <p class="mb-0">Copyright 2023 © SaytAdi theme by Lorem</p>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+                <!-- Footer End -->
+            </div>
+            <!-- vendor List Section End -->
+        </div>
+        <!-- Page Body Start-->
+        <!-- Modal Start -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog  modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h5 class="modal-title" id="staticBackdropLabel">Çıxış</h5>
+                        <p>Çıxmaq istədiyinizə əminsiniz?</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="button-box">
+                            <button type="button" class="btn btn--no" data-bs-dismiss="modal">Xeyr</button>
+                            <button type="button" class="btn  btn--yes btn-primary">Bəli</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal End -->
+    </div>
+    <!-- page-wrapper End-->
