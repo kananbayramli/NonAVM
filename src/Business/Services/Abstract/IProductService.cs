@@ -13,4 +13,5 @@ public interface IProductService
     void Remove(ProductDTO productDto);
     Task SaveChangesAsync(CancellationToken cancellationToken);
     void Update(ProductDTO productDto);
+    Task<int> GetProductCount(int storeId);
 }

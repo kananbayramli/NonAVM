@@ -77,6 +77,12 @@ public class ProductService : IScoppedLifetime, IProductService
         _productRepository.Remove(product);
     }
 
+    public async Task<int> GetProductCount(int storeId)
+    {
+        var products = await _productRepository.GetAllAsync(products => products.StoreID == storeId);
+        return products.Count();
+    }
+
     public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _productRepository.SaveChangesAsync(cancellationToken);
