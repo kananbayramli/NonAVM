@@ -177,13 +177,12 @@
 
                         <div id="sidebar-menu">
                             <ul class="sidebar-links" id="simple-bar">
-                                <li class="back-btn"></li>
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="~/AdminStatics/index.html">
-                                        <i class="uil uil-create-dashboard"></i>
-                                        <span>İdarə paneli</span>
-                                    </a>
+                                    <a asp-area="Admin" class="sidebar-link sidebar-title link-nav">
+                                        <img style="width: 20px; margin-right: 10px;"
+                                             src="~/assets/svg/fashion/menu_svg/dashboard.svg" 
+                                        class="sidebar-link sidebar-title" alt=" ">İdarə Paneli</a>
                                 </li>
 
                                 <li class="sidebar-list">
@@ -227,9 +226,6 @@
                                         <li>
                                             <a asp-area="Admin" asp-controller="Home" asp-action="UserList">Bütün istifadəçilər</a>
                                         </li>
-                                        <li>
-                                            <a href="~/AdminStatics/add-new-user.html">Yeni istifadəçi əlavə edin</a>
-                                        </li>
                                     </ul>
                                 </li>
 
@@ -271,19 +267,12 @@
                                     </ul>
                                 </li>
 
+
                                 <li class="sidebar-list">
-                                    <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
-                                        <i class="uil uil-list-ui-alt"></i>
-                                        <span>Menyu Yaradın</span>
+                                    <a class="sidebar-link sidebar-title link-nav" href="~/AdminStatics/media.html">
+                                        <i class="uil uil-images"></i>
+                                        <span>Affiliate</span>
                                     </a>
-                                    <ul class="sidebar-submenu">
-                                        <li>
-                                            <a href="~/AdminStatics/menu-lists.html">Menyu siyahısı</a>
-                                        </li>
-                                        <li>
-                                            <a href="~/AdminStatics/create-menu.html">Menyu yaradın</a>
-                                        </li>
-                                    </ul>
                                 </li>
 
                                 <li class="sidebar-list">
@@ -311,12 +300,7 @@
                                         <li>
                                             <a asp-controller="Role" asp-action="Index">Bütün rollar</a>
                                         </li>
-                                        <li>
-                                            <a asp-controller="Role" asp-action="AddRole">Rol yarat</a>
-                                        </li>
-                                        <li>
-                                            <a asp-controller="Role" asp-action="AssignRole">Rol ver</a>
-                                        </li>
+
                                     </ul>
                                 </li>
 
@@ -343,68 +327,11 @@
                                     </ul>
                                 </li>
 
-                                <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="~/AdminStatics/product-review.html">
-                                        <i class="uil uil-comments"></i>
-                                        <span>Məhsulun nəzərdən keçirilməsi</span>
-                                    </a>
-                                </li>
 
-                                <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="~/AdminStatics/support-ticket.html">
-                                        <i class="uil uil-comment-alt-question"></i>
-                                        <span>Dəstək Bileti</span>
-                                    </a>
-                                </li>
 
-                                <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="~/AdminStatics/invoice.html">
-                                        <i class="ri-file-chart-line"></i>
-                                        <span>Faktura</span>
-                                    </a>
-                                </li>
 
-                                <li class="sidebar-list">
-                                    <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
-                                        <i class="ri-focus-3-line"></i>
-                                        <span>Lokallaşdırma</span>
-                                    </a>
-                                    <ul class="sidebar-submenu">
-                                        <li>
-                                            <a href="~/AdminStatics/translation.html">Tərcümə</a>
-                                        </li>
 
-                                        <li>
-                                            <a href="~/AdminStatics/currency-rates.html">Valyuta məzənnələri</a>
-                                        </li>
-                                    </ul>
-                                </li>
 
-                                <li class="sidebar-list">
-                                    <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
-                                        <i class="uil uil-setting"></i>
-                                        <span>Parametrlər</span>
-                                    </a>
-                                    <ul class="sidebar-submenu">
-                                        <li>
-                                            <a href="~/AdminStatics/profile-setting.html">Profil Parametrləri</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="~/AdminStatics/reports.html">
-                                        <i class="ri-file-chart-line"></i>
-                                        <span>Hesabatlar</span>
-                                    </a>
-                                </li>
-
-                                <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="~/AdminStatics/list-page.html">
-                                        <i class="ri-list-check"></i>
-                                        <span>Siyahı Səhifəsi</span>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
 
@@ -445,8 +372,8 @@
 
     <!-- latest js -->
     @* <script src="~/AdminStatics/assets/js/jquery-3.6.0.min.js"></script> *@
-    @* <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> *@
-    <script src="~/js/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    @* <script src="~/js/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> *@
     <!-- Bootstrap js -->
     <script src="~/AdminStatics/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 
