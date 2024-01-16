@@ -1,0 +1,2158 @@
+﻿@model ProductItemViewModel
+
+@section Styles {
+    <!-- bootstrap css -->
+    <link id="rtl-link" rel="stylesheet" type="text/css" href="~/assets/css/vendors/bootstrap.css">
+}
+
+<!-- Left Sidebar Start -->
+<nav class="vertical_nav">
+    <div class="left_section menu_left" id="js-menu">
+        <div class="left_section nlsh">
+            <ul>
+                <li class="menu--item nhi">
+                    <a asp-controller="Catalog" class="menu--link active nhome" title="Home">
+                        <lottie-player class="menu--icon" style="width: 2rem; margin-right: 1rem;" src="https://lottie.host/106b8375-5239-4f65-a39d-9f8c97a1dd1d/f53vNkdAir.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        <span style="color: white !important;" class="menu--label nhl">Ana Səhifə</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="#" class="menu--link" title="Live Streams">
+                        <lottie-player class="menu--icon" style="width: 2rem; margin-right: 1rem;" src="https://lottie.host/9dd84007-027c-4b34-b905-9dfd066d15db/b7wdiDPJj8.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        <span class="menu--label">Canlı Dəstək</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="discount.html" class="menu--link" title="Live Streams">
+                        <lottie-player class="menu--icon" style="width: 2.5rem; margin-right: 0.6rem;" src="https://lottie.host/49b3befe-431b-42ee-930f-e5fbb33a520f/nMlSwxmOR6.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        <span class="menu--label">Endirimlər</span>
+                    </a>
+                </li>
+                <li class="menu--item menu--item__has_sub_menu">
+                    <label class="menu--link" title="Categories">
+                        <a href="#">
+                            <lottie-player class="menu--icon" style="width: 3rem; margin-right: 0.2rem;" src="https://lottie.host/de2d89b4-1e52-41cd-9294-ee4d906664f1/DkSyyt1UrG.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                            <span class="menu--label">Kategoriyalar</span>
+                        </a>
+                    </label>
+                    <ul class="sub_menu">
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/clothing.svg" class="blur-up lazyload " alt=" ">Geyim</a>
+                            <ul class="sub_menu sub_menu--erkek">
+                                <li class="sub_menu--item">
+                                    <a href="clothing_women.html"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/female.svg" class="blur-up lazyload " alt=" ">Qadın</a>
+                                </li>
+                                <li class="sub_menu--item">
+                                    <a href="clothing_man.html"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/male.svg" class="blur-up lazyload " alt=" ">Kişi</a>
+                                </li>
+                                <li class="sub_menu--item">
+                                    <a href="clothing_child.html"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/children.svg" class="blur-up lazyload " alt=" ">Uşaq</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/shoes.svg" class="blur-up lazyload " alt=" ">Ayaqqabı</a>
+                            <ul class="sub_menu sub_menu--erkek">
+                                <li class="sub_menu--item">
+                                    <a href="#.html"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/female.svg" class="blur-up lazyload " alt=" ">Qadın</a>
+                                </li>
+                                <li class="sub_menu--item">
+                                    <a href="#"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/male.svg" class="blur-up lazyload " alt=" ">Kişi</a>
+                                </li>
+                                <li class="sub_menu--item">
+                                    <a href="#"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/children.svg" class="blur-up lazyload " alt=" ">Uşaq</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="make_up.html" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/make_up.svg" class="blur-up lazyload " alt=" ">Makiyaj</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="sitemap.html#iticon" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/sport.svg" class="blur-up lazyload " alt=" ">İdman Məhsulları</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="sitemap.html#officon" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/office.svg" class="blur-up lazyload " alt=" ">Ofis Ləvazimatları</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="sitemap.html#pericon" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/watch.svg" class="blur-up lazyload " alt=" ">Saat</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="sitemap.html#desicon" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/accessories.svg" class="blur-up lazyload " alt=" ">Aksesuarlar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu--item">
+                    <!-- <a href="#" class="menu--link" title="eBooks">
+                        <lottie-player class="menu--icon" style="width: 2.4rem; margin-right: 0.4rem;" src="https://lottie.host/c487e19a-d173-476b-b09c-7b082f159866/RcCfWXQPih.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        <span class="menu--label">Kitabla</span>
+                    </a> -->
+
+                    <a href="wishlist.html" class="menu--link" title="Saved">
+                        <lottie-player class="menu--icon" style="width: 2.2rem; margin-right: 0.9rem;" src="https://lottie.host/b62035d7-6e22-4ba7-9b77-48073f3899b2/pRo3bbSbDY.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        <span class="menu--label">Seçilmişlər</span>
+                    </a>
+
+                    <a href="#" class="menu--link" title="Certification Center">
+                        <lottie-player class="menu--icon" style="width: 2.9rem; margin-right: 0.2rem;" src="https://lottie.host/ba2d89de-aae8-4b05-883a-98ee8b67bb41/PKMUu065eW.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        <span class="menu--label">Çatdırılma və Ödəmə</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="left_section pt-2">
+            <ul>
+                <li class="menu--item">
+                    <a href="#" class="menu--link" title="Setting">
+                        <lottie-player class="menu--icon" style="width: 3rem; margin-right: 0.1rem;" src="https://lottie.host/d31d6c1e-54e6-42c2-b366-548d739d8caa/OtwQcZMTPS.json" background="transparent" speed="0.25" loop autoplay></lottie-player>
+                        <span class="menu--label">Tənzimləmə</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="#" class="menu--link" title="Help">
+                        <lottie-player class="menu--icon" style="width: 3rem; margin-right: 0.1rem;" src="https://lottie.host/e35208d7-229b-4940-a74b-6610116be195/0gEkOTMv9a.json" background="transparent" speed="0.35" loop autoplay></lottie-player>
+                        <span class="menu--label">Bizimlə Əlaqə</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="left_footer">
+            <ul>
+                <li><a href="sign_up_seller.html">Tərəfdaş</a></li>
+                <li><a href="contact_us.html">Reklam</a></li>
+                <li><a href="career.html">Karyera</a></li>
+                <li><a href="affiliate_details.html">Şirkətlər üçün</a></li>
+            </ul>
+            <div class="left_footer_content">
+                <p>&copy; 2023 <strong>NONAVM, Inc</strong>.</p>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Left Sidebar End -->
+
+    <!-- Product Left Sidebar Start -->
+    <section class="product-section">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-xxl-9 col-xl-8 col-lg-7 wow fadeInUp">
+                    <div class="row g-4">
+                        <div class="col-xl-6 wow fadeInUp">
+                            <div class="product-left-box">
+                                <div class="row g-2">
+                                    <div class="col-xxl-10 col-lg-12 col-md-10 order-xxl-2 order-lg-1 order-md-2">
+                                        <div class="product-main-2 no-arrow">
+                                            <div>
+                                                <div class="slider-image">
+                                                <img src="@Url.Content("~/photos/" + Model.Images[0])" id="img-1" data-zoom-image="~/assets/images/product/category/2.png" class="img-fluid image_zoom_cls-0 blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <div class="slider-image">
+                                                    <img src="~/assets/images/product/category/3.png" data-zoom-image="~/assets/images/product/category/3.png" class="img-fluid image_zoom_cls-1 blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <div class="slider-image">
+                                                    <img src="~/assets/images/product/category/4.png" data-zoom-image="~/assets/images/product/category/4.png" class="img-fluid image_zoom_cls-2 blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <div class="slider-image">
+                                                    <img src="~/assets/images/product/category/5.png" data-zoom-image="~/assets/images/product/category/5.png" class="img-fluid image_zoom_cls-3 blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <div class="slider-image">
+                                                    <img src="~/assets/images/product/category/6.png" data-zoom-image="~/assets/images/product/category/6.png" class="img-fluid image_zoom_cls-4 blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <div class="slider-image">
+                                                    <img src="~/assets/images/product/category/7.png" data-zoom-image="~/assets/images/product/category/7.png" class="img-fluid image_zoom_cls-5 blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xxl-2 col-lg-12 col-md-2 order-xxl-1 order-lg-2 order-md-1">
+                                        <div class="left-slider-image-2 left-slider no-arrow slick-top">
+                                            <div>
+                                                <div class="sidebar-image">
+                                                    <img src="~/assets/images/product/category/2.png" class="img-fluid blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <div class="sidebar-image">
+                                                    <img src="~/assets/images/product/category/3.png" class="img-fluid blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <div class="sidebar-image">
+                                                    <img src="~/assets/images/product/category/4.png" class="img-fluid blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <div class="sidebar-image">
+                                                    <img src="~/assets/images/product/category/5.png" class="img-fluid blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <div class="sidebar-image">
+                                                    <img src="~/assets/images/product/category/6.png" class="img-fluid blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <div class="sidebar-image">
+                                                    <img src="~/assets/images/product/category/7.png" class="img-fluid blur-up lazyload" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="right-box-contain">
+                                <h6 class="offer-top">30% Off</h6>
+                                <h2 class="name">@Model.Product.Name</h2>
+                                <div class="price-rating">
+                                <h3 class="theme-color price"> @Model.PriceAfterDiscount AZN<del class="text-content"> @Model.PriceBeforeDiscount AZN </del> <span class="offer theme-color">(8% endirim)</span></h3>
+                                    <div class="product-rating custom-rate">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                        </ul>
+                                        <span class="review">23 Müştəri rəyi</span>
+                                    </div>
+                                </div>
+
+                                <div class="procuct-contain">
+                                    <p>
+                                        @Model.Product.Description
+                                    </p>
+                                </div>
+
+                                <div class="product-packege">
+                                    <div class="product-title">
+                                        <h4>Ölçü</h4>
+                                    </div>
+                                    <ul class="select-packege">
+                                        <li>
+                                            <a href="javascript:void(0)" class="active">XS</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">S</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">M</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">L</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">XL</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="section_timer_product">
+                                    <div class="sale-container_product" id="sale-container_product">
+                                        <i class="uil uil-hourglass"></i>
+                                        <p id="countdown_3"></p>
+                                    </div>
+                                </div>
+
+                                <div class="note-box product-packege">
+                                    <div class="cart_qty qty-box product-qty">
+                                        <div class="input-group">
+                                            <button type="button" class="qty-right-plus" data-type="plus" data-field="">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                            <button type="button" class="qty-left-minus" data-type="minus" data-field="">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                <button class="btn btn-md bg-dark cart-button text-white w-100"> <a asp-controller="Basket" asp-action="AddToBasket" asp-route-productId="@Model.Product.Id">Səbətə at</a></button>
+                                </div>
+
+                                <div class="buy-box">
+                                    <a href="wishlist.html">
+                                        <i class="text-danger" data-feather="heart"></i>
+                                        <span>İstək Siyahısına əlavə et</span>
+                                    </a>
+
+                                    <a href="compare.html">
+                                        <i class="text-success" data-feather="shuffle"></i>
+                                        <span>Müqayisə et</span>
+                                    </a>
+                                </div>
+
+                                <div class="pickup-box">
+                                    <div class="product-title">
+                                        <h4>Xüsusiyyətlər</h4>
+                                    </div>
+
+                                    <div class="pickup-detail">
+                                        <h4 class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis pariatur molestiae repellendus, dolore autem totam.</h4>
+                                    </div>
+
+                                    <div class="product-info">
+                                        <ul class="product-info-list product-info-list-2">
+                                            <li>Brend : <a href="javascript:void(0)">Modabu</a></li>
+                                            <li>Ölçü : <a href="javascript:void(0)">M</a></li>
+                                            <li>Rəng : <a href="javascript:void(0)">Qara</a></li>
+                                            <li>Stok : <a href="javascript:void(0)">@Model.Quantity Məhsul qalıb</a></li>
+                                            <li>
+                                                Material : <a href="javascript:void(0)">Pambıq</a>
+                                                <a href="javascript:void(0)"></a>
+                                            </li>
+                                            <li>Brendin ölkəsi : <a href="javascript:void(0)">Türkiyə</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="paymnet-option">
+                                    <div class="product-title">
+                                        <h4>Zəmanətli Təhlükəsiz Ödəniş</h4>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="~/assets/images/product/payment/1.svg" class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="~/assets/images/product/payment/2.svg" class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="~/assets/images/product/payment/3.svg" class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="~/assets/images/product/payment/4.svg" class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="~/assets/images/product/payment/5.svg" class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="product-section-box">
+                                <ul class="nav nav-tabs custom-nav" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Təsvir</button>
+                                    </li>
+
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="false">Əlavə Məlumat</button>
+                                    </li>
+
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="care-tab" data-bs-toggle="tab" data-bs-target="#care" type="button" role="tab" aria-controls="care" aria-selected="false">Qulluq Təlimatları</button>
+                                    </li>
+
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">Məhsul haqqında rəylər və reytinq </button>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content custom-tab" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                                        <div class="product-description">
+                                            <div class="nav-desh">
+                                                <p>
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam consectetur sequi veritatis, aliquam provident maiores possimus ab totam repudiandae praesentium impedit numquam vero ex et unde ducimus eaque
+                                                    labore itaque sint similique iusto mollitia, ut quia. Aliquid rerum quis asperiores illo praesentium minus, architecto quasi repellendus amet, atque ipsa! Cupiditate?
+                                                </p>
+                                            </div>
+
+                                            <div class="nav-desh">
+                                                <div class="desh-title">
+                                                    <h5>Pambıq:</h5>
+                                                </div>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quaerat repellat, maxime illum velit saepe dignissimos incidunt molestiae sed quisquam perferendis eveniet mollitia iusto aperiam facere est
+                                                    omnis tempora itaque corporis, aut quidem tenetur aliquid! Quos tempora facilis incidunt voluptatibus? Voluptate, labore inventore optio ullam modi quasi magnam adipisci repudiandae!
+                                                </p>
+                                            </div>
+
+                                            <div class="banner-contain nav-desh">
+                                                <img src="~/assets/images/banner_slider/banner/1.png" class="bg-img blur-up lazyload" alt="">
+                                                <div class="banner-details p-center banner-b-space w-100 text-center">
+                                                    <div>
+                                                        <h6 class="ls-expanded theme-color mb-sm-3 mb-1">SUMMER</h6>
+                                                        <h2>CLOTHİNG</h2>
+                                                        <p class="mx-auto mt-1">Save up to 5% OFF</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="nav-desh">
+                                                <div class="desh-title">
+                                                    <h5>Lorem, ipsum dolor.:</h5>
+                                                </div>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ipsum aut earum rerum ea doloribus facilis iste, laborum in sint, facere, harum eos deserunt non? Vitae accusantium consequuntur natus non quisquam,
+                                                    libero maiores, doloribus hic amet labore quaerat reprehenderit voluptatem, aliquam a aut. Soluta labore sint porro distinctio nemo iste?
+                                                </p>
+
+                                                <p>
+                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus officiis fuga maxime illum quisquam deserunt, nesciunt vero nihil pariatur asperiores eligendi ducimus temporibus, dicta earum consequuntur
+                                                    accusantium quod, ex quibusdam?
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
+                                        <div class="table-responsive">
+                                            <table class="table info-table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Brend</td>
+                                                        <td>Modabu</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ölçü</td>
+                                                        <td>M</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Rəng</td>
+                                                        <td>Ağ</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Material</td>
+                                                        <td>Pambıq</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Brendin ölkəsi</td>
+                                                        <td>Türkiyə</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="care" role="tabpanel" aria-labelledby="care-tab">
+                                        <div class="information-box">
+                                            <ul>
+                                                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, sit?</li>
+
+                                                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, magni!</li>
+
+                                                <li>Lorem ipsum dolor sit amet.</li>
+
+                                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, nostrum.</li>
+
+                                                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore, reprehenderit!</li>
+
+                                                <li>Lorem ipsum dolor sit amet.</li>
+
+                                                <li>Lorem ipsum dolor sit.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
+                                        <div class="review-box">
+                                            <div class="row g-4">
+                                                <div class="col-xl-6">
+                                                    <div class="review-title">
+                                                        <h4 class="fw-500">Müştəri rəyləri</h4>
+                                                    </div>
+
+                                                    <div class="d-flex">
+                                                        <div class="product-rating">
+                                                            <ul class="rating">
+                                                                <li>
+                                                                    <i data-feather="star" class="fill"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i data-feather="star" class="fill"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i data-feather="star" class="fill"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i data-feather="star"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i data-feather="star"></i>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <h6 class="ms-3">5'dən 4.2</h6>
+                                                    </div>
+
+                                                    <div class="rating-box">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="rating-list">
+                                                                    <h5>5 Ulduz</h5>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: 68%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                                            68%
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="rating-list">
+                                                                    <h5>4 Ulduz</h5>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: 67%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                                            67%
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="rating-list">
+                                                                    <h5>3 Ulduz</h5>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: 42%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                                            42%
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="rating-list">
+                                                                    <h5>2 Ulduz</h5>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                                            30%
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="rating-list">
+                                                                    <h5>1 Ulduz</h5>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: 24%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                                            24%
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="review-title">
+                                                        <h4 class="fw-500">Rəy əlavə edin</h4>
+                                                    </div>
+
+                                                    <div class="row g-4">
+                                                        <div class="col-md-6">
+                                                            <div class="form-floating theme-form-floating">
+                                                                <input type="text" class="form-control" id="name" placeholder="Ad">
+                                                                <label for="name">Ad</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-floating theme-form-floating">
+                                                                <input type="email" class="form-control" id="email" placeholder="Email Address">
+                                                                <label for="email">E-poçt Ünvanı</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-floating theme-form-floating">
+                                                                <input type="url" class="form-control" id="website" placeholder="Veb sayt">
+                                                                <label for="website">Veb sayt</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-floating theme-form-floating">
+                                                                <input type="url" class="form-control" id="review1" placeholder="Give your review a title">
+                                                                <label for="review1">Rəy Başlığı</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12">
+                                                            <div class="form-floating theme-form-floating">
+                                                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px"></textarea>
+                                                                <label for="floatingTextarea2">Şərhinizi Yazın</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="review-title">
+                                                        <h4 class="fw-500">Müştəri sualları və cavabları</h4>
+                                                    </div>
+
+                                                    <div class="review-people">
+                                                        <ul class="review-list">
+                                                            <li>
+                                                                <div class="people-box">
+                                                                    <div>
+                                                                        <div class="people-image">
+                                                                            <img src="~/assets/images/fashion/home-banner/GIT PHOTO.png" class="img-fluid blur-up lazyload" alt="">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="people-comment">
+                                                                        <a class="name" href="javascript:void(0)">Toghrul</a>
+                                                                        <div class="date-time">
+                                                                            <h6 class="text-content">10 Okt, 2023 saat 12:58</h6>
+
+                                                                            <div class="product-rating">
+                                                                                <ul class="rating">
+                                                                                    <li>
+                                                                                        <i data-feather="star" class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star" class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star" class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star" class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star" class="fill"></i>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="reply">
+                                                                            <p>
+                                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam impedit natus dignissimos suscipit, obcaecati dolores autem aut quae eveniet similique ipsam aliquid, nobis molestias?
+                                                                                Illo quibusdam perspiciatis obcaecati molestiae, eligendi praesentium nulla, quo voluptas distinctio voluptatibus veritatis qui, ullam veniam.<a href="javascript:void(0)">Cavab verin</a>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="people-box">
+                                                                    <div>
+                                                                        <div class="people-image">
+                                                                            <img src="~/assets/images/review/2.jpg" class="img-fluid blur-up lazyload" alt="">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="people-comment">
+                                                                        <a class="name" href="javascript:void(0)">Elfan</a>
+                                                                        <div class="date-time">
+                                                                            <h6 class="text-content">01 May, 2023 saat 20:58</h6>
+                                                                            <div class="product-rating">
+                                                                                <ul class="rating">
+                                                                                    <li>
+                                                                                        <i data-feather="star" class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star" class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star" class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star"></i>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="reply">
+                                                                            <p>
+                                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, libero. Earum voluptas quaerat officia non modi quidem optio consequatur alias.
+                                                                                <a href="javascript:void(0)">Cavab verin</a>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="people-box">
+                                                                    <div>
+                                                                        <div class="people-image">
+                                                                            <img src="~/assets/images/review/3.jpg" class="img-fluid blur-up lazyload" alt="">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="people-comment">
+                                                                        <a class="name" href="javascript:void(0)">Rashad</a>
+                                                                        <div class="date-time">
+                                                                            <h6 class="text-content">21 May, 2023 saat 17:52</h6>
+
+                                                                            <div class="product-rating">
+                                                                                <ul class="rating">
+                                                                                    <li>
+                                                                                        <i data-feather="star" class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star" class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star" class="fill"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star"></i>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <i data-feather="star"></i>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="reply">
+                                                                            <p>
+                                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque accusantium vel porro libero nesciunt ipsum alias rerum blanditiis aliquam modi! <a href="javascript:void(0)">Cavab verin</a>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-3 col-xl-4 col-lg-5 d-none d-lg-block wow fadeInUp">
+                    <div class="right-sidebar-box">
+                        <div class="vendor-box">
+                            <div class="verndor-contain">
+                                <div class="vendor-image">
+                                    <img src="~/assets/images/product/center.png" class="blur-up lazyload" alt="">
+                                </div>
+
+                                <div class="vendor-name">
+                                    <h5 class="fw-500">CodeOnCenter</h5>
+
+                                    <div class="product-rating mt-1">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                        </ul>
+                                        <span>(36 Reviews)</span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <p class="vendor-detail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem deleniti numquam placeat labore accusamus aliquam nesciunt alias fuga, commodi nisi?</p>
+
+                            <div class="vendor-list">
+                                <ul>
+                                    <li>
+                                        <div class="address-contact">
+                                            <i data-feather="map-pin"></i>
+                                            <h5>Adres: <span class="text-content">Nesimi rayonu</span></h5>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="address-contact">
+                                            <i data-feather="headphones"></i>
+                                            <h5>Satıcı ilə əlaqə: <span class="text-content">(+994)-527-09-66</span></h5>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Trending Product -->
+                        <div class="pt-25">
+                            <div class="category-menu">
+                                <h3>Trend Məhsullar</h3>
+                                <ul class="product-list product-right-sidebar border-0 p-0">
+                                    <li>
+                                        <div class="offer-product">
+                                            <a href="product-thumbnail.html" class="offer-image">
+                                                <img src="~/assets/images/category_1/1.png" class="img-fluid blur-up lazyload" alt="">
+                                            </a>
+
+                                            <div class="offer-detail">
+                                                <div>
+                                                    <a href="product-thumbnail.html">
+                                                        <h6 class="name">Lorem ipsum dolor sit.</h6>
+                                                    </a>
+                                                    <span>S</span>
+                                                    <h6 class="price theme-color">$ 70.00</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="offer-product">
+                                            <a href="product-thumbnail.html" class="offer-image">
+                                                <img src="~/assets/images/category_1/2.png" class="blur-up lazyload" alt="">
+                                            </a>
+
+                                            <div class="offer-detail">
+                                                <div>
+                                                    <a href="product-thumbnail.html">
+                                                        <h6 class="name">Lorem ipsum dolor sit.</h6>
+                                                    </a>
+                                                    <span>M</span>
+                                                    <h6 class="price theme-color">$ 40.00</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="offer-product">
+                                            <a href="product-thumbnail.html" class="offer-image">
+                                                <img src="~/assets/images/category_1/3.png" class="blur-up lazyload" alt="">
+                                            </a>
+
+                                            <div class="offer-detail">
+                                                <div>
+                                                    <a href="product-thumbnail.html">
+                                                        <h6 class="name">Lorem ipsum dolor sit.</h6>
+                                                    </a>
+                                                    <span>L</span>
+                                                    <h6 class="price theme-color">$ 52.00</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="mb-0">
+                                        <div class="offer-product">
+                                            <a href="product-thumbnail.html" class="offer-image">
+                                                <img src="~/assets/images/category_1/4.png" class="blur-up lazyload" alt="">
+                                            </a>
+
+                                            <div class="offer-detail">
+                                                <div>
+                                                    <a href="product-thumbnail.html">
+                                                        <h6 class="name">Lorem ipsum dolor sit.</h6>
+                                                    </a>
+                                                    <span>XL</span>
+                                                    <h6 class="price theme-color">$ 80.00</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Banner Section -->
+                        <div class="ratio_156 pt-25">
+                            <div class="home-contain">
+                                <img src="~/assets/images/category_1/3.png" class="bg-img blur-up lazyload" alt="">
+                                <div class="home-detail p-top-left home-p-medium">
+                                    <div>
+                                        <h6 class="text-yellow home-banner">Lorem</h6>
+                                        <h3 class="text-uppercase fw-normal"><span class="theme-color fw-bold">Yeni</span>Məhsullar</h3>
+                                        <h3 class="fw-light">hər saat</h3>
+                                        <button onclick="location.href = 'shop-left-sidebar.html';" class="btn btn-animation btn-md fw-bold mend-auto">
+                                            İndi alış-veriş edin<i class="fa-solid fa-arrow-right icon"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Left Sidebar End -->
+    <!-- Related Product Section Start -->
+    <section class="related-product-2">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="related-product">
+                        <div class="product-title-2 title">
+                            <h2>Tez-tez Birlikdə Alınan</h2>
+                        </div>
+
+                        <div class="related-box">
+                            <div class="related-image">
+                                <ul>
+                                    <li>
+                                        <div class="product-box product-box-bg wow fadeInUp">
+                                            <div class="product-image">
+                                                <a href="product-thumbnail.html">
+                                                    <img src="~/assets/images/category_1/9.jpg" class="img-fluid blur-up lazyload" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="product-detail">
+                                                <a href="product-thumbnail.html">
+                                                    <h6 class="name">
+                                                        Lorem ipsum dolor sit amet consectetur.
+                                                    </h6>
+                                                </a>
+
+                                                <h5 class="sold text-content">
+                                                    <span class="theme-color price">$26.69</span>
+                                                    <del>28.56</del>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="product-box product-box-bg wow fadeInUp" data-wow-delay="0.1s">
+                                            <div class="product-image">
+                                                <a href="product-thumbnail.html">
+                                                    <img src="~/assets/images/category_1/10.jpg" class="img-fluid blur-up lazyload" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="product-detail">
+                                                <a href="product-thumbnail.html">
+                                                    <h6 class="name">
+                                                        Lorem ipsum dolor sit amet.
+                                                    </h6>
+                                                </a>
+
+                                                <h5 class="sold text-content">
+                                                    <span class="theme-color price">$26.69</span>
+                                                    <del>28.56</del>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="product-box product-box-bg wow fadeInUp">
+                                            <div class="product-image">
+                                                <a href="product-thumbnail.html">
+                                                    <img src="~/assets/images/category_1/11.jpg" class="img-fluid blur-up lazyload" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="product-detail">
+                                                <a href="product-thumbnail.html">
+                                                    <h6 class="name">
+                                                        Lorem ipsum, dolor sit amet consectetur adipisicing.
+                                                    </h6>
+                                                </a>
+
+                                                <h5 class="sold text-content">
+                                                    <span class="theme-color price">$26.69</span>
+                                                    <del>28.56</del>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="budle-list">
+                                <ul>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="checkbox_animated" type="checkbox" value="" id="check1">
+                                            <label class="form-check-label" for="check1">
+                                                <span class="color color-1">
+                                                    Lorem ipsum dolor sit.
+                                                    <span>$12</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="checkbox_animated" type="checkbox" value="" id="check2">
+                                            <label class="form-check-label" for="check2">
+                                                <span class="color color-1">
+                                                    Lorem, ipsum.
+                                                    <span>$15</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="checkbox_animated" type="checkbox" value="" id="check3">
+                                            <label class="form-check-label" for="check3">
+                                                <span class="color color-1">
+                                                    Lorem ipsum dolor sit.
+                                                    <span>$12</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </li>
+
+                                    <li class="contant">
+                                        <h5>Üçün Seçilən Məhsul</h5>
+                                        <h4 class="theme-color">$210.69 <del class="text-content">212.36</del></h4>
+                                        <button class="btn text-white theme-bg-color btn-md mt-sm-4 mt-3 fw-bold">
+                                            <i class="fa-solid fa-cart-shopping me-2"></i> Hamısını Səbətə Əlavə et
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Related Product Section End -->
+    <!-- Releted Product Section Start -->
+    <section class="product-list-section section-b-space">
+        <div class="container-fluid-lg">
+            <div class="title">
+                <h2>Əlaqədar məhsullar</h2>
+                <!-- <span class="title-leaf">
+                    <svg class="icon-width">
+                        <use xlink:href="~/assets/svg/leaf.svg#leaf"></use>
+                    </svg>
+                </span> -->
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="slider-6_1 product-wrapper">
+                        <div>
+                            <div class="product-box-3 wow fadeInUp">
+                                <div class="product-header">
+                                    <div class="product-image">
+                                        <a href="product-left.htm">
+                                            <img src="~/assets/images/product/category/3.png" class="img-fluid blur-up lazyload" alt="">
+                                        </a>
+
+                                        <ul class="product-option">
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Baxın">
+                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                    <i data-feather="eye" class="text-primary"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Müqayisə">
+                                                <a href="compare.html">
+                                                    <i data-feather="refresh-cw" class="text-success"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="İstək">
+                                                <a href="wishlist.html" class="notifi-wishlist">
+                                                    <i data-feather="heart" class="text-danger"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="product-footer">
+                                    <div class="product-detail">
+                                        <span class="span-name">Lorem</span>
+                                        <a href="product-thumbnail.html">
+                                            <h5 class="name">Lorem ipsum dolor sit.</h5>
+                                        </a>
+                                        <div class="product-rating mt-2">
+                                            <ul class="rating">
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                            </ul>
+                                            <span>(5.0)</span>
+                                        </div>
+                                        <h6 class="unit">M</h6>
+                                        <h5 class="price">
+                                            <span class="theme-color">$10.25</span> <del>$12.57</del>
+                                        </h5>
+                                        <div class="add-to-cart-box bg-white">
+                                            <button class="btn btn-add-cart addcart-button text-primary">
+                                                Səbətə at
+                                                <span class="add-icon bg-light-gray">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </span>
+                                            </button>
+                                            <div class="cart_qty qty-box">
+                                                <div class="input-group bg-white">
+                                                    <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                    <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="product-box-3 wow fadeInUp" data-wow-delay="0.05s">
+                                <div class="product-header">
+                                    <div class="product-image">
+                                        <a href="product-thumbnail.html">
+                                            <img src="~/assets/images/product/category/3.png" class="img-fluid blur-up lazyload" alt="">
+                                        </a>
+
+                                        <ul class="product-option">
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Baxın">
+                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                    <i data-feather="eye" class="text-primary"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Müqayisə">
+                                                <a href="compare.html">
+                                                    <i data-feather="refresh-cw" class="text-success"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="İstək">
+                                                <a href="wishlist.html" class="notifi-wishlist">
+                                                    <i data-feather="heart" class="text-danger"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-footer">
+                                    <div class="product-detail">
+                                        <span class="span-name">Lorem</span>
+                                        <a href="product-thumbnail.html">
+                                            <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                        </a>
+                                        <div class="product-rating mt-2">
+                                            <ul class="rating">
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star"></i>
+                                                </li>
+                                            </ul>
+                                            <span>(4.0)</span>
+                                        </div>
+                                        <h6 class="unit">L</h6>
+                                        <h5 class="price">
+                                            <span class="theme-color">$08.02</span> <del>$15.15</del>
+                                        </h5>
+                                        <div class="add-to-cart-box bg-white">
+                                            <button class="btn btn-add-cart addcart-button text-primary">
+                                                Səbətə at
+                                                <span class="add-icon bg-light-gray">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </span>
+                                            </button>
+                                            <div class="cart_qty qty-box">
+                                                <div class="input-group bg-white">
+                                                    <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                    <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="product-box-3 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="product-header">
+                                    <div class="product-image">
+                                        <a href="product-thumbnail.html">
+                                            <img src="~/assets/images/product/category/3.png" class="img-fluid blur-up lazyload" alt="">
+                                        </a>
+
+                                        <ul class="product-option">
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Baxın">
+                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                    <i data-feather="eye" class="text-primary"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Müqayisə">
+                                                <a href="compare.html">
+                                                    <i data-feather="refresh-cw" class="text-success"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="İstək">
+                                                <a href="wishlist.html" class="notifi-wishlist">
+                                                    <i data-feather="heart" class="text-danger"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="product-footer">
+                                    <div class="product-detail">
+                                        <span class="span-name">Lorem</span>
+                                        <a href="product-thumbnail.html">
+                                            <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                        </a>
+                                        <div class="product-rating mt-2">
+                                            <ul class="rating">
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star"></i>
+                                                </li>
+                                            </ul>
+                                            <span>(2.4)</span>
+                                        </div>
+                                        <h6 class="unit">XS</h6>
+                                        <h5 class="price">
+                                            <span class="theme-color">$04.33</span> <del>$10.36</del>
+                                        </h5>
+                                        <div class="add-to-cart-box bg-white">
+                                            <button class="btn btn-add-cart addcart-button text-primary">
+                                                Səbətə at
+                                                <span class="add-icon bg-light-gray">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </span>
+                                            </button>
+                                            <div class="cart_qty qty-box">
+                                                <div class="input-group bg-white">
+                                                    <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                    <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="product-box-3 wow fadeInUp" data-wow-delay="0.15s">
+                                <div class="product-header">
+                                    <div class="product-image">
+                                        <a href="product-thumbnail.html">
+                                            <img src="~/assets/images/product/category/3.png" class="img-fluid blur-up lazyload" alt="">
+                                        </a>
+
+                                        <ul class="product-option">
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Baxın">
+                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                    <i data-feather="eye" class="text-primary"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Müqayisə">
+                                                <a href="compare.html">
+                                                    <i data-feather="refresh-cw" class="text-success"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="İstək">
+                                                <a href="wishlist.html" class="notifi-wishlist">
+                                                    <i data-feather="heart" class="text-danger"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="product-footer">
+                                    <div class="product-detail">
+                                        <span class="span-name">Lorem</span>
+                                        <a href="product-thumbnail.html">
+                                            <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                        </a>
+                                        <div class="product-rating mt-2">
+                                            <ul class="rating">
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                            </ul>
+                                            <span>(5.0)</span>
+                                        </div>
+                                        <h6 class="unit">XL</h6>
+                                        <h5 class="price">
+                                            <span class="theme-color">$12.52</span> <del>$13.62</del>
+                                        </h5>
+                                        <div class="add-to-cart-box bg-white">
+                                            <button class="btn btn-add-cart addcart-button text-primary">
+                                                Səbətə at
+                                                <span class="add-icon bg-light-gray">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </span>
+                                            </button>
+                                            <div class="cart_qty qty-box">
+                                                <div class="input-group bg-white">
+                                                    <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                    <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="product-box-3 wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="product-header">
+                                    <div class="product-image">
+                                        <a href="product-thumbnail.html">
+                                            <img src="~/assets/images/product/category/3.png" class="img-fluid blur-up lazyload" alt="">
+                                        </a>
+
+                                        <ul class="product-option">
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Baxın">
+                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                    <i data-feather="eye" class="text-primary"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Müqayisə">
+                                                <a href="compare.html">
+                                                    <i data-feather="refresh-cw" class="text-success"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="İstək">
+                                                <a href="wishlist.html" class="notifi-wishlist">
+                                                    <i data-feather="heart" class="text-danger"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="product-footer">
+                                    <div class="product-detail">
+                                        <span class="span-name">Lorem</span>
+                                        <a href="product-thumbnail.html">
+                                            <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                        </a>
+                                        <div class="product-rating mt-2">
+                                            <ul class="rating">
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star"></i>
+                                                </li>
+                                            </ul>
+                                            <span>(3.8)</span>
+                                        </div>
+                                        <h6 class="unit">S</h6>
+                                        <h5 class="price">
+                                            <span class="theme-color">$10.25</span> <del>$12.36</del>
+                                        </h5>
+                                        <div class="add-to-cart-box bg-white">
+                                            <button class="btn btn-add-cart addcart-button text-primary">
+                                                Səbətə at
+                                                <span class="add-icon bg-light-gray">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </span>
+                                            </button>
+                                            <div class="cart_qty qty-box">
+                                                <div class="input-group bg-white">
+                                                    <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                    <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="product-box-3 wow fadeInUp" data-wow-delay="0.25s">
+                                <div class="product-header">
+                                    <div class="product-image">
+                                        <a href="product-thumbnail.html">
+                                            <img src="~/assets/images/product/category/3.png" class="img-fluid blur-up lazyload" alt="">
+                                        </a>
+
+                                        <ul class="product-option">
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Baxın">
+                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                    <i data-feather="eye" class="text-primary"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Müqayisə">
+                                                <a href="compare.html">
+                                                    <i data-feather="refresh-cw" class="text-success"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="İstək">
+                                                <a href="wishlist.html" class="notifi-wishlist">
+                                                    <i data-feather="heart" class="text-danger"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="product-footer">
+                                    <div class="product-detail">
+                                        <span class="span-name">Lorem</span>
+                                        <a href="product-thumbnail.html">
+                                            <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                        </a>
+                                        <div class="product-rating mt-2">
+                                            <ul class="rating">
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star"></i>
+                                                </li>
+                                            </ul>
+                                            <span>(4.0)</span>
+                                        </div>
+
+                                        <h6 class="unit">M</h6>
+
+                                        <h5 class="price">
+                                            <span class="theme-color">$14.25</span> <del>$16.57</del>
+                                        </h5>
+                                        <div class="add-to-cart-box bg-white">
+                                            <button class="btn btn-add-cart addcart-button text-primary">
+                                                Səbətə at
+                                                <span class="add-icon bg-light-gray">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </span>
+                                            </button>
+                                            <div class="cart_qty qty-box">
+                                                <div class="input-group bg-white">
+                                                    <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                    <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="product-box-3 wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="product-header">
+                                    <div class="product-image">
+                                        <a href="product-thumbnail.html">
+                                            <img src="~/assets/images/product/category/3.png" class="img-fluid" alt="">
+                                        </a>
+
+                                        <ul class="product-option">
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Baxın">
+                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                    <i data-feather="eye" class="text-primary"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="Müqayisə">
+                                                <a href="compare.html">
+                                                    <i data-feather="refresh-cw" class="text-success"></i>
+                                                </a>
+                                            </li>
+
+                                            <li data-bs-toggle="tooltip" data-bs-placement="top" title="İstək">
+                                                <a href="wishlist.html" class="notifi-wishlist">
+                                                    <i data-feather="heart" class="text-danger"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="product-footer">
+                                    <div class="product-detail">
+                                        <span class="span-name">Lorem</span>
+                                        <a href="product-thumbnail.html">
+                                            <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                        </a>
+                                        <div class="product-rating mt-2">
+                                            <ul class="rating">
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star" class="fill"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star"></i>
+                                                </li>
+                                                <li>
+                                                    <i data-feather="star"></i>
+                                                </li>
+                                            </ul>
+                                            <span>(3.8)</span>
+                                        </div>
+
+                                        <h6 class="unit">L</h6>
+
+                                        <h5 class="price">
+                                            <span class="theme-color">$12.68</span> <del>$14.69</del>
+                                        </h5>
+                                        <div class="add-to-cart-box bg-white">
+                                            <button class="btn btn-add-cart addcart-button text-primary">
+                                                Səbətə at
+                                                <span class="add-icon bg-light-gray">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </span>
+                                            </button>
+                                            <div class="cart_qty qty-box">
+                                                <div class="input-group bg-white">
+                                                    <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                    <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Releted Product Section End -->
+    <!-- Footer Section Start -->
+    <footer class="section-t-space">
+        <div class="container-fluid-lg">
+            <div class="service-section">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <div class="service-contain">
+                            <div class="service-box">
+                                <div class="service-image">
+                                    <img src="~/assets/svg/product.svg" class="blur-up lazyload" alt=" ">
+                                </div>
+
+                                <div class="service-detail">
+                                    <h5>Bütün Məhsullar</h5>
+                                </div>
+                            </div>
+
+                            <div class="service-box">
+                                <div class="service-image">
+                                    <img src="~/assets/svg/delivery.svg" class="blur-up lazyload" alt=" ">
+                                </div>
+
+                                <div class="service-detail">
+                                    <h5>50 AZN-dən yuxarı Sifarişlər üçün Çatdırılma Pulsuzdur</h5>
+                                </div>
+                            </div>
+
+                            <div class="service-box">
+                                <div class="service-image">
+                                    <img src="~/assets/svg/discount.svg" class="blur-up lazyload" alt=" ">
+                                </div>
+
+                                <div class="service-detail">
+                                    <h5>Gündəlik Mega Endirimlər</h5>
+                                </div>
+                            </div>
+
+                            <div class="service-box">
+                                <div class="service-image">
+                                    <img src="~/assets/svg/market.svg" class="blur-up lazyload" alt=" ">
+                                </div>
+
+                                <div class="service-detail">
+                                    <h5>Mağazalarda Ən Yaxşı Qiymət</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-footer section-b-space section-t-space">
+                <div class="row g-md-4 g-3">
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="footer-logo">
+                            <div class="theme-logo">
+                                <a href="index.html">
+                                    <img src="~/assets/images/logo/" class="blur-up lazyload" alt="Sayt Adi">
+                                </a>
+                            </div>
+
+                            <div class="footer-logo-contain">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos, beatae?</p>
+
+                                <ul class="address">
+                                    <li>
+                                        <i data-feather="home"></i>
+                                        <a href="javascript:void(0)">Yasamal, AZ 1102, AZ</a>
+                                    </li>
+                                    <li>
+                                        <i data-feather="mail"></i>
+                                        <a href="javascript:void(0)">support@saytadi.com</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                        <div class="footer-title">
+                            <h4>Populyar Kateqoriyalar</h4>
+                        </div>
+
+                        <div class="footer-contain">
+                            <ul>
+                                <li>
+                                    <a href="bags.html" class="text-content">Çantalar</a>
+                                </li>
+                                <li>
+                                    <a href="clothing_man.html" class="text-content">Kişi köynəkləri</a>
+                                </li>
+                                <li>
+                                    <a href="women's_underwear.html" class="text-content">Qadın alt paltarı</a>
+                                </li>
+                                <li>
+                                    <a href="clothing_women.html" class="text-content">Taytlar</a>
+                                </li>
+                                <li>
+                                    <a href="make_up.html" class="text-content">Makiyaj</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-xl col-lg-2 col-sm-3">
+                        <div class="footer-title">
+                            <h4>Korporativ</h4>
+                        </div>
+
+                        <div class="footer-contain">
+                            <ul>
+                                <li>
+                                    <a href="about_us.html" class="text-content">Haqqımızda</a>
+                                </li>
+                                <li>
+                                    <a href="contact_us.html" class="text-content">Bizimlə əlaqə</a>
+                                </li>
+                                <li>
+                                    <a href="career.html" class="text-content">Karyera</a>
+                                </li>
+                                <li>
+                                    <a href="blog_list.html" class="text-content">Ən son bloq</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-sm-3">
+                        <div class="footer-title">
+                            <h4>Kömək Mərkəzi</h4>
+                        </div>
+
+                        <div class="footer-contain">
+                            <ul>
+                                <li>
+                                    <a href="order-success.html" class="text-content">Sifarişiniz</a>
+                                </li>
+                                <li>
+                                    <a href="user-dashboard.html" class="text-content">Sizin hesabınız</a>
+                                </li>
+                                <li>
+                                    <a href="order-tracking.html" class="text-content">Sifariş izləmə</a>
+                                </li>
+                                <li>
+                                    <a href="wishlist.html" class="text-content">İstək siyahısı</a>
+                                </li>
+                                <li>
+                                    <a href="shipping_payment.html" class="text-content">Qaydalar və şərtlər</a>
+                                </li>
+                                <li>
+                                    <a href="faq.html" class="text-content">Ən çox verilən suallar</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="footer-title">
+                            <h4>Bizimlə əlaqə saxlayın</h4>
+                        </div>
+
+                        <div class="footer-contact">
+                            <ul>
+                                <li>
+                                    <div class="footer-number">
+                                        <i data-feather="phone"></i>
+                                        <div class="contact-number">
+                                            <h6 class="text-content">Qaynar xətt 24/7 :</h6>
+                                            <h5>+994 527 09 66</h5>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="footer-number">
+                                        <i data-feather="phone"></i>
+                                        <div class="contact-number">
+                                            <!-- <h6 class="text-content">WhatsApp 24/7 :</h6> -->
+                                            <span class='text-content wp'>WhatsApp 24/7 :</span>
+                                            <br>
+                                            <span class='text-content wp_info'>+994 515270966</span>
+                                            <a target='_blank' href='https://api.whatsapp.com/send?phone=994515270966' class='contact_button' rel='noreferrer'>
+                                                Mənə yaz<i class='fa-solid fa-arrow-right'></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="footer-number">
+                                        <i data-feather="mail"></i>
+                                        <div class="contact-number">
+                                            <h6 class="text-content">E-poçt ünvanı :</h6>
+                                            <h5>info@nonavm.com</h5>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-footer section-small-space">
+                <div class="reserve">
+                    <p>&copy; 2023 <strong>NONAVM Bütün hüquqlar qorunur &copy; NONAVM LLC</strong>.</p>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="edu_social_links">
+                        <div class="social-icons">
+                            <a href="#">
+                                <lottie-player src="https://lottie.host/6e539bc1-8c1c-4836-9f1a-d39e43de64e1/ZMEBRulDhE.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                            </a>
+                            <a href="#">
+                                <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_3s913D.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                            </a>
+                            <a href="#">
+                                <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_Joz0FE.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                            </a>
+                            <a href="#">
+                                <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_0Cm1Y2.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                            </a>
+                            <a href="#">
+                                <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_YGNGxq.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+    <!-- Quick View Modal Box Start -->
+    <div class="modal fade theme-modal view-modal" id="view" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header p-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-sm-4 g-2">
+                        <div class="col-lg-6">
+                            <div class="slider-image">
+                                <img src="~/assets/images/product/category/3png" class="img-fluid blur-up lazyload" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="right-sidebar-modal">
+                                <h4 class="title-name">Lorem ipsum dolor sit.</h4>
+                                <h4 class="price">$36.99</h4>
+                                <div class="product-rating">
+                                    <ul class="rating">
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star"></i>
+                                        </li>
+                                    </ul>
+                                    <span class="ms-2">8 Rəy</span>
+                                    <span class="ms-2 text-danger">Son 16 saat ərzində 6 ədəd satılıb</span>
+                                </div>
+
+                                <div class="product-detail">
+                                    <h4>Məhsul Detalları :</h4>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis eum non dolorem nemo iure aspernatur, eius in rerum nam sequi aliquam velit iste. Maxime, quos incidunt! Dignissimos corporis expedita, voluptates quibusdam
+                                        harum error nisi adipisci quia sapiente! A, minus? Fugiat, sequi cupiditate aliquam quidem error itaque. Repellat tenetur ut assumenda.
+                                    </p>
+                                </div>
+
+                                <ul class="brand-list">
+                                    <li>
+                                        <div class="brand-box">
+                                            <h5>Brand Name:</h5>
+                                            <h6>Lorem, ipsum.</h6>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="brand-box">
+                                            <h5>Product Code:</h5>
+                                            <h6>T6660666</h6>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="brand-box">
+                                            <h5>Product Type:</h5>
+                                            <h6>Lorem, ipsum dolor.</h6>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="select-size">
+                                    <h4>Size :</h4>
+                                    <select class="form-select select-form-size">
+                                        <option selected>Select Size</option>
+                                        <option value="XS">XS</option>
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                    </select>
+                                </div>
+
+                                <div class="modal-button">
+                                    <button onclick="location.href = 'cart.html';" class="btn btn-md add-cart-button icon">
+                                        Add
+                                        To Cart
+                                    </button>
+                                    <button onclick="location.href = 'product-left.html';" class="btn theme-bg-color view-button icon text-white fw-bold btn-md">
+                                        View More Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quick View Modal Box End -->
+    <!-- Add to cart Modal Start -->
+    <div class="add-cart-box">
+        <div class="add-iamge">
+            <img src="~/assets/images/cake/pro/1.jpg" class="img-fluid" alt="">
+        </div>
+
+        <div class="add-contain">
+            <h6>Added to Cart</h6>
+        </div>
+    </div>
+    <!-- Add to cart Modal End -->
+    <!-- Items section Start -->
+    <div class="button-item">
+        <button class="item-btn btn text-white">
+            <i class="iconly-Bag-2 icli"></i>
+        </button>
+    </div>
+    <div class="item-section">
+        <button class="close-button">
+            <i class="fas fa-times"></i>
+        </button>
+        <h6>
+            <i class="iconly-Bag-2 icli"></i>
+            <span>5 Məhsul</span>
+        </h6>
+        <ul class="items-image">
+            <li>
+                <img src="~/assets/images/category_1/1.png" alt="">
+            </li>
+            <li>
+                <img src="~/assets/images/category_1/2.png" alt="">
+            </li>
+            <li>+3</li>
+        </ul>
+        <button onclick="location.href = 'cart.html';" class="btn item-button btn-sm fw-bold">$ 20.70</button>
+    </div>
+    <!-- Items section End -->
+    <!-- Location Modal Start -->
+    <div class="modal location-modal fade theme-modal" id="locationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Fərqlilik Yaradın</h5>
+                    <p class="mt-1 text-content">Seçdiyiniz ölkə üzrə satıcılardan alın.</p>
+                    <p class="mt-1 text-content-2">Qeyd: Hər ölkədən çatdırılma müddəti fərqli ola bilər.</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="location-list">
+                        <div class="search-input">
+                            <input type="search" class="form-control" placeholder="Ölkə seçin">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+
+                        <div class="disabled-box">
+                            <h6>Məkan Seçin</h6>
+                        </div>
+
+                        <ul class="location-select custom-height">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h6>Türkiyə</h6>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h6>Rusiya</h6>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h6>Avropa</h6>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Location Modal End -->
+    <!-- Tap to top start -->
+    <div class="theme-option">
+        <div class="back-to-top">
+            <a id="back-to-top" href="#">
+                <i class="fas fa-chevron-up"></i>
+            </a>
+        </div>
+    </div>
+    <!-- Tap to top end -->
+    <!-- Sticky Cart Box Start -->
+    <div class="sticky-bottom-cart">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cart-content">
+                        <div class="product-image">
+                            <img src="~/assets/images/product/category/2.png" class="img-fluid blur-up lazyload" alt="">
+                            <div class="content">
+                                <h5>Qadınlar Üçün Sviter Modabu</h5>
+                                <h6>$32.96<del class="text-danger">$96.00</del><span>55% off</span></h6>
+                            </div>
+                        </div>
+                        <div class="selection-section">
+                            <div class="form-group mb-0">
+                                <select id="input-state" class="form-control form-select">
+                                    <option selected disabled>Ölçü seçin...</option>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                </select>
+                            </div>
+                            <div class="cart_qty qty-box product-qty m-0">
+                                <div class="input-group h-100">
+                                    <button type="button" class="qty-left-minus" data-type="minus" data-field="">
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    </button>
+                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="1">
+                                    <button type="button" class="qty-right-plus" data-type="plus" data-field="">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="add-btn">
+                            <a class="btn theme-bg-color text-white wishlist-btn" href="wishlist.html">
+                                <i class="fa fa-bookmark"></i> Wishlist
+                            </a>
+                            <a class="btn theme-bg-color text-white" href="cart.html">
+                                <i class="fas fa-shopping-cart"></i> Add To Cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sticky Cart Box End -->
+    <!-- Bg overlay Start -->
+    <div class="bg-overlay"></div>
+    <!-- Bg overlay End -->
