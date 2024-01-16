@@ -52,7 +52,7 @@ public class Repository<TEntity> : IRepository<TEntity>
 
     public void Remove(TEntity product)
     {
-        _context.Set<TEntity>().Remove(product);
+       var item = _context.Set<TEntity>().Where(i => i.Id == product.Id).ExecuteDelete();
     }
 
     public async Task SaveChangesAsync(CancellationToken cancellationToken)

@@ -1,0 +1,767 @@
+﻿@model List<TempBasketModel>
+
+<!-- Header Start -->
+<header class="header-3">
+
+    <div class="container-fluid-lg">
+        <div class="row">
+            <div class="col-12 position-relative">
+                <div class="main-nav nav-left-align">
+                    <div class="main-nav navbar navbar-expand-xl navbar-light navbar-sticky p-0">
+                        <div class="offcanvas offcanvas-collapse order-xl-2" id="primaryMenu">
+                            <div class="offcanvas-header navbar-shadow">
+                                <h5>Menu</h5>
+                                <button class="btn-close lead" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item dropdown dropdown-mega">
+                                        <a class="nav-link dropdown-toggle ps-0" href="javascript:void(0)" data-bs-toggle="dropdown">Kataloq</a>
+
+                                        <div class="dropdown-menu dropdown-menu-2 dropdown-menu-left dropdown-image">
+                                            <div class="dropdown-column">
+                                                <a class="dropdown-item" href="#">
+                                                    <img src="~/assets/images/theme/1.png" class="img-fluid blur-up lazyload" alt="">
+                                                    <span>Ayaqqabı</span>
+                                                </a>
+
+                                                <a class="dropdown-item" href="#">
+                                                    <img src="~/assets/images/theme/1.png" class="img-fluid blur-up lazyload" alt="">
+                                                    <span>Geyim</span>
+                                                </a>
+
+                                                <a class="dropdown-item" href="make_up.html">
+                                                    <img src="~/assets/images/theme/1.png" class="img-fluid blur-up lazyload" alt="">
+                                                    <span>Makiyaj</span>
+                                                </a>
+
+                                                <a class="dropdown-item" href="#">
+                                                    <img src="~/assets/images/theme/1.png" class="img-fluid blur-up lazyload" alt="">
+                                                    <span>Çanta</span>
+                                                </a>
+
+                                                <a class="dropdown-item" href="#">
+                                                    <img src="~/assets/images/theme/1.png" class="img-fluid blur-up lazyload" alt="">
+                                                    <span>Sport</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown">Endirimlər</a>
+
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item" href="discount.html">Endirim</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown">Qeydiyyat</a>
+
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item" href="sign_up_user.html">Müştəri Qeydiyyatı</a>
+                                            </li>
+                                            <li class="sub-dropdown-hover">
+                                                <a href="javascript:void(0)" class="dropdown-item">Satıcı Olun</a>
+                                                <ul class="sub-menu">
+                                                    <li>
+                                                        <a href="sign_up_seller.html">Satıcı Qeydiyyatı</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="seller-become.html">Ətraflı</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="affiliate_details.html">Influencer Olun</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item dropdown dropdown-mega">
+                                        <a class="nav-link dropdown-toggle ps-xl-2 ps-0" href="javascript:void(0)" data-bs-toggle="dropdown">Kategoriyalar</a>
+
+                                        <div class="dropdown-menu dropdown-menu-2 dropdown-menu-left">
+                                            <div class="row">
+                                                <div class="dropdown-column col-xl-3">
+                                                    <h5 class="dropdown-header">Qadın</h5>
+
+                                                    <a class="dropdown-item" href="women's_sport.html">İdman Kostyumları</a>
+
+                                                    <a class="dropdown-item" href="women's_pantyhose_socks.html">Kolqotqalar, Corablar</a>
+
+                                                    <a href="women's_beach.html" class="dropdown-item">Çimərlik və İstirahət</a>
+
+                                                    <a class="dropdown-item" href="women's_homewear.html">Ev Geyimi</a>
+
+                                                    <a class="dropdown-item" href="women's_underwear.html">Alt paltarı</a>
+
+                                                    <a href="clothing_women.html" class="dropdown-item show_all">Hamısını göstər</a>
+                                                </div>
+
+                                                <div class="dropdown-column col-xl-3">
+                                                    <h5 class="dropdown-header">Kişi</h5>
+                                                    <a class="dropdown-item" href="women's_sport.html">İdman Kostyumları</a>
+
+                                                    <a class="dropdown-item" href="women's_pantyhose_socks.html">Kolqotqalar, Corablar</a>
+
+                                                    <a href="women's_beach.html" class="dropdown-item">Çimərlik və İstirahət</a>
+
+                                                    <a class="dropdown-item" href="women's_homewear.html">Ev Geyimi</a>
+
+                                                    <a class="dropdown-item" href="women's_underwear.html">Alt paltarı</a>
+
+                                                    <a href="clothing_women.html" class="dropdown-item show_all">Hamısını göstər</a>
+                                                </div>
+
+                                                <div class="dropdown-column col-xl-3">
+                                                    <h5 class="dropdown-header">Uşaq</h5>
+                                                    <a class="dropdown-item" href="child_for_girls.html">Qızlar üçün</a>
+
+                                                    <a class="dropdown-item" href="child_for_boys.html">Oğlanlar üçün</a>
+
+                                                    <a class="dropdown-item" href="child_unisex.html">Unisex Uşaq Məhsulları</a>
+
+                                                    <a class="dropdown-item" href="child_underwear.html">Alt Paltarı və Ev Geyimi</a>
+
+                                                    <a class="dropdown-item" href="child_school.html">Məktəbə Qayıdış</a>
+
+                                                    <a href="clothing_child.html" class="dropdown-item show_all">Hamısını göstər</a>
+                                                </div>
+
+                                                <div class="dropdown-column dropdown-column-img col-3">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown">Bloq</a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item" href="blog_detail.html">Bloq Təfərrüatları</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="blog_list.html">Bloq Siyahısı</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item dropdown new-nav-item">
+                                        <!-- <label class="new-dropdown">New</label> -->
+                                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown">Məlumat</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="sub-dropdown-hover">
+                                                <a class="dropdown-item" href="javascript:void(0)">
+                                                    Karqo<span class="new-text">
+                                                        <i class="fa-solid fa-bolt-lightning"></i>
+                                                    </span>
+                                                </a>
+                                                <ul class="sub-menu">
+                                                    <li>
+                                                        <a href="#">Çatdırılma və Ödəmə</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Azərpoçt Şöbələrinə Çatdırılma</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="faq.html">Lorem</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">lorem</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">lorem</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="career.html">Ən Çox Verilən Suallar</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="about_us.html">Haqqımızda</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="career.html">Karyera</a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="contact_us.html">Bizimlə Əlaqə</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown">Seller</a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item" href="seller-grid.html">Satıcı Şəbəkəsi</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="order-tracking.html">Sifariş İzləmə</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Lorem, ipsum.</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Lorem, ipsum.</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header End -->
+<!-- mobile fix menu start -->
+<div class="mobile-menu d-md-none d-block mobile-cart">
+    <ul>
+        <li class="active">
+            <a href="main.html">
+                <i class="iconly-Home icli"></i>
+            </a>
+        </li>
+        <li>
+            <a href="search.html" class="search-box">
+                <i class="iconly-Search icli"></i>
+            </a>
+        </li>
+
+        <li>
+            <a href="wishlist.html" class="notifi-wishlist">
+                <i class="iconly-Heart icli"></i>
+            </a>
+        </li>
+
+        <li>
+            <a href="cart.html">
+                <i class="iconly-Bag-2 icli fly-cate"></i>
+            </a>
+        </li>
+
+        <li>
+            <a href="user-dashboard.html" class="user-box">
+                <span class="header-icon">
+                    <i class="iconly-Profile icli"></i>
+                </span>
+            </a>
+        </li>
+    </ul>
+
+</div>
+<!-- mobile fix menu end -->
+<!-- Breadcrumb Section Start -->
+<section class="breadscrumb-section pt-0">
+    <div class="container-fluid-lg">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadscrumb-contain">
+                    <h2>Səbət</h2>
+                    <nav>
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item">
+                                <a href="index.html">
+                                    <i class="fa-solid fa-house"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item active text-primary" aria-current="page">Səbət</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Cart Section Start -->
+<section class="cart-section section-b-space">
+    <div class="container-fluid-lg">
+        <div class="row g-sm-5 g-3">
+            <div class="col-xxl-9">
+                <div class="cart-table">
+                    <div class="table-responsive-xl">
+                        <table class="table">
+                            <tbody>
+                                @if (Model is not null)
+                                {
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="product-box-contain">
+                                            <td class="product-detail">
+                                                <div class="product border-0">
+                                                    <a href="product-thumbnail.html" class="product-image">
+                                                        <img src="@Url.Content("~/photos/" + item.Image)" class="img-fluid blur-up lazyload" alt="">
+                                                    </a>
+                                                    <div class="product-detail">
+                                                        <ul>
+                                                            <li class="name">
+                                                                <a href="product-thumbnail.html">@item.Name.</a>
+                                                            </li>
+
+                                                            <li class="text-content"><span class="text-title">Satıcı:</span>CodeOnCenter</li>
+
+                                                            <li class="text-content"><span class="text-title">Ölçü</span> M</li>
+
+                                                            <li>
+                                                                <h5 class="text-content d-inline-block">1 Qiymət :</h5>
+                                                                <span>$35.10</span>
+                                                                <span class="text-content">@item.Price AZN</span>
+                                                            </li>
+
+                                                            <li>
+                                                                <h5 class="saving theme-color">Qənaət : $20.68</h5>
+                                                            </li>
+
+                                                            <li class="quantity-price-box">
+                                                                <div class="cart_qty">
+                                                                    <div class="input-group">
+                                                                        <button type="button" class="btn qty-left-minus" data-type="minus" data-field="">
+                                                                            <i class="fa fa-minus ms-0"
+                                                                               aria-hidden="true"></i>
+                                                                        </button>
+                                                                        <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                                        <button type="button" class="btn qty-right-plus" data-type="plus" data-field="">
+                                                                            <i class="fa fa-plus ms-0"
+                                                                               aria-hidden="true"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <h5>2 Toplam: $35.10</h5>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td class="price">
+                                                <h4 class="table-title text-content">Qiymət</h4>
+                                                <h5>$35.10 <del class="text-content">@item.Price</del></h5>
+                                                <h6 class="theme-color">Qənaət : $20.68</h6>
+                                            </td>
+
+                                            <td class="quantity">
+                                                <h4 class="table-title text-content">Miqdar</h4>
+                                                <div class="quantity-price">
+                                                    <div class="cart_qty">
+                                                        <div class="input-group">
+                                                            <button type="button" class="btn qty-left-minus" data-type="minus" data-field="">
+                                                                <i class="fa fa-minus ms-0" aria-hidden="true"></i>
+                                                            </button>
+                                                            <input class="form-control input-number qty-input" type="text" name="quantity" value="@item.Quantity">
+                                                            <button type="button" class="btn qty-right-plus" data-type="plus" data-field="">
+                                                                <i class="fa fa-plus ms-0" aria-hidden="true"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td class="save-remove">
+                                                <h4 class="table-title text-content">Fəaliyyət</h4>
+                                                <a class="save notifi-wishlist" href="javascript:void(0)">Sonra üçün saxla</a>
+                                                <a class="remove close_button" asp-controller="Basket" asp-action="Delete" asp-route-itemId="@item.Id">Sil</a>
+                                            </td>
+                                        </tr>
+
+                                    }
+                                }
+                                else
+                                {
+                                    <P>Səbət boşdur !</P>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+@*             <div class="col-xxl-3">
+                <div class="summery-box p-sticky">
+                    <div class="summery-header">
+                        <h3>Səbət Cəmi</h3>
+                    </div>
+
+                    <div class="summery-contain">
+                        <div class="coupon-cart">
+                            <h6 class="text-content mb-2">Kupon Tətbiq</h6>
+                            <div class="mb-3 coupon-box input-group">
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Kupon kodunu buraya daxil edin...">
+                                <button class="btn-apply">Tətbiq Et</button>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                <h4>Ara cəmi</h4>
+                                <h4 class="price">$125.65</h4>
+                            </li>
+
+                            <li>
+                                <h4>Kupon Endirimi</h4>
+                                <h4 class="price">(-) 0.00</h4>
+                            </li>
+
+                            <li class="align-items-start">
+                                <h4>Göndərmə</h4>
+                                <h4 class="price text-end">$6.90</h4>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <ul class="summery-total">
+                        <li class="list-total border-top-0">
+                            <h4>Toplam ödəniş (USD)</h4>
+                            <h4 class="price theme-color">$132.58</h4>
+                        </li>
+                    </ul>
+
+                    <div class="button-group cart-button">
+                        <ul>
+                            <li>
+                                <button onclick="location.href = 'checkout.html';" class="btn btn-animation proceed-btn fw-bold">Ödəniş prosesi</button>
+                            </li>
+
+                            <li>
+                                <button onclick="location.href = 'main.html';" class="btn btn-light shopping-button text-dark">
+                                    <i class="fa-solid fa-arrow-left-long"></i>Alış-veriş səhifəsinə qayıt
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+ *@        </div>
+    </div>
+</section>
+<!-- Cart Section End -->
+<!-- Footer Section Start -->
+<footer class="section-t-space">
+    <div class="container-fluid-lg">
+        <div class="service-section">
+            <div class="row g-3">
+                <div class="col-12">
+                    <div class="service-contain">
+                        <div class="service-box">
+                            <div class="service-image">
+                                <img src="~/assets/svg/product.svg" class="blur-up lazyload" alt=" ">
+                            </div>
+
+                            <div class="service-detail service-detail-user">
+                                <h5>Bütün Məhsullar</h5>
+                            </div>
+                        </div>
+
+                        <div class="service-box">
+                            <div class="service-image">
+                                <img src="~/assets/svg/delivery.svg" class="blur-up lazyload" alt=" ">
+                            </div>
+
+                            <div class="service-detail service-detail-user">
+                                <h5>50 AZN-dən yuxarı Sifarişlər üçün Çatdırılma Pulsuzdur</h5>
+                            </div>
+                        </div>
+
+                        <div class="service-box">
+                            <div class="service-image">
+                                <img src="~/assets/svg/discount.svg" class="blur-up lazyload" alt=" ">
+                            </div>
+
+                            <div class="service-detail service-detail-user">
+                                <h5>Gündəlik Mega Endirimlər</h5>
+                            </div>
+                        </div>
+
+                        <div class="service-box">
+                            <div class="service-image">
+                                <img src="~/assets/svg/market.svg" class="blur-up lazyload" alt=" ">
+                            </div>
+
+                            <div class="service-detail service-detail-user">
+                                <h5>Ən Yaxşı Qiymət</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-footer section-b-space section-t-space">
+            <div class="row g-md-4 g-3">
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="footer-logo">
+                        <div class="theme-logo">
+                            <a href="index.html">
+                                <img src="~/assets/images/logo/1.pn" class="blur-up lazyload" alt="Sayt Adi">
+                            </a>
+                        </div>
+
+                        <div class="footer-logo-contain">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos, beatae?</p>
+
+                            <ul class="address">
+                                <li>
+                                    <i data-feather="home"></i>
+                                    <a href="javascript:void(0)">Yasamal, AZ 1102, AZ</a>
+                                </li>
+                                <li>
+                                    <i data-feather="mail"></i>
+                                    <a href="javascript:void(0)">support@nonavm.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                    <div class="footer-title">
+                        <h4>Populyar Kateqoriyalar</h4>
+                    </div>
+
+                    <div class="footer-contain">
+                        <ul>
+                            <li>
+                                <a href="bags.html" class="text-content">Çantalar</a>
+                            </li>
+                            <li>
+                                <a href="clothing_man.html" class="text-content">Kişi köynəkləri</a>
+                            </li>
+                            <li>
+                                <a href="women's_underwear.html" class="text-content">Qadın alt paltarı</a>
+                            </li>
+                            <li>
+                                <a href="clothing_women.html" class="text-content">Taytlar</a>
+                            </li>
+                            <li>
+                                <a href="make_up.html" class="text-content">Makiyaj</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl col-lg-2 col-sm-3">
+                    <div class="footer-title">
+                        <h4>Korporativ</h4>
+                    </div>
+
+                    <div class="footer-contain">
+                        <ul>
+                            <li>
+                                <a href="about_us.html" class="text-content">Haqqımızda</a>
+                            </li>
+                            <li>
+                                <a href="contact_us.html" class="text-content">Bizimlə əlaqə</a>
+                            </li>
+                            <li>
+                                <a href="career.html" class="text-content">Karyera</a>
+                            </li>
+                            <li>
+                                <a href="blog_list.html" class="text-content">Ən son bloq</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-sm-3">
+                    <div class="footer-title">
+                        <h4>Kömək Mərkəzi</h4>
+                    </div>
+
+                    <div class="footer-contain">
+                        <ul>
+                            <li>
+                                <a href="order-success.html" class="text-content">Sifarişiniz</a>
+                            </li>
+                            <li>
+                                <a href="user-dashboard.html" class="text-content">Sizin hesabınız</a>
+                            </li>
+                            <li>
+                                <a href="order-tracking.html" class="text-content">Sifariş izləmə</a>
+                            </li>
+                            <li>
+                                <a href="wishlist.html" class="text-content">İstək siyahısı</a>
+                            </li>
+                            <li>
+                                <a href="shipping_payment.html" class="text-content">Qaydalar və şərtlər</a>
+                            </li>
+                            <li>
+                                <a href="faq.html" class="text-content">Ən çox verilən suallar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="footer-title">
+                        <h4>Bizimlə əlaqə saxlayın</h4>
+                    </div>
+
+                    <div class="footer-contact">
+                        <ul>
+                            <li>
+                                <div class="footer-number">
+                                    <i data-feather="phone"></i>
+                                    <div class="contact-number">
+                                        <h6 class="text-content">Qaynar xətt 24/7 :</h6>
+                                        <h5>+994 527 09 66</h5>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="footer-number">
+                                    <i data-feather="phone"></i>
+                                    <div class="contact-number">
+                                        <!-- <h6 class="text-content">WhatsApp 24/7 :</h6> -->
+                                        <span class='text-content wp'>WhatsApp 24/7 :</span>
+                                        <br>
+                                        <span class='text-content wp_info'>+994 515270966</span>
+                                        <a target='_blank' href='https://api.whatsapp.com/send?phone=994515270966' class='contact_button' rel='noreferrer'>
+                                            Mənə yaz<i class='fa-solid fa-arrow-right'></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="footer-number">
+                                    <i data-feather="mail"></i>
+                                    <div class="contact-number">
+                                        <h6 class="text-content">E-poçt ünvanı :</h6>
+                                        <h5>info@nonavm.com</h5>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-footer section-small-space">
+            <div class="reserve">
+                <p>&copy; 2023 <strong>NONAVM Bütün hüquqlar qorunur &copy; NONAVM LLC</strong>.</p>
+            </div>
+
+            <div class="col-md-6">
+                <div class="edu_social_links">
+                    <div class="social-icons">
+                        <a href="#">
+                            <lottie-player src="https://lottie.host/6e539bc1-8c1c-4836-9f1a-d39e43de64e1/ZMEBRulDhE.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        </a>
+                        <a href="#">
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_3s913D.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        </a>
+                        <a href="#">
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_Joz0FE.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        </a>
+                        <a href="#">
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_0Cm1Y2.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        </a>
+                        <a href="#">
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_YGNGxq.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+<!-- Items section Start -->
+<div class="button-item">
+    <button class="item-btn btn text-white">
+        <i class="iconly-Bag-2 icli"></i>
+    </button>
+</div>
+<div class="item-section">
+    <button class="close-button">
+        <i class="fas fa-times"></i>
+    </button>
+    <h6>
+        <i class="iconly-Bag-2 icli"></i>
+        <span>5 Məhsul</span>
+    </h6>
+    <ul class="items-image">
+        <li>
+            <img src="~/assets/images/category_1/1.png" alt="">
+        </li>
+        <li>
+            <img src="~/assets/images/category_1/2.png" alt="">
+        </li>
+        <li>+3</li>
+    </ul>
+    <button onclick="location.href = 'cart.html';" class="btn item-button btn-sm fw-bold">$ 20.70</button>
+</div>
+<!-- Items section End -->
+<!-- Location Modal Start -->
+<div class="modal location-modal fade theme-modal" id="locationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Fərqlilik Yaradın</h5>
+                <p class="mt-1 text-content">Seçdiyiniz ölkə üzrə satıcılardan alın.</p>
+                <p class="mt-1 text-content-2">Qeyd: Hər ölkədən çatdırılma müddəti fərqli ola bilər.</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="location-list">
+                    <div class="search-input">
+                        <input type="search" class="form-control" placeholder="Ölkə seçin">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+
+                    <div class="disabled-box">
+                        <h6>Məkan Seçin</h6>
+                    </div>
+
+                    <ul class="location-select custom-height">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h6>Türkiyə</h6>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h6>Rusiya</h6>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h6>Avropa</h6>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Location Modal End -->
+<!-- Tap to top start -->
+<div class="theme-option">
+    <div class="back-to-top">
+        <a id="back-to-top" href="#">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+</div>
+<!-- Tap to top end -->
+<!-- Bg overlay Start -->
+<div class="bg-overlay"></div>
+<!-- Bg overlay End -->

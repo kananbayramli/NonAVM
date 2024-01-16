@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ECommerse.Business.Services.Concrete;
-public class BasketItemService : IBasketItemService
+public class BasketItemService : IBasketItemService, IScoppedLifetime
 {
     private readonly IUnitOfWork _unitOfWork;
     IRepository<BasketItem> _basketItemRepository;

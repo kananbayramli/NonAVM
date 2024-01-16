@@ -1,0 +1,2171 @@
+﻿@model List<ProductCatalogViewModel>
+
+<!-- Left Sidebar Start -->
+<nav class="vertical_nav">
+    <div class="left_section menu_left" id="js-menu">
+        <div class="left_section nlsh">
+            <ul>
+                <li class="menu--item nhi">
+                    <a asp-controller="Catalog" class="menu--link active nhome" title="Home">
+                        <lottie-player class="menu--icon" style="width: 2rem; margin-right: 1rem;" src="https://lottie.host/106b8375-5239-4f65-a39d-9f8c97a1dd1d/f53vNkdAir.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        <span style="color: white !important;" class="menu--label nhl">Ana Səhifə</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="#" class="menu--link" title="Live Streams">
+                        <lottie-player class="menu--icon" style="width: 2rem; margin-right: 1rem;" src="https://lottie.host/9dd84007-027c-4b34-b905-9dfd066d15db/b7wdiDPJj8.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        <span class="menu--label">Canlı Dəstək</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="discount.html" class="menu--link" title="Live Streams">
+                        <lottie-player class="menu--icon" style="width: 2.5rem; margin-right: 0.6rem;" src="https://lottie.host/49b3befe-431b-42ee-930f-e5fbb33a520f/nMlSwxmOR6.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        <span class="menu--label">Endirimlər</span>
+                    </a>
+                </li>
+                <li class="menu--item menu--item__has_sub_menu">
+                    <label class="menu--link" title="Categories">
+                        <a href="#">
+                            <lottie-player class="menu--icon" style="width: 3rem; margin-right: 0.2rem;" src="https://lottie.host/de2d89b4-1e52-41cd-9294-ee4d906664f1/DkSyyt1UrG.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                            <span class="menu--label">Kategoriyalar</span>
+                        </a>
+                    </label>
+                    <ul class="sub_menu">
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/clothing.svg" class="blur-up lazyload " alt=" ">Geyim</a>
+                            <ul class="sub_menu sub_menu--erkek">
+                                <li class="sub_menu--item">
+                                    <a href="clothing_women.html"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/female.svg" class="blur-up lazyload " alt=" ">Qadın</a>
+                                </li>
+                                <li class="sub_menu--item">
+                                    <a href="clothing_man.html"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/male.svg" class="blur-up lazyload " alt=" ">Kişi</a>
+                                </li>
+                                <li class="sub_menu--item">
+                                    <a href="clothing_child.html"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/children.svg" class="blur-up lazyload " alt=" ">Uşaq</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/shoes.svg" class="blur-up lazyload " alt=" ">Ayaqqabı</a>
+                            <ul class="sub_menu sub_menu--erkek">
+                                <li class="sub_menu--item">
+                                    <a href="#.html"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/female.svg" class="blur-up lazyload " alt=" ">Qadın</a>
+                                </li>
+                                <li class="sub_menu--item">
+                                    <a href="#"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/male.svg" class="blur-up lazyload " alt=" ">Kişi</a>
+                                </li>
+                                <li class="sub_menu--item">
+                                    <a href="#"><img style="width: 20px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/children.svg" class="blur-up lazyload " alt=" ">Uşaq</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="make_up.html" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/make_up.svg" class="blur-up lazyload " alt=" ">Makiyaj</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="sitemap.html#iticon" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/sport.svg" class="blur-up lazyload " alt=" ">İdman Məhsulları</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="sitemap.html#officon" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/office.svg" class="blur-up lazyload " alt=" ">Ofis Ləvazimatları</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="sitemap.html#pericon" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/watch.svg" class="blur-up lazyload " alt=" ">Saat</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="sitemap.html#desicon" class="sub_menu--link"><img style="width: 30px; margin-right: 10px;" src="~/assets/svg/fashion/menu_svg/accessories.svg" class="blur-up lazyload " alt=" ">Aksesuarlar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu--item">
+                    <!-- <a href="#" class="menu--link" title="eBooks">
+                        <lottie-player class="menu--icon" style="width: 2.4rem; margin-right: 0.4rem;" src="https://lottie.host/c487e19a-d173-476b-b09c-7b082f159866/RcCfWXQPih.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        <span class="menu--label">Kitabla</span>
+                    </a> -->
+
+                    <a href="wishlist.html" class="menu--link" title="Saved">
+                        <lottie-player class="menu--icon" style="width: 2.2rem; margin-right: 0.9rem;" src="https://lottie.host/b62035d7-6e22-4ba7-9b77-48073f3899b2/pRo3bbSbDY.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        <span class="menu--label">Seçilmişlər</span>
+                    </a>
+
+                    <a href="#" class="menu--link" title="Certification Center">
+                        <lottie-player class="menu--icon" style="width: 2.9rem; margin-right: 0.2rem;" src="https://lottie.host/ba2d89de-aae8-4b05-883a-98ee8b67bb41/PKMUu065eW.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        <span class="menu--label">Çatdırılma və Ödəmə</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="left_section pt-2">
+            <ul>
+                <li class="menu--item">
+                    <a href="#" class="menu--link" title="Setting">
+                        <lottie-player class="menu--icon" style="width: 3rem; margin-right: 0.1rem;" src="https://lottie.host/d31d6c1e-54e6-42c2-b366-548d739d8caa/OtwQcZMTPS.json" background="transparent" speed="0.25" loop autoplay></lottie-player>
+                        <span class="menu--label">Tənzimləmə</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="#" class="menu--link" title="Help">
+                        <lottie-player class="menu--icon" style="width: 3rem; margin-right: 0.1rem;" src="https://lottie.host/e35208d7-229b-4940-a74b-6610116be195/0gEkOTMv9a.json" background="transparent" speed="0.35" loop autoplay></lottie-player>
+                        <span class="menu--label">Bizimlə Əlaqə</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="left_footer">
+            <ul>
+                <li><a href="sign_up_seller.html">Tərəfdaş</a></li>
+                <li><a href="contact_us.html">Reklam</a></li>
+                <li><a href="career.html">Karyera</a></li>
+                <li><a href="affiliate_details.html">Şirkətlər üçün</a></li>
+            </ul>
+            <div class="left_footer_content">
+                <p>&copy; 2023 <strong>NONAVM, Inc</strong>.</p>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Left Sidebar End -->
+<!-- Shop Section Start -->
+<section class="section-b-space shop-section">
+    <div class="container-fluid-lg">
+        <div class="row">
+            <div class="col-custome-3 wow fadeInUp">
+                <div class="left-box">
+                    <div class="shop-left-sidebar">
+                        <div class="back-button">
+                            <h3><i class="fa-solid fa-arrow-left"></i> Back</h3>
+                        </div>
+
+                        <div class="filter-category">
+                            <div class="filter-title">
+                                <h2>Filtrlər</h2>
+                                <a href="javascript:void(0)">Hamısını Sil</a>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0)">Dolğun</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Bərk</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Gelvari</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Maye</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Krem-muss</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="accordion custome-accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <span>Kateqoriyalar</span>
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                                    <div class="accordion-body">
+                                        <div class="form-floating theme-form-floating-2 search-box">
+                                            <input type="search" class="form-control" id="search" placeholder="Search ..">
+                                            <label for="search">Axtarış</label>
+                                        </div>
+
+                                        <ul class="category-list custom-padding custom-height">
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="fruit">
+                                                    <label class="form-check-label" for="fruit">
+                                                        <span class="name">Bluzlar, köynəklər, tunikalar</span>
+                                                        <span class="number">(15)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="cake">
+                                                    <label class="form-check-label" for="cake">
+                                                        <span class="name">Şalvarlar, cinslər</span>
+                                                        <span class="number">(12)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="behe">
+                                                    <label class="form-check-label" for="behe">
+                                                        <span class="name">Donlar və sarafanlar</span>
+                                                        <span class="number">(20)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="snacks">
+                                                    <label class="form-check-label" for="snacks">
+                                                        <span class="name">Ətəklər və şortlar</span>
+                                                        <span class="number">(05)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="beauty">
+                                                    <label class="form-check-label" for="beauty">
+                                                        <span class="name">Futbolkalar və polo</span>
+                                                        <span class="number">(30)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="pets">
+                                                    <label class="form-check-label" for="pets">
+                                                        <span class="name">Maykalar</span>
+                                                        <span class="number">(50)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="egg">
+                                                    <label class="form-check-label" for="egg">
+                                                        <span class="name">Cemperləri, kardiqanlar</span>
+                                                        <span class="number">(19)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="food">
+                                                    <label class="form-check-label" for="food">
+                                                        <span class="name">Bodilər</span>
+                                                        <span class="number">(30)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="care">
+                                                    <label class="form-check-label" for="care">
+                                                        <span class="name">Kombinezonlar</span>
+                                                        <span class="number">(20)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="fish">
+                                                    <label class="form-check-label" for="fish">
+                                                        <span class="name">Çimərlik və istirahət geyimləri</span>
+                                                        <span class="number">(10)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="marinades">
+                                                    <label class="form-check-label" for="marinades">
+                                                        <span class="name">İdman kostyumları</span>
+                                                        <span class="number">(05)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="lamb">
+                                                    <label class="form-check-label" for="lamb">
+                                                        <span class="name">Alt paltarı</span>
+                                                        <span class="number">(09)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="other">
+                                                    <label class="form-check-label" for="other">
+                                                        <span class="name">Pencəklər və kostyumlar</span>
+                                                        <span class="number">(06)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="pour">
+                                                    <label class="form-check-label" for="pour">
+                                                        <span class="name">Üst geyim</span>
+                                                        <span class="number">(01)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="salami">
+                                                    <label class="form-check-label" for="salami">
+                                                        <span class="name">Baş geyimləri</span>
+                                                        <span class="number">(03)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="salami">
+                                                    <label class="form-check-label" for="salami">
+                                                        <span class="name">Örpəklər və şərflər</span>
+                                                        <span class="number">(03)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="salami">
+                                                    <label class="form-check-label" for="salami">
+                                                        <span class="name">Əlcəklər</span>
+                                                        <span class="number">(03)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="salami">
+                                                    <label class="form-check-label" for="salami">
+                                                        <span class="name">Kolqotqalar, corablar</span>
+                                                        <span class="number">(03)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="salami">
+                                                    <label class="form-check-label" for="salami">
+                                                        <span class="name">Taytlar</span>
+                                                        <span class="number">(03)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="salami">
+                                                    <label class="form-check-label" for="salami">
+                                                        <span class="name">Kəmərlər və qayışlar</span>
+                                                        <span class="number">(03)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <span>Satıcılar</span>
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
+                                    <div class="accordion-body">
+                                        <ul class="category-list custom-padding">
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="veget">
+                                                    <label class="form-check-label" for="veget">
+                                                        <span class="name">Lorem</span>
+                                                        <span class="number">(08)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="non">
+                                                    <label class="form-check-label" for="non">
+                                                        <span class="name">Lorem, ipsum.</span>
+                                                        <span class="number">(09)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <span>Brend</span>
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
+                                    <div class="accordion-body">
+                                        <ul class="category-list custom-padding">
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="veget">
+                                                    <label class="form-check-label" for="veget">
+                                                        <span class="name">CodeOnCenter</span>
+                                                        <span class="number">(08)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="non">
+                                                    <label class="form-check-label" for="non">
+                                                        <span class="name">Modabu</span>
+                                                        <span class="number">(09)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="non">
+                                                    <label class="form-check-label" for="non">
+                                                        <span class="name">L'oreal Paris</span>
+                                                        <span class="number">(09)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="non">
+                                                    <label class="form-check-label" for="non">
+                                                        <span class="name">MaXfactor</span>
+                                                        <span class="number">(09)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="non">
+                                                    <label class="form-check-label" for="non">
+                                                        <span class="name">Maybelline Newyork</span>
+                                                        <span class="number">(09)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="non">
+                                                    <label class="form-check-label" for="non">
+                                                        <span class="name">Lorem</span>
+                                                        <span class="number">(09)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <span>Price</span>
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree">
+                                    <div class="accordion-body">
+                                        <div class="range-slider">
+                                            <input type="text" class="js-range-slider" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        <span>Rating</span>
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingSix">
+                                    <div class="accordion-body">
+                                        <ul class="category-list custom-padding">
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox">
+                                                    <div class="form-check-label">
+                                                        <ul class="rating">
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                        </ul>
+                                                        <span class="text-content">(5 Star)</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox">
+                                                    <div class="form-check-label">
+                                                        <ul class="rating">
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star"></i>
+                                                            </li>
+                                                        </ul>
+                                                        <span class="text-content">(4 Star)</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox">
+                                                    <div class="form-check-label">
+                                                        <ul class="rating">
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star"></i>
+                                                            </li>
+                                                        </ul>
+                                                        <span class="text-content">(3 Star)</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox">
+                                                    <div class="form-check-label">
+                                                        <ul class="rating">
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star"></i>
+                                                            </li>
+                                                        </ul>
+                                                        <span class="text-content">(2 Star)</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox">
+                                                    <div class="form-check-label">
+                                                        <ul class="rating">
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star"></i>
+                                                            </li>
+                                                        </ul>
+                                                        <span class="text-content">(1 Star)</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        <span>Endirim</span>
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour">
+                                    <div class="accordion-body">
+                                        <ul class="category-list custom-padding">
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        <span class="name">5%-dək</span>
+                                                        <span class="number">(06)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="flexCheckDefault1">
+                                                    <label class="form-check-label" for="flexCheckDefault1">
+                                                        <span class="name">5% - 10%</span>
+                                                        <span class="number">(08)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="flexCheckDefault2">
+                                                    <label class="form-check-label" for="flexCheckDefault2">
+                                                        <span class="name">10% - 15%</span>
+                                                        <span class="number">(10)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="flexCheckDefault3">
+                                                    <label class="form-check-label" for="flexCheckDefault3">
+                                                        <span class="name">15% - 25%</span>
+                                                        <span class="number">(14)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="flexCheckDefault4">
+                                                    <label class="form-check-label" for="flexCheckDefault4">
+                                                        <span class="name">25%-dən çox</span>
+                                                        <span class="number">(13)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        <span>Ölçü</span>
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingFive">
+                                    <div class="accordion-body">
+                                        <ul class="category-list custom-padding custom-height">
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="flexCheckDefault5">
+                                                    <label class="form-check-label" for="flexCheckDefault5">
+                                                        <span class="name">XS</span>
+                                                        <span class="number">(05)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="flexCheckDefault6">
+                                                    <label class="form-check-label" for="flexCheckDefault6">
+                                                        <span class="name">X</span>
+                                                        <span class="number">(02)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="flexCheckDefault7">
+                                                    <label class="form-check-label" for="flexCheckDefault7">
+                                                        <span class="name">M</span>
+                                                        <span class="number">(04)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="flexCheckDefault8">
+                                                    <label class="form-check-label" for="flexCheckDefault8">
+                                                        <span class="name">L</span>
+                                                        <span class="number">(06)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="flexCheckDefault9">
+                                                    <label class="form-check-label" for="flexCheckDefault9">
+                                                        <span class="name">XL</span>
+                                                        <span class="number">(09)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="form-check ps-0 m-0 category-list-box">
+                                                    <input class="checkbox_animated" type="checkbox" id="flexCheckDefault10">
+                                                    <label class="form-check-label" for="flexCheckDefault10">
+                                                        <span class="name">XXL</span>
+                                                        <span class="number">(06)</span>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-custome-9 wow fadeInUp">
+                <div class="show-button">
+                    <div class="filter-button-group mt-0">
+                        <div class="filter-button d-inline-block d-lg-none">
+                            <a><i class="fa-solid fa-filter"></i> Filter Menu</a>
+                        </div>
+                    </div>
+
+                    <div class="top-filter-menu">
+                        <div class="category-dropdown">
+                            <h5 class="text-content">Sırala :</h5>
+                            <div class="dropdown">
+                                <button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+                                    <span>Ən Populyar</span> <i class="fa-solid fa-angle-down"></i>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li>
+                                        <a class="dropdown-item" id="pop" href="javascript:void(0)">Populyarlıq</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" id="low" href="javascript:void(0)">Aşağı - Yüksək Qiymət</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" id="high" href="javascript:void(0)">Yüksək - Aşağı qiymət</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" id="rating" href="javascript:void(0)">Orta Reytinq</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" id="aToz" href="javascript:void(0)">A-dan Z-yə sifariş</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" id="zToa" href="javascript:void(0)">Z-dən A-ya sifariş</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" id="off" href="javascript:void(0)">% Endirim - Yüksəkdən Aşağıya</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="grid-option d-none d-md-block">
+                            <ul>
+                                <li class="three-grid">
+                                    <a href="javascript:void(0)">
+                                        <img src="~/assets/svg/grid-3.svg" class="blur-up lazyload" alt="">
+                                    </a>
+                                </li>
+                                <li class="grid-btn d-xxl-inline-block d-none active">
+                                    <a href="javascript:void(0)">
+                                        <img src="~/assets/svg/grid-4.svg" class="blur-up lazyload d-lg-inline-block d-none" alt="">
+                                        <img src="~/assets/svg/grid.svg" class="blur-up lazyload img-fluid d-lg-none d-inline-block" alt="">
+                                    </a>
+                                </li>
+                                <li class="list-btn">
+                                    <a href="javascript:void(0)">
+                                        <img src="~/assets/svg/list.svg" class="blur-up lazyload" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-sm-4 g-3 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-2 product-list-section">
+                    <div>
+                        <div class="product-box-3 h-100 wow fadeInUp">
+                            <div class="product-header">
+                                <div class="product-image">
+                                    <a href="product-left-thumbnail.html">
+                                        <img src="~/assets/images/fashion/product/womens_homewear/1.png" class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+
+                                    <ul class="product-option">
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                <i data-feather="eye" class="text-primary"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Compare">
+                                            <a href="compare.html">
+                                                <i data-feather="refresh-cw" class="text-success"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
+                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                <i data-feather="heart" class="text-danger"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-footer">
+                                <div class="product-detail">
+                                    <span class="span-name">Lorem</span>
+                                    <a href="product-left-thumbnail.html">
+                                        <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                    </a>
+                                    <p class="text-content mt-1 mb-2 product-content">
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora dicta? Cum assumenda ex laudantium. Possimus, excepturi fugiat incidunt dolorem voluptates sit perferendis commodi omnis magni deserunt
+                                        veniam praesentium laborum?
+                                    </p>
+                                    <div class="product-rating mt-2">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                        </ul>
+                                        <span>(4.0)</span>
+                                    </div>
+                                    <h6 class="unit">X</h6>
+                                    <h5 class="price">
+                                        <span class="theme-color">$08.02</span> <del>$15.15</del>
+                                    </h5>
+                                    <div class="add-to-cart-box bg-white">
+                                        <button class="btn btn-add-cart addcart-button">
+                                            Add
+                                            <span class="add-icon bg-light-gray">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </span>
+                                        </button>
+                                        <div class="cart_qty qty-box">
+                                            <div class="input-group bg-white">
+                                                <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                </button>
+                                                <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="product-box-3 h-100 wow fadeInUp" data-wow-delay="0.05s">
+                            <div class="product-header">
+                                <div class="product-image">
+                                    <a href="product-left-thumbnail.html">
+                                        <img src="~/assets/images/category_1/10.jpg" class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+
+                                    <ul class="product-option">
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                <i data-feather="eye" class="text-primary"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Compare">
+                                            <a href="compare.html">
+                                                <i data-feather="refresh-cw" class="text-success"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
+                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                <i data-feather="heart" class="text-danger"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="product-footer">
+                                <div class="product-detail">
+                                    <span class="span-name">Lorem</span>
+                                    <a href="product-left-thumbnail.html">
+                                        <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                    </a>
+                                    <p class="text-content mt-1 mb-2 product-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, modi doloribus officia illo veritatis nisi ipsam qui quos aut vero.</p>
+                                    <div class="product-rating mt-2">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                        </ul>
+                                        <span>(2.4)</span>
+                                    </div>
+                                    <h6 class="unit">X</h6>
+                                    <h5 class="price">
+                                        <span class="theme-color">$04.33</span> <del>$10.36</del>
+                                    </h5>
+                                    <div class="add-to-cart-box bg-white">
+                                        <button class="btn btn-add-cart addcart-button">
+                                            Add
+                                            <span class="add-icon bg-light-gray">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </span>
+                                        </button>
+                                        <div class="cart_qty qty-box">
+                                            <div class="input-group bg-white">
+                                                <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                </button>
+                                                <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="product-box-3 h-100 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="product-header">
+                                <div class="product-image">
+                                    <a href="product-left-thumbnail.html">
+                                        <img src="~/assets/images/category_1/11.jpg" class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+
+                                    <ul class="product-option">
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                <i data-feather="eye" class="text-primary"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Compare">
+                                            <a href="compare.html">
+                                                <i data-feather="refresh-cw" class="text-success"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
+                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                <i data-feather="heart" class="text-danger"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="product-footer">
+                                <div class="product-detail">
+                                    <span class="span-name">Lorem, ipsum.</span>
+                                    <a href="product-left-thumbnail.html">
+                                        <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                    </a>
+                                    <p class="text-content mt-1 mb-2 product-content">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae voluptates voluptas sed qui aliquam quam inventore, dicta dolore dolorem possimus eos aliquid blanditiis ratione accusamus numquam veniam necessitatibus
+                                        voluptate tenetur consectetur. Velit reiciendis sapiente soluta iusto repellat, repudiandae ratione? Eligendi?
+                                    </p>
+                                    <div class="product-rating mt-2">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                        </ul>
+                                        <span>(5.0)</span>
+                                    </div>
+                                    <h6 class="unit">M</h6>
+                                    <h5 class="price">
+                                        <span class="theme-color">$12.52</span> <del>$13.62</del>
+                                    </h5>
+                                    <div class="add-to-cart-box bg-white">
+                                        <button class="btn btn-add-cart addcart-button">
+                                            Add
+                                            <span class="add-icon bg-light-gray">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </span>
+                                        </button>
+                                        <div class="cart_qty qty-box">
+                                            <div class="input-group bg-white">
+                                                <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                </button>
+                                                <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="product-box-3 h-100 wow fadeInUp" data-wow-delay="0.15s">
+                            <div class="product-header">
+                                <div class="product-image">
+                                    <a href="product-left-thumbnail.html">
+                                        <img src="~/assets/images/category_1/12.jpg" class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+
+                                    <ul class="product-option">
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                <i data-feather="eye" class="text-primary"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Compare">
+                                            <a href="compare.html">
+                                                <i data-feather="refresh-cw" class="text-success"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
+                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                <i data-feather="heart" class="text-danger"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="product-footer">
+                                <div class="product-detail">
+                                    <span class="span-name">Lorem, ipsum.</span>
+                                    <a href="product-left-thumbnail.html">
+                                        <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                    </a>
+                                    <p class="text-content mt-1 mb-2 product-content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur impedit neque consequatur, odit possimus atque.</p>
+                                    <div class="product-rating mt-2">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                        </ul>
+                                        <span>(3.8)</span>
+                                    </div>
+                                    <h6 class="unit">L</h6>
+                                    <h5 class="price">
+                                        <span class="theme-color">$10.25</span> <del>$12.36</del>
+                                    </h5>
+                                    <div class="add-to-cart-box bg-white">
+                                        <button class="btn btn-add-cart addcart-button">
+                                            Add
+                                            <span class="add-icon bg-light-gray">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </span>
+                                        </button>
+                                        <div class="cart_qty qty-box">
+                                            <div class="input-group bg-white">
+                                                <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                </button>
+                                                <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="product-box-3 h-100 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="product-header">
+                                <div class="product-image">
+                                    <a href="product-left-thumbnail.html">
+                                        <img src="~/assets/images/category_1/13.jpg" class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+
+                                    <ul class="product-option">
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                <i data-feather="eye" class="text-primary"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Compare">
+                                            <a href="compare.html">
+                                                <i data-feather="refresh-cw" class="text-success"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
+                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                <i data-feather="heart" class="text-danger"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="product-footer">
+                                <div class="product-detail">
+                                    <span class="span-name">Lorem</span>
+                                    <a href="product-left-thumbnail.html">
+                                        <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                    </a>
+                                    <p class="text-content mt-1 mb-2 product-content">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate vel sed itaque necessitatibus ut magni quis rerum tempore. Libero incidunt consectetur dolore quidem, debitis maxime quam voluptate quia eveniet
+                                        aliquam eius quibusdam rem exercitationem ipsum dignissimos porro aspernatur quasi modi.
+                                    </p>
+                                    <div class="product-rating mt-2">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                        </ul>
+                                        <span>(4.0)</span>
+                                    </div>
+
+                                    <h6 class="unit">XL</h6>
+
+                                    <h5 class="price">
+                                        <span class="theme-color">$14.25</span> <del>$16.57</del>
+                                    </h5>
+                                    <div class="add-to-cart-box bg-white">
+                                        <button class="btn btn-add-cart addcart-button">
+                                            Add
+                                            <span class="add-icon bg-light-gray">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </span>
+                                        </button>
+                                        <div class="cart_qty qty-box">
+                                            <div class="input-group bg-white">
+                                                <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                </button>
+                                                <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="product-box-3 h-100 wow fadeInUp" data-wow-delay="0.25s">
+                            <div class="product-header">
+                                <div class="product-image">
+                                    <a href="product-left-thumbnail.html">
+                                        <img src="~/assets/images/category_1/14.jpg" class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+
+                                    <ul class="product-option">
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                <i data-feather="eye" class="text-primary"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Compare">
+                                            <a href="compare.html">
+                                                <i data-feather="refresh-cw" class="text-success"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
+                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                <i data-feather="heart" class="text-danger"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="product-footer">
+                                <div class="product-detail">
+                                    <span class="span-name">Lorem, ipsum dolor.</span>
+                                    <a href="product-left-thumbnail.html">
+                                        <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                    </a>
+                                    <p class="text-content mt-1 mb-2 product-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium voluptatum soluta beatae quis culpa iure amet architecto magnam quidem et?</p>
+                                    <div class="product-rating mt-2">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                        </ul>
+                                        <span>(3.8)</span>
+                                    </div>
+
+                                    <h6 class="unit">X</h6>
+
+                                    <h5 class="price">
+                                        <span class="theme-color">$12.68</span> <del>$14.69</del>
+                                    </h5>
+                                    <div class="add-to-cart-box bg-white">
+                                        <button class="btn btn-add-cart addcart-button">
+                                            Add
+                                            <span class="add-icon bg-light-gray">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </span>
+                                        </button>
+                                        <div class="cart_qty qty-box">
+                                            <div class="input-group bg-white">
+                                                <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                </button>
+                                                <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="product-box-3 h-100 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="product-header">
+                                <div class="product-image">
+                                    <a href="product-left-thumbnail.html">
+                                        <img src="~/assets/images/category_1/8.png" class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+
+                                    <ul class="product-option">
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                <i data-feather="eye" class="text-primary"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Compare">
+                                            <a href="compare.html">
+                                                <i data-feather="refresh-cw" class="text-success"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
+                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                <i data-feather="heart" class="text-danger"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-footer">
+                                <div class="product-detail">
+                                    <span class="span-name">Lorem</span>
+                                    <a href="product-left-thumbnail.html">
+                                        <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                    </a>
+                                    <p class="text-content mt-1 mb-2 product-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati accusamus tempore explicabo nulla qui alias!</p>
+                                    <div class="product-rating mt-2">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                        </ul>
+                                        <span>(4.0)</span>
+                                    </div>
+                                    <h6 class="unit">XXL</h6>
+                                    <h5 class="price">
+                                        <span class="theme-color">$08.02</span> <del>$15.15</del>
+                                    </h5>
+                                    <div class="add-to-cart-box bg-white">
+                                        <button class="btn btn-add-cart addcart-button">
+                                            Add
+                                            <span class="add-icon bg-light-gray">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </span>
+                                        </button>
+                                        <div class="cart_qty qty-box">
+                                            <div class="input-group bg-white">
+                                                <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                </button>
+                                                <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="product-box-3 h-100 wow fadeInUp" data-wow-delay="0.35s">
+                            <div class="product-header">
+                                <div class="product-image">
+                                    <a href="product-left-thumbnail.html">
+                                        <img src="~/assets/images/category_1/9.jpg" class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+
+                                    <ul class="product-option">
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                <i data-feather="eye" class="text-primary"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Compare">
+                                            <a href="compare.html">
+                                                <i data-feather="refresh-cw" class="text-success"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
+                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                <i data-feather="heart" class="text-danger"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="product-footer">
+                                <div class="product-detail">
+                                    <span class="span-name">Lorem</span>
+                                    <a href="product-left-thumbnail.html">
+                                        <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                    </a>
+                                    <p class="text-content mt-1 mb-2 product-content">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem eos autem est amet, odit nostrum ab sed cumque qui odio ipsa vel error eveniet dolorum magnam voluptatum pariatur voluptas? Iste totam, dolorem possimus
+                                        repudiandae officia excepturi modi sequi quidem dolorum?
+                                    </p>
+                                    <div class="product-rating mt-2">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                        </ul>
+                                        <span>(2.4)</span>
+                                    </div>
+                                    <h6 class="unit">XS</h6>
+                                    <h5 class="price">
+                                        <span class="theme-color">$04.33</span> <del>$10.36</del>
+                                    </h5>
+                                    <div class="add-to-cart-box bg-white">
+                                        <button class="btn btn-add-cart addcart-button">
+                                            Add
+                                            <span class="add-icon bg-light-gray">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </span>
+                                        </button>
+                                        <div class="cart_qty qty-box">
+                                            <div class="input-group bg-white">
+                                                <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                </button>
+                                                <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="product-box-3 h-100 wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="product-header">
+                                <div class="product-image">
+                                    <a href="product-left-thumbnail.html">
+                                        <img src="~/assets/images/category_1/10.jpg" class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+
+                                    <ul class="product-option">
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                <i data-feather="eye" class="text-primary"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Compare">
+                                            <a href="compare.html">
+                                                <i data-feather="refresh-cw" class="text-success"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
+                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                <i data-feather="heart" class="text-danger"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="product-footer">
+                                <div class="product-detail">
+                                    <span class="span-name">Lorem</span>
+                                    <a href="product-left-thumbnail.html">
+                                        <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                    </a>
+                                    <p class="text-content mt-1 mb-2 product-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem asperiores nulla perspiciatis unde voluptatibus id a. Tenetur quaerat sapiente sunt!</p>
+                                    <div class="product-rating mt-2">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                        </ul>
+                                        <span>(5.0)</span>
+                                    </div>
+                                    <h6 class="unit">M</h6>
+                                    <h5 class="price">
+                                        <span class="theme-color">$12.52</span> <del>$13.62</del>
+                                    </h5>
+                                    <div class="add-to-cart-box bg-white">
+                                        <button class="btn btn-add-cart addcart-button">
+                                            Add
+                                            <span class="add-icon bg-light-gray">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </span>
+                                        </button>
+                                        <div class="cart_qty qty-box">
+                                            <div class="input-group bg-white">
+                                                <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                </button>
+                                                <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="product-box-3 h-100 wow fadeInUp" data-wow-delay="0.45s">
+                            <div class="product-header">
+                                <div class="product-image">
+                                    <a href="product-left-thumbnail.html">
+                                        <img src="~/assets/images/category_1/11.jpg" class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+
+                                    <ul class="product-option">
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                <i data-feather="eye" class="text-primary"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Compare">
+                                            <a href="compare.html">
+                                                <i data-feather="refresh-cw" class="text-success"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
+                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                <i data-feather="heart" class="text-danger"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="product-footer">
+                                <div class="product-detail">
+                                    <span class="span-name">Lorem</span>
+                                    <a href="product-left-thumbnail.html">
+                                        <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                    </a>
+                                    <p class="text-content mt-1 mb-2 product-content">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt magni, deleniti sit illum soluta eligendi exercitationem quos molestiae fuga itaque ipsam harum quo minus maxime eos, ad, ut qui delectus aliquid
+                                        ratione voluptatibus voluptas neque! Ipsam itaque pariatur necessitatibus labore.
+                                    </p>
+                                    <div class="product-rating mt-2">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                        </ul>
+                                        <span>(3.8)</span>
+                                    </div>
+                                    <h6 class="unit">M</h6>
+                                    <h5 class="price">
+                                        <span class="theme-color">$10.25</span> <del>$12.36</del>
+                                    </h5>
+                                    <div class="add-to-cart-box bg-white">
+                                        <button class="btn btn-add-cart addcart-button">
+                                            Add
+                                            <span class="add-icon bg-light-gray">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </span>
+                                        </button>
+                                        <div class="cart_qty qty-box">
+                                            <div class="input-group bg-white">
+                                                <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                </button>
+                                                <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="product-box-3 h-100 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="product-header">
+                                <div class="product-image">
+                                    <a href="product-left-thumbnail.html">
+                                        <img src="~/assets/images/category_1/12.jpg" class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+
+                                    <ul class="product-option">
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                <i data-feather="eye" class="text-primary"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Compare">
+                                            <a href="compare.html">
+                                                <i data-feather="refresh-cw" class="text-success"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
+                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                <i data-feather="heart" class="text-danger"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="product-footer">
+                                <div class="product-detail">
+                                    <span class="span-name">Lorem, ipsum dolor.</span>
+                                    <a href="product-left-thumbnail.html">
+                                        <h5 class="name">Lorem ipsum dolor sit amet.</h5>
+                                    </a>
+                                    <p class="text-content mt-1 mb-2 product-content">
+                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima ipsa dolor ipsum? Excepturi quam error dicta, optio veritatis laudantium atque, rem obcaecati provident mollitia doloribus, doloremque ipsum at! Molestiae,
+                                        aliquid.
+                                    </p>
+                                    <div class="product-rating mt-2">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                        </ul>
+                                        <span>(4.0)</span>
+                                    </div>
+
+                                    <h6 class="unit">L</h6>
+
+                                    <h5 class="price">
+                                        <span class="theme-color">$14.25</span> <del>$16.57</del>
+                                    </h5>
+                                    <div class="add-to-cart-box bg-white">
+                                        <button class="btn btn-add-cart addcart-button">
+                                            Add
+                                            <span class="add-icon bg-light-gray">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </span>
+                                        </button>
+                                        <div class="cart_qty qty-box">
+                                            <div class="input-group bg-white">
+                                                <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                </button>
+                                                <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                                <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="custome-pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="javascript:void(0)" tabindex="-1" aria-disabled="true">
+                                <i class="fa-solid fa-angles-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="javascript:void(0)">1</a>
+                        </li>
+                        <li class="page-item" aria-current="page">
+                            <a class="page-link" href="javascript:void(0)">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:void(0)">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:void(0)">
+                                <i class="fa-solid fa-angles-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Section End -->
+<!-- Footer Section Start -->
+<footer class="section-t-space">
+    <div class="container-fluid-lg">
+        <div class="service-section">
+            <div class="row g-3">
+                <div class="col-12">
+                    <div class="service-contain">
+                        <div class="service-box">
+                            <div class="service-image">
+                                <img src="~/assets/svg/product.svg" class="blur-up lazyload" alt=" ">
+                            </div>
+
+                            <div class="service-detail service-detail-user">
+                                <h5>Bütün Məhsullar</h5>
+                            </div>
+                        </div>
+
+                        <div class="service-box">
+                            <div class="service-image">
+                                <img src="~/assets/svg/delivery.svg" class="blur-up lazyload" alt=" ">
+                            </div>
+
+                            <div class="service-detail service-detail-user">
+                                <h5>50 AZN-dən yuxarı Sifarişlər üçün Çatdırılma Pulsuzdur</h5>
+                            </div>
+                        </div>
+
+                        <div class="service-box">
+                            <div class="service-image">
+                                <img src="~/assets/svg/discount.svg" class="blur-up lazyload" alt=" ">
+                            </div>
+
+                            <div class="service-detail service-detail-user">
+                                <h5>Gündəlik Mega Endirimlər</h5>
+                            </div>
+                        </div>
+
+                        <div class="service-box">
+                            <div class="service-image">
+                                <img src="~/assets/svg/market.svg" class="blur-up lazyload" alt=" ">
+                            </div>
+
+                            <div class="service-detail service-detail-user">
+                                <h5>Ən Yaxşı Qiymət</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-footer section-b-space section-t-space">
+            <div class="row g-md-4 g-3">
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="footer-logo">
+                        <div class="theme-logo">
+                            <a href="index.html">
+                                <img src="~/assets/images/logo/1.pn" class="blur-up lazyload" alt="Sayt Adi">
+                            </a>
+                        </div>
+
+                        <div class="footer-logo-contain">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos, beatae?</p>
+
+                            <ul class="address">
+                                <li>
+                                    <i data-feather="home"></i>
+                                    <a href="javascript:void(0)">Yasamal, AZ 1102, AZ</a>
+                                </li>
+                                <li>
+                                    <i data-feather="mail"></i>
+                                    <a href="javascript:void(0)">support@nonavm.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                    <div class="footer-title">
+                        <h4>Populyar Kateqoriyalar</h4>
+                    </div>
+
+                    <div class="footer-contain">
+                        <ul>
+                            <li>
+                                <a href="bags.html" class="text-content">Çantalar</a>
+                            </li>
+                            <li>
+                                <a href="clothing_man.html" class="text-content">Kişi köynəkləri</a>
+                            </li>
+                            <li>
+                                <a href="women's_underwear.html" class="text-content">Qadın alt paltarı</a>
+                            </li>
+                            <li>
+                                <a href="clothing_women.html" class="text-content">Taytlar</a>
+                            </li>
+                            <li>
+                                <a href="make_up.html" class="text-content">Makiyaj</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl col-lg-2 col-sm-3">
+                    <div class="footer-title">
+                        <h4>Korporativ</h4>
+                    </div>
+
+                    <div class="footer-contain">
+                        <ul>
+                            <li>
+                                <a href="about_us.html" class="text-content">Haqqımızda</a>
+                            </li>
+                            <li>
+                                <a href="contact_us.html" class="text-content">Bizimlə əlaqə</a>
+                            </li>
+                            <li>
+                                <a href="career.html" class="text-content">Karyera</a>
+                            </li>
+                            <li>
+                                <a href="blog_list.html" class="text-content">Ən son bloq</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-sm-3">
+                    <div class="footer-title">
+                        <h4>Kömək Mərkəzi</h4>
+                    </div>
+
+                    <div class="footer-contain">
+                        <ul>
+                            <li>
+                                <a href="order-success.html" class="text-content">Sifarişiniz</a>
+                            </li>
+                            <li>
+                                <a href="user-dashboard.html" class="text-content">Sizin hesabınız</a>
+                            </li>
+                            <li>
+                                <a href="order-tracking.html" class="text-content">Sifariş izləmə</a>
+                            </li>
+                            <li>
+                                <a href="wishlist.html" class="text-content">İstək siyahısı</a>
+                            </li>
+                            <li>
+                                <a href="shipping_payment.html" class="text-content">Qaydalar və şərtlər</a>
+                            </li>
+                            <li>
+                                <a href="faq.html" class="text-content">Ən çox verilən suallar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="footer-title">
+                        <h4>Bizimlə əlaqə saxlayın</h4>
+                    </div>
+
+                    <div class="footer-contact">
+                        <ul>
+                            <li>
+                                <div class="footer-number">
+                                    <i data-feather="phone"></i>
+                                    <div class="contact-number">
+                                        <h6 class="text-content">Qaynar xətt 24/7 :</h6>
+                                        <h5>+994 527 09 66</h5>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="footer-number">
+                                    <i data-feather="phone"></i>
+                                    <div class="contact-number">
+                                        <!-- <h6 class="text-content">WhatsApp 24/7 :</h6> -->
+                                        <span class='text-content wp'>WhatsApp 24/7 :</span>
+                                        <br>
+                                        <span class='text-content wp_info'>+994 515270966</span>
+                                        <a target='_blank' href='https://api.whatsapp.com/send?phone=994515270966' class='contact_button' rel='noreferrer'>
+                                            Mənə yaz<i class='fa-solid fa-arrow-right'></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="footer-number">
+                                    <i data-feather="mail"></i>
+                                    <div class="contact-number">
+                                        <h6 class="text-content">E-poçt ünvanı :</h6>
+                                        <h5>info@nonavm.com</h5>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-footer section-small-space">
+            <div class="reserve">
+                <p>&copy; 2023 <strong>NONAVM Bütün hüquqlar qorunur &copy; NONAVM LLC</strong>.</p>
+            </div>
+
+            <div class="col-md-6">
+                <div class="edu_social_links">
+                    <div class="social-icons">
+                        <a href="#">
+                            <lottie-player src="https://lottie.host/6e539bc1-8c1c-4836-9f1a-d39e43de64e1/ZMEBRulDhE.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        </a>
+                        <a href="#">
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_3s913D.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        </a>
+                        <a href="#">
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_Joz0FE.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        </a>
+                        <a href="#">
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_0Cm1Y2.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        </a>
+                        <a href="#">
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_YGNGxq.json" background="transparent" speed="0.5" loop autoplay></lottie-player>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+<!-- Quick View Modal Box Start -->
+<div class="modal fade theme-modal view-modal" id="view" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <div class="modal-header p-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-sm-4 g-2">
+                    <div class="col-lg-6">
+                        <div class="slider-image">
+                            <img src="~/assets/images/product/category/1.png" class="img-fluid blur-up lazyload" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="right-sidebar-modal">
+                            <h4 class="title-name">Lorem ipsum dolor sit amet consectetur.</h4>
+                            <h4 class="price">$36.99</h4>
+                            <div class="product-rating">
+                                <ul class="rating">
+                                    <li>
+                                        <i data-feather="star" class="fill"></i>
+                                    </li>
+                                    <li>
+                                        <i data-feather="star" class="fill"></i>
+                                    </li>
+                                    <li>
+                                        <i data-feather="star" class="fill"></i>
+                                    </li>
+                                    <li>
+                                        <i data-feather="star" class="fill"></i>
+                                    </li>
+                                    <li>
+                                        <i data-feather="star"></i>
+                                    </li>
+                                </ul>
+                                <span class="ms-2">8 Reviews</span>
+                                <span class="ms-2 text-danger">6 sold in last 16 hours</span>
+                            </div>
+
+                            <div class="product-detail">
+                                <h4>Product Details :</h4>
+                                <p>
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum culpa reiciendis nam dignissimos, voluptates magnam illum. Itaque a temporibus dolores, consectetur quo sint optio placeat quidem exercitationem delectus,
+                                    culpa laboriosam. Perspiciatis animi quasi rem, cumque sapiente earum voluptate libero placeat?
+                                </p>
+                            </div>
+
+                            <ul class="brand-list">
+                                <li>
+                                    <div class="brand-box">
+                                        <h5>Brand Name:</h5>
+                                        <h6>Lorem, ipsum.</h6>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="brand-box">
+                                        <h5>Product Code:</h5>
+                                        <h6>T6660666</h6>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="brand-box">
+                                        <h5>Product Type:</h5>
+                                        <h6>Lorem, ipsum dolor.</h6>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="select-size">
+                                <h4>Size :</h4>
+                                <select class="form-select select-form-size">
+                                    <option selected>Select Size</option>
+                                    <option value="XS">XS</option>
+                                    <option value="X">X</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                </select>
+                            </div>
+
+                            <div class="modal-button">
+                                <button onclick="location.href = 'cart.html';" class="btn btn-md add-cart-button icon">
+                                    Add
+                                    To Cart
+                                </button>
+                                <button onclick="location.href = 'product-left.html';" class="btn theme-bg-color view-button icon text-white fw-bold btn-md">
+                                    View More Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Quick View Modal Box End -->
+<!-- Add to cart Modal Start -->
+<div class="add-cart-box">
+    <div class="add-iamge">
+        <img src="~/assets/images/cake/pro/1.jpg" class="img-fluid blur-up lazyload" alt="">
+    </div>
+
+    <div class="add-contain">
+        <h6>Added to Cart</h6>
+    </div>
+</div>
+<!-- Add to cart Modal End -->
+<!-- Tap to top start -->
+<div class="theme-option">
+    <div class="back-to-top">
+        <a id="back-to-top" href="#">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+</div>
+<!-- Tap to top end -->
+<!-- Bg overlay Start -->
+<div class="bg-overlay"></div>
+<!-- Bg overlay End -->

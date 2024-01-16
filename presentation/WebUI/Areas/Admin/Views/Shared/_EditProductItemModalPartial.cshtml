@@ -55,9 +55,9 @@
 
                         @for (var i = 0; i < items.Length; i++)
                         {
-                            <input type="hidden" name="createProductItemViewModel.ProductItems[@i].Id" value="@items[i].Id" />
-                            <input type="hidden" name="createProductItemViewModel.ProductItems[@i].ProductId" value="@items[i].ProductID" />
-                            <tr class="body-row">
+                            <tr id="@i" class="body-row">
+                                <input type="hidden" name="createProductItemViewModel.ProductItems[@i].Id" value="@items[i].Id" />
+                                <input type="hidden" name="createProductItemViewModel.ProductItems[@i].ProductId" value="@items[i].ProductID" />
                                 <th class="1st" scope="row"><input type="text" name="createProductItemViewModel.ProductItems[@i].Price" placeholder="Qiyməti daxil edin" value="@items[i].Price" /></th>
                                 <td><input type="text" name="createProductItemViewModel.ProductItems[@i].Quantity" placeholder="Miqdarı daxil edin" value="@items[i].Quantity" /></td>
                                 <td>
@@ -74,12 +74,12 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td><icon class="fas fa-remove"> hello </icon></td>
+                                <td><a class="remove-item-lnk" asp-controller="ProductItem" asp-action="RemoveProductItem" asp-route-id="@items[i].Id"><i class="ri-delete-bin-line"></i></a></td>
                             </tr>
                         }
                     }
                     else {
-                    <tr class="body-row">
+                    <tr id="0" class="body-row">
                         <th class="1st" scope="row"><input type="text" name="createProductItemViewModel.ProductItems[0].Price" placeholder="Qiyməti daxil edin" /></th>
                         <td><input type="text" name="createProductItemViewModel.ProductItems[0].Quantity" placeholder="Miqdarı daxil edin" /></td>
                         <td>
@@ -96,7 +96,7 @@
                                 </div>
                             </div>
                         </td>
-                        <td><icon class="fas fa-remove"> hsalo </icon></td>
+                        <td></td>
                     </tr>
                     }
                 </tbody>
@@ -104,7 +104,7 @@
             <a class="add-variant"><i class="ri-add-line me-2"></i> Başqa bir seçim əlavə edin</a>
             <div class="buttonContainer">
                 <button type="submit" id="save">Save</button>
-                <button id="close">Close</button>
+                <button id="close-modal">Close</button>
             </div>
         </form>
     </div>

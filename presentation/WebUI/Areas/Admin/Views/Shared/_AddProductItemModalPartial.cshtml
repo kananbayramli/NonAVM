@@ -50,35 +50,8 @@
                     </tr>
                 </thead>
                 <tbody class="t-body">
-                    @if (Model?.ProductItems?.Count > 0)
-                    {
-                        var items = Model.ProductItems.ToArray();
 
-                        @for (var i = 0; i < items.Length; i++)
-                        {
-                            <tr class="body-row">
-                                <th class="1st" scope="row"><input type="text" name="createProductItemViewModel.ProductItems[@i].Price" placeholder="Qiyməti daxil edin" value="@items[i].Price" /></th>
-                                <td><input type="text" name="createProductItemViewModel.ProductItems[@i].Quantity" placeholder="Miqdarı daxil edin" value="@items[i].Quantity" /></td>
-                                <td>
-                                    <p>Auto generated SKU</p>
-                                    <input class="sku_input" type="hidden" name="createProductItemViewModel.ProductItems[@i].SKU" placeholder="Miqdarı daxil edin" value="@items[i].SKU" />
-                                </td>
-                                <td>
-                                    <div class="upload__box">
-                                        <div class="upload__btn-box">
-                                            <label class="upload__btn">
-                                                <p class="upload__button">Upload images</p>
-                                                <input name="createProductItemViewModel.ProductItems[@i].Image" type="file" multiple="" data-max_length="20" class="upload__inputfile" vavalue="@items[i].Image" />
-                                            </label>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><icon class="fas fa-remove"> hello </icon></td>
-                            </tr>
-                        }
-                    }
-                    else {
-                    <tr class="body-row">
+                    <tr id="0" class="body-row">
                         <th class="1st" scope="row"><input type="text" name="createProductItemViewModel.ProductItems[0].Price" placeholder="Qiyməti daxil edin" /></th>
                         <td><input type="text" name="createProductItemViewModel.ProductItems[0].Quantity" placeholder="Miqdarı daxil edin" /></td>
                         <td>
@@ -95,15 +68,14 @@
                                 </div>
                             </div>
                         </td>
-                        <td><icon class="fas fa-remove"> hsalo </icon></td>
                     </tr>
-                    }
+                    
                 </tbody>
             </table>
             <a class="add-variant"><i class="ri-add-line me-2"></i> Başqa bir seçim əlavə edin</a>
             <div class="buttonContainer">
                 <button type="submit" id="save">Save</button>
-                <button id="close">Close</button>
+                <button id="close-modal">Close</button>
             </div>
         </form>
     </div>
