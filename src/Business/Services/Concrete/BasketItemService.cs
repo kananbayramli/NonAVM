@@ -69,6 +69,11 @@ public class BasketItemService : IBasketItemService, IScoppedLifetime
         _mapper.Map(BasketItem, BasketItemDto);
     }
 
+    public async Task<bool> IsExists(Expression<Func<BasketItem, bool>> expression)
+    {
+       return await _basketItemRepository.IsExist(expression);
+    }
+
 
     public void Update(BasketItemDTO BasketItemDto)
     {

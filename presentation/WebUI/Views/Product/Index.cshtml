@@ -142,12 +142,18 @@
                                 <div class="row g-2">
                                     <div class="col-xxl-10 col-lg-12 col-md-10 order-xxl-2 order-lg-1 order-md-2">
                                         <div class="product-main-2 no-arrow">
-                                            <div>
-                                                <div class="slider-image">
-                                                <img src="@Url.Content("~/photos/" + Model.Images[0])" id="img-1" data-zoom-image="~/assets/images/product/category/2.png" class="img-fluid image_zoom_cls-0 blur-up lazyload" alt="">
+                                        @if (Model.Images is not null || Model?.Images?.Length > 0)
+                                        {
+                                            @for(int i=0; i < Model.Images.Length; i++)
+                                            {
+                                                <div>
+                                                    <div class="slider-image">
+                                                        <img src="@Url.Content("~/photos/" + Model.Images[i])" id="img-1" data-zoom-image="~/assets/images/product/category/2.png" class="img-fluid image_zoom_cls-0 blur-up lazyload" alt="">
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            }
 
+                                        }
                                             <div>
                                                 <div class="slider-image">
                                                     <img src="~/assets/images/product/category/3.png" data-zoom-image="~/assets/images/product/category/3.png" class="img-fluid image_zoom_cls-1 blur-up lazyload" alt="">
@@ -182,11 +188,18 @@
 
                                     <div class="col-xxl-2 col-lg-12 col-md-2 order-xxl-1 order-lg-2 order-md-1">
                                         <div class="left-slider-image-2 left-slider no-arrow slick-top">
-                                            <div>
-                                                <div class="sidebar-image">
-                                                    <img src="~/assets/images/product/category/2.png" class="img-fluid blur-up lazyload" alt="">
-                                                </div>
-                                            </div>
+                                            @if (Model?.Images is not null || Model?.Images?.Length > 0)
+                                            {
+                                                @for (int i = 0; i < Model.Images.Length; i++)
+                                                {
+                                                    <div>
+                                                        <div class="slider-image">
+                                                            <img src="@Url.Content("~/photos/" + Model.Images[i])" id="img-1" data-zoom-image="~/assets/images/product/category/2.png" class="img-fluid image_zoom_cls-0 blur-up lazyload" alt="">
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                            }
 
                                             <div>
                                                 <div class="sidebar-image">
@@ -226,9 +239,9 @@
                         <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="right-box-contain">
                                 <h6 class="offer-top">30% Off</h6>
-                                <h2 class="name">@Model.Product.Name</h2>
+                                <h2 class="name">@Model?.Product.Name</h2>
                                 <div class="price-rating">
-                                <h3 class="theme-color price"> @Model.PriceAfterDiscount AZN<del class="text-content"> @Model.PriceBeforeDiscount AZN </del> <span class="offer theme-color">(8% endirim)</span></h3>
+                                <h3 class="theme-color price"> @Model?.PriceAfterDiscount AZN<del class="text-content"> @Model?.PriceBeforeDiscount AZN </del> <span class="offer theme-color">(8% endirim)</span></h3>
                                     <div class="product-rating custom-rate">
                                         <ul class="rating">
                                             <li>
@@ -253,7 +266,7 @@
 
                                 <div class="procuct-contain">
                                     <p>
-                                        @Model.Product.Description
+                                        @Model?.Product.Description
                                     </p>
                                 </div>
 
@@ -300,7 +313,7 @@
                                         </div>
                                     </div>
 
-                                <button class="btn btn-md bg-dark cart-button text-white w-100"> <a asp-controller="Basket" asp-action="AddToBasket" asp-route-productId="@Model.Product.Id">Səbətə at</a></button>
+                                <button class="btn btn-md bg-dark cart-button text-white w-100"> <a asp-controller="Basket" asp-action="AddToBasket" asp-route-productId="@Model?.Product.Id">Səbətə at</a></button>
                                 </div>
 
                                 <div class="buy-box">
@@ -329,7 +342,7 @@
                                             <li>Brend : <a href="javascript:void(0)">Modabu</a></li>
                                             <li>Ölçü : <a href="javascript:void(0)">M</a></li>
                                             <li>Rəng : <a href="javascript:void(0)">Qara</a></li>
-                                            <li>Stok : <a href="javascript:void(0)">@Model.Quantity Məhsul qalıb</a></li>
+                                            <li>Stok : <a href="javascript:void(0)">@Model?.Quantity Məhsul qalıb</a></li>
                                             <li>
                                                 Material : <a href="javascript:void(0)">Pambıq</a>
                                                 <a href="javascript:void(0)"></a>

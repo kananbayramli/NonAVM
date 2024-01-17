@@ -842,7 +842,7 @@
                             <div class="product-box-3 h-100 wow fadeInUp">
                                 <div class="product-header">
                                     <div class="product-image">
-                                        <a href="product-thumbnail.html">
+                                        <a asp-controller="Product" asp-action="Index" asp-route-productId="@product.Id">
                                             <img src="@Url.Content("~/photos/" + product.Image)" class="img-fluid blur-up lazyload" alt="">
                                         </a>
 

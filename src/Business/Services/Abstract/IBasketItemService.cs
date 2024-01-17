@@ -12,4 +12,5 @@ public interface IBasketItemService
     void Remove(BasketItemDTO BasketItemDto);
     Task SaveChangesAsync(CancellationToken cancellationToken);
     void Update(BasketItemDTO BasketItemDto);
+    Task<bool> IsExists(Expression<Func<BasketItem, bool>> expression);
 }

@@ -80,7 +80,6 @@ public class ProductItemConfiguration : IEntityTypeConfiguration<ProductItem>
 {
     public void Configure(EntityTypeBuilder<ProductItem> builder)
     {
-        builder.HasMany<ProductEntry>(x => x.ProductEntries).WithOne(x => x.ProductItem).OnDelete(DeleteBehavior.Cascade);
         builder.HasMany<Media>(x => x.Medias).WithOne(x => x.ProductItem).OnDelete(DeleteBehavior.Cascade);
         builder.HasMany<BasketItem>(x => x.BasketItems).WithOne(x => x.ProductItem).OnDelete(DeleteBehavior.Cascade);
 

@@ -22,7 +22,6 @@ public class ECommerseDbContext : IdentityDbContext<AppUser, AppRole, string>
     public DbSet<Payment> Payments { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<ProductDiscount> ProductDiscounts { get; set; }
-    public DbSet<ProductEntry> ProductEntries { get; set; }
     public DbSet<ProductItem> ProductItems { get; set; }
     public DbSet<ProductReview> ProductReviews { get; set; }
     public DbSet<ProductReviewMedia> ProductReviewMedias { get; set; }
